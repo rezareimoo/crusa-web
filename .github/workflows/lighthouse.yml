@@ -20,6 +20,14 @@ jobs:
 
       - name: Install Lighthouse
         run: npm install -g lighthouse
+      - name: Check token presence (debug only, don't log real tokens in production)
+        run: |
+          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
+            echo "❌ VERCEL_TOKEN is empty"
+            exit 1
+          else
+            echo "✅ VERCEL_TOKEN is set"
+          fi
 
       - name: Get Vercel Preview URL
         id: get-url
