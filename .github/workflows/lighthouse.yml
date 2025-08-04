@@ -1,0 +1,57 @@
+name: Lighthouse Audit on Vercel Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Lighthouse
+        run: npm install -g lighthouse
+
+      - name: Get Vercel Preview URL
+        id: get-url
+        run: |
+          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
+          echo "Fetching deployments for PR #$PR_NUMBER..."
+
+          DEPLOYMENTS=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}")
+
+          PREVIEW_URL=$(echo "$DEPLOYMENTS" | jq -r \
+            '.deployments[] | select(.meta.githubPullRequestNumber == "'"$PR_NUMBER"'") | .url' | head -n 1)
+
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "No preview deployment found."
+            exit 1
+          fi
+
+          FULL_URL="https://$PREVIEW_URL"
+          echo "Preview deployment URL: $FULL_URL"
+          echo "preview_url=$FULL_URL" >> $GITHUB_OUTPUT
+
+      - name: Run Lighthouse
+        run: |
+          lighthouse "${{ steps.get-url.outputs.preview_url }}" \
+            --output html \
+            --output-path ./lighthouse-report.html \
+            --quiet \
+            --chrome-flags="--headless"
+
+      - name: Upload Lighthouse Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: ./lighthouse-report.html
