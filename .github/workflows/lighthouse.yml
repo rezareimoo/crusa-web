@@ -28,7 +28,10 @@ jobs:
           echo "Fetching deployments for PR #$PR_NUMBER..."
 
           DEPLOYMENTS=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
-            "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}")
+              "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}")
+
+          echo "DEPLOYMENTS RAW:"
+          echo "$DEPLOYMENTS"
 
           PREVIEW_URL=$(echo "$DEPLOYMENTS" | jq -r \
             '.deployments[] | select(.meta.githubPullRequestNumber == "'"$PR_NUMBER"'") | .url' | head -n 1)
