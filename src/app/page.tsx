@@ -303,9 +303,9 @@ export default function Home() {
                 Free IT Equipment Pickup
               </h3>
               <p className="text-gray-600 mb-6">
-                We'll pick up your IT equipment at no cost throughout the state
-                of Georgia, regardless of condition. Convenient scheduling for
-                your business needs.
+                We&apos;ll pick up your IT equipment at no cost throughout the
+                state of Georgia, regardless of condition. Convenient scheduling
+                for your business needs.
               </p>
             </div>
 
@@ -585,13 +585,13 @@ export default function Home() {
 
       {/* Pickup Form Modal */}
       {showPickupForm && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
-          style={{ animation: 'fadeIn 200ms ease-out forwards' }}
+          style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
-          <div 
+          <div
             className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto transition-all duration-200 ease-out transform"
-            style={{ animation: 'scaleIn 200ms ease-out 50ms both' }}
+            style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
           >
             <button
               onClick={() => setShowPickupForm(false)}

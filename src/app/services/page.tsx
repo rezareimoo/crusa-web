@@ -99,21 +99,21 @@ export default function Services() {
                     SERVICES
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
                   </Link>
-                  <a
+                  <Link
                     href="/#about"
                     className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
                   >
                     ABOUT US
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/#contact"
                     className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
                   >
                     CONTACT
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                  <button 
+                  </Link>
+                  <button
                     onClick={() => setShowPickupForm(true)}
                     className="bg-primary-green hover:bg-primary-green-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
@@ -151,22 +151,22 @@ export default function Services() {
                 SERVICES
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
               </Link>
-              <a
+              <Link
                 href="/#about"
                 className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
               >
                 ABOUT US
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
               >
                 CONTACT
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
             </div>
-            <button 
+            <button
               onClick={() => setShowPickupForm(true)}
               className="bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
@@ -190,7 +190,7 @@ export default function Services() {
               </strong>
             </p>
             <div className="flex justify-center">
-              <button 
+              <button
                 onClick={() => setShowPickupForm(true)}
                 className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
@@ -861,7 +861,7 @@ export default function Services() {
           </div>
 
           <div className="text-center mt-12">
-            <button 
+            <button
               onClick={() => setShowPickupForm(true)}
               className="bg-primary-green hover:bg-primary-green-dark text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
             >
@@ -873,20 +873,30 @@ export default function Services() {
 
       {/* Pickup Form Modal */}
       {showPickupForm && (
-        <div 
+        <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
-          style={{ animation: 'fadeIn 200ms ease-out forwards' }}
+          style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
-          <div 
+          <div
             className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto transition-all duration-200 ease-out transform"
-            style={{ animation: 'scaleIn 200ms ease-out 50ms both' }}
+            style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
           >
             <button
               onClick={() => setShowPickupForm(false)}
               className="absolute top-4 right-4 z-10 bg-gray-900 bg-opacity-80 text-white rounded-full p-2 shadow-lg hover:bg-opacity-100 transition-all duration-200"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
             <PickupForm />
