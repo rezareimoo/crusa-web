@@ -191,15 +191,12 @@ export default function Home() {
             Professional data destruction, electronics recycling, and IT
             equipment services for businesses across Georgia
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex justify-center items-center">
             <button
               onClick={() => setShowPickupForm(true)}
               className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 text-lg"
             >
-              GET FREE QUOTE
-            </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-10 py-4 rounded-lg font-semibold transition-all duration-300 text-lg">
-              LEARN MORE
+              SCHEDULE FREE PICKUP
             </button>
           </div>
         </div>
@@ -460,25 +457,25 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl font-bold">R2</span>
+                      <span className="text-2xl font-bold text-primary-green">R2</span>
                     </div>
                     <div className="font-semibold">R2v3 Certified</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold">ISO</span>
+                      <span className="text-xl font-bold text-primary-green">ISO</span>
                     </div>
                     <div className="font-semibold">Multiple ISO Standards</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold">EPA</span>
+                      <span className="text-xl font-bold text-primary-green">EPA</span>
                     </div>
                     <div className="font-semibold">EPA Compliant</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold">DOD</span>
+                      <span className="text-xl font-bold text-primary-green">DOD</span>
                     </div>
                     <div className="font-semibold">DoD 5220.22-M</div>
                   </div>

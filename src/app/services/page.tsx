@@ -194,7 +194,7 @@ export default function Services() {
                 onClick={() => setShowPickupForm(true)}
                 className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                GET FREE CONSULTATION
+                SCHEDULE FREE PICKUP
               </button>
             </div>
           </div>
