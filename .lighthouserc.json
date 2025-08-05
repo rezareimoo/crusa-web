@@ -1,0 +1,21 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["https://crusa-web.vercel.app"],
+      "startServerCommand": "echo 'skip'",
+      "numberOfRuns": 1,
+      "settings": {
+        "chromeFlags": "--no-sandbox"
+      }
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.9 }],
+        "categories:accessibility": ["warn", { "minScore": 0.9 }]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
