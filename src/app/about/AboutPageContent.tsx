@@ -195,7 +195,7 @@ export default function AboutPageContent() {
                 onClick={() => setShowPickupForm(true)}
                 className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                GET FREE CONSULTATION
+                SCHEDULE FREE PICKUP
               </button>
             </div>
           </div>
@@ -708,22 +708,17 @@ export default function AboutPageContent() {
             </div>
 
             <div className="relative">
-              <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <svg
-                    className="w-24 h-24 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-lg font-medium">Suwanee Facility Map</p>
-                  <p className="text-sm">R2 Certified Georgia Location</p>
-                </div>
+              <div className="rounded-2xl h-96 overflow-hidden shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.1!2d-84.0713!3d34.0515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59c8e8c8c8c8c%3A0x8c8c8c8c8c8c8c8c!2s3644%20Burnette%20Rd%2C%20Suwanee%2C%20GA%2030024%2C%20USA!5e0!3m2!1sen!2sus!4v1691234567890!5m2!1sen!2sus"
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Computer Recyclers USA - Suwanee, GA Facility Location"
+                ></iframe>
               </div>
             </div>
           </div>
