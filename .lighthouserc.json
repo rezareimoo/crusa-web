@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "url": ["https://crusa-web.vercel.app"],
+      "url": ["${LHCI_URL}"],
       "startServerCommand": "echo 'skip'",
       "numberOfRuns": 1,
       "settings": {
@@ -16,6 +16,9 @@
     },
     "upload": {
       "target": "temporary-public-storage"
+    },
+    "github": {
+      "statusContext": "Lighthouse CI"
     }
   }
 }
