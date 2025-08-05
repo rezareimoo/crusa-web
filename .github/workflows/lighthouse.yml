@@ -47,10 +47,9 @@ jobs:
 
       - name: Run Lighthouse CI
         env:
-          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided automatically
+          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           lhci autorun \
             --collect.url="${{ steps.get-url.outputs.preview_url }}" \
-            --upload.githubToken="${{ secrets.GITHUB_TOKEN }}" \
             --upload.target=temporary-public-storage \
             --githubAppToken="${{ secrets.GITHUB_TOKEN }}"
