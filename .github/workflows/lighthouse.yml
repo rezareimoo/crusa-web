@@ -1,0 +1,53 @@
+name: Lighthouse CI with PR Comment
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write # ✅ This is needed for PR comments and status updates
+  statuses: write # ✅ Needed to set commit statuses (like green/red dot)
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Get Vercel Preview URL
+        id: get-url
+        run: |
+          BRANCH_NAME="${GITHUB_HEAD_REF}"
+          DEPLOYMENTS=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}&meta-githubCommitRef=$BRANCH_NAME&limit=5")
+
+          echo "Raw deployments:"
+          echo "$DEPLOYMENTS"
+
+          PREVIEW_URL=$(echo "$DEPLOYMENTS" | jq -r '.deployments[] | .url' | head -n 1)
+
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "❌ No preview deployment found."
+            exit 1
+          fi
+
+          echo "✅ Found preview URL: https://$PREVIEW_URL"
+          echo "preview_url=https://$PREVIEW_URL" >> $GITHUB_OUTPUT
+
+      - name: Run Lighthouse CI
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LHCI_URL: ${{ steps.get-url.outputs.preview_url }}
+        run: |
+          lhci autorun
