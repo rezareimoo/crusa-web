@@ -97,13 +97,13 @@ export default function Home() {
                     SERVICES
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
                   </Link>
-                  <a
-                    href="#about"
+                  <Link
+                    href="/about"
                     className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
                   >
                     ABOUT US
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
+                  </Link>
                   <a
                     href="#contact"
                     className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
@@ -149,13 +149,13 @@ export default function Home() {
                 SERVICES
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <a
-                href="#about"
+              <Link
+                href="/about"
                 className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
               >
                 ABOUT US
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              </Link>
               <a
                 href="#contact"
                 className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"

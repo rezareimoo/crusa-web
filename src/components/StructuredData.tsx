@@ -3,19 +3,26 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Computer Recyclers USA",
+    alternateName: "CRUSA",
     description:
-      "Professional electronics recycling and secure data destruction services in Georgia. R2 v3 certified, environmentally responsible e-waste disposal.",
+      "Georgia's premier R2 v3 certified electronics recycling and secure data destruction company. Serving Atlanta and all of Georgia since 2004 with free IT equipment pickup, ITAD services, and responsible e-waste disposal.",
     url: "https://crusa-web.vercel.app",
-    telephone: "+1-404-555-0123", // Replace with actual phone number
+    foundingDate: "2004",
+    slogan: "Your Safe and Secure Solution for Electronics Recycling in Georgia",
+    telephone: "+1-770-840-0805",
+    email: "info@crusallc.com",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Georgia",
+      streetAddress: "3644 Burnette Road",
+      addressLocality: "Suwanee",
+      addressRegion: "GA",
+      postalCode: "30024",
       addressCountry: "US",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "33.7490", // Replace with actual coordinates
-      longitude: "-84.3880", // Replace with actual coordinates
+      latitude: "34.0515", // Suwanee, GA coordinates
+      longitude: "-84.0713",
     },
     openingHours: "Mo-Fr 08:00-17:00",
     priceRange: "$$",
@@ -29,10 +36,10 @@ export default function StructuredData() {
       "@type": "GeoCircle",
       geoMidpoint: {
         "@type": "GeoCoordinates",
-        latitude: "33.7490",
-        longitude: "-84.3880",
+        latitude: "34.0515",
+        longitude: "-84.0713",
       },
-      geoRadius: "50000",
+      geoRadius: "80467", // 50 miles in meters to cover all of Georgia
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -69,9 +76,9 @@ export default function StructuredData() {
     },
     certification: [
       "R2 v3 Certified",
-      "ISO 14001 Environmental Management",
-      "ISO 9001 Quality Management",
-      "ISO 45001 Occupational Health and Safety",
+      "ISO 14001:2015 Environmental Management",
+      "ISO 9001:2015 Quality Management",
+      "ISO 45001:2018 Occupational Health and Safety",
     ],
     sameAs: [
       // Add your social media URLs here
