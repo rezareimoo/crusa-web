@@ -1,4 +1,4 @@
-name: Lighthouse Audit on Vercel Preview
+name: Lighthouse CI with PR Comment
 
 on:
   pull_request:
@@ -7,34 +7,23 @@ on:
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
-      - name: Install Lighthouse
-        run: npm install -g lighthouse
-      - name: Check token presence (debug only, don't log real tokens in production)
-        run: |
-          if [ -z "${{ secrets.VERCEL_TOKEN }}" ]; then
-            echo "❌ VERCEL_TOKEN is empty"
-            exit 1
-          else
-            echo "✅ VERCEL_TOKEN is set"
-          fi
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
 
       - name: Get Vercel Preview URL
         id: get-url
         run: |
           BRANCH_NAME="${GITHUB_HEAD_REF}"
-          echo "Looking for deployment for branch: $BRANCH_NAME"
-
           DEPLOYMENTS=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
             "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}&meta-githubCommitRef=$BRANCH_NAME&limit=5")
 
@@ -44,23 +33,19 @@ jobs:
           PREVIEW_URL=$(echo "$DEPLOYMENTS" | jq -r '.deployments[] | .url' | head -n 1)
 
           if [ -z "$PREVIEW_URL" ]; then
-            echo "No preview deployment found."
+            echo "❌ No preview deployment found."
             exit 1
           fi
 
+          echo "✅ Found preview URL: https://$PREVIEW_URL"
           echo "preview_url=https://$PREVIEW_URL" >> $GITHUB_OUTPUT
 
-
-      - name: Run Lighthouse
+      - name: Run Lighthouse CI
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided automatically
         run: |
-          lighthouse "${{ steps.get-url.outputs.preview_url }}" \
-            --output html \
-            --output-path ./lighthouse-report.html \
-            --quiet \
-            --chrome-flags="--headless"
-
-      - name: Upload Lighthouse Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-report
-          path: ./lighthouse-report.html
+          lhci autorun \
+            --collect.url="${{ steps.get-url.outputs.preview_url }}" \
+            --upload.githubToken="${{ secrets.GITHUB_TOKEN }}" \
+            --upload.target=temporary-public-storage \
+            --githubAppToken="${{ secrets.GITHUB_TOKEN }}"
