@@ -1,23 +1,87 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 
 export default function Services() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
+  const [navReady, setNavReady] = useState(true);
+  const [dropdownEnabled, setDropdownEnabled] = useState(true);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const aboutHoverTimerRef = useRef<number | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
+  const [isHoveringDropdown, setIsHoveringDropdown] = useState(false);
+
+  const scheduleAboutOpen = () => {
+    if (aboutHoverTimerRef.current) {
+      window.clearTimeout(aboutHoverTimerRef.current);
+    }
+    aboutHoverTimerRef.current = window.setTimeout(() => {
+      if (navReady && dropdownEnabled) {
+        setAboutOpen(true);
+      }
+    }, 200);
+  };
+
+  const cancelClose = () => {
+    if (closeTimerRef.current) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimerRef.current = window.setTimeout(() => {
+      if (!isHoveringDropdown) {
+        setAboutOpen(false);
+      }
+    }, 180);
+  };
+
+  const closeAboutDropdown = () => {
+    if (aboutHoverTimerRef.current) {
+      window.clearTimeout(aboutHoverTimerRef.current);
+    }
+    cancelClose();
+    setAboutOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
+      const next = scrollTop > 100;
+      if (next !== isScrolled) {
+        setNavReady(false);
+        setDropdownEnabled(false);
+        setIsScrolled(next);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isScrolled]);
+
+  useEffect(() => {
+    setNavReady(false);
+    const timer = setTimeout(() => setNavReady(true), 250);
+    return () => clearTimeout(timer);
+  }, [isScrolled]);
+
+  useEffect(() => {
+    setDropdownEnabled(false);
+    const enableOnMove = () => {
+      setDropdownEnabled(true);
+      window.removeEventListener("mousemove", enableOnMove);
+    };
+    window.addEventListener("mousemove", enableOnMove, { once: true } as any);
+    return () => {
+      window.removeEventListener("mousemove", enableOnMove);
+    };
+  }, [isScrolled]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -52,7 +116,9 @@ export default function Services() {
             <div
               className={`hidden lg:flex items-center transition-all duration-500 ${
                 isScrolled ? "space-x-6" : "space-x-6"
-              } text-sm text-gray-600`}
+              } text-sm text-gray-600 ${
+                !navReady ? "pointer-events-none" : ""
+              }`}
             >
               {!isScrolled ? (
                 // Certifications when at top
@@ -99,13 +165,60 @@ export default function Services() {
                     SERVICES
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
                   </Link>
-                  <Link
-                    href="/about"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
+                  <div
+                    className={`relative z-[9998] ${
+                      !dropdownEnabled ? "pointer-events-none" : ""
+                    }`}
+                    onMouseEnter={() => {
+                      scheduleAboutOpen();
+                      cancelClose();
+                    }}
+                    onMouseLeave={scheduleClose}
                   >
-                    ABOUT US
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
+                    <button className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative">
+                      ABOUT US
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
+                      <svg
+                        className="w-4 h-4 ml-1 inline-block"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    {navReady && dropdownEnabled && aboutOpen && (
+                      <div
+                        className={`absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-150 z-[9999]`}
+                        onMouseEnter={() => {
+                          setIsHoveringDropdown(true);
+                          cancelClose();
+                        }}
+                        onMouseLeave={() => {
+                          setIsHoveringDropdown(false);
+                          scheduleClose();
+                        }}
+                      >
+                        <Link
+                          href="/about"
+                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        >
+                          About Us
+                        </Link>
+                        <Link
+                          href="/faq"
+                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-green transition-colors border-t border-gray-100"
+                        >
+                          FAQ
+                        </Link>
+                      </div>
+                    )}
+                  </div>
                   <Link
                     href="/#contact"
                     className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
@@ -128,11 +241,11 @@ export default function Services() {
 
       {/* Navigation Bar - disappears when scrolled */}
       <nav
-        className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
+        className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out relative z-50 ${
           isScrolled
             ? "max-h-0 opacity-0 -translate-y-2"
             : "max-h-20 opacity-100 translate-y-0"
-        }`}
+        } ${isScrolled ? "pointer-events-none" : "pointer-events-auto"}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
@@ -151,13 +264,58 @@ export default function Services() {
                 SERVICES
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
               </Link>
-              <Link
-                href="/about"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
+              <div
+                className="relative z-[9998]"
+                onMouseEnter={() => {
+                  scheduleAboutOpen();
+                  cancelClose();
+                }}
+                onMouseLeave={scheduleClose}
               >
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+                <button className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative">
+                  ABOUT US
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
+                  <svg
+                    className="w-4 h-4 ml-1 inline-block"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {navReady && dropdownEnabled && aboutOpen && (
+                  <div
+                    className={`absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 transition-all duration-150 z-[9999]`}
+                    onMouseEnter={() => {
+                      setIsHoveringDropdown(true);
+                      cancelClose();
+                    }}
+                    onMouseLeave={() => {
+                      setIsHoveringDropdown(false);
+                      scheduleClose();
+                    }}
+                  >
+                    <Link
+                      href="/about"
+                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                    >
+                      About Us
+                    </Link>
+                    <Link
+                      href="/faq"
+                      className="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-green transition-colors border-t border-gray-100"
+                    >
+                      FAQ
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link
                 href="/#contact"
                 className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
