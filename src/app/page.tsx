@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import PickupForm from "@/components/PickupForm";
 
 export default function Home() {
@@ -26,12 +26,12 @@ export default function Home() {
     }, 200);
   };
 
-  const cancelClose = () => {
+  const cancelClose = useCallback(() => {
     if (closeTimerRef.current) {
       window.clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
-  };
+  }, []);
 
   const scheduleClose = () => {
     cancelClose();
@@ -42,13 +42,13 @@ export default function Home() {
     }, 180);
   };
 
-  const closeAboutDropdown = () => {
+  const closeAboutDropdown = useCallback(() => {
     if (aboutHoverTimerRef.current) {
       window.clearTimeout(aboutHoverTimerRef.current);
     }
     cancelClose();
     setAboutOpen(false);
-  };
+  }, [cancelClose]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,7 +77,7 @@ export default function Home() {
       setDropdownEnabled(true);
       window.removeEventListener("mousemove", enableOnMove);
     };
-    window.addEventListener("mousemove", enableOnMove, { once: true } as any);
+    window.addEventListener("mousemove", enableOnMove, { once: true });
     return () => {
       window.removeEventListener("mousemove", enableOnMove);
     };
@@ -85,7 +85,7 @@ export default function Home() {
 
   useEffect(() => {
     closeAboutDropdown();
-  }, [isScrolled]);
+  }, [isScrolled, closeAboutDropdown]);
 
   return (
     <div className="min-h-screen bg-white">

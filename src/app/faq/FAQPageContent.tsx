@@ -99,7 +99,7 @@ export default function FAQPageContent() {
       setDropdownEnabled(true);
       window.removeEventListener("mousemove", enableOnMove);
     };
-    window.addEventListener("mousemove", enableOnMove, { once: true } as any);
+    window.addEventListener("mousemove", enableOnMove, { once: true });
     return () => window.removeEventListener("mousemove", enableOnMove);
   }, [isScrolled]);
 

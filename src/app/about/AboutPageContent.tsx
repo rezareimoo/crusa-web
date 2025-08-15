@@ -34,12 +34,6 @@ export default function AboutPageContent() {
       if (!isHoveringDropdown) setAboutOpen(false);
     }, 180);
   };
-  const closeAboutDropdown = () => {
-    if (aboutHoverTimerRef.current)
-      window.clearTimeout(aboutHoverTimerRef.current);
-    cancelClose();
-    setAboutOpen(false);
-  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -67,7 +61,7 @@ export default function AboutPageContent() {
       setDropdownEnabled(true);
       window.removeEventListener("mousemove", enableOnMove);
     };
-    window.addEventListener("mousemove", enableOnMove, { once: true } as any);
+    window.addEventListener("mousemove", enableOnMove, { once: true });
     return () => window.removeEventListener("mousemove", enableOnMove);
   }, [isScrolled]);
 
