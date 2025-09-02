@@ -204,7 +204,7 @@ export default function AboutPageContent() {
         </div>
       )}
 
-      {/* Navigation Bar - disappears when scrolled */
+      {/* Navigation Bar - disappears when scrolled */}
       <nav
         className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
           isScrolled
