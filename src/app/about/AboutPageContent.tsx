@@ -161,7 +161,7 @@ export default function AboutPageContent() {
 
       {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-gray-200 shadow-lg">
+        <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg" style={{ marginTop: isScrolled ? '72px' : '88px' }}>
           <div className="px-4 pt-2 pb-3 space-y-1">
             <Link
               href="/"
@@ -204,9 +204,9 @@ export default function AboutPageContent() {
         </div>
       )}
 
-      {/* Navigation Bar - disappears when scrolled */}
+      {/* Navigation Bar - disappears when scrolled (hidden on mobile) */}
       <nav
-        className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
+        className={`hidden lg:block bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
           isScrolled
             ? "max-h-0 opacity-0 -translate-y-2"
             : "max-h-20 opacity-100 translate-y-0"
