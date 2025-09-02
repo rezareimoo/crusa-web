@@ -8,6 +8,7 @@ import PickupForm from "@/components/PickupForm";
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,15 +39,47 @@ export default function Home() {
               <Image
                 src="/logo2.png"
                 alt="Computer Recyclers USA Logo"
-                width={isScrolled ? 160 : 200}
-                height={isScrolled ? 64 : 80}
+                width={isScrolled ? 120 : 140}
+                height={isScrolled ? 48 : 56}
                 priority
-                className="hover:scale-105 transition-all duration-300 mix-blend-multiply"
+                className="hover:scale-105 transition-all duration-300 mix-blend-multiply sm:w-auto"
                 style={{ background: "transparent" }}
               />
             </div>
 
-            {/* Certifications / Navigation Links when scrolled */}
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 hover:text-primary-green focus:outline-none focus:text-primary-green transition-colors p-2"
+                aria-label="Toggle mobile menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {mobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
+
+            {/* Desktop Certifications / Navigation Links when scrolled */}
             <div
               className={`hidden lg:flex items-center transition-all duration-500 ${
                 isScrolled ? "space-x-6" : "space-x-6"
@@ -124,6 +157,51 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-b border-gray-200 shadow-lg">
+          <div className="px-4 pt-2 pb-3 space-y-1">
+            <a
+              href="#home"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              HOME
+            </a>
+            <Link
+              href="/services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              SERVICES
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              ABOUT US
+            </Link>
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              CONTACT
+            </a>
+            <button
+              onClick={() => {
+                setShowPickupForm(true);
+                setMobileMenuOpen(false);
+              }}
+              className="w-full mt-3 bg-primary-green hover:bg-primary-green-dark text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              SCHEDULE FREE PICKUP
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Navigation Bar - disappears when scrolled */}
       <nav
         className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
@@ -177,24 +255,24 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-[600px] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        className="relative min-h-[500px] sm:min-h-[600px] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center"
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-hero-overlay z-10"></div>
         {/* Content */}
-        <div className="relative z-20 max-w-4xl mx-auto px-4 text-center animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl leading-tight">
+        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 text-center animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white drop-shadow-2xl leading-tight">
             Secure Data Destruction &
             <span className="text-primary-green"> Electronic Recycling</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto px-2">
             Professional data destruction, electronics recycling, and IT
             equipment services for businesses across Georgia
           </p>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 text-lg"
+              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 text-base sm:text-lg w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE PICKUP
             </button>
@@ -203,38 +281,38 @@ export default function Home() {
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-primary-green text-white py-6">
+      <section className="bg-primary-green text-white py-4 sm:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center space-x-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
               <Image
                 src="/r2-logo.png"
                 alt="R2 Logo"
-                width={60}
-                height={60}
-                className="animate-pulse-gentle"
+                width={50}
+                height={50}
+                className="animate-pulse-gentle sm:w-[60px] sm:h-[60px]"
               />
               <div>
-                <div className="text-lg font-bold">
+                <div className="text-base sm:text-lg font-bold">
                   R2v3 Certified Data Destruction
                 </div>
-                <div className="text-sm opacity-90">
+                <div className="text-xs sm:text-sm opacity-90">
                   Secure • Compliant • Reliable
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-8 text-sm">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
               <div className="text-center">
-                <div className="font-bold text-xl">10,000+</div>
-                <div className="opacity-90">Devices Processed</div>
+                <div className="font-bold text-lg sm:text-xl">10,000+</div>
+                <div className="opacity-90 text-xs">Devices Processed</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-xl">500+</div>
-                <div className="opacity-90">Corporate Clients</div>
+                <div className="font-bold text-lg sm:text-xl">500+</div>
+                <div className="opacity-90 text-xs">Corporate Clients</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-xl">24/7</div>
-                <div className="opacity-90">Support</div>
+                <div className="font-bold text-lg sm:text-xl">24/7</div>
+                <div className="opacity-90 text-xs">Support</div>
               </div>
             </div>
           </div>
@@ -242,19 +320,19 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Professional onsite data destruction, free equipment pickup,
               responsible recycling, and IT equipment leasing services
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
@@ -360,14 +438,14 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-slide-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Why Choose Computer Recyclers USA?
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
                 Serving Georgia businesses with reliable data destruction,
                 electronics recycling, equipment pickup, and IT leasing services
                 you can trust.
@@ -451,10 +529,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Our Certifications</h3>
-                <div className="grid grid-cols-2 gap-6">
+            <div className="relative mt-8 lg:mt-0">
+              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center lg:text-left">Our Certifications</h3>
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-2xl font-bold text-primary-green">R2</span>
@@ -487,17 +565,17 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
+      <section id="contact" className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
               destruction, equipment pickup, recycling, and leasing needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
@@ -569,10 +647,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-primary-green hover:bg-primary-green-dark text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE PICKUP
             </button>

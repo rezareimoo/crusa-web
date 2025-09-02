@@ -8,6 +8,7 @@ import PickupForm from "@/components/PickupForm";
 export default function Services() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,16 +40,48 @@ export default function Services() {
                 <Image
                   src="/logo2.png"
                   alt="Computer Recyclers USA Logo"
-                  width={isScrolled ? 160 : 200}
-                  height={isScrolled ? 64 : 80}
+                  width={isScrolled ? 120 : 140}
+                  height={isScrolled ? 48 : 56}
                   priority
-                  className="hover:scale-105 transition-all duration-300 mix-blend-multiply cursor-pointer"
+                  className="hover:scale-105 transition-all duration-300 mix-blend-multiply cursor-pointer sm:w-auto"
                   style={{ background: "transparent" }}
                 />
               </Link>
             </div>
 
-            {/* Certifications / Navigation Links when scrolled */}
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-gray-700 hover:text-primary-green focus:outline-none focus:text-primary-green transition-colors p-2"
+                aria-label="Toggle mobile menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {mobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
+
+            {/* Desktop Certifications / Navigation Links when scrolled */}
             <div
               className={`hidden lg:flex items-center transition-all duration-500 ${
                 isScrolled ? "space-x-6" : "space-x-6"
@@ -126,6 +159,51 @@ export default function Services() {
         </div>
       </header>
 
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-b border-gray-200 shadow-lg">
+          <div className="px-4 pt-2 pb-3 space-y-1">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              HOME
+            </Link>
+            <Link
+              href="/services"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-primary-green bg-gray-50 rounded-md"
+            >
+              SERVICES
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              ABOUT US
+            </Link>
+            <Link
+              href="/#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+            >
+              CONTACT
+            </Link>
+            <button
+              onClick={() => {
+                setShowPickupForm(true);
+                setMobileMenuOpen(false);
+              }}
+              className="w-full mt-3 bg-primary-green hover:bg-primary-green-dark text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              SCHEDULE FREE PICKUP
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Navigation Bar - disappears when scrolled */}
       <nav
         className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
@@ -177,22 +255,22 @@ export default function Services() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20">
+      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Our <span className="text-primary-green">Services</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
                 Comprehensive data destruction and electronics recycling
                 solutions designed for Georgia businesses of all sizes
               </strong>
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center px-4">
               <button
                 onClick={() => setShowPickupForm(true)}
-                className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
               >
                 SCHEDULE FREE PICKUP
               </button>
@@ -202,16 +280,16 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Service 1: Onsite Data Destruction */}
-          <div className="mb-24 animate-slide-up">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mr-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-green rounded-lg flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 lg:mr-6 flex-shrink-0">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -224,11 +302,11 @@ export default function Services() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
                     Onsite Data Destruction
                   </h2>
                 </div>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
                     Witness the complete destruction of your sensitive data at
                     your location with our state-of-the-art mobile shredding
@@ -350,30 +428,30 @@ export default function Services() {
           </div>
 
           {/* Service 2: Free IT Equipment Pickup */}
-          <div className="mb-24 animate-slide-up">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
+          <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
                   <div className="text-center text-gray-500">
                     <svg
-                      className="w-24 h-24 mx-auto mb-4"
+                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
                       <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
                       <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z" />
                     </svg>
-                    <p className="text-lg font-medium">Pickup Service Image</p>
+                    <p className="text-base sm:text-lg font-medium">Pickup Service Image</p>
                     <p className="text-sm">Professional pickup truck</p>
                   </div>
                 </div>
               </div>
 
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mr-6">
+              <div className="order-1 lg:order-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-green rounded-lg flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 lg:mr-6 flex-shrink-0">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -386,11 +464,11 @@ export default function Services() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
                     Free IT Equipment Pickup
                   </h2>
                 </div>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
                     We provide complimentary pickup services throughout the
                     state of Georgia for all types of IT equipment, regardless
@@ -489,13 +567,13 @@ export default function Services() {
           </div>
 
           {/* Service 3: Responsible Recycling */}
-          <div className="mb-24 animate-slide-up">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mr-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-green rounded-lg flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 lg:mr-6 flex-shrink-0">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -508,11 +586,11 @@ export default function Services() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
                     Responsible Recycling
                   </h2>
                 </div>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
                     Our R2v3 certified facility ensures environmentally
                     responsible recycling of all electronic equipment using
@@ -531,7 +609,7 @@ export default function Services() {
                       >
                         <path
                           fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7-293a1 1 0 011.414 0z"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                           clipRule="evenodd"
                         />
                       </svg>
@@ -610,10 +688,10 @@ export default function Services() {
               </div>
 
               <div className="order-1 lg:order-2">
-                <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
+                <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
                   <div className="text-center text-gray-500">
                     <svg
-                      className="w-24 h-24 mx-auto mb-4"
+                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -623,7 +701,7 @@ export default function Services() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <p className="text-lg font-medium">
+                    <p className="text-base sm:text-lg font-medium">
                       Recycling Facility Image
                     </p>
                     <p className="text-sm">Clean recycling operation</p>
@@ -634,13 +712,13 @@ export default function Services() {
           </div>
 
           {/* Service 4: IT Equipment Leasing */}
-          <div className="mb-24 animate-slide-up">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
+          <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
                   <div className="text-center text-gray-500">
                     <svg
-                      className="w-24 h-24 mx-auto mb-4"
+                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -650,17 +728,17 @@ export default function Services() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <p className="text-lg font-medium">IT Leasing Image</p>
+                    <p className="text-base sm:text-lg font-medium">IT Leasing Image</p>
                     <p className="text-sm">Modern office equipment</p>
                   </div>
                 </div>
               </div>
 
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mr-6">
+              <div className="order-1 lg:order-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-green rounded-lg flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 lg:mr-6 flex-shrink-0">
                     <svg
-                      className="w-8 h-8 text-white"
+                      className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -673,11 +751,11 @@ export default function Services() {
                       />
                     </svg>
                   </div>
-                  <h2 className="text-4xl font-bold text-gray-900">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
                     IT Equipment Leasing
                   </h2>
                 </div>
-                <p className="text-xl text-gray-600 mb-8">
+                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
                     Access the latest technology without the capital expenditure
                     through our flexible IT equipment leasing programs. Perfect
@@ -778,17 +856,17 @@ export default function Services() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
               destruction, equipment pickup, recycling, and leasing needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
@@ -860,10 +938,10 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-primary-green hover:bg-primary-green-dark text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE PICKUP
             </button>
