@@ -6,26 +6,30 @@ interface ParticleBackgroundProps {
   className?: string;
 }
 
-export default function ParticleBackground({ className = "" }: ParticleBackgroundProps) {
+export default function ParticleBackground({
+  className = "",
+}: ParticleBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size
     const resizeCanvas = () => {
       const rect = canvas.getBoundingClientRect();
       const pixelRatio = window.devicePixelRatio || 1;
-      canvas.width = rect.width * pixelRatio;
-      canvas.height = rect.height * pixelRatio;
-      canvas.style.width = rect.width + 'px';
-      canvas.style.height = rect.height + 'px';
+      canvas.width = 1500 * pixelRatio;
+      canvas.height = 400 * pixelRatio;
+      canvas.style.width = "1500px";
+      console.log(rect.width);
+      canvas.style.height = "400px";
+      console.log(rect.height);
       ctx.scale(pixelRatio, pixelRatio);
-      
+
       // Reinitialize particles with correct canvas dimensions
       initializeParticles();
     };
@@ -33,7 +37,7 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
     // Initial setup with delay to ensure DOM is ready
     setTimeout(() => {
       resizeCanvas();
-      window.addEventListener('resize', resizeCanvas);
+      window.addEventListener("resize", resizeCanvas);
     }, 50);
 
     // Particle system
@@ -47,8 +51,8 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
       color: string;
     }> = [];
 
-    const colors = ['#22c55e', '#16a34a', '#8dc442', '#116839'];
-    const particleCount = 50;
+    const colors = ["#22c55e", "#16a34a", "#8dc442", "#116839"];
+    const particleCount = 270;
 
     // Initialize particles after canvas is sized
     const initializeParticles = () => {
@@ -61,8 +65,8 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
           vx: (Math.random() - 0.5) * 0.2,
           vy: (Math.random() - 0.5) * 0.2,
           size: Math.random() * 1.5 + 0.5,
-          opacity: Math.random() * 0.3 + 0.1,
-          color: colors[Math.floor(Math.random() * colors.length)]
+          opacity: Math.random() * 0.3 + 0.3,
+          color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
     };
@@ -84,8 +88,8 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
         particle.y += particle.vy;
 
         // Bounce off walls with reduced energy
-        if (particle.x <= 0 || particle.x >= rect.width) particle.vx *= -0.8;
-        if (particle.y <= 0 || particle.y >= rect.height) particle.vy *= -0.8;
+        if (particle.x <= 0 || particle.x >= 1500) particle.vx *= -0.8;
+        if (particle.y <= 0 || particle.y >= 400) particle.vy *= -0.8;
 
         // Draw particle
         ctx.save();
@@ -104,9 +108,9 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
 
           if (distance < 100) {
             ctx.save();
-            ctx.globalAlpha = (1 - distance / 100) * 0.15;
-            ctx.strokeStyle = '#22c55e';
-            ctx.lineWidth = 0.3;
+            ctx.globalAlpha = (1 - distance / 100) * 0.45;
+            ctx.strokeStyle = "#22c55e";
+            ctx.lineWidth = 0.4;
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -130,14 +134,14 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
 
-      particles.forEach(particle => {
+      particles.forEach((particle) => {
         const dx = mouseX - particle.x;
         const dy = mouseY - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < 80) {
-          particle.vx += (particle.x - mouseX) / distance * 0.02;
-          particle.vy += (particle.y - mouseY) / distance * 0.02;
+          particle.vx += ((particle.x - mouseX) / distance) * 0.02;
+          particle.vy += ((particle.y - mouseY) / distance) * 0.02;
         }
       });
     };
@@ -147,13 +151,13 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
       mouseY = -1000;
     };
 
-    canvas.addEventListener('mousemove', handleMouseMove);
-    canvas.addEventListener('mouseleave', handleMouseLeave);
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      canvas.removeEventListener('mousemove', handleMouseMove);
-      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener("resize", resizeCanvas);
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationId);
     };
   }, []);
