@@ -131,12 +131,12 @@ export default function PickupForm() {
 
   return (
     <div className="bg-gray-100 rounded-2xl shadow-2xl overflow-hidden max-w-2xl mx-auto">
-      <div className="p-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+      <div className="p-4 sm:p-6 lg:p-8">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
             Schedule Free Pickup
           </h2>
-          <p className="text-gray-600">
+          <p className="text-sm sm:text-base text-gray-600">
             Fill out the form below and we&apos;ll get back to you within 24
             hours
           </p>
@@ -184,8 +184,8 @@ export default function PickupForm() {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <label
                 htmlFor="firstName"
@@ -256,7 +256,7 @@ export default function PickupForm() {
             )}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <label
                 htmlFor="phoneNumber"
@@ -349,7 +349,7 @@ export default function PickupForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-primary-green hover:bg-primary-green-dark text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="w-full bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {isSubmitting ? "Submitting..." : "Submit Pickup Request"}
           </button>

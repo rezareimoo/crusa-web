@@ -1,200 +1,71 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
+import Header from "@/components/Header";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header
-        className={`bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95 transition-all duration-300 ${
-          isScrolled ? "py-2" : "py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`flex justify-between items-center transition-all duration-300 ${
-              isScrolled ? "py-2" : "py-4"
-            }`}
-          >
-            {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/logo2.png"
-                alt="Computer Recyclers USA Logo"
-                width={isScrolled ? 160 : 200}
-                height={isScrolled ? 64 : 80}
-                priority
-                className="hover:scale-105 transition-all duration-300 mix-blend-multiply"
-                style={{ background: "transparent" }}
-              />
-            </div>
-
-            {/* Certifications / Navigation Links when scrolled */}
-            <div
-              className={`hidden lg:flex items-center transition-all duration-500 ${
-                isScrolled ? "space-x-6" : "space-x-6"
-              } text-sm text-gray-600`}
-            >
-              {!isScrolled ? (
-                // Certifications when at top
-                <>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      R2 v3
-                    </div>
-                    <div className="text-xs text-gray-900">Certified</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 14001
-                    </div>
-                    <div className="text-xs text-gray-900">Environmental</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 9001
-                    </div>
-                    <div className="text-xs text-gray-900">Quality</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 45001
-                    </div>
-                    <div className="text-xs text-gray-900">Safety</div>
-                  </div>
-                </>
-              ) : (
-                // Navigation links when scrolled
-                <>
-                  <a
-                    href="#home"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    HOME
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                  <Link
-                    href="/services"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    SERVICES
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    ABOUT US
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <a
-                    href="#contact"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    CONTACT
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                  <button
-                    onClick={() => setShowPickupForm(true)}
-                    className="bg-primary-green hover:bg-primary-green-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    SCHEDULE FREE PICKUP
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation Bar - disappears when scrolled */}
-      <nav
-        className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
-          isScrolled
-            ? "max-h-0 opacity-0 -translate-y-2"
-            : "max-h-20 opacity-100 translate-y-0"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex space-x-8">
-              <a
-                href="#home"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                HOME
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <Link
-                href="/services"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                SERVICES
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <a
-                href="#contact"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                CONTACT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-            <button
-              onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="home" />
 
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-[600px] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        className="relative min-h-[500px] sm:min-h-[600px] bg-gradient-to-br from-gray-50 via-green-100 to-green-200 flex items-center justify-center overflow-hidden"
       >
+        {/* Interactive Dot Mesh Background */}
+        <div className="absolute inset-0 z-5">
+          <div
+            className="dot-mesh absolute inset-0 opacity-40 transition-all duration-300 hover:opacity-60"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 8px 8px, rgba(34, 197, 94, 0.9) 4px, transparent 0)
+              `,
+              backgroundSize: "50px 50px",
+              backgroundPosition: "0 0",
+            }}
+          ></div>
+          <div
+            className="dot-mesh-secondary absolute inset-0 opacity-30 transition-all duration-500 hover:opacity-50"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 6px 6px, rgba(34, 197, 94, 0.7) 3px, transparent 0)
+              `,
+              backgroundSize: "70px 70px",
+              backgroundPosition: "25px 25px",
+            }}
+          ></div>
+          <div
+            className="dot-mesh-tertiary absolute inset-0 opacity-20 transition-all duration-700 hover:opacity-40"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 4px 4px, rgba(34, 197, 94, 0.5) 2px, transparent 0)
+              `,
+              backgroundSize: "90px 90px",
+              backgroundPosition: "45px 45px",
+            }}
+          ></div>
+        </div>
         {/* Overlay */}
         <div className="absolute inset-0 bg-hero-overlay z-10"></div>
         {/* Content */}
-        <div className="relative z-20 max-w-4xl mx-auto px-4 text-center animate-fade-in">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl leading-tight">
+        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 text-center animate-fade-in">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white drop-shadow-2xl leading-tight">
             Secure Data Destruction &
             <span className="text-primary-green"> Electronic Recycling</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto px-2">
             Professional data destruction, electronics recycling, and IT
             equipment services for businesses across Georgia
           </p>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 text-lg"
+              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 text-base sm:text-lg w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE PICKUP
             </button>
@@ -203,38 +74,38 @@ export default function Home() {
       </section>
 
       {/* Trust Bar */}
-      <section className="bg-primary-green text-white py-6">
+      <section className="bg-primary-green text-white py-4 sm:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center space-x-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
               <Image
                 src="/r2-logo.png"
                 alt="R2 Logo"
-                width={60}
-                height={60}
-                className="animate-pulse-gentle"
+                width={50}
+                height={50}
+                className="animate-pulse-gentle sm:w-[60px] sm:h-[60px]"
               />
               <div>
-                <div className="text-lg font-bold">
+                <div className="text-base sm:text-lg font-bold">
                   R2v3 Certified Data Destruction
                 </div>
-                <div className="text-sm opacity-90">
+                <div className="text-xs sm:text-sm opacity-90">
                   Secure • Compliant • Reliable
                 </div>
               </div>
             </div>
-            <div className="flex items-center space-x-8 text-sm">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
               <div className="text-center">
-                <div className="font-bold text-xl">10,000+</div>
-                <div className="opacity-90">Devices Processed</div>
+                <div className="font-bold text-lg sm:text-xl">10,000+</div>
+                <div className="opacity-90 text-xs">Devices Processed</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-xl">500+</div>
-                <div className="opacity-90">Corporate Clients</div>
+                <div className="font-bold text-lg sm:text-xl">500+</div>
+                <div className="opacity-90 text-xs">Corporate Clients</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-xl">24/7</div>
-                <div className="opacity-90">Support</div>
+                <div className="font-bold text-lg sm:text-xl">24/7</div>
+                <div className="opacity-90 text-xs">Support</div>
               </div>
             </div>
           </div>
@@ -242,19 +113,19 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
+      <section id="services" className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Professional onsite data destruction, free equipment pickup,
               responsible recycling, and IT equipment leasing services
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
@@ -360,14 +231,14 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-slide-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Why Choose Computer Recyclers USA?
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
                 Serving Georgia businesses with reliable data destruction,
                 electronics recycling, equipment pickup, and IT leasing services
                 you can trust.
@@ -451,31 +322,41 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">Our Certifications</h3>
-                <div className="grid grid-cols-2 gap-6">
+            <div className="relative mt-8 lg:mt-0">
+              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
+                  Our Certifications
+                </h3>
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl font-bold text-primary-green">R2</span>
+                      <span className="text-2xl font-bold text-primary-green">
+                        R2
+                      </span>
                     </div>
                     <div className="font-semibold">R2v3 Certified</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">ISO</span>
+                      <span className="text-xl font-bold text-primary-green">
+                        ISO
+                      </span>
                     </div>
                     <div className="font-semibold">Multiple ISO Standards</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">EPA</span>
+                      <span className="text-xl font-bold text-primary-green">
+                        EPA
+                      </span>
                     </div>
                     <div className="font-semibold">EPA Compliant</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">DOD</span>
+                      <span className="text-xl font-bold text-primary-green">
+                        DOD
+                      </span>
                     </div>
                     <div className="font-semibold">DoD 5220.22-M</div>
                   </div>
@@ -487,17 +368,19 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-900 text-white">
+      <section id="contact" className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
               destruction, equipment pickup, recycling, and leasing needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
@@ -569,10 +452,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-primary-green hover:bg-primary-green-dark text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE PICKUP
             </button>

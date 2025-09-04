@@ -1,199 +1,34 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
+import Header from "@/components/Header";
 
 export default function AboutPageContent() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header
-        className={`bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95 transition-all duration-300 ${
-          isScrolled ? "py-2" : "py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`flex justify-between items-center transition-all duration-300 ${
-              isScrolled ? "py-2" : "py-4"
-            }`}
-          >
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link href="/">
-                <Image
-                  src="/logo2.png"
-                  alt="Computer Recyclers USA - R2 Certified Electronics Recycling Georgia"
-                  width={isScrolled ? 160 : 200}
-                  height={isScrolled ? 64 : 80}
-                  priority
-                  className="hover:scale-105 transition-all duration-300 mix-blend-multiply cursor-pointer"
-                  style={{ background: "transparent" }}
-                />
-              </Link>
-            </div>
-
-            {/* Certifications / Navigation Links when scrolled */}
-            <div
-              className={`hidden lg:flex items-center transition-all duration-500 ${
-                isScrolled ? "space-x-6" : "space-x-6"
-              } text-sm text-gray-600`}
-            >
-              {!isScrolled ? (
-                // Certifications when at top
-                <>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      R2 v3
-                    </div>
-                    <div className="text-xs">Certified</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 14001
-                    </div>
-                    <div className="text-xs">Environmental</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 9001
-                    </div>
-                    <div className="text-xs">Quality</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 45001
-                    </div>
-                    <div className="text-xs">Safety</div>
-                  </div>
-                </>
-              ) : (
-                // Navigation links when scrolled
-                <>
-                  <Link
-                    href="/"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    HOME
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    SERVICES
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    ABOUT US
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
-                  </Link>
-                  <Link
-                    href="/#contact"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    CONTACT
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <button
-                    onClick={() => setShowPickupForm(true)}
-                    className="bg-primary-green hover:bg-primary-green-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    SCHEDULE FREE PICKUP
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Navigation Bar - disappears when scrolled */}
-      <nav
-        className={`bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
-          isScrolled
-            ? "max-h-0 opacity-0 -translate-y-2"
-            : "max-h-20 opacity-100 translate-y-0"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                HOME
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                SERVICES
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/about"
-                className="text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                CONTACT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </div>
-            <button
-              onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="about" />
 
       {/* Hero Section - SEO Optimized */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20">
+      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               About{" "}
               <span className="text-primary-green">Computer Recyclers USA</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
                 Georgia&apos;s Leading R2 Certified Electronics Recycling & Data
                 Destruction Company Since 2004
               </strong>
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center px-4">
               <button
                 onClick={() => setShowPickupForm(true)}
-                className="bg-primary-green hover:bg-primary-green-dark text-white px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
               >
                 SCHEDULE FREE PICKUP
               </button>
@@ -203,15 +38,15 @@ export default function AboutPageContent() {
       </section>
 
       {/* Company History Section - SEO Optimized */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center animate-slide-up">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center animate-slide-up">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
                 20+ Years of Excellence in Georgia Electronics Recycling
               </h2>
               <div className="space-y-6">
-                <p className="text-xl text-gray-600">
+                <p className="text-lg sm:text-xl text-gray-600">
                   <strong>
                     Founded in 2004 in Georgia, Computer Recyclers USA has built
                     an unmatched reputation as the Southeast&apos;s most trusted
@@ -219,7 +54,7 @@ export default function AboutPageContent() {
                     (ITAD), and responsible electronics recycling.
                   </strong>
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-base sm:text-lg text-gray-600">
                   What began as a local Suwanee, Georgia initiative to address
                   the growing need for secure IT equipment disposal has evolved
                   into Georgia&apos;s premier R2 v3 certified recycling
@@ -227,7 +62,7 @@ export default function AboutPageContent() {
                   startups to Fortune 500 companies - across the entire state of
                   Georgia.
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-base sm:text-lg text-gray-600">
                   Our deep Georgia roots give us unique insight into local
                   business needs. Whether you&apos;re in Atlanta, Savannah,
                   Augusta, Columbus, Macon, or anywhere in between, we
@@ -237,7 +72,7 @@ export default function AboutPageContent() {
                   Recyclers USA the clear choice for secure electronics
                   recycling and data destruction services in Georgia.
                 </p>
-                <p className="text-lg text-gray-600">
+                <p className="text-base sm:text-lg text-gray-600">
                   Our Suwanee facility, conveniently located at 3644 Burnette
                   Road (near I-85 and GA-316), serves as the hub for our
                   statewide operations, offering free IT equipment pickup
@@ -245,12 +80,12 @@ export default function AboutPageContent() {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-8 text-white">
-                <h3 className="text-2xl font-bold mb-6">
+            <div className="relative mt-8 lg:mt-0">
+              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-6 sm:p-8 text-white">
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
                   Georgia&apos;s Trusted IT Recycling Leader
                 </h3>
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-2 gap-4 sm:gap-6">
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2">20+</div>
                     <div className="text-sm opacity-90">
@@ -279,13 +114,13 @@ export default function AboutPageContent() {
       </section>
 
       {/* Certifications Section - SEO Optimized */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Industry-Leading Certifications for Georgia Businesses
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our comprehensive certifications ensure Georgia businesses receive
               the highest standards of data security, environmental
               responsibility, and operational excellence in electronics
@@ -293,7 +128,7 @@ export default function AboutPageContent() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group text-center">
               <div className="w-20 h-20 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <span className="text-2xl font-bold text-white">R2</span>
@@ -354,14 +189,14 @@ export default function AboutPageContent() {
       </section>
 
       {/* Values Section - SEO Optimized */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="animate-slide-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Empowering Georgia&apos;s Sustainable Technology Practices
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 <strong>
                   Computer Recyclers USA empowers Georgia businesses to
                   implement sustainable technology lifecycle management. Beyond
@@ -484,11 +319,11 @@ export default function AboutPageContent() {
       </section>
 
       {/* Speed and Service Section - SEO Optimized */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
                 <div className="text-center text-gray-500">
                   <svg
                     className="w-24 h-24 mx-auto mb-4"
@@ -507,11 +342,11 @@ export default function AboutPageContent() {
               </div>
             </div>
 
-            <div className="animate-slide-up">
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">
+            <div className="animate-slide-up order-1 lg:order-2">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Georgia&apos;s Fastest IT Equipment Pickup & Data Destruction
               </h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 <strong>
                   Computer Recyclers USA prides itself on rapid response times
                   throughout Georgia. When Atlanta businesses need urgent data
@@ -612,13 +447,13 @@ export default function AboutPageContent() {
       </section>
 
       {/* Contact Information Section - SEO Optimized */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Visit Our Secure Suwanee, Georgia Facility
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Located in Suwanee, Georgia, our R2 certified facility features
               state-of-the-art technology for secure data destruction and
               electronics recycling. Convenient access from I-85 and GA-316
@@ -626,8 +461,8 @@ export default function AboutPageContent() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 sm:space-y-8">
               <div className="flex items-start space-x-6">
                 <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg
@@ -709,13 +544,13 @@ export default function AboutPageContent() {
 
             <div className="relative">
               <div className="rounded-2xl h-96 overflow-hidden shadow-lg">
-                <iframe 
+                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.1!2d-84.0713!3d34.0515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59c8e8c8c8c8c%3A0x8c8c8c8c8c8c8c8c!2s3644%20Burnette%20Rd%2C%20Suwanee%2C%20GA%2030024%2C%20USA!5e0!3m2!1sen!2sus!4v1691234567890!5m2!1sen!2sus"
-                  width="100%" 
-                  height="100%" 
+                  width="100%"
+                  height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
-                  loading="lazy" 
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Computer Recyclers USA - Suwanee, GA Facility Location"
                 ></iframe>
@@ -726,13 +561,13 @@ export default function AboutPageContent() {
       </section>
 
       {/* Ready to Get Started Section - SEO Optimized */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Ready to Partner with Georgia&apos;s Leading IT Recycler?
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Join over 1,000 Georgia businesses who trust Computer Recyclers
               USA for secure data destruction, IT equipment pickup, electronics
               recycling, and IT asset disposition services. Free pickup
@@ -740,7 +575,7 @@ export default function AboutPageContent() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
@@ -829,10 +664,10 @@ export default function AboutPageContent() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-12 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-primary-green hover:bg-primary-green-dark text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE GEORGIA PICKUP
             </button>
