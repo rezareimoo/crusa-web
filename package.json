@@ -9,15 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tsparticles/engine": "^3.9.1",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.9.1",
     "@types/nodemailer": "^6.4.17",
     "next": "15.3.3",
     "nodemailer": "^7.0.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tsparticles": "^3.9.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

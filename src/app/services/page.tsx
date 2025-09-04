@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -164,10 +165,13 @@ export default function Services() {
 
               <div className="order-1 lg:order-2">
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
-                  <img
+                  <Image
                     src="/shredder-nobg.png"
                     alt="Mobile shredding unit for onsite data destruction"
+                    width={600}
+                    height={400}
                     className="w-full h-full object-cover object-center transform scale-75 sm:scale-87 md:scale-100 lg:scale-112 xl:scale-75"
+                    priority
                   />
                 </div>
               </div>
@@ -179,9 +183,11 @@ export default function Services() {
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
-                  <img
+                  <Image
                     src="/truck-nobg.png"
                     alt="Professional pickup truck for IT equipment collection"
+                    width={600}
+                    height={400}
                     className="w-full h-full object-cover object-center"
                   />
                 </div>
@@ -429,9 +435,11 @@ export default function Services() {
 
               <div className="order-1 lg:order-2">
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
-                  <img
+                  <Image
                     src="/favisvg.svg"
                     alt="Responsible recycling facility and processes"
+                    width={600}
+                    height={400}
                     className="w-full h-full object-contain object-center transform scale-150 sm:scale-125 md:scale-110 lg:scale-100"
                   />
                 </div>
@@ -444,9 +452,11 @@ export default function Services() {
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
-                  <img
+                  <Image
                     src="/van-nobg.png"
                     alt="Professional van for IT equipment leasing and delivery"
+                    width={600}
+                    height={400}
                     className="w-full h-full object-cover object-bottom"
                   />
                 </div>
