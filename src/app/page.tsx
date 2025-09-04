@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
+import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Home() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -15,60 +16,29 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-[500px] sm:min-h-[600px] bg-gradient-to-br from-gray-50 via-green-100 to-green-200 flex items-center justify-center overflow-hidden"
+        className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 sm:py-24 md:py-28 lg:py-32 overflow-hidden"
       >
-        {/* Interactive Dot Mesh Background */}
-        <div className="absolute inset-0 z-5">
-          <div
-            className="dot-mesh absolute inset-0 opacity-40 transition-all duration-300 hover:opacity-60"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 8px 8px, rgba(34, 197, 94, 0.9) 4px, transparent 0)
-              `,
-              backgroundSize: "50px 50px",
-              backgroundPosition: "0 0",
-            }}
-          ></div>
-          <div
-            className="dot-mesh-secondary absolute inset-0 opacity-30 transition-all duration-500 hover:opacity-50"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 6px 6px, rgba(34, 197, 94, 0.7) 3px, transparent 0)
-              `,
-              backgroundSize: "70px 70px",
-              backgroundPosition: "25px 25px",
-            }}
-          ></div>
-          <div
-            className="dot-mesh-tertiary absolute inset-0 opacity-20 transition-all duration-700 hover:opacity-40"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 4px 4px, rgba(34, 197, 94, 0.5) 2px, transparent 0)
-              `,
-              backgroundSize: "90px 90px",
-              backgroundPosition: "45px 45px",
-            }}
-          ></div>
-        </div>
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-hero-overlay z-10"></div>
-        {/* Content */}
-        <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 text-center animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-white drop-shadow-2xl leading-tight">
-            Secure Data Destruction &
-            <span className="text-primary-green"> Electronic Recycling</span>
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-100 drop-shadow-lg max-w-3xl mx-auto px-2">
-            Professional data destruction, electronics recycling, and IT
-            equipment services for businesses across Georgia
-          </p>
-          <div className="flex justify-center items-center px-4">
-            <button
-              onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 text-base sm:text-lg w-full sm:w-auto max-w-sm sm:max-w-none"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
+        <ParticleBackground />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center animate-fade-in">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Secure Data Destruction &
+              <span className="text-primary-green"> Electronic Recycling</span>
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
+              <strong>
+                Professional data destruction, electronics recycling, and IT
+                equipment services for businesses across Georgia
+              </strong>
+            </p>
+            <div className="flex justify-center px-4">
+              <button
+                onClick={() => setShowPickupForm(true)}
+                className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
+              >
+                SCHEDULE FREE PICKUP
+              </button>
+            </div>
           </div>
         </div>
       </section>
