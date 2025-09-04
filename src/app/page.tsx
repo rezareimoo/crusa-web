@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
+import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Home() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -17,39 +18,7 @@ export default function Home() {
         id="home"
         className="relative min-h-[500px] sm:min-h-[600px] bg-gradient-to-br from-gray-50 via-green-100 to-green-200 flex items-center justify-center overflow-hidden"
       >
-        {/* Interactive Dot Mesh Background */}
-        <div className="absolute inset-0 z-5">
-          <div
-            className="dot-mesh absolute inset-0 opacity-40 transition-all duration-300 hover:opacity-60"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 8px 8px, rgba(34, 197, 94, 0.9) 4px, transparent 0)
-              `,
-              backgroundSize: "50px 50px",
-              backgroundPosition: "0 0",
-            }}
-          ></div>
-          <div
-            className="dot-mesh-secondary absolute inset-0 opacity-30 transition-all duration-500 hover:opacity-50"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 6px 6px, rgba(34, 197, 94, 0.7) 3px, transparent 0)
-              `,
-              backgroundSize: "70px 70px",
-              backgroundPosition: "25px 25px",
-            }}
-          ></div>
-          <div
-            className="dot-mesh-tertiary absolute inset-0 opacity-20 transition-all duration-700 hover:opacity-40"
-            style={{
-              backgroundImage: `
-                radial-gradient(circle at 4px 4px, rgba(34, 197, 94, 0.5) 2px, transparent 0)
-              `,
-              backgroundSize: "90px 90px",
-              backgroundPosition: "45px 45px",
-            }}
-          ></div>
-        </div>
+        <ParticleBackground />
         {/* Overlay */}
         <div className="absolute inset-0 bg-hero-overlay z-10"></div>
         {/* Content */}

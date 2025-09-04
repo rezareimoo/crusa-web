@@ -38,15 +38,15 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
     }> = [];
 
     const colors = ['#22c55e', '#16a34a', '#8dc442', '#116839'];
-    const particleCount = 30;
+    const particleCount = 20;
 
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
         size: Math.random() * 2 + 1,
         opacity: Math.random() * 0.4 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)]
@@ -60,13 +60,17 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
 
       // Update and draw particles
       particles.forEach((particle, i) => {
+        // Apply gentle damping to reduce excessive movement
+        particle.vx *= 0.99;
+        particle.vy *= 0.99;
+
         // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Bounce off walls
-        if (particle.x <= 0 || particle.x >= canvas.width) particle.vx *= -1;
-        if (particle.y <= 0 || particle.y >= canvas.height) particle.vy *= -1;
+        // Bounce off walls with reduced energy
+        if (particle.x <= 0 || particle.x >= canvas.width) particle.vx *= -0.8;
+        if (particle.y <= 0 || particle.y >= canvas.height) particle.vy *= -0.8;
 
         // Draw particle
         ctx.save();
@@ -116,9 +120,9 @@ export default function ParticleBackground({ className = "" }: ParticleBackgroun
         const dy = mouseY - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        if (distance < 100) {
-          particle.vx += (particle.x - mouseX) / distance * 0.1;
-          particle.vy += (particle.y - mouseY) / distance * 0.1;
+        if (distance < 80) {
+          particle.vx += (particle.x - mouseX) / distance * 0.02;
+          particle.vy += (particle.y - mouseY) / distance * 0.02;
         }
       });
     };
