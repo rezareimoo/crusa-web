@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
+import ParticleBackground from "@/components/ParticleBackground";
 
 export default function Services() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -12,8 +13,9 @@ export default function Services() {
       <Header currentPage="services" />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20 overflow-hidden">
+        <ParticleBackground />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Our <span className="text-primary-green">Services</span>
