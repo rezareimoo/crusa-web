@@ -25,7 +25,6 @@ export default function ParticleBackground({
       canvas.width = 1500 * pixelRatio;
       canvas.height = 400 * pixelRatio;
       canvas.style.width = "1500px";
-      console.log(rect.width);
       canvas.style.height = "400px";
       console.log(rect.height);
       ctx.scale(pixelRatio, pixelRatio);
@@ -77,7 +76,6 @@ export default function ParticleBackground({
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw particles
-      const rect = canvas.getBoundingClientRect();
       particles.forEach((particle, i) => {
         // Apply gentle damping to reduce excessive movement
         particle.vx *= 0.99;
