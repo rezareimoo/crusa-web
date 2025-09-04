@@ -16,7 +16,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-[500px] sm:min-h-[600px] bg-gradient-to-br from-gray-50 via-green-100 to-green-200 flex items-center justify-center overflow-hidden"
+        className="relative min-h-[500px] sm:min-h-[600px] bg-gray-50 flex items-center justify-center overflow-hidden"
       >
         <ParticleBackground />
         {/* Overlay */}
