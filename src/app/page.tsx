@@ -1,262 +1,55 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
+import Header from "@/components/Header";
 
 export default function Home() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header
-        className={`bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95 transition-all duration-300 ${
-          isScrolled ? "py-2" : "py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`flex justify-between items-center transition-all duration-300 ${
-              isScrolled ? "py-2" : "py-4"
-            }`}
-          >
-            {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/logo2.png"
-                alt="Computer Recyclers USA Logo"
-                width={isScrolled ? 120 : 140}
-                height={isScrolled ? 48 : 56}
-                priority
-                className="hover:scale-105 transition-all duration-300 mix-blend-multiply sm:w-auto"
-                style={{ background: "transparent" }}
-              />
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-700 hover:text-primary-green focus:outline-none focus:text-primary-green transition-colors p-2"
-                aria-label="Toggle mobile menu"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {mobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
-            </div>
-
-            {/* Desktop Certifications / Navigation Links when scrolled */}
-            <div
-              className={`hidden lg:flex items-center transition-all duration-500 ${
-                isScrolled ? "space-x-6" : "space-x-6"
-              } text-sm text-gray-600`}
-            >
-              {!isScrolled ? (
-                // Certifications when at top
-                <>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      R2 v3
-                    </div>
-                    <div className="text-xs text-gray-900">Certified</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 14001
-                    </div>
-                    <div className="text-xs text-gray-900">Environmental</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 9001
-                    </div>
-                    <div className="text-xs text-gray-900">Quality</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 45001
-                    </div>
-                    <div className="text-xs text-gray-900">Safety</div>
-                  </div>
-                </>
-              ) : (
-                // Navigation links when scrolled
-                <>
-                  <a
-                    href="#home"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    HOME
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                  <Link
-                    href="/services"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    SERVICES
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    ABOUT US
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <a
-                    href="#contact"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    CONTACT
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </a>
-                  <button
-                    onClick={() => setShowPickupForm(true)}
-                    className="bg-primary-green hover:bg-primary-green-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    SCHEDULE FREE PICKUP
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg" style={{ marginTop: isScrolled ? '72px' : '88px' }}>
-          <div className="px-4 pt-2 pb-3 space-y-1">
-            <a
-              href="#home"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              HOME
-            </a>
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              SERVICES
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              ABOUT US
-            </Link>
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              CONTACT
-            </a>
-            <button
-              onClick={() => {
-                setShowPickupForm(true);
-                setMobileMenuOpen(false);
-              }}
-              className="w-full mt-3 bg-primary-green hover:bg-primary-green-dark text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Navigation Bar - disappears when scrolled (hidden on mobile) */}
-      <nav
-        className={`hidden lg:block bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
-          isScrolled
-            ? "max-h-0 opacity-0 -translate-y-2"
-            : "max-h-20 opacity-100 translate-y-0"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex space-x-8">
-              <a
-                href="#home"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                HOME
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
-              <Link
-                href="/services"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                SERVICES
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <a
-                href="#contact"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                CONTACT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            </div>
-            <button
-              onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="home" />
 
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-[500px] sm:min-h-[600px] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        className="relative min-h-[500px] sm:min-h-[600px] bg-gradient-to-br from-gray-50 via-green-100 to-green-200 flex items-center justify-center overflow-hidden"
       >
+        {/* Interactive Dot Mesh Background */}
+        <div className="absolute inset-0 z-5">
+          <div
+            className="dot-mesh absolute inset-0 opacity-40 transition-all duration-300 hover:opacity-60"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 8px 8px, rgba(34, 197, 94, 0.9) 4px, transparent 0)
+              `,
+              backgroundSize: "50px 50px",
+              backgroundPosition: "0 0",
+            }}
+          ></div>
+          <div
+            className="dot-mesh-secondary absolute inset-0 opacity-30 transition-all duration-500 hover:opacity-50"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 6px 6px, rgba(34, 197, 94, 0.7) 3px, transparent 0)
+              `,
+              backgroundSize: "70px 70px",
+              backgroundPosition: "25px 25px",
+            }}
+          ></div>
+          <div
+            className="dot-mesh-tertiary absolute inset-0 opacity-20 transition-all duration-700 hover:opacity-40"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 4px 4px, rgba(34, 197, 94, 0.5) 2px, transparent 0)
+              `,
+              backgroundSize: "90px 90px",
+              backgroundPosition: "45px 45px",
+            }}
+          ></div>
+        </div>
         {/* Overlay */}
         <div className="absolute inset-0 bg-hero-overlay z-10"></div>
         {/* Content */}
@@ -531,29 +324,39 @@ export default function Home() {
 
             <div className="relative mt-8 lg:mt-0">
               <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center lg:text-left">Our Certifications</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
+                  Our Certifications
+                </h3>
                 <div className="grid grid-cols-2 gap-4 sm:gap-6">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl font-bold text-primary-green">R2</span>
+                      <span className="text-2xl font-bold text-primary-green">
+                        R2
+                      </span>
                     </div>
                     <div className="font-semibold">R2v3 Certified</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">ISO</span>
+                      <span className="text-xl font-bold text-primary-green">
+                        ISO
+                      </span>
                     </div>
                     <div className="font-semibold">Multiple ISO Standards</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">EPA</span>
+                      <span className="text-xl font-bold text-primary-green">
+                        EPA
+                      </span>
                     </div>
                     <div className="font-semibold">EPA Compliant</div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">DOD</span>
+                      <span className="text-xl font-bold text-primary-green">
+                        DOD
+                      </span>
                     </div>
                     <div className="font-semibold">DoD 5220.22-M</div>
                   </div>
@@ -568,7 +371,9 @@ export default function Home() {
       <section id="contact" className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
               destruction, equipment pickup, recycling, and leasing needs.

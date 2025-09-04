@@ -1,258 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
+import Header from "@/components/Header";
 
 export default function AboutPageContent() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header
-        className={`bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95 transition-all duration-300 ${
-          isScrolled ? "py-2" : "py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`flex justify-between items-center transition-all duration-300 ${
-              isScrolled ? "py-2" : "py-4"
-            }`}
-          >
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link href="/">
-                <Image
-                  src="/logo2.png"
-                  alt="Computer Recyclers USA - R2 Certified Electronics Recycling Georgia"
-                  width={isScrolled ? 120 : 140}
-                  height={isScrolled ? 48 : 56}
-                  priority
-                  className="hover:scale-105 transition-all duration-300 mix-blend-multiply cursor-pointer sm:w-auto"
-                  style={{ background: "transparent" }}
-                />
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-700 hover:text-primary-green focus:outline-none focus:text-primary-green transition-colors p-2"
-                aria-label="Toggle mobile menu"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {mobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
-            </div>
-
-            {/* Desktop Certifications / Navigation Links when scrolled */}
-            <div
-              className={`hidden lg:flex items-center transition-all duration-500 ${
-                isScrolled ? "space-x-6" : "space-x-6"
-              } text-sm text-gray-600`}
-            >
-              {!isScrolled ? (
-                // Certifications when at top
-                <>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      R2 v3
-                    </div>
-                    <div className="text-xs">Certified</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 14001
-                    </div>
-                    <div className="text-xs">Environmental</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 9001
-                    </div>
-                    <div className="text-xs">Quality</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 45001
-                    </div>
-                    <div className="text-xs">Safety</div>
-                  </div>
-                </>
-              ) : (
-                // Navigation links when scrolled
-                <>
-                  <Link
-                    href="/"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    HOME
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    SERVICES
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    ABOUT US
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
-                  </Link>
-                  <Link
-                    href="/#contact"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    CONTACT
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <button
-                    onClick={() => setShowPickupForm(true)}
-                    className="bg-primary-green hover:bg-primary-green-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    SCHEDULE FREE PICKUP
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg" style={{ marginTop: isScrolled ? '72px' : '88px' }}>
-          <div className="px-4 pt-2 pb-3 space-y-1">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              HOME
-            </Link>
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              SERVICES
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-primary-green bg-gray-50 rounded-md"
-            >
-              ABOUT US
-            </Link>
-            <Link
-              href="/#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              CONTACT
-            </Link>
-            <button
-              onClick={() => {
-                setShowPickupForm(true);
-                setMobileMenuOpen(false);
-              }}
-              className="w-full mt-3 bg-primary-green hover:bg-primary-green-dark text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Navigation Bar - disappears when scrolled (hidden on mobile) */}
-      <nav
-        className={`hidden lg:block bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
-          isScrolled
-            ? "max-h-0 opacity-0 -translate-y-2"
-            : "max-h-20 opacity-100 translate-y-0"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                HOME
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/services"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                SERVICES
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/about"
-                className="text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                CONTACT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </div>
-            <button
-              onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="about" />
 
       {/* Hero Section - SEO Optimized */}
       <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20">
@@ -787,13 +544,13 @@ export default function AboutPageContent() {
 
             <div className="relative">
               <div className="rounded-2xl h-96 overflow-hidden shadow-lg">
-                <iframe 
+                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.1!2d-84.0713!3d34.0515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59c8e8c8c8c8c%3A0x8c8c8c8c8c8c8c8c!2s3644%20Burnette%20Rd%2C%20Suwanee%2C%20GA%2030024%2C%20USA!5e0!3m2!1sen!2sus!4v1691234567890!5m2!1sen!2sus"
-                  width="100%" 
-                  height="100%" 
+                  width="100%"
+                  height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
-                  loading="lazy" 
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="Computer Recyclers USA - Suwanee, GA Facility Location"
                 ></iframe>

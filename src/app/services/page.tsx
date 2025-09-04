@@ -1,258 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
+import Header from "@/components/Header";
 
 export default function Services() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [showPickupForm, setShowPickupForm] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header
-        className={`bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95 transition-all duration-300 ${
-          isScrolled ? "py-2" : "py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className={`flex justify-between items-center transition-all duration-300 ${
-              isScrolled ? "py-2" : "py-4"
-            }`}
-          >
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link href="/">
-                <Image
-                  src="/logo2.png"
-                  alt="Computer Recyclers USA Logo"
-                  width={isScrolled ? 120 : 140}
-                  height={isScrolled ? 48 : 56}
-                  priority
-                  className="hover:scale-105 transition-all duration-300 mix-blend-multiply cursor-pointer sm:w-auto"
-                  style={{ background: "transparent" }}
-                />
-              </Link>
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="lg:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-700 hover:text-primary-green focus:outline-none focus:text-primary-green transition-colors p-2"
-                aria-label="Toggle mobile menu"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  {mobileMenuOpen ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  )}
-                </svg>
-              </button>
-            </div>
-
-            {/* Desktop Certifications / Navigation Links when scrolled */}
-            <div
-              className={`hidden lg:flex items-center transition-all duration-500 ${
-                isScrolled ? "space-x-6" : "space-x-6"
-              } text-sm text-gray-600`}
-            >
-              {!isScrolled ? (
-                // Certifications when at top
-                <>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      R2 v3
-                    </div>
-                    <div className="text-xs">Certified</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 14001
-                    </div>
-                    <div className="text-xs">Environmental</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 9001
-                    </div>
-                    <div className="text-xs">Quality</div>
-                  </div>
-                  <div className="flex flex-col items-center p-2 hover:bg-gray-50 rounded-lg transition-colors">
-                    <div className="font-semibold text-primary-green text-sm">
-                      ISO 45001
-                    </div>
-                    <div className="text-xs">Safety</div>
-                  </div>
-                </>
-              ) : (
-                // Navigation links when scrolled
-                <>
-                  <Link
-                    href="/"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    HOME
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    SERVICES
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    ABOUT US
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    href="/#contact"
-                    className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-                  >
-                    CONTACT
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-                  </Link>
-                  <button
-                    onClick={() => setShowPickupForm(true)}
-                    className="bg-primary-green hover:bg-primary-green-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    SCHEDULE FREE PICKUP
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Mobile Navigation Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg" style={{ marginTop: isScrolled ? '72px' : '88px' }}>
-          <div className="px-4 pt-2 pb-3 space-y-1">
-            <Link
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              HOME
-            </Link>
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-primary-green bg-gray-50 rounded-md"
-            >
-              SERVICES
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              ABOUT US
-            </Link>
-            <Link
-              href="/#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-            >
-              CONTACT
-            </Link>
-            <button
-              onClick={() => {
-                setShowPickupForm(true);
-                setMobileMenuOpen(false);
-              }}
-              className="w-full mt-3 bg-primary-green hover:bg-primary-green-dark text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Navigation Bar - disappears when scrolled (hidden on mobile) */}
-      <nav
-        className={`hidden lg:block bg-white border-b border-gray-200 shadow-sm transition-all duration-700 ease-in-out overflow-hidden ${
-          isScrolled
-            ? "max-h-0 opacity-0 -translate-y-2"
-            : "max-h-20 opacity-100 translate-y-0"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="flex space-x-8">
-              <Link
-                href="/"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                HOME
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/services"
-                className="text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                SERVICES
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-green"></span>
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                ABOUT US
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
-              >
-                CONTACT
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </div>
-            <button
-              onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              SCHEDULE FREE PICKUP
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Header currentPage="services" />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20">
@@ -404,24 +161,12 @@ export default function Services() {
               </div>
 
               <div className="order-1 lg:order-2">
-                <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <svg
-                      className="w-24 h-24 mx-auto mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p className="text-lg font-medium">
-                      Onsite Data Destruction Image
-                    </p>
-                    <p className="text-sm">Mobile shredding unit in action</p>
-                  </div>
+                <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
+                  <img
+                    src="/shredder-nobg.png"
+                    alt="Mobile shredding unit for onsite data destruction"
+                    className="w-full h-full object-cover object-center transform scale-75 sm:scale-87 md:scale-100 lg:scale-112 xl:scale-75"
+                  />
                 </div>
               </div>
             </div>
@@ -431,19 +176,12 @@ export default function Services() {
           <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <svg
-                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-                      <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z" />
-                    </svg>
-                    <p className="text-base sm:text-lg font-medium">Pickup Service Image</p>
-                    <p className="text-sm">Professional pickup truck</p>
-                  </div>
+                <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
+                  <img
+                    src="/truck-nobg.png"
+                    alt="Professional pickup truck for IT equipment collection"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
               </div>
 
@@ -688,24 +426,12 @@ export default function Services() {
               </div>
 
               <div className="order-1 lg:order-2">
-                <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <svg
-                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p className="text-base sm:text-lg font-medium">
-                      Recycling Facility Image
-                    </p>
-                    <p className="text-sm">Clean recycling operation</p>
-                  </div>
+                <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
+                  <img
+                    src="/favisvg.svg"
+                    alt="Responsible recycling facility and processes"
+                    className="w-full h-full object-contain object-center transform scale-150 sm:scale-125 md:scale-110 lg:scale-100"
+                  />
                 </div>
               </div>
             </div>
@@ -715,22 +441,12 @@ export default function Services() {
           <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                  <div className="text-center text-gray-500">
-                    <svg
-                      className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15.586 13H14a1 1 0 01-1-1z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p className="text-base sm:text-lg font-medium">IT Leasing Image</p>
-                    <p className="text-sm">Modern office equipment</p>
-                  </div>
+                <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
+                  <img
+                    src="/van-nobg.png"
+                    alt="Professional van for IT equipment leasing and delivery"
+                    className="w-full h-full object-cover object-bottom"
+                  />
                 </div>
               </div>
 
@@ -859,7 +575,9 @@ export default function Services() {
       <section className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
               destruction, equipment pickup, recycling, and leasing needs.
