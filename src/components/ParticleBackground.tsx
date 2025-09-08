@@ -61,7 +61,7 @@ export default function ParticleBackground({
     }> = [];
 
     const colors = ["#22c55e", "#16a34a", "#8dc442", "#116839"];
-    const particleCount = 270;
+    const baseParticleCount = 270;
 
     // Initialize particles after canvas is sized
     const initializeParticles = () => {
@@ -71,6 +71,9 @@ export default function ParticleBackground({
       
       const rect = container.getBoundingClientRect();
       const mobile = isMobile();
+      
+      // Use half the particles on mobile for better performance
+      const particleCount = mobile ? Math.floor(baseParticleCount / 2) : baseParticleCount;
       
       for (let i = 0; i < particleCount; i++) {
         particles.push({
