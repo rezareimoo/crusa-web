@@ -11,10 +11,10 @@ export default function ParticleBackground({
 }: ParticleBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Detect mobile devices
   const isMobile = () => {
-    return typeof window !== 'undefined' && window.innerWidth < 1000;
+    return typeof window !== "undefined" && window.innerWidth < 1000;
   };
 
   useEffect(() => {
@@ -34,26 +34,31 @@ export default function ParticleBackground({
     const resizeCanvas = () => {
       const container = containerRef.current;
       if (!container) return;
-      
+
       const rect = container.getBoundingClientRect();
       const pixelRatio = window.devicePixelRatio || 1;
-      
+
       const newWidth = Math.round(rect.width);
       const newHeight = Math.round(rect.height);
-      
-      const dimensionsChanged = Math.abs(newWidth - lastWidth) > 5 || Math.abs(newHeight - lastHeight) > 5;
+
+      const dimensionsChanged =
+        Math.abs(newWidth - lastWidth) > 5 ||
+        Math.abs(newHeight - lastHeight) > 5;
       const shouldInitialize = !particlesInitialized || dimensionsChanged;
-      
+
       // On mobile, be extra conservative - only reinitialize if significant size change or first time
-      if (shouldInitialize && (!isMobile() || !particlesInitialized || dimensionsChanged)) {
+      if (
+        shouldInitialize &&
+        (!isMobile() || !particlesInitialized || dimensionsChanged)
+      ) {
         lastWidth = newWidth;
         lastHeight = newHeight;
-        
+
         canvas.width = newWidth * pixelRatio;
         canvas.height = newHeight * pixelRatio;
         canvas.style.width = `${newWidth}px`;
         canvas.style.height = `${newHeight}px`;
-        
+
         ctx.scale(pixelRatio, pixelRatio);
 
         // Reinitialize particles with correct canvas dimensions
@@ -73,7 +78,7 @@ export default function ParticleBackground({
     // Prevent scroll from triggering resize on mobile
     let isScrolling = false;
     let scrollTimeout: NodeJS.Timeout;
-    
+
     const handleScroll = () => {
       isScrolling = true;
       clearTimeout(scrollTimeout);
@@ -117,13 +122,15 @@ export default function ParticleBackground({
       particles.length = 0; // Clear existing particles
       const container = containerRef.current;
       if (!container) return;
-      
+
       const rect = container.getBoundingClientRect();
       const mobile = isMobile();
-      
+
       // Use half the particles on mobile for better performance
-      const particleCount = mobile ? Math.floor(baseParticleCount / 2) : baseParticleCount;
-      
+      const particleCount = mobile
+        ? Math.floor(baseParticleCount / 4)
+        : baseParticleCount;
+
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * rect.width,
@@ -144,7 +151,7 @@ export default function ParticleBackground({
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const container = containerRef.current;
       if (!container) return;
-      
+
       const rect = container.getBoundingClientRect();
       const mobile = isMobile();
 
@@ -206,7 +213,7 @@ export default function ParticleBackground({
     const handleMouseMove = (e: MouseEvent) => {
       // Skip mouse interaction on mobile to prevent glitches
       if (isMobile()) return;
-      
+
       const rect = canvas.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
