@@ -24,6 +24,12 @@ export default function ParticleBackground({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Track canvas dimensions to prevent unnecessary reinitializations
+    let lastWidth = 0;
+    let lastHeight = 0;
+    let resizeTimeout: NodeJS.Timeout;
+    let particlesInitialized = false;
+
     // Set canvas size to match container
     const resizeCanvas = () => {
       const container = containerRef.current;
@@ -32,21 +38,64 @@ export default function ParticleBackground({
       const rect = container.getBoundingClientRect();
       const pixelRatio = window.devicePixelRatio || 1;
       
-      canvas.width = rect.width * pixelRatio;
-      canvas.height = rect.height * pixelRatio;
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
+      const newWidth = Math.round(rect.width);
+      const newHeight = Math.round(rect.height);
       
-      ctx.scale(pixelRatio, pixelRatio);
+      const dimensionsChanged = Math.abs(newWidth - lastWidth) > 5 || Math.abs(newHeight - lastHeight) > 5;
+      const shouldInitialize = !particlesInitialized || dimensionsChanged;
+      
+      // On mobile, be extra conservative - only reinitialize if significant size change or first time
+      if (shouldInitialize && (!isMobile() || !particlesInitialized || dimensionsChanged)) {
+        lastWidth = newWidth;
+        lastHeight = newHeight;
+        
+        canvas.width = newWidth * pixelRatio;
+        canvas.height = newHeight * pixelRatio;
+        canvas.style.width = `${newWidth}px`;
+        canvas.style.height = `${newHeight}px`;
+        
+        ctx.scale(pixelRatio, pixelRatio);
 
-      // Reinitialize particles with correct canvas dimensions
-      initializeParticles();
+        // Reinitialize particles with correct canvas dimensions
+        initializeParticles();
+        particlesInitialized = true;
+      }
+    };
+
+    // Debounced resize handler to prevent constant regeneration during scroll
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      // Use longer delay on mobile to prevent scroll-triggered regeneration
+      const delay = isMobile() ? 300 : 150;
+      resizeTimeout = setTimeout(resizeCanvas, delay);
+    };
+
+    // Prevent scroll from triggering resize on mobile
+    let isScrolling = false;
+    let scrollTimeout: NodeJS.Timeout;
+    
+    const handleScroll = () => {
+      isScrolling = true;
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+      }, 100);
+    };
+
+    const preventScrollResize = () => {
+      // Only trigger resize if not currently scrolling on mobile
+      if (!isMobile() || !isScrolling) {
+        debouncedResize();
+      }
     };
 
     // Initial setup with delay to ensure DOM is ready
     setTimeout(() => {
       resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
+      window.addEventListener("resize", preventScrollResize);
+      if (isMobile()) {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+      }
     }, 50);
 
     // Particle system
@@ -183,7 +232,12 @@ export default function ParticleBackground({
     canvas.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas);
+      clearTimeout(resizeTimeout);
+      clearTimeout(scrollTimeout);
+      window.removeEventListener("resize", preventScrollResize);
+      if (isMobile()) {
+        window.removeEventListener("scroll", handleScroll);
+      }
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationId);
