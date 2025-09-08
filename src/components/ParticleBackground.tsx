@@ -14,7 +14,7 @@ export default function ParticleBackground({
   
   // Detect mobile devices
   const isMobile = () => {
-    return typeof window !== 'undefined' && window.innerWidth < 768;
+    return typeof window !== 'undefined' && window.innerWidth < 1000;
   };
 
   useEffect(() => {
