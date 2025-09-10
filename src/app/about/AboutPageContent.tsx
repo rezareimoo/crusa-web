@@ -324,24 +324,12 @@ export default function AboutPageContent() {
       <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 lg:h-96 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <svg
-                    className="w-24 h-24 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-lg font-medium">Rapid Response Service</p>
-                  <p className="text-sm">Fast Georgia Pickup & Processing</p>
-                </div>
-              </div>
+            <div className="relative order-2 lg:order-1 hidden sm:block">
+              <img
+                src="/US_19_in_Georgia_map.svg"
+                alt="Georgia State Map with US 19"
+                className="w-full h-[600px] sm:h-[700px] md:h-[800px] lg:h-[900px] xl:h-[1000px] 2xl:h-[1100px] object-contain"
+              />
             </div>
 
             <div className="animate-slide-up order-1 lg:order-2">
