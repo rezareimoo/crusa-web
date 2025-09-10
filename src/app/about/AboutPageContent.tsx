@@ -191,9 +191,9 @@ export default function AboutPageContent() {
       </section>
 
       {/* Values Section - SEO Optimized */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-8 sm:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-slide-up">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Empowering Georgia&apos;s Sustainable Technology Practices
@@ -295,40 +295,26 @@ export default function AboutPageContent() {
               </div>
             </div>
 
-            <div className="relative">
-              <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <svg
-                    className="w-24 h-24 mx-auto mb-4"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <p className="text-lg font-medium">
-                    Sustainability in Action
-                  </p>
-                  <p className="text-sm">Georgia&apos;s Environmental Leader</p>
-                </div>
-              </div>
+            <div className="relative hidden sm:block">
+              <img
+                src="/empowering-ga.svg"
+                alt="Empowering Georgia's Sustainable Technology Practices"
+                className="w-full h-[325px] sm:h-[390px] md:h-[455px] lg:h-[520px] xl:h-[585px] 2xl:h-[650px] object-cover object-top"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Speed and Service Section - SEO Optimized */}
-      <section className="py-16 sm:py-20 bg-gray-50">
+      <section className="pt-8 pb-2 sm:pt-12 sm:pb-3 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="relative order-2 lg:order-1 hidden sm:block">
               <img
                 src="/US_19_in_Georgia_map.svg"
                 alt="Georgia State Map with US 19"
-                className="w-full h-[600px] sm:h-[700px] md:h-[800px] lg:h-[900px] xl:h-[1000px] 2xl:h-[1100px] object-contain"
+                className="w-full h-[260px] sm:h-[325px] md:h-[390px] lg:h-[455px] xl:h-[520px] 2xl:h-[585px] object-cover object-top"
               />
             </div>
 
