@@ -260,70 +260,67 @@ export default function PickupForm({ onClose }: PickupFormProps) {
     }
   };
 
-  const renderCloseButton = () => (
-    onClose && (
-      <div className="px-4 sm:px-6 lg:px-8 pt-3 pb-2">
-        <div className="flex justify-end">
-          <button
-            onClick={onClose}
-            className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
-            aria-label="Close form"
-          >
-            <svg
-              className="w-3 h-3 text-gray-400 hover:text-gray-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+  const renderHeader = () => (
+    <div className="border-b border-gray-100">
+      {/* Close button row - completely separate */}
+      {onClose && (
+        <div className="px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex justify-end">
+            <button
+              onClick={onClose}
+              className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              aria-label="Close form"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-3 h-3 text-gray-400 hover:text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
-      </div>
-    )
-  );
-
-  const renderProgressBar = () => (
-    <div className="mb-8 px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex-1">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+      )}
+      
+      {/* Title and step indicator row - completely separate */}
+      <div className="px-4 sm:px-6 lg:px-8 pb-6">
+        <div className="text-center mb-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
             {currentStep === 1 && "Choose Your Services"}
             {currentStep === 2 && "Contact Information"}  
             {currentStep === 3 && "Additional Details"}
           </h2>
-        </div>
-        <div className="flex items-center">
           <span className="text-sm text-gray-500">
             Step {currentStep} of {totalSteps}
           </span>
         </div>
-      </div>
 
-      {/* Progress bar */}
-      <div className="flex space-x-2">
-        {Array.from({ length: totalSteps }).map((_, index) => (
-          <div
-            key={index}
-            className={`h-2 flex-1 rounded-full transition-colors duration-200 ${
-              index + 1 <= currentStep
-                ? "bg-primary-green"
-                : "bg-gray-200"
-            }`}
-          />
-        ))}
+        {/* Progress bar */}
+        <div className="flex space-x-2 max-w-md mx-auto">
+          {Array.from({ length: totalSteps }).map((_, index) => (
+            <div
+              key={index}
+              className={`h-2 flex-1 rounded-full transition-colors duration-200 ${
+                index + 1 <= currentStep
+                  ? "bg-primary-green"
+                  : "bg-gray-200"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
 
   const renderStep1 = () => (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 pt-6">
       <div className="text-center mb-8">
         <p className="text-gray-600 text-base sm:text-lg">
           Select the services you need. We&apos;ll provide a free consultation and quote.
@@ -392,7 +389,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
   );
 
   const renderStep2 = () => (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 pt-6">
       <div className="text-center mb-8">
         <p className="text-gray-600 text-base sm:text-lg">
           Tell us how to reach you. We&apos;ll respond within 24 hours.
@@ -514,7 +511,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
   );
 
   const renderStep3 = () => (
-    <div className="px-4 sm:px-6 lg:px-8">
+    <div className="px-4 sm:px-6 lg:px-8 pt-6">
       <div className="text-center mb-8">
         <p className="text-gray-600 text-base sm:text-lg">
           Help us prepare for your pickup with a few more details.
@@ -603,18 +600,46 @@ export default function PickupForm({ onClose }: PickupFormProps) {
   if (submitStatus === "success") {
     return (
       <div className="min-h-[60vh]">
-        {renderCloseButton()}
-        
-        {/* Success content */}
-        <div className="px-4 sm:px-6 lg:px-8 mb-8">
-          <div className="text-center">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-8">
-              Request Submitted!
-            </h2>
+        {/* Success header with close button */}
+        <div className="border-b border-gray-100">
+          {/* Close button row */}
+          {onClose && (
+            <div className="px-4 sm:px-6 lg:px-8 py-3">
+              <div className="flex justify-end">
+                <button
+                  onClick={onClose}
+                  className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                  aria-label="Close form"
+                >
+                  <svg
+                    className="w-3 h-3 text-gray-400 hover:text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+          
+          {/* Title row */}
+          <div className="px-4 sm:px-6 lg:px-8 pb-6">
+            <div className="text-center">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+                Request Submitted!
+              </h2>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
+        <div className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-8">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
             <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -648,11 +673,10 @@ export default function PickupForm({ onClose }: PickupFormProps) {
 
   return (
     <div className="bg-white min-h-[60vh]">
-      {renderCloseButton()}
-      {renderProgressBar()}
+      {renderHeader()}
 
       {submitStatus === "error" && (
-        <div className="mx-4 sm:mx-6 lg:mx-8 mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div className="mx-4 sm:mx-6 lg:mx-8 mt-4 mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
           <div className="flex items-center">
             <svg className="w-5 h-5 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
