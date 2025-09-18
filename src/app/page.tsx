@@ -23,11 +23,16 @@ export default function Home() {
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Secure Data Destruction &
-              <span className="text-primary-green"> Responsible Electronics Recycling</span>
+              <span className="text-primary-green">
+                {" "}
+                Responsible Electronics Recycling
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Professional data destruction, responsible electronics recycling, and &quot;IT Asset Recovery&quot; services for businesses across Georgia and Southeast States
+                Professional data destruction, responsible electronics
+                recycling, and IT Asset Recovery services for businesses across
+                Georgia and Southeast States
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -65,15 +70,11 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">Over 5M</div>
+                <div className="font-bold text-lg sm:text-xl">5M+</div>
                 <div className="opacity-90 text-xs">Devices Processed</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">500+</div>
-                <div className="opacity-90 text-xs">Corporate Clients</div>
-              </div>
-              <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">500+</div>
+                <div className="font-bold text-lg sm:text-xl">100+</div>
                 <div className="opacity-90 text-xs">Corporate Clients</div>
               </div>
             </div>
@@ -89,8 +90,8 @@ export default function Home() {
               Our Services
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              Professional onsite data destruction, free equipment pickup,
-              and responsible recycling services
+              Professional onsite data destruction, free equipment pickup, and
+              responsible recycling services
             </p>
           </div>
 
@@ -170,7 +171,6 @@ export default function Home() {
                 following industry best practices and regulations.
               </p>
             </div>
-
           </div>
         </div>
       </section>
@@ -184,9 +184,9 @@ export default function Home() {
                 Why Choose Computer Recyclers USA?
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
-                Serving Georgia and Southeast businesses with reliable data destruction,
-                responsible electronics recycling, and &quot;IT Asset Recovery&quot; services
-                you can trust.
+                Serving Georgia and Southeast businesses with reliable data
+                destruction, responsible electronics recycling, and &quot;IT
+                Asset Recovery&quot; services you can trust.
               </p>
 
               <div className="space-y-6">
