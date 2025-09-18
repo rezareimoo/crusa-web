@@ -95,11 +95,11 @@ export default function AboutPageContent() {
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">500K+</div>
+                    <div className="text-4xl font-bold mb-2">5M+</div>
                     <div className="text-sm opacity-90">Devices Recycled</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">1,000+</div>
+                    <div className="text-4xl font-bold mb-2">500+</div>
                     <div className="text-sm opacity-90">Georgia Businesses</div>
                   </div>
                   <div className="text-center">
