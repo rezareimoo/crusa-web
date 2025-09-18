@@ -260,49 +260,49 @@ export default function PickupForm({ onClose }: PickupFormProps) {
     }
   };
 
+  const renderCloseButton = () => (
+    onClose && (
+      <div className="px-4 sm:px-6 lg:px-8 pt-3 pb-2">
+        <div className="flex justify-end">
+          <button
+            onClick={onClose}
+            className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+            aria-label="Close form"
+          >
+            <svg
+              className="w-3 h-3 text-gray-400 hover:text-gray-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    )
+  );
+
   const renderProgressBar = () => (
-    <div className="mb-8 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
-      {/* Header with close button */}
-      <div className="flex items-start justify-between mb-6">
-        <div className="flex-1 pr-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
+    <div className="mb-8 px-4 sm:px-6 lg:px-8">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
             {currentStep === 1 && "Choose Your Services"}
             {currentStep === 2 && "Contact Information"}  
             {currentStep === 3 && "Additional Details"}
           </h2>
-          {/* Step indicator on mobile - moved under title */}
-          <div className="mt-2 sm:hidden">
-            <span className="text-sm text-gray-500">
-              Step {currentStep} of {totalSteps}
-            </span>
-          </div>
         </div>
-        
-        <div className="flex items-center space-x-3 flex-shrink-0">
-          <span className="text-sm text-gray-500 hidden sm:block whitespace-nowrap">
+        <div className="flex items-center">
+          <span className="text-sm text-gray-500">
             Step {currentStep} of {totalSteps}
           </span>
-          {onClose && (
-            <button
-              onClick={onClose}
-              className="p-1.5 hover:bg-gray-100 rounded-full transition-colors duration-200 flex-shrink-0"
-              aria-label="Close form"
-            >
-              <svg
-                className="w-4 h-4 text-gray-400 hover:text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          )}
         </div>
       </div>
 
@@ -603,35 +603,14 @@ export default function PickupForm({ onClose }: PickupFormProps) {
   if (submitStatus === "success") {
     return (
       <div className="min-h-[60vh]">
-        {/* Header with close button for success state */}
-        <div className="px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 mb-8">
-          <div className="flex items-start justify-between">
-            <div className="flex-1 pr-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 leading-tight">
-                Request Submitted!
-              </h2>
-            </div>
-            {onClose && (
-              <button
-                onClick={onClose}
-                className="p-1.5 hover:bg-gray-100 rounded-full transition-colors duration-200 flex-shrink-0"
-                aria-label="Close form"
-              >
-                <svg
-                  className="w-4 h-4 text-gray-400 hover:text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-            )}
+        {renderCloseButton()}
+        
+        {/* Success content */}
+        <div className="px-4 sm:px-6 lg:px-8 mb-8">
+          <div className="text-center">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-8">
+              Request Submitted!
+            </h2>
           </div>
         </div>
 
@@ -669,6 +648,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
 
   return (
     <div className="bg-white min-h-[60vh]">
+      {renderCloseButton()}
       {renderProgressBar()}
 
       {submitStatus === "error" && (
