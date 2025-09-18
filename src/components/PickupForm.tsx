@@ -27,6 +27,7 @@ interface FormErrors {
   equipmentTypes?: string;
   estimatedQuantity?: string;
   preferredPickupDate?: string;
+  urgency?: string;
 }
 
 const serviceOptions = [
@@ -191,7 +192,7 @@ export default function PickupForm() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormData]) {
+    if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
@@ -304,7 +305,7 @@ export default function PickupForm() {
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
         <p className="text-gray-600 text-base sm:text-lg">
-          Select the services you need. We'll provide a free consultation and quote.
+          Select the services you need. We&apos;ll provide a free consultation and quote.
         </p>
         <div className="mt-2 flex items-center justify-center text-sm text-gray-500">
           <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -376,7 +377,7 @@ export default function PickupForm() {
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
         <p className="text-gray-600 text-base sm:text-lg">
-          Tell us how to reach you. We'll respond within 24 hours.
+          Tell us how to reach you. We&apos;ll respond within 24 hours.
         </p>
         <div className="mt-2 flex items-center justify-center text-sm text-gray-500">
           <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -634,12 +635,12 @@ export default function PickupForm() {
           Request Submitted Successfully!
         </h2>
         <p className="text-gray-600 text-lg mb-6 max-w-lg">
-          Thank you for choosing CRUSA. We'll review your request and contact you within 24 hours to schedule your pickup.
+          Thank you for choosing CRUSA. We&apos;ll review your request and contact you within 24 hours to schedule your pickup.
         </p>
         <div className="bg-gray-50 rounded-lg p-6 mb-6">
           <h3 className="font-semibold text-gray-900 mb-2">What happens next?</h3>
           <ul className="text-sm text-gray-600 space-y-1">
-            <li>✓ We'll call or email you within 24 hours</li>
+            <li>✓ We&apos;ll call or email you within 24 hours</li>
             <li>✓ Schedule a convenient pickup time</li>
             <li>✓ Provide you with a detailed quote</li>
             <li>✓ Answer any questions you may have</li>
