@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Computer Recyclers USA | R2 Certified IT Recycling Georgia Since 2004",
-  description: "Leading Georgia and Southeast's \"responsible\" electronics recycling industry for 20+ years. R2 v3, ISO certified facility in Suwanee, GA. Free IT equipment pickup, secure data destruction, and \"IT Asset Recovery\" throughout Georgia and Southeast States.",
+  description: "Leading Georgia and Southeast's responsible electronics recycling industry for 20+ years. R2 v3, ISO certified facility in Suwanee, GA. Free IT equipment pickup, secure data destruction, and IT Asset Recovery throughout Georgia and Southeast States.",
   keywords: "Computer Recyclers USA about, IT recycling Georgia Southeast history, R2 certified facility Suwanee GA, responsible electronic waste recycling company Atlanta, data destruction services Georgia, computer recycling company history, ISO certified electronics recycler, Georgia Southeast IT asset recovery company, Suwanee computer recycling facility, Atlanta area e-waste management",
   alternates: {
     canonical: "https://crusa-web.vercel.app/about",
   },
   openGraph: {
     title: "About Computer Recyclers USA | Georgia and Southeast's Premier IT Recycling Company",
-    description: "Trusted by Georgia and Southeast businesses for 20+ years. R2 v3 & ISO certified facility offering free IT equipment pickup, secure data destruction, and \"responsible\" electronics recycling.",
+    description: "Trusted by Georgia and Southeast businesses for 20+ years. R2 v3 & ISO certified facility offering free IT equipment pickup, secure data destruction, and responsible electronics recycling.",
     url: "https://crusa-web.vercel.app/about",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "About Computer Recyclers USA | R2 Certified IT Recycling Georgia and Southeast",
-    description: "20+ years serving Georgia and Southeast businesses with secure data destruction and \"responsible\" electronics recycling. Located in Suwanee, GA.",
+    description: "20+ years serving Georgia and Southeast businesses with secure data destruction and responsible electronics recycling. Located in Suwanee, GA.",
     images: ["https://crusa-web.vercel.app/logo.png"],
   },
   robots: {
@@ -81,7 +81,7 @@ export default function About() {
               "alternateName": "CRUSA",
               "url": "https://crusa-web.vercel.app",
               "logo": "https://crusa-web.vercel.app/logo.png",
-              "description": "Georgia and Southeast's premier R2 v3 certified \"responsible\" electronics recycling and data destruction company, serving businesses throughout the region since 2004.",
+              "description": "Georgia and Southeast's premier R2 v3 certified responsible electronics recycling and data destruction company, serving businesses throughout the region since 2004.",
               "foundingDate": "2004",
               "foundingLocation": {
                 "@type": "Place",
@@ -156,9 +156,9 @@ export default function About() {
                   "description": "Occupational health and safety management certification"
                 }
               ],
-              "slogan": "Your Safe and Secure Solution for \"Responsible\" Electronics Recycling in Georgia and Southeast States",
+              "slogan": "Your Safe and Secure Solution for Responsible Electronics Recycling in Georgia and Southeast States",
               "knowsAbout": [
-                "\"Responsible\" electronic waste recycling",
+                "Responsible electronic waste recycling",
                 "Data destruction services",
                 "IT Asset Recovery",
                 "Computer recycling",

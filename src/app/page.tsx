@@ -23,11 +23,11 @@ export default function Home() {
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Secure Data Destruction &
-              <span className="text-primary-green"> "Responsible" Electronics Recycling</span>
+              <span className="text-primary-green"> &quot;Responsible&quot; Electronics Recycling</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Professional data destruction, "responsible" electronics recycling, and "IT Asset Recovery" services for businesses across Georgia and Southeast States
+                Professional data destruction, &quot;responsible&quot; electronics recycling, and &quot;IT Asset Recovery&quot; services for businesses across Georgia and Southeast States
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -90,7 +90,7 @@ export default function Home() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Professional onsite data destruction, free equipment pickup,
-              and "responsible" recycling services
+              and &quot;responsible&quot; recycling services
             </p>
           </div>
 
@@ -163,10 +163,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                "Responsible" Electronics Recycling
+                &quot;Responsible&quot; Electronics Recycling
               </h3>
               <p className="text-gray-600 mb-6">
-                Environmentally "responsible" recycling of electronic equipment
+                Environmentally &quot;responsible&quot; recycling of electronic equipment
                 following industry best practices and regulations.
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
                 Serving Georgia and Southeast businesses with reliable data destruction,
-                "responsible" electronics recycling, and "IT Asset Recovery" services
+                &quot;responsible&quot; electronics recycling, and &quot;IT Asset Recovery&quot; services
                 you can trust.
               </p>
 
@@ -321,7 +321,7 @@ export default function Home() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
-              destruction, equipment pickup, and "responsible" recycling needs.
+              destruction, equipment pickup, and &quot;responsible&quot; recycling needs.
             </p>
           </div>
 
