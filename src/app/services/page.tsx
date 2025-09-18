@@ -682,32 +682,45 @@ export default function Services() {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
+          className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm transition-all duration-200 ease-out"
           style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
-          <div
-            className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto transition-all duration-200 ease-out transform"
-            style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
-          >
-            <button
-              onClick={() => setShowPickupForm(false)}
-              className="absolute top-4 right-4 z-10 bg-gray-900 bg-opacity-80 text-white rounded-full p-2 shadow-lg hover:bg-opacity-100 transition-all duration-200"
+          {/* Mobile: Full screen, Desktop: Centered */}
+          <div className="h-full w-full flex items-center justify-center p-0 sm:p-4">
+            <div
+              className="relative w-full h-full sm:max-w-4xl sm:max-h-[90vh] sm:rounded-2xl overflow-hidden bg-white shadow-2xl transition-all duration-200 ease-out transform"
+              style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <PickupForm />
+              {/* Close button with safe positioning */}
+              <div className="absolute top-0 right-0 z-20 p-4 sm:p-6">
+                <button
+                  onClick={() => setShowPickupForm(false)}
+                  className="bg-gray-900 bg-opacity-80 hover:bg-opacity-100 text-white rounded-full p-3 shadow-lg transition-all duration-200 backdrop-blur-sm"
+                  aria-label="Close form"
+                >
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              
+              {/* Form container with proper padding to avoid close button overlap */}
+              <div className="h-full overflow-y-auto">
+                <div className="pt-16 sm:pt-20 pb-4 sm:pb-8">
+                  <PickupForm />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}
