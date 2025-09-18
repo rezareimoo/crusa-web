@@ -95,7 +95,11 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const nameRegex = /^[a-zA-Z\s\-']{2,50}$/;
 const companyRegex = /^[a-zA-Z0-9\s\-'&.,()]{2,100}$/;
 
-export default function PickupForm() {
+interface PickupFormProps {
+  onClose?: () => void;
+}
+
+export default function PickupForm({ onClose }: PickupFormProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
@@ -257,17 +261,53 @@ export default function PickupForm() {
   };
 
   const renderProgressBar = () => (
-    <div className="mb-8 px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
-          {currentStep === 1 && "Choose Your Services"}
-          {currentStep === 2 && "Contact Information"}  
-          {currentStep === 3 && "Additional Details"}
-        </h2>
+    <div className="mb-8 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+      {/* Header with close button */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex-1">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+            {currentStep === 1 && "Choose Your Services"}
+            {currentStep === 2 && "Contact Information"}  
+            {currentStep === 3 && "Additional Details"}
+          </h2>
+        </div>
+        
+        <div className="flex items-center space-x-4">
+          <span className="text-sm text-gray-500 hidden sm:block">
+            Step {currentStep} of {totalSteps}
+          </span>
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              aria-label="Close form"
+            >
+              <svg
+                className="w-5 h-5 text-gray-400 hover:text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile step indicator */}
+      <div className="flex items-center justify-between mb-4 sm:hidden">
         <span className="text-sm text-gray-500">
           Step {currentStep} of {totalSteps}
         </span>
       </div>
+
+      {/* Progress bar */}
       <div className="flex space-x-2">
         {Array.from({ length: totalSteps }).map((_, index) => (
           <div
@@ -563,32 +603,64 @@ export default function PickupForm() {
 
   if (submitStatus === "success") {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 sm:px-6 lg:px-8 text-center">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-          <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
+      <div className="min-h-[60vh]">
+        {/* Header with close button for success state */}
+        <div className="px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 mb-8">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900">
+              Request Submitted!
+            </h2>
+            {onClose && (
+              <button
+                onClick={onClose}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                aria-label="Close form"
+              >
+                <svg
+                  className="w-5 h-5 text-gray-400 hover:text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
-          Request Submitted Successfully!
-        </h2>
-        <p className="text-gray-600 text-lg mb-6 max-w-lg">
-          Thank you for choosing CRUSA. We&apos;ll review your request and contact you within 24 hours to schedule your pickup.
-        </p>
-        <div className="bg-gray-50 rounded-lg p-6 mb-6">
-          <h3 className="font-semibold text-gray-900 mb-2">What happens next?</h3>
-          <ul className="text-sm text-gray-600 space-y-1">
-            <li>✓ We&apos;ll call or email you within 24 hours</li>
-            <li>✓ Schedule a convenient pickup time</li>
-            <li>✓ Provide you with a detailed quote</li>
-            <li>✓ Answer any questions you may have</li>
-          </ul>
-        </div>
-        <div className="text-sm text-gray-500">
-          Need immediate assistance? Call us at{' '}
-          <a href="tel:770-840-0805" className="text-primary-green font-semibold">
-            770-840-0805
-          </a>
+
+        <div className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center">
+          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+            <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            </svg>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+            Request Submitted Successfully!
+          </h3>
+          <p className="text-gray-600 text-lg mb-6 max-w-lg">
+            Thank you for choosing CRUSA. We&apos;ll review your request and contact you within 24 hours to schedule your pickup.
+          </p>
+          <div className="bg-gray-50 rounded-lg p-6 mb-6">
+            <h4 className="font-semibold text-gray-900 mb-2">What happens next?</h4>
+            <ul className="text-sm text-gray-600 space-y-1">
+              <li>✓ We&apos;ll call or email you within 24 hours</li>
+              <li>✓ Schedule a convenient pickup time</li>
+              <li>✓ Provide you with a detailed quote</li>
+              <li>✓ Answer any questions you may have</li>
+            </ul>
+          </div>
+          <div className="text-sm text-gray-500">
+            Need immediate assistance? Call us at{' '}
+            <a href="tel:770-840-0805" className="text-primary-green font-semibold">
+              770-840-0805
+            </a>
+          </div>
         </div>
       </div>
     );

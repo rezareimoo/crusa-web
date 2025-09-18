@@ -691,33 +691,10 @@ export default function Services() {
               className="relative w-full h-full sm:max-w-4xl sm:max-h-[90vh] sm:rounded-2xl overflow-hidden bg-white shadow-2xl transition-all duration-200 ease-out transform"
               style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
             >
-              {/* Close button with safe positioning */}
-              <div className="absolute top-0 right-0 z-20 p-4 sm:p-6">
-                <button
-                  onClick={() => setShowPickupForm(false)}
-                  className="bg-gray-900 bg-opacity-80 hover:bg-opacity-100 text-white rounded-full p-3 shadow-lg transition-all duration-200 backdrop-blur-sm"
-                  aria-label="Close form"
-                >
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
-              
-              {/* Form container with proper padding to avoid close button overlap */}
+              {/* Form container with integrated header */}
               <div className="h-full overflow-y-auto">
-                <div className="pt-16 sm:pt-20 pb-4 sm:pb-8">
-                  <PickupForm />
+                <div className="pb-4 sm:pb-8">
+                  <PickupForm onClose={() => setShowPickupForm(false)} />
                 </div>
               </div>
             </div>
