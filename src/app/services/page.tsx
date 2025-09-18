@@ -436,11 +436,11 @@ export default function Services() {
               <div className="order-1 lg:order-2">
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
                   <Image
-                    src="/favisvg.svg"
+                    src="/upscale-c-2.svg"
                     alt="Responsible recycling facility and processes"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-contain object-center transform scale-150 sm:scale-125 md:scale-110 lg:scale-100"
+                    width={1200}
+                    height={1200}
+                    className="w-full h-full object-contain object-center transform scale-200 sm:scale-175 md:scale-200 lg:scale-175 xl:scale-150"
                   />
                 </div>
               </div>
