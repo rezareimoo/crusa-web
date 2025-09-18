@@ -74,8 +74,8 @@ export default function Home() {
                 <div className="opacity-90 text-xs">Devices Processed</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">100+</div>
-                <div className="opacity-90 text-xs">Corporate Clients</div>
+                <div className="font-bold text-lg sm:text-xl">700+</div>
+                <div className="opacity-90 text-xs">Businesses Served</div>
               </div>
             </div>
           </div>

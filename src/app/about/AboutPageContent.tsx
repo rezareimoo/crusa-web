@@ -100,7 +100,7 @@ export default function AboutPageContent() {
                     <div className="text-sm opacity-90">Devices Processed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">500+</div>
+                    <div className="text-4xl font-bold mb-2">700+</div>
                     <div className="text-sm opacity-90">Businesses Served</div>
                   </div>
                   <div className="text-center">
