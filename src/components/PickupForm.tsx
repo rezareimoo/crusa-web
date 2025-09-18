@@ -12,8 +12,6 @@ interface FormData {
   services: string[];
   equipmentTypes: string[];
   estimatedQuantity: string;
-  preferredPickupDate: string;
-  urgency: string;
 }
 
 interface FormErrors {
@@ -26,17 +24,14 @@ interface FormErrors {
   services?: string;
   equipmentTypes?: string;
   estimatedQuantity?: string;
-  preferredPickupDate?: string;
-  urgency?: string;
 }
 
 const serviceOptions = [
   {
     value: "data-destruction",
     title: "Secure Data Destruction",
-    description: "Complete physical destruction of hard drives and storage media",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
@@ -45,9 +40,8 @@ const serviceOptions = [
   {
     value: "equipment-pickup",
     title: "Free IT Equipment Pickup",
-    description: "Statewide collection of computers, servers, and electronics",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
       </svg>
     ),
@@ -56,9 +50,8 @@ const serviceOptions = [
   {
     value: "responsible-recycling",
     title: "Responsible Recycling",
-    description: "R2v3 certified environmentally responsible processing",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
       </svg>
     ),
@@ -67,9 +60,8 @@ const serviceOptions = [
   {
     value: "equipment-leasing",
     title: "IT Equipment Leasing",
-    description: "Flexible leasing programs for modern technology",
     icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
       </svg>
     ),
@@ -97,12 +89,6 @@ const quantityOptions = [
   { value: "unsure", label: "Not sure yet" }
 ];
 
-const urgencyOptions = [
-  { value: "standard", label: "Standard (within 2 weeks)", description: "Most popular choice" },
-  { value: "priority", label: "Priority (within 1 week)", description: "Faster service" },
-  { value: "urgent", label: "Urgent (within 2-3 days)", description: "Premium service" }
-];
-
 // Validation patterns
 const phoneRegex = /^[\+]?[1-9][\d]{0,15}$|^[\+]?[(]?[\d\s\-\(\)]{10,}$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -120,9 +106,7 @@ export default function PickupForm() {
     message: "",
     services: [],
     equipmentTypes: [],
-    estimatedQuantity: "",
-    preferredPickupDate: "",
-    urgency: "standard"
+    estimatedQuantity: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -259,9 +243,7 @@ export default function PickupForm() {
           message: "",
           services: [],
           equipmentTypes: [],
-          estimatedQuantity: "",
-          preferredPickupDate: "",
-          urgency: "standard"
+          estimatedQuantity: ""
         });
       } else {
         setSubmitStatus("error");
@@ -315,11 +297,11 @@ export default function PickupForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8">
+      <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6">
         {serviceOptions.map((option) => (
           <div
             key={option.value}
-            className={`relative p-6 border-2 rounded-xl cursor-pointer transition-all duration-200 hover:shadow-lg ${
+            className={`relative p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md ${
               formData.services.includes(option.value)
                 ? "border-primary-green bg-primary-green bg-opacity-5 shadow-md"
                 : "border-gray-200 hover:border-gray-300"
@@ -327,14 +309,14 @@ export default function PickupForm() {
             onClick={() => handleServiceToggle(option.value)}
           >
             {option.popular && (
-              <div className="absolute -top-3 left-6">
-                <span className="bg-primary-green text-white text-xs font-bold px-3 py-1 rounded-full">
-                  MOST POPULAR
+              <div className="absolute -top-2 left-4">
+                <span className="bg-primary-green text-white text-xs font-semibold px-2 py-1 rounded-full">
+                  POPULAR
                 </span>
               </div>
             )}
-            <div className="flex items-start space-x-4">
-              <div className={`p-3 rounded-lg ${
+            <div className="flex items-center space-x-3">
+              <div className={`p-2 rounded-lg ${
                 formData.services.includes(option.value)
                   ? "bg-primary-green text-white"
                   : "bg-gray-100 text-gray-600"
@@ -342,12 +324,9 @@ export default function PickupForm() {
                 {option.icon}
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                <h3 className="text-base font-semibold text-gray-900">
                   {option.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {option.description}
-                </p>
               </div>
               <div className={`w-5 h-5 border-2 rounded-full flex items-center justify-center ${
                 formData.services.includes(option.value)
@@ -562,47 +541,6 @@ export default function PickupForm() {
             )}
           </div>
         )}
-
-        {/* Urgency */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
-            Service Urgency
-          </label>
-          <div className="space-y-3">
-            {urgencyOptions.map((option) => (
-              <label key={option.value} className="flex items-start p-4 border rounded-lg cursor-pointer hover:bg-gray-50">
-                <input
-                  type="radio"
-                  name="urgency"
-                  value={option.value}
-                  checked={formData.urgency === option.value}
-                  onChange={handleInputChange}
-                  className="w-4 h-4 text-primary-green border-gray-300 focus:ring-primary-green mt-1"
-                />
-                <div className="ml-3">
-                  <div className="text-sm font-medium text-gray-900">{option.label}</div>
-                  <div className="text-xs text-gray-500">{option.description}</div>
-                </div>
-              </label>
-            ))}
-          </div>
-        </div>
-
-        {/* Preferred Pickup Date */}
-        <div>
-          <label htmlFor="preferredPickupDate" className="block text-sm font-medium text-gray-700 mb-2">
-            Preferred Pickup Date (Optional)
-          </label>
-          <input
-            type="date"
-            id="preferredPickupDate"
-            name="preferredPickupDate"
-            value={formData.preferredPickupDate}
-            onChange={handleInputChange}
-            min={new Date().toISOString().split('T')[0]}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors"
-          />
-        </div>
 
         {/* Additional Message */}
         <div>

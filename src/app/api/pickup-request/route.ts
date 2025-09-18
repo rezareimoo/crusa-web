@@ -9,12 +9,15 @@ interface PickupRequestData {
   email: string;
   message: string;
   services: string[];
+  equipmentTypes?: string[];
+  estimatedQuantity?: string;
 }
 
 const serviceLabels: Record<string, string> = {
-  "it-equipment-pickup": "IT Equipment Pickup",
-  "data-destruction": "Data Destruction",
-  other: "Other",
+  "data-destruction": "Secure Data Destruction",
+  "equipment-pickup": "Free IT Equipment Pickup",
+  "responsible-recycling": "Responsible Recycling",
+  "equipment-leasing": "IT Equipment Leasing",
 };
 
 export async function POST(request: NextRequest) {
@@ -29,6 +32,8 @@ export async function POST(request: NextRequest) {
       email,
       message,
       services,
+      equipmentTypes,
+      estimatedQuantity,
     } = data;
 
     if (
@@ -61,6 +66,22 @@ export async function POST(request: NextRequest) {
 
     const emailSubject = `CRUSA WEBSITE INQUIRY: ${companyName}`;
 
+    const equipmentTypesText = equipmentTypes && equipmentTypes.length > 0 
+      ? equipmentTypes.join(", ") 
+      : "Not specified";
+
+    const quantityLabels: Record<string, string> = {
+      "1-10": "1-10 items",
+      "11-50": "11-50 items", 
+      "51-100": "51-100 items",
+      "100+": "100+ items",
+      "unsure": "Not sure yet"
+    };
+
+    const quantityText = estimatedQuantity 
+      ? quantityLabels[estimatedQuantity] || estimatedQuantity
+      : "Not specified";
+
     const emailBody = `
 New pickup request from CRUSA website:
 
@@ -75,7 +96,12 @@ SERVICES REQUESTED:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ${selectedServices}
 
-ADDITIONAL INFORMATION:
+${equipmentTypes && equipmentTypes.length > 0 ? `EQUIPMENT DETAILS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Equipment Types: ${equipmentTypesText}
+Estimated Quantity: ${quantityText}
+
+` : ""}ADDITIONAL INFORMATION:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ${message || "No additional information provided."}
 
