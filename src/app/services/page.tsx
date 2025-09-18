@@ -682,8 +682,8 @@ export default function Services() {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-50 backdrop-blur-sm transition-all duration-200 ease-out"
-          style={{ animation: "fadeIn 200ms ease-out forwards" }}
+          className="fixed inset-0 z-50 bg-black bg-opacity-75 backdrop-blur-md transition-all duration-300 ease-out"
+          style={{ animation: "fadeIn 300ms ease-out forwards" }}
         >
           {/* Mobile: Full screen, Desktop: Centered */}
           <div className="h-full w-full flex items-center justify-center p-0 sm:p-4">
