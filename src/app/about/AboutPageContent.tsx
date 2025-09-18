@@ -23,7 +23,7 @@ export default function AboutPageContent() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Georgia&apos;s Leading R2 Certified &quot;Responsible&quot; Electronics Recycling & Data
+                Georgia&apos;s Leading R2 Certified Responsible Electronics Recycling & Data
                 Destruction Company Since 2004
               </strong>
             </p>
@@ -53,7 +53,7 @@ export default function AboutPageContent() {
                     Founded in 2004 in Georgia, Computer Recyclers USA has built
                     an unmatched reputation as the Southeast&apos;s most trusted
                     partner for secure data destruction, &quot;IT Asset Recovery&quot;
-                    (ITAD), and &quot;responsible&quot; electronics recycling.
+                    (ITAD), and responsible electronics recycling.
                   </strong>
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
@@ -70,7 +70,7 @@ export default function AboutPageContent() {
                   understand the regional business landscape. This local
                   expertise, combined with our industry-leading R2 v3, ISO
                   14001, ISO 9001, and ISO 45001 certifications, makes Computer
-                  Recyclers USA the clear choice for secure &quot;responsible&quot; electronics
+                  Recyclers USA the clear choice for secure responsible electronics
                   recycling and data destruction services in Georgia and Southeast States.
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
@@ -124,7 +124,7 @@ export default function AboutPageContent() {
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our comprehensive certifications ensure Georgia and Southeast businesses receive
               the highest standards of data security, environmental
-              responsibility, and operational excellence in &quot;responsible&quot; electronics
+              responsibility, and operational excellence in responsible electronics
               recycling and &quot;IT Asset Recovery&quot;.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function AboutPageContent() {
                 R2 v3 Certified Facility
               </h3>
               <p className="text-gray-600">
-                The gold standard for &quot;responsible&quot; electronics recycling. Our R2
+                The gold standard for responsible electronics recycling. Our R2
                 v3 certification guarantees secure data destruction and
                 environmental compliance for all Georgia and Southeast businesses.
               </p>
@@ -201,7 +201,7 @@ export default function AboutPageContent() {
                 <strong>
                   Computer Recyclers USA empowers Georgia and Southeast businesses to
                   implement sustainable technology lifecycle management. Beyond
-                  &quot;responsible&quot; electronics recycling, we help regional
+                  responsible electronics recycling, we help regional
                   organizations develop comprehensive &quot;IT Asset Recovery&quot;
                   (ITAD) strategies that protect data and the environment.
                 </strong>
@@ -229,7 +229,7 @@ export default function AboutPageContent() {
                     <p className="text-gray-600">
                       Every electronic device we process at our Suwanee facility
                       follows strict environmental protocols. Our zero landfill
-                      policy ensures 100% of materials are &quot;responsibly&quot; recycled,
+                      policy ensures 100% of materials are responsibly recycled,
                       refurbished, or properly disposed of, protecting
                       the Southeast&apos;s environment for future generations.
                     </p>
@@ -285,7 +285,7 @@ export default function AboutPageContent() {
                     <p className="text-gray-600">
                       Our &quot;IT Asset Recovery&quot; programs and consulting services
                       help Georgia and Southeast businesses access sustainable
-                      technology solutions while planning for &quot;responsible&quot; end-of-life
+                      technology solutions while planning for responsible end-of-life
                       management. We make sustainable IT practices both
                       practical and profitable.
                     </p>
@@ -431,7 +431,7 @@ export default function AboutPageContent() {
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Located in Suwanee, Georgia, our R2 certified facility features
               state-of-the-art technology for secure data destruction and
-              &quot;responsible&quot; electronics recycling. Convenient access from I-85 and GA-316
+              responsible electronics recycling. Convenient access from I-85 and GA-316
               serves all of metro Atlanta and the Southeast region.
             </p>
           </div>
@@ -544,7 +544,7 @@ export default function AboutPageContent() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Join over 1,000 Georgia and Southeast businesses who trust Computer Recyclers
-              USA for secure data destruction, IT equipment pickup, &quot;responsible&quot; electronics
+              USA for secure data destruction, IT equipment pickup, responsible electronics
               recycling, and &quot;IT Asset Recovery&quot; services. Free pickup
               available throughout Georgia and Southeast States.
             </p>

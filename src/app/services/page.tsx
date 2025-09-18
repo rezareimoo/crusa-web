@@ -23,7 +23,7 @@ export default function Services() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Comprehensive data destruction and &quot;responsible&quot; electronics recycling
+                Comprehensive data destruction and responsible electronics recycling
                 solutions designed for Georgia and Southeast businesses of all sizes
               </strong>
             </p>
@@ -333,13 +333,13 @@ export default function Services() {
                     </svg>
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    &quot;Responsible&quot; Electronics Recycling
+                    Responsible Electronics Recycling
                   </h2>
                 </div>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
                     Our R2v3 certified facility ensures environmentally
-                    &quot;responsible&quot; recycling of all electronic equipment using
+                    responsible recycling of all electronic equipment using
                     industry-leading processes that minimize environmental
                     impact while maximizing material recovery.
                   </strong>
@@ -459,7 +459,7 @@ export default function Services() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
-              destruction, equipment pickup, and &quot;responsible&quot; recycling needs.
+              destruction, equipment pickup, and responsible recycling needs.
             </p>
           </div>
 

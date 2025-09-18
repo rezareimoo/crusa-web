@@ -23,11 +23,11 @@ export default function Home() {
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Secure Data Destruction &
-              <span className="text-primary-green"> &quot;Responsible&quot; Electronics Recycling</span>
+              <span className="text-primary-green"> Responsible Electronics Recycling</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Professional data destruction, &quot;responsible&quot; electronics recycling, and &quot;IT Asset Recovery&quot; services for businesses across Georgia and Southeast States
+                Professional data destruction, responsible electronics recycling, and &quot;IT Asset Recovery&quot; services for businesses across Georgia and Southeast States
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -90,11 +90,11 @@ export default function Home() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Professional onsite data destruction, free equipment pickup,
-              and &quot;responsible&quot; recycling services
+              and responsible recycling services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
@@ -163,10 +163,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                &quot;Responsible&quot; Electronics Recycling
+                Responsible Electronics Recycling
               </h3>
               <p className="text-gray-600 mb-6">
-                Environmentally &quot;responsible&quot; recycling of electronic equipment
+                Environmentally responsible recycling of electronic equipment
                 following industry best practices and regulations.
               </p>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
                 Serving Georgia and Southeast businesses with reliable data destruction,
-                &quot;responsible&quot; electronics recycling, and &quot;IT Asset Recovery&quot; services
+                responsible electronics recycling, and &quot;IT Asset Recovery&quot; services
                 you can trust.
               </p>
 
@@ -321,7 +321,7 @@ export default function Home() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
-              destruction, equipment pickup, and &quot;responsible&quot; recycling needs.
+              destruction, equipment pickup, and responsible recycling needs.
             </p>
           </div>
 
