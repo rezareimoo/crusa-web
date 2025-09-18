@@ -23,8 +23,8 @@ export default function AboutPageContent() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Georgia&apos;s Leading R2 Certified Electronics Recycling & Data
-                Destruction Company Since 2004
+                Georgia&apos;s Leading R2 Certified Responsible Electronics
+                Recycling & Data Destruction Company Since 2004
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -52,33 +52,34 @@ export default function AboutPageContent() {
                   <strong>
                     Founded in 2004 in Georgia, Computer Recyclers USA has built
                     an unmatched reputation as the Southeast&apos;s most trusted
-                    partner for secure data destruction, IT asset disposition
+                    partner for secure data destruction, IT Asset Recovery
                     (ITAD), and responsible electronics recycling.
                   </strong>
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
                   What began as a local Suwanee, Georgia initiative to address
                   the growing need for secure IT equipment disposal has evolved
-                  into Georgia&apos;s premier R2 v3 certified recycling
-                  facility. We serve businesses of all sizes - from Atlanta
-                  startups to Fortune 500 companies - across the entire state of
-                  Georgia.
+                  into Georgia and the Southeast&apos;s premier R2 v3 certified
+                  recycling facility. We serve businesses of all sizes - from
+                  Atlanta startups to Fortune 500 companies - across Georgia and
+                  Southeast States.
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
                   Our deep Georgia roots give us unique insight into local
                   business needs. Whether you&apos;re in Atlanta, Savannah,
-                  Augusta, Columbus, Macon, or anywhere in between, we
-                  understand Georgia&apos;s business landscape. This local
+                  Augusta, Columbus, Macon, or anywhere in the Southeast, we
+                  understand the regional business landscape. This local
                   expertise, combined with our industry-leading R2 v3, ISO
                   14001, ISO 9001, and ISO 45001 certifications, makes Computer
-                  Recyclers USA the clear choice for secure electronics
-                  recycling and data destruction services in Georgia.
+                  Recyclers USA the clear choice for secure responsible
+                  electronics recycling and data destruction services in Georgia
+                  and Southeast States.
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
                   Our Suwanee facility, conveniently located at 3644 Burnette
                   Road (near I-85 and GA-316), serves as the hub for our
-                  statewide operations, offering free IT equipment pickup
-                  services throughout Georgia.
+                  regional operations, offering free IT equipment pickup
+                  services throughout Georgia and Southeast States.
                 </p>
               </div>
             </div>
@@ -91,16 +92,16 @@ export default function AboutPageContent() {
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2">20+</div>
                     <div className="text-sm opacity-90">
-                      Years Serving Georgia
+                      Years Serving Georgia and Southeast
                     </div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2">5M+</div>
-                    <div className="text-sm opacity-90">Devices Recycled</div>
+                    <div className="text-sm opacity-90">Devices Processed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-4xl font-bold mb-2">500+</div>
-                    <div className="text-sm opacity-90">Georgia Businesses</div>
+                    <div className="text-4xl font-bold mb-2">700+</div>
+                    <div className="text-sm opacity-90">Businesses Served</div>
                   </div>
                   <div className="text-center">
                     <div className="text-4xl font-bold mb-2">100%</div>
@@ -120,13 +121,14 @@ export default function AboutPageContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Industry-Leading Certifications for Georgia Businesses
+              Industry-Leading Certifications for Georgia and Southeast
+              Businesses
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              Our comprehensive certifications ensure Georgia businesses receive
-              the highest standards of data security, environmental
-              responsibility, and operational excellence in electronics
-              recycling and IT asset disposition.
+              Our comprehensive certifications ensure Georgia and Southeast
+              businesses receive the highest standards of data security,
+              environmental responsibility, and operational excellence in
+              responsible electronics recycling andIT Asset Recovery.
             </p>
           </div>
 
@@ -141,7 +143,8 @@ export default function AboutPageContent() {
               <p className="text-gray-600">
                 The gold standard for responsible electronics recycling. Our R2
                 v3 certification guarantees secure data destruction and
-                environmental compliance for all Georgia businesses.
+                environmental compliance for all Georgia and Southeast
+                businesses.
               </p>
             </div>
 
@@ -155,7 +158,7 @@ export default function AboutPageContent() {
               <p className="text-gray-600">
                 Environmental management certification demonstrating our
                 commitment to sustainable e-waste recycling practices throughout
-                Georgia&apos;s communities.
+                Georgia and Southeast communities.
               </p>
             </div>
 
@@ -168,8 +171,8 @@ export default function AboutPageContent() {
               </h3>
               <p className="text-gray-600">
                 Quality management certification ensuring consistent, reliable
-                IT equipment recycling and data destruction services for Atlanta
-                and Georgia businesses.
+                IT equipment recycling and data destruction services for Georgia
+                and Southeast businesses.
               </p>
             </div>
 
@@ -196,14 +199,15 @@ export default function AboutPageContent() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-slide-up">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
-                Empowering Georgia&apos;s Sustainable Technology Practices
+                Empowering Georgia and Southeast&apos;s Sustainable Technology
+                Practices
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 <strong>
-                  Computer Recyclers USA empowers Georgia businesses to
-                  implement sustainable technology lifecycle management. Beyond
-                  electronics recycling, we help Atlanta and Georgia
-                  organizations develop comprehensive IT asset disposition
+                  Computer Recyclers USA empowers Georgia and Southeast
+                  businesses to implement sustainable technology lifecycle
+                  management. Beyond responsible electronics recycling, we help
+                  regional organizations develop comprehensive IT Asset Recovery
                   (ITAD) strategies that protect data and the environment.
                 </strong>
               </p>
@@ -231,8 +235,8 @@ export default function AboutPageContent() {
                       Every electronic device we process at our Suwanee facility
                       follows strict environmental protocols. Our zero landfill
                       policy ensures 100% of materials are responsibly recycled,
-                      refurbished, or properly disposed of, protecting
-                      Georgia&apos;s environment for future generations.
+                      refurbished, or properly disposed of, protecting the
+                      Southeast&apos;s environment for future generations.
                     </p>
                   </div>
                 </div>
@@ -256,11 +260,12 @@ export default function AboutPageContent() {
                       Corporate Data Security & Compliance
                     </h3>
                     <p className="text-gray-600">
-                      We help Georgia businesses meet corporate sustainability
-                      goals while maintaining the highest data security
-                      standards. Our certified data destruction services ensure
-                      compliance with HIPAA, FACTA, SOX, and other regulatory
-                      requirements critical to Georgia businesses.
+                      We help Georgia and Southeast businesses meet corporate
+                      sustainability goals while maintaining the highest data
+                      security standards. Our certified data destruction
+                      services ensure compliance with HIPAA, FACTA, SOX, and
+                      other regulatory requirements critical to regional
+                      businesses.
                     </p>
                   </div>
                 </div>
@@ -284,11 +289,11 @@ export default function AboutPageContent() {
                       Innovative IT Solutions for Georgia
                     </h3>
                     <p className="text-gray-600">
-                      Our IT equipment leasing programs and consulting services
-                      help Atlanta and Georgia businesses access the latest
-                      technology while planning for responsible end-of-life
-                      management. We make sustainable IT practices both
-                      practical and profitable.
+                      Our IT Asset Recovery programs and consulting services
+                      help Georgia and Southeast businesses access sustainable
+                      technology solutions while planning for responsible
+                      end-of-life management. We make sustainable IT practices
+                      both practical and profitable.
                     </p>
                   </div>
                 </div>
@@ -320,15 +325,16 @@ export default function AboutPageContent() {
 
             <div className="animate-slide-up order-1 lg:order-2">
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 sm:mb-8">
-                Georgia&apos;s Fastest IT Equipment Pickup & Data Destruction
+                Georgia and Southeast&apos;s Fastest IT Equipment Pickup & Data
+                Destruction
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">
                 <strong>
                   Computer Recyclers USA prides itself on rapid response times
-                  throughout Georgia. When Atlanta businesses need urgent data
-                  destruction or IT equipment removal, we deliver fast, secure
-                  solutions without compromising quality or compliance
-                  standards.
+                  throughout Georgia and Southeast States. When regional
+                  businesses need urgent data destruction or IT equipment
+                  removal, we deliver fast, secure solutions without
+                  compromising quality or compliance standards.
                 </strong>
               </p>
 
@@ -381,10 +387,10 @@ export default function AboutPageContent() {
                     </h3>
                     <p className="text-gray-600">
                       Our logistics network enables rapid IT equipment pickup
-                      and mobile data destruction services across all of
-                      Georgia. From Savannah to Columbus, Augusta to Macon, we
-                      guarantee pickup within 24-48 hours for scheduled
-                      services.
+                      and mobile data destruction services across Georgia and
+                      Southeast States. From Savannah to Columbus, Augusta to
+                      Macon, we guarantee pickup within 24-48 hours for
+                      scheduled services.
                     </p>
                   </div>
                 </div>
@@ -411,8 +417,8 @@ export default function AboutPageContent() {
                       Certificates of data destruction and recycling compliance
                       documentation are provided immediately upon completion.
                       Digital copies are available within minutes via our secure
-                      portal, ensuring Georgia businesses maintain complete
-                      audit trails.
+                      portal, ensuring Georgia and Southeast businesses maintain
+                      complete audit trails.
                     </p>
                   </div>
                 </div>
@@ -432,8 +438,8 @@ export default function AboutPageContent() {
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Located in Suwanee, Georgia, our R2 certified facility features
               state-of-the-art technology for secure data destruction and
-              electronics recycling. Convenient access from I-85 and GA-316
-              serves all of metro Atlanta and North Georgia.
+              responsible electronics recycling. Convenient access from I-85 and
+              GA-316 serves all of metro Atlanta and the Southeast region.
             </p>
           </div>
 
@@ -475,9 +481,9 @@ export default function AboutPageContent() {
                   </address>
                   <p className="text-gray-600">
                     Strategically located in Gwinnett County to serve businesses
-                    throughout metro Atlanta and North Georgia. Easy access from
-                    I-85, I-985, and GA-316. Just 30 minutes from downtown
-                    Atlanta, serving Alpharetta, Duluth, Johns Creek,
+                    throughout metro Atlanta and the Southeast region. Easy
+                    access from I-85, I-985, and GA-316. Just 30 minutes from
+                    downtown Atlanta, serving Alpharetta, Duluth, Johns Creek,
                     Lawrenceville, and surrounding communities.
                   </p>
                 </div>
@@ -512,7 +518,7 @@ export default function AboutPageContent() {
                     Speak directly with our Georgia-based team of certified
                     electronics recycling experts. Available Monday through
                     Friday, 8AM to 5PM EST. Emergency data destruction services
-                    available 24/7 throughout Georgia.
+                    available throughout Georgia and Southeast States.
                   </p>
                 </div>
               </div>
@@ -541,13 +547,15 @@ export default function AboutPageContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Ready to Partner with Georgia&apos;s Leading IT Recycler?
+              Ready to Partner with Georgia and Southeast&apos;s Leading IT
+              Recycler?
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-              Join over 1,000 Georgia businesses who trust Computer Recyclers
-              USA for secure data destruction, IT equipment pickup, electronics
-              recycling, and IT asset disposition services. Free pickup
-              available throughout Georgia.
+              Join over 1,000 Georgia and Southeast businesses who trust
+              Computer Recyclers USA for secure data destruction, IT equipment
+              pickup, responsible electronics recycling, and IT Asset Recovery
+              services. Free pickup available throughout Georgia and Southeast
+              States.
             </p>
           </div>
 
@@ -602,7 +610,7 @@ export default function AboutPageContent() {
                   info@crusallc.com
                 </a>
               </p>
-              <p className="text-sm text-gray-400">24/7 Response Time</p>
+              <p className="text-sm text-gray-400">Response within 24 hours</p>
             </div>
 
             <div className="text-center">

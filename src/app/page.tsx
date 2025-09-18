@@ -23,12 +23,16 @@ export default function Home() {
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Secure Data Destruction &
-              <span className="text-primary-green"> Electronic Recycling</span>
+              <span className="text-primary-green">
+                {" "}
+                Responsible Electronics Recycling
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Professional data destruction, electronics recycling, and IT
-                equipment services for businesses across Georgia
+                Professional data destruction, responsible electronics
+                recycling, and IT Asset Recovery services for businesses across
+                Georgia and Southeast States
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -66,16 +70,12 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">10,000+</div>
+                <div className="font-bold text-lg sm:text-xl">5M+</div>
                 <div className="opacity-90 text-xs">Devices Processed</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">500+</div>
-                <div className="opacity-90 text-xs">Corporate Clients</div>
-              </div>
-              <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">24/7</div>
-                <div className="opacity-90 text-xs">Support</div>
+                <div className="font-bold text-lg sm:text-xl">700+</div>
+                <div className="opacity-90 text-xs">Businesses Served</div>
               </div>
             </div>
           </div>
@@ -90,12 +90,12 @@ export default function Home() {
               Our Services
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              Professional onsite data destruction, free equipment pickup,
-              responsible recycling, and IT equipment leasing services
+              Professional onsite data destruction, free equipment pickup, and
+              responsible recycling services
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
@@ -164,36 +164,11 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Responsible Recycling
+                Responsible Electronics Recycling
               </h3>
               <p className="text-gray-600 mb-6">
                 Environmentally responsible recycling of electronic equipment
                 following industry best practices and regulations.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
-              <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                IT Equipment Leasing
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Flexible IT equipment leasing solutions to help your business
-                access the technology it needs when it needs it.
               </p>
             </div>
           </div>
@@ -209,9 +184,9 @@ export default function Home() {
                 Why Choose Computer Recyclers USA?
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
-                Serving Georgia businesses with reliable data destruction,
-                electronics recycling, equipment pickup, and IT leasing services
-                you can trust.
+                Serving Georgia and Southeast businesses with reliable data
+                destruction, responsible electronics recycling, and &quot;IT
+                Asset Recovery&quot; services you can trust.
               </p>
 
               <div className="space-y-6">
@@ -284,7 +259,7 @@ export default function Home() {
                       Enterprise Support
                     </h3>
                     <p className="text-gray-600">
-                      Dedicated account managers and 24/7 support for
+                      Dedicated account managers and enterprise support for
                       large-scale corporate clients.
                     </p>
                   </div>
@@ -346,7 +321,7 @@ export default function Home() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
-              destruction, equipment pickup, recycling, and leasing needs.
+              destruction, equipment pickup, and responsible recycling needs.
             </p>
           </div>
 
@@ -390,7 +365,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
               <p className="text-gray-300 mb-2">info@crusallc.com</p>
-              <p className="text-sm text-gray-400">24/7 Response</p>
+              <p className="text-sm text-gray-400">Response within 24 hours</p>
             </div>
 
             <div className="text-center">
