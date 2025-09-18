@@ -23,8 +23,8 @@ export default function Services() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Comprehensive data destruction and electronics recycling
-                solutions designed for Georgia businesses of all sizes
+                Comprehensive data destruction and "responsible" electronics recycling
+                solutions designed for Georgia and Southeast businesses of all sizes
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -216,8 +216,8 @@ export default function Services() {
                 </div>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
-                    We provide complimentary pickup services throughout the
-                    state of Georgia for all types of IT equipment, regardless
+                    We provide complimentary pickup services throughout
+                    Georgia and Southeast States for all types of IT equipment, regardless
                     of age, condition, or quantity. Our professional team
                     handles the logistics so you can focus on your business.
                   </strong>
@@ -244,7 +244,7 @@ export default function Services() {
                       </h3>
                       <p className="text-gray-600">
                         <strong>
-                          Serving all cities and counties across Georgia with
+                          Serving all cities and counties across Georgia and Southeast States with
                           reliable pickup scheduling that works around your
                           business hours and requirements.
                         </strong>
@@ -333,13 +333,13 @@ export default function Services() {
                     </svg>
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    Responsible Recycling
+                    "Responsible" Electronics Recycling
                   </h2>
                 </div>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
                     Our R2v3 certified facility ensures environmentally
-                    responsible recycling of all electronic equipment using
+                    "responsible" recycling of all electronic equipment using
                     industry-leading processes that minimize environmental
                     impact while maximizing material recovery.
                   </strong>
@@ -447,139 +447,6 @@ export default function Services() {
             </div>
           </div>
 
-          {/* Service 4: IT Equipment Leasing */}
-          <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
-                  <Image
-                    src="/van-nobg.png"
-                    alt="Professional van for IT equipment leasing and delivery"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover object-bottom"
-                  />
-                </div>
-              </div>
-
-              <div className="order-1 lg:order-2">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center mb-4 sm:mb-6">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary-green rounded-lg flex items-center justify-center mb-4 sm:mb-0 sm:mr-4 lg:mr-6 flex-shrink-0">
-                    <svg
-                      className="w-7 h-7 sm:w-8 sm:h-8 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                      />
-                    </svg>
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    IT Equipment Leasing
-                  </h2>
-                </div>
-                <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
-                  <strong>
-                    Access the latest technology without the capital expenditure
-                    through our flexible IT equipment leasing programs. Perfect
-                    for businesses looking to maintain modern systems while
-                    preserving cash flow.
-                  </strong>
-                </p>
-
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        Flexible Terms
-                      </h3>
-                      <p className="text-gray-600">
-                        <strong>
-                          Choose from 12, 24, 36, or 48-month lease terms with
-                          options to purchase, upgrade, or return equipment at
-                          lease end.
-                        </strong>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        Latest Technology
-                      </h3>
-                      <p className="text-gray-600">
-                        <strong>
-                          Access to current-generation computers, servers,
-                          networking equipment, and peripherals from leading
-                          manufacturers like Dell, HP, and Cisco.
-                        </strong>
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-6 h-6 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg
-                        className="w-3 h-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        Full Support
-                      </h3>
-                      <p className="text-gray-600">
-                        <strong>
-                          Comprehensive warranty coverage, technical support,
-                          and maintenance services included throughout the
-                          entire lease period.
-                        </strong>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -592,7 +459,7 @@ export default function Services() {
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Contact us today for a free consultation and quote for your data
-              destruction, equipment pickup, recycling, and leasing needs.
+              destruction, equipment pickup, and "responsible" recycling needs.
             </p>
           </div>
 
@@ -636,7 +503,7 @@ export default function Services() {
               </div>
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
               <p className="text-gray-300 mb-2">info@crusallc.com</p>
-              <p className="text-sm text-gray-400">24/7 Response</p>
+              <p className="text-sm text-gray-400">Response within 24 hours</p>
             </div>
 
             <div className="text-center">
