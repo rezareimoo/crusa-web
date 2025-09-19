@@ -300,10 +300,10 @@ export default function Home() {
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-xl font-bold text-primary-green">
-                        DOD
+                        NIST
                       </span>
                     </div>
-                    <div className="font-semibold">DoD 5220.22-M</div>
+                    <div className="font-semibold">NIST 800-88</div>
                   </div>
                 </div>
               </div>
