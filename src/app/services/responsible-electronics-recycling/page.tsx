@@ -55,7 +55,7 @@ export default function ResponsibleElectronicsRecycling() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto mb-6 sm:mb-8 px-2 text-gray-100">
               <strong>
-                Don't let your old electronics harm the environment! Choose R2 v3 certified 
+                Don&apos;t let your old electronics harm the environment! Choose R2 v3 certified 
                 recycling that protects our planet while recovering valuable materials.
               </strong>
             </p>
@@ -346,8 +346,8 @@ export default function ResponsibleElectronicsRecycling() {
               🌍 Take Action for Our Planet Today!
             </h2>
             <p className="text-xl mb-6 text-gray-100">
-              Don't let your old electronics become tomorrow's environmental problem. 
-              Choose responsible recycling with Computer Recyclers USA - Georgia's trusted R2 v3 certified partner.
+              Don&apos;t let your old electronics become tomorrow&apos;s environmental problem. 
+              Choose responsible recycling with Computer Recyclers USA - Georgia&apos;s trusted R2 v3 certified partner.
             </p>
             <div className="bg-white bg-opacity-20 rounded-xl p-4 mb-8 max-w-xl mx-auto">
               <p className="text-lg font-semibold text-yellow-300">

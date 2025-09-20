@@ -144,7 +144,7 @@ export default function FreeITEquipmentPickup() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Schedule Pickup</h3>
                 <p className="text-gray-100">
-                  We'll arrange a convenient pickup time that works with your schedule, 
+                  We&apos;ll arrange a convenient pickup time that works with your schedule, 
                   including evenings and weekends if needed.
                 </p>
               </div>

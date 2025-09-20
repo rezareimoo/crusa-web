@@ -1,5 +1,9 @@
-export default function StructuredData() {
-  const structuredData = {
+interface StructuredDataProps {
+  data?: Record<string, unknown>;
+}
+
+export default function StructuredData({ data }: StructuredDataProps) {
+  const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Computer Recyclers USA",
@@ -86,6 +90,8 @@ export default function StructuredData() {
       // "https://www.linkedin.com/company/computer-recyclers-usa"
     ],
   };
+
+  const structuredData = data || defaultStructuredData;
 
   return (
     <script
