@@ -76,7 +76,7 @@ export default function FreeITEquipmentPickup() {
       {/* Main Content */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Effortless IT Equipment Pickup Throughout Georgia
@@ -110,7 +110,7 @@ export default function FreeITEquipmentPickup() {
               </div>
             </div>
 
-            <div className="relative">
+            <div className="relative hidden md:block">
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/truck-nobg.png"
