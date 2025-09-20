@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
 import PickupForm from "@/components/PickupForm";
 
 interface HeaderProps {
@@ -17,9 +16,6 @@ export default function Header({ currentPage }: HeaderProps) {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [dropdownTimer, setDropdownTimer] = useState<NodeJS.Timeout | null>(null);
-  const compactButtonRef = useRef<HTMLButtonElement>(null);
-  const fullButtonRef = useRef<HTMLButtonElement>(null);
-  const [mounted, setMounted] = useState(false);
 
   // Improved hover functions with delays
   const handleDropdownEnter = () => {
@@ -45,105 +41,6 @@ export default function Header({ currentPage }: HeaderProps) {
     setServicesDropdownOpen(false);
   };
 
-  // Portalized dropdown component
-  const DropdownPortal = () => {
-    const [dropdownPosition, setDropdownPosition] = useState<{ top: number; left: number } | null>(null);
-    const [dropdownIsCompact, setDropdownIsCompact] = useState(false);
-
-    useEffect(() => {
-      if (!servicesDropdownOpen || !mounted) {
-        setDropdownPosition(null);
-        setDropdownIsCompact(false);
-        return;
-      }
-
-      const updatePosition = () => {
-        // Try to find the visible button - the one that's actually rendered and visible
-        let button = null;
-        let buttonIsScrolled = false;
-
-        // Check full nav button first (when at top)
-        if (fullButtonRef.current) {
-          const fullRect = fullButtonRef.current.getBoundingClientRect();
-          if (fullRect.width > 0 && fullRect.height > 0) {
-            button = fullButtonRef.current;
-            buttonIsScrolled = false;
-          }
-        }
-
-        // If full nav not visible, check compact nav
-        if (!button && compactButtonRef.current) {
-          const compactRect = compactButtonRef.current.getBoundingClientRect();
-          if (compactRect.width > 0 && compactRect.height > 0) {
-            button = compactButtonRef.current;
-            buttonIsScrolled = true;
-          }
-        }
-
-        if (button) {
-          const rect = button.getBoundingClientRect();
-          const scrollY = window.scrollY;
-          setDropdownPosition({
-            top: rect.bottom + scrollY + (buttonIsScrolled ? 4 : 8),
-            left: rect.left
-          });
-          setDropdownIsCompact(buttonIsScrolled);
-        }
-      };
-
-      // Use requestAnimationFrame to ensure DOM is ready and prevent flicker
-      requestAnimationFrame(() => {
-        updatePosition();
-      });
-
-      window.addEventListener('scroll', updatePosition, { passive: true });
-      window.addEventListener('resize', updatePosition);
-
-      return () => {
-        window.removeEventListener('scroll', updatePosition);
-        window.removeEventListener('resize', updatePosition);
-      };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [servicesDropdownOpen, isScrolled]);
-
-    // Don't render until we have position calculated
-    if (!mounted || !servicesDropdownOpen || !dropdownPosition) return null;
-    
-    return createPortal(
-      <div
-        className="fixed w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 transition-opacity duration-200 ease-out"
-        style={{
-          top: dropdownPosition.top,
-          left: dropdownPosition.left,
-          zIndex: 999999
-        }}
-        onMouseEnter={handleDropdownEnter}
-        onMouseLeave={handleDropdownLeave}
-      >
-        <Link
-          href="/services"
-          onClick={closeDropdown}
-          className={`block px-4 ${dropdownIsCompact ? 'py-2' : 'py-3'} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100`}
-        >
-          <div className="font-medium">All Services</div>
-          <div className={`text-gray-600 text-xs ${dropdownIsCompact ? '' : 'mt-1'}`}>View our complete service offerings</div>
-        </Link>
-        {services.map((service) => (
-          <Link
-            key={service.href}
-            href={service.href}
-            onClick={closeDropdown}
-            className={`block px-4 ${dropdownIsCompact ? 'py-2' : 'py-3'} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors`}
-          >
-            <div className="font-medium">{service.name}</div>
-            <div className={`text-gray-600 text-xs ${dropdownIsCompact ? '' : 'mt-1'}`}>{service.description}</div>
-          </Link>
-        ))}
-      </div>,
-      document.body
-    );
-  };
-
   const services = [
     {
       name: "Onsite Data Destruction",
@@ -163,10 +60,6 @@ export default function Header({ currentPage }: HeaderProps) {
   ];
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsScrolled(scrollTop > 100);
@@ -175,7 +68,7 @@ export default function Header({ currentPage }: HeaderProps) {
     const handleClickOutside = (event: MouseEvent) => {
       if (servicesDropdownOpen) {
         const target = event.target as Element;
-        if (!target.closest('.relative')) {
+        if (!target.closest('.services-dropdown-container')) {
           setServicesDropdownOpen(false);
         }
       }
@@ -204,7 +97,7 @@ export default function Header({ currentPage }: HeaderProps) {
   return (
     <>
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-[50] backdrop-blur-sm bg-white/95">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-[999990] backdrop-blur-sm bg-white/95">
         {/* First Row - Certifications or Navigation */}
         <div className="border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -310,12 +203,11 @@ export default function Header({ currentPage }: HeaderProps) {
                   HOME
                 </Link>
                 <div 
-                  className="relative"
+                  className="relative services-dropdown-container"
                   onMouseEnter={handleDropdownEnter}
                   onMouseLeave={handleDropdownLeave}
                 >
                   <button
-                    ref={compactButtonRef}
                     onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                     className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors flex items-center ${
                       currentPage === "services"
@@ -328,6 +220,35 @@ export default function Header({ currentPage }: HeaderProps) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
+                  
+                  {servicesDropdownOpen && (
+                    <div 
+                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+                      style={{ 
+                        zIndex: 9999999
+                      }}
+                    >
+                      <Link
+                        href="/services"
+                        onClick={closeDropdown}
+                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
+                      >
+                        <div className="font-medium">All Services</div>
+                        <div className="text-gray-600 text-xs">View our complete service offerings</div>
+                      </Link>
+                      {services.map((service) => (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          onClick={closeDropdown}
+                          className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        >
+                          <div className="font-medium">{service.name}</div>
+                          <div className="text-gray-600 text-xs">{service.description}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <Link
                   href="/about"
@@ -358,9 +279,12 @@ export default function Header({ currentPage }: HeaderProps) {
 
         {/* Second Row - Full Navigation (only visible when NOT scrolled) */}
         <div
-          className={`hidden lg:block transition-all duration-500 ease-out overflow-hidden ${
+          className={`hidden lg:block transition-all duration-500 ease-out ${
+            servicesDropdownOpen && !isScrolled ? 'overflow-visible' : 'overflow-hidden'
+          } ${
             isScrolled ? "max-h-0 opacity-0 py-0" : "max-h-20 opacity-100 py-4"
           }`}
+          style={{ zIndex: servicesDropdownOpen && !isScrolled ? 999998 : 1 }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center">
@@ -381,12 +305,11 @@ export default function Header({ currentPage }: HeaderProps) {
                   ></span>
                 </Link>
                 <div 
-                  className="relative"
+                  className="relative services-dropdown-container"
                   onMouseEnter={handleDropdownEnter}
                   onMouseLeave={handleDropdownLeave}
                 >
                   <button
-                    ref={fullButtonRef}
                     onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
                     className={`px-3 py-2 text-sm font-medium transition-colors relative group flex items-center ${
                       currentPage === "services"
@@ -404,6 +327,35 @@ export default function Header({ currentPage }: HeaderProps) {
                       }`}
                     ></span>
                   </button>
+                  
+                  {servicesDropdownOpen && (
+                    <div 
+                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+                      style={{ 
+                        zIndex: 9999999
+                      }}
+                    >
+                      <Link
+                        href="/services"
+                        onClick={closeDropdown}
+                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
+                      >
+                        <div className="font-medium">All Services</div>
+                        <div className="text-gray-600 text-xs mt-1">View our complete service offerings</div>
+                      </Link>
+                      {services.map((service) => (
+                        <Link
+                          key={service.href}
+                          href={service.href}
+                          onClick={closeDropdown}
+                          className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        >
+                          <div className="font-medium">{service.name}</div>
+                          <div className="text-gray-600 text-xs mt-1">{service.description}</div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <Link
                   href="/about"
@@ -442,7 +394,7 @@ export default function Header({ currentPage }: HeaderProps) {
       {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed top-0 left-0 right-0 z-[9999] bg-white border-b border-gray-200 shadow-lg"
+          className="lg:hidden fixed top-0 left-0 right-0 z-[999991] bg-white border-b border-gray-200 shadow-lg"
           style={{ marginTop: "88px" }}
         >
           <div className="px-4 pt-2 pb-3 space-y-1">
@@ -540,7 +492,7 @@ export default function Header({ currentPage }: HeaderProps) {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-[10000] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
+          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
           style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
           <div
@@ -569,9 +521,6 @@ export default function Header({ currentPage }: HeaderProps) {
           </div>
         </div>
       )}
-
-      {/* Portalized Dropdown */}
-      <DropdownPortal />
     </>
   );
 }
