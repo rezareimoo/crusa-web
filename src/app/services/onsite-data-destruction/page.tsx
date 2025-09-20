@@ -110,16 +110,14 @@ export default function OnsiteDataDestruction() {
             </div>
 
             <div className="relative hidden md:block">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/shredder-nobg.png"
-                  alt="Mobile shredding unit for onsite data destruction in Georgia"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+              <Image
+                src="/shredder-nobg.png"
+                alt="Mobile shredding unit for onsite data destruction in Georgia"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </div>
 

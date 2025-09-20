@@ -111,16 +111,14 @@ export default function FreeITEquipmentPickup() {
             </div>
 
             <div className="relative hidden md:block">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/truck-nobg.png"
-                  alt="Professional IT equipment pickup truck serving Atlanta area"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+              <Image
+                src="/truck-nobg.png"
+                alt="Professional IT equipment pickup truck serving Atlanta area"
+                width={600}
+                height={400}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </div>
 

@@ -109,16 +109,14 @@ export default function ResponsibleElectronicsRecycling() {
             </div>
 
             <div className="relative hidden md:block">
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/upscale-c-2.svg"
-                  alt="R2 certified electronics recycling facility in Suwanee GA"
-                  width={600}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
-                />
-              </div>
+              <Image
+                src="/upscale-c-2.svg"
+                alt="R2 certified electronics recycling facility in Suwanee GA"
+                width={600}
+                height={600}
+                className="w-full h-auto"
+                priority
+              />
             </div>
           </div>
 
