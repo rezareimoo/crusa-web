@@ -15,6 +15,31 @@ export default function Header({ currentPage }: HeaderProps) {
   const [showPickupForm, setShowPickupForm] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [dropdownTimer, setDropdownTimer] = useState<NodeJS.Timeout | null>(null);
+
+  // Improved hover functions with delays
+  const handleDropdownEnter = () => {
+    if (dropdownTimer) {
+      clearTimeout(dropdownTimer);
+      setDropdownTimer(null);
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    const timer = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 300); // 300ms delay before closing
+    setDropdownTimer(timer);
+  };
+
+  const closeDropdown = () => {
+    if (dropdownTimer) {
+      clearTimeout(dropdownTimer);
+      setDropdownTimer(null);
+    }
+    setServicesDropdownOpen(false);
+  };
 
   const services = [
     {
@@ -63,13 +88,16 @@ export default function Header({ currentPage }: HeaderProps) {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
+      if (dropdownTimer) {
+        clearTimeout(dropdownTimer);
+      }
     };
-  }, [servicesDropdownOpen]);
+  }, [servicesDropdownOpen, dropdownTimer]);
 
   return (
     <>
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-[100] backdrop-blur-sm bg-white/95">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-[50] backdrop-blur-sm bg-white/95">
         {/* First Row - Certifications or Navigation */}
         <div className="border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -174,11 +202,13 @@ export default function Header({ currentPage }: HeaderProps) {
                 >
                   HOME
                 </Link>
-                <div className="relative">
+                <div 
+                  className="relative"
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
+                >
                   <button
                     onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                    onMouseEnter={() => setServicesDropdownOpen(true)}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
                     className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors flex items-center ${
                       currentPage === "services"
                         ? "text-primary-green"
@@ -193,13 +223,16 @@ export default function Header({ currentPage }: HeaderProps) {
                   
                   {servicesDropdownOpen && (
                     <div 
-                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 z-[9999]"
-                      style={{ animation: "fadeIn 200ms ease-out forwards" }}
-                      onMouseEnter={() => setServicesDropdownOpen(true)}
-                      onMouseLeave={() => setServicesDropdownOpen(false)}
+                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+                      style={{ 
+                        animation: "fadeIn 200ms ease-out forwards",
+                        zIndex: 99999,
+                        position: 'absolute'
+                      }}
                     >
                       <Link
                         href="/services"
+                        onClick={closeDropdown}
                         className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
                       >
                         <div className="font-medium">All Services</div>
@@ -209,6 +242,7 @@ export default function Header({ currentPage }: HeaderProps) {
                         <Link
                           key={service.href}
                           href={service.href}
+                          onClick={closeDropdown}
                           className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
                         >
                           <div className="font-medium">{service.name}</div>
@@ -269,11 +303,13 @@ export default function Header({ currentPage }: HeaderProps) {
                     }`}
                   ></span>
                 </Link>
-                <div className="relative">
+                <div 
+                  className="relative"
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
+                >
                   <button
                     onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                    onMouseEnter={() => setServicesDropdownOpen(true)}
-                    onMouseLeave={() => setServicesDropdownOpen(false)}
                     className={`px-3 py-2 text-sm font-medium transition-colors relative group flex items-center ${
                       currentPage === "services"
                         ? "text-primary-green"
@@ -293,13 +329,16 @@ export default function Header({ currentPage }: HeaderProps) {
                   
                   {servicesDropdownOpen && (
                     <div 
-                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 z-[9999]"
-                      style={{ animation: "fadeIn 200ms ease-out forwards" }}
-                      onMouseEnter={() => setServicesDropdownOpen(true)}
-                      onMouseLeave={() => setServicesDropdownOpen(false)}
+                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+                      style={{ 
+                        animation: "fadeIn 200ms ease-out forwards",
+                        zIndex: 99999,
+                        position: 'absolute'
+                      }}
                     >
                       <Link
                         href="/services"
+                        onClick={closeDropdown}
                         className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
                       >
                         <div className="font-medium">All Services</div>
@@ -309,6 +348,7 @@ export default function Header({ currentPage }: HeaderProps) {
                         <Link
                           key={service.href}
                           href={service.href}
+                          onClick={closeDropdown}
                           className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
                         >
                           <div className="font-medium">{service.name}</div>

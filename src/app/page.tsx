@@ -20,7 +20,7 @@ export default function Home() {
         className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 sm:py-24 md:py-28 lg:py-32 overflow-hidden"
       >
         <ParticleBackground />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Secure Data Destruction &
