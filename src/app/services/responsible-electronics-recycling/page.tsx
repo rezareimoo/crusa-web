@@ -364,7 +364,7 @@ export default function ResponsibleElectronicsRecycling() {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-75 backdrop-blur-md transition-all duration-300 ease-out"
+          className="fixed inset-0 z-[10000] bg-black bg-opacity-75 backdrop-blur-md transition-all duration-300 ease-out"
           style={{ animation: "fadeIn 300ms ease-out forwards" }}
         >
           <div className="h-full w-full flex items-center justify-center p-0 sm:p-4">

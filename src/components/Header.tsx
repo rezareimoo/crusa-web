@@ -69,7 +69,7 @@ export default function Header({ currentPage }: HeaderProps) {
   return (
     <>
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-[100] backdrop-blur-sm bg-white/95">
         {/* First Row - Certifications or Navigation */}
         <div className="border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +193,7 @@ export default function Header({ currentPage }: HeaderProps) {
                   
                   {servicesDropdownOpen && (
                     <div 
-                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 z-50"
+                      className="absolute top-full left-0 mt-1 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 z-[9999]"
                       style={{ animation: "fadeIn 200ms ease-out forwards" }}
                       onMouseEnter={() => setServicesDropdownOpen(true)}
                       onMouseLeave={() => setServicesDropdownOpen(false)}
@@ -293,7 +293,7 @@ export default function Header({ currentPage }: HeaderProps) {
                   
                   {servicesDropdownOpen && (
                     <div 
-                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 z-50"
+                      className="absolute top-full left-0 mt-2 w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 z-[9999]"
                       style={{ animation: "fadeIn 200ms ease-out forwards" }}
                       onMouseEnter={() => setServicesDropdownOpen(true)}
                       onMouseLeave={() => setServicesDropdownOpen(false)}
@@ -355,7 +355,7 @@ export default function Header({ currentPage }: HeaderProps) {
       {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg"
+          className="lg:hidden fixed top-0 left-0 right-0 z-[9999] bg-white border-b border-gray-200 shadow-lg"
           style={{ marginTop: "88px" }}
         >
           <div className="px-4 pt-2 pb-3 space-y-1">
@@ -453,7 +453,7 @@ export default function Header({ currentPage }: HeaderProps) {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
+          className="fixed inset-0 z-[10000] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
           style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
           <div
