@@ -47,25 +47,55 @@ export default function Header({ currentPage }: HeaderProps) {
 
   // Portalized dropdown component
   const DropdownPortal = () => {
-    const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
+    const [dropdownPosition, setDropdownPosition] = useState<{ top: number; left: number } | null>(null);
+    const [dropdownIsCompact, setDropdownIsCompact] = useState(false);
 
     useEffect(() => {
-      if (!servicesDropdownOpen || !mounted) return;
+      if (!servicesDropdownOpen || !mounted) {
+        setDropdownPosition(null);
+        setDropdownIsCompact(false);
+        return;
+      }
 
       const updatePosition = () => {
-        const buttonRef = isScrolled ? compactButtonRef : fullButtonRef;
-        const button = buttonRef.current;
+        // Try to find the visible button - the one that's actually rendered and visible
+        let button = null;
+        let buttonIsScrolled = false;
+
+        // Check full nav button first (when at top)
+        if (fullButtonRef.current) {
+          const fullRect = fullButtonRef.current.getBoundingClientRect();
+          if (fullRect.width > 0 && fullRect.height > 0) {
+            button = fullButtonRef.current;
+            buttonIsScrolled = false;
+          }
+        }
+
+        // If full nav not visible, check compact nav
+        if (!button && compactButtonRef.current) {
+          const compactRect = compactButtonRef.current.getBoundingClientRect();
+          if (compactRect.width > 0 && compactRect.height > 0) {
+            button = compactButtonRef.current;
+            buttonIsScrolled = true;
+          }
+        }
+
         if (button) {
           const rect = button.getBoundingClientRect();
           const scrollY = window.scrollY;
           setDropdownPosition({
-            top: rect.bottom + scrollY + (isScrolled ? 4 : 8),
+            top: rect.bottom + scrollY + (buttonIsScrolled ? 4 : 8),
             left: rect.left
           });
+          setDropdownIsCompact(buttonIsScrolled);
         }
       };
 
-      updatePosition();
+      // Use requestAnimationFrame to ensure DOM is ready and prevent flicker
+      requestAnimationFrame(() => {
+        updatePosition();
+      });
+
       window.addEventListener('scroll', updatePosition, { passive: true });
       window.addEventListener('resize', updatePosition);
 
@@ -73,22 +103,19 @@ export default function Header({ currentPage }: HeaderProps) {
         window.removeEventListener('scroll', updatePosition);
         window.removeEventListener('resize', updatePosition);
       };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [servicesDropdownOpen, isScrolled]);
 
-    if (!mounted || !servicesDropdownOpen) return null;
-
-    const buttonRef = isScrolled ? compactButtonRef : fullButtonRef;
-    const button = buttonRef.current;
-    if (!button) return null;
+    // Don't render until we have position calculated
+    if (!mounted || !servicesDropdownOpen || !dropdownPosition) return null;
     
     return createPortal(
       <div
-        className="fixed w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+        className="fixed w-80 bg-white rounded-md shadow-xl border border-gray-200 py-2 transition-opacity duration-200 ease-out"
         style={{
           top: dropdownPosition.top,
           left: dropdownPosition.left,
-          zIndex: 999999,
-          animation: "fadeIn 200ms ease-out forwards"
+          zIndex: 999999
         }}
         onMouseEnter={handleDropdownEnter}
         onMouseLeave={handleDropdownLeave}
@@ -96,20 +123,20 @@ export default function Header({ currentPage }: HeaderProps) {
         <Link
           href="/services"
           onClick={closeDropdown}
-          className={`block px-4 ${isScrolled ? 'py-2' : 'py-3'} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100`}
+          className={`block px-4 ${dropdownIsCompact ? 'py-2' : 'py-3'} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100`}
         >
           <div className="font-medium">All Services</div>
-          <div className={`text-gray-600 text-xs ${isScrolled ? '' : 'mt-1'}`}>View our complete service offerings</div>
+          <div className={`text-gray-600 text-xs ${dropdownIsCompact ? '' : 'mt-1'}`}>View our complete service offerings</div>
         </Link>
         {services.map((service) => (
           <Link
             key={service.href}
             href={service.href}
             onClick={closeDropdown}
-            className={`block px-4 ${isScrolled ? 'py-2' : 'py-3'} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors`}
+            className={`block px-4 ${dropdownIsCompact ? 'py-2' : 'py-3'} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors`}
           >
             <div className="font-medium">{service.name}</div>
-            <div className={`text-gray-600 text-xs ${isScrolled ? '' : 'mt-1'}`}>{service.description}</div>
+            <div className={`text-gray-600 text-xs ${dropdownIsCompact ? '' : 'mt-1'}`}>{service.description}</div>
           </Link>
         ))}
       </div>,
