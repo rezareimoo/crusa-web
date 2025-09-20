@@ -1,0 +1,323 @@
+# SEO Optimization Rules for Computer Recyclers USA Website
+
+## Core SEO Principles
+
+- Always prioritize user experience and valuable content over keyword stuffing
+- Ensure all content is mobile-responsive and accessible
+- Maintain consistent branding and messaging across all pages
+- Focus on local SEO for Georgia and Southeast markets
+
+## Page Structure & Metadata Requirements
+
+### Required Metadata for Every Page
+
+When creating or updating pages, ALWAYS include:
+
+```typescript
+export const metadata: Metadata = {
+  title: "Specific Page Title | Computer Recyclers USA - [Location/Service]",
+  description:
+    "Compelling 150-160 character description with primary keywords and location",
+  keywords:
+    "Primary keyword, secondary keyword, location, service type, R2 certified",
+  alternates: {
+    canonical: "https://crusallc.com/[page-url]",
+  },
+  openGraph: {
+    title: "Page Title for Social Sharing",
+    description: "Social media optimized description",
+    url: "https://crusallc.com/[page-url]",
+    siteName: "Computer Recyclers USA",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://crusallc.com/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Computer Recyclers USA - [Relevant Description]",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Twitter Optimized Title",
+    description: "Twitter optimized description",
+    images: ["https://crusallc.com/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+```
+
+### Title Tag Guidelines
+
+- Keep titles under 60 characters
+- Include primary keyword and location (Georgia/Southeast)
+- Use pipe (|) separator before brand name
+- Examples:
+  - "Data Destruction Services Georgia | Computer Recyclers USA"
+  - "IT Equipment Pickup Atlanta | Computer Recyclers USA"
+  - "Electronics Recycling Suwanee GA | Computer Recyclers USA"
+
+### Meta Description Guidelines
+
+- Keep between 150-160 characters
+- Include primary keyword and location
+- Include a clear call-to-action
+- Make it compelling and unique for each page
+- Examples:
+  - "Secure data destruction and electronics recycling in Georgia. R2 certified, free pickup, HIPAA compliant. Serving Atlanta, Savannah, Augusta & all of Georgia."
+  - "Professional IT equipment pickup and responsible recycling in Georgia. Free statewide service, certified data destruction, EPA compliant processes."
+
+## Content Optimization Rules
+
+### Heading Structure (H1-H6)
+
+- Use only ONE H1 per page (main page title)
+- H2s for major sections, H3s for subsections
+- Include target keywords naturally in headings
+- Maintain logical hierarchy (H1 → H2 → H3)
+
+### Keyword Integration
+
+- Primary keywords: "data destruction", "electronics recycling", "computer recycling", "IT equipment pickup"
+- Location keywords: "Georgia", "Atlanta", "Southeast", "Suwanee", "R2 certified"
+- Service keywords: "secure data destruction", "responsible recycling", "free pickup"
+- Include keywords naturally in:
+  - First 100 words of content
+  - Headings (H1, H2, H3)
+  - Image alt text
+  - Internal links
+
+### Content Quality Standards
+
+- Minimum 300 words per page
+- Use bullet points and numbered lists for readability
+- Include local business information (address, phone, hours)
+- Add customer testimonials and certifications
+- Include clear calls-to-action (CTAs)
+
+## Technical SEO Requirements
+
+### Image Optimization
+
+- All images MUST have descriptive alt text
+- Use Next.js Image component for optimization
+- Include relevant keywords in alt text
+- Examples:
+  - "Mobile shredding unit for onsite data destruction in Georgia"
+  - "Professional IT equipment pickup truck serving Atlanta area"
+  - "R2 certified electronics recycling facility in Suwanee GA"
+
+### Internal Linking
+
+- Link to relevant service pages from main content
+- Use descriptive anchor text with keywords
+- Include links to contact page and pickup form
+- Examples:
+  - "Learn more about our [data destruction services]"
+  - "Schedule your [free IT equipment pickup] today"
+
+### URL Structure
+
+- Use descriptive, keyword-rich URLs
+- Keep URLs short and readable
+- Use hyphens to separate words
+- Examples:
+  - `/services/data-destruction-georgia`
+  - `/about/computer-recyclers-usa-atlanta`
+  - `/contact/schedule-pickup-georgia`
+
+## Local SEO Optimization
+
+### Location-Based Content
+
+- Always mention "Georgia" and "Southeast" in content
+- Include specific cities: Atlanta, Savannah, Augusta, Columbus, Macon, Suwanee
+- Reference local landmarks and business districts
+- Include service area information
+
+### Business Information Consistency
+
+- Always use: "Computer Recyclers USA" (full name)
+- Address: "3644 Burnette Road, Suwanee, GA 30024"
+- Phone: "770-840-0805"
+- Email: "info@crusallc.com"
+- Hours: "Mon-Fri 8AM-5PM EST"
+
+### Certifications & Credentials
+
+- Always mention: "R2 v3 Certified"
+- Include: "ISO 14001:2015", "ISO 9001:2015", "ISO 45001:2018"
+- Reference compliance: "HIPAA", "SOX", "GLBA", "FACTA"
+- Mention: "EPA Compliant", "NIST 800-88"
+
+## Structured Data Requirements
+
+### For Every Page
+
+Include appropriate Schema.org markup:
+
+- LocalBusiness for main pages
+- Service for service pages
+- AboutPage for about content
+- ContactPage for contact information
+- BreadcrumbList for navigation
+
+### Service-Specific Schema
+
+For service pages, include:
+
+```json
+{
+  "@type": "Service",
+  "name": "Service Name",
+  "description": "Service description",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Computer Recyclers USA"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Georgia"
+  }
+}
+```
+
+## Performance & User Experience
+
+### Page Speed Optimization
+
+- Use Next.js Image component for all images
+- Implement lazy loading for below-the-fold content
+- Minimize JavaScript bundles
+- Use CSS-in-JS or Tailwind for styling
+
+### Mobile Optimization
+
+- Ensure all content is mobile-responsive
+- Test on various screen sizes
+- Use touch-friendly buttons and links
+- Optimize form inputs for mobile
+
+### Accessibility
+
+- Include proper ARIA labels
+- Ensure sufficient color contrast
+- Use semantic HTML elements
+- Provide alternative text for all images
+
+## Content Creation Guidelines
+
+### Blog/Article Content
+
+- Target long-tail keywords
+- Include FAQ sections
+- Add internal links to service pages
+- Use schema markup for articles
+- Include author information and publish dates
+
+### Service Page Content
+
+- Lead with customer benefits
+- Include pricing information (if applicable)
+- Add process explanations
+- Include certifications and compliance info
+- Add customer testimonials or case studies
+
+### Landing Page Content
+
+- Focus on single service or location
+- Include multiple CTAs
+- Add trust signals (certifications, testimonials)
+- Use local keywords throughout
+- Include contact information prominently
+
+## Monitoring & Analytics
+
+### Required Tracking
+
+- Google Analytics 4
+- Google Search Console
+- Local business listings (Google My Business)
+- Social media profiles
+
+### Key Metrics to Monitor
+
+- Organic search traffic
+- Local search rankings
+- Page load speeds
+- Mobile usability scores
+- Conversion rates (pickup form submissions)
+
+## Content Review Checklist
+
+Before publishing any new content, verify:
+
+- [ ] Title tag under 60 characters with primary keyword
+- [ ] Meta description 150-160 characters with CTA
+- [ ] H1 tag includes primary keyword
+- [ ] Images have descriptive alt text
+- [ ] Internal links use keyword-rich anchor text
+- [ ] Local business information is accurate
+- [ ] Certifications and compliance info included
+- [ ] Contact information and CTAs are prominent
+- [ ] Mobile-responsive design
+- [ ] Schema markup implemented
+- [ ] Canonical URL set correctly
+- [ ] Social media meta tags included
+
+## Common SEO Mistakes to Avoid
+
+- Don't stuff keywords unnaturally
+- Don't duplicate content across pages
+- Don't use generic or vague alt text
+- Don't forget to include location keywords
+- Don't create pages without clear purpose
+- Don't ignore mobile optimization
+- Don't skip structured data markup
+- Don't use duplicate title tags
+- Don't forget to update sitemap for new pages
+- Don't ignore page loading speeds
+
+## Industry-Specific Keywords
+
+### Primary Keywords
+
+- "data destruction Georgia"
+- "electronics recycling Atlanta"
+- "computer recycling Suwanee"
+- "IT equipment pickup Georgia"
+- "secure data destruction"
+- "responsible electronics recycling"
+- "R2 certified recycler"
+
+### Long-tail Keywords
+
+- "onsite data destruction services Georgia"
+- "free IT equipment pickup Atlanta area"
+- "HIPAA compliant data destruction Georgia"
+- "computer recycling company Suwanee GA"
+- "electronics recycling facility near me"
+- "secure hard drive shredding Georgia"
+
+### Local Keywords
+
+- "data destruction Atlanta"
+- "electronics recycling Savannah"
+- "computer recycling Augusta"
+- "IT pickup Columbus GA"
+- "data destruction Macon"
+- "electronics recycling Southeast"
+
+Remember: Quality content that serves users' needs will always rank better than keyword-stuffed content. Focus on providing value while naturally incorporating relevant keywords and local information.
