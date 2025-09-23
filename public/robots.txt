@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location (Next.js will generate this automatically)
-Sitemap: https://crusa-web.vercel.app/sitemap.xml 
+Sitemap: https://crusallc.com/sitemap.xml 

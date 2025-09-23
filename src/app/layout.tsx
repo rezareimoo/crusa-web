@@ -39,13 +39,13 @@ export const metadata: Metadata = {
       "Computer Recyclers USA - Data Destruction and Electronic Recycling in Georgia",
     description:
       "Your Safe and Secure Solution for Electronics Recycling in Georgia. R2 v3 Certified data destruction and electronic recycling services.",
-    url: "https://crusa-web.vercel.app",
+    url: "https://crusallc.com",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://crusa-web.vercel.app/logo.png",
+        url: "https://crusallc.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Computer Recyclers USA Logo",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
       "Computer Recyclers USA - Data Destruction and Electronic Recycling in Georgia",
     description:
       "Your Safe and Secure Solution for Electronics Recycling in Georgia. R2 v3 Certified data destruction and electronic recycling services.",
-    images: ["https://crusa-web.vercel.app/logo.png"],
+    images: ["https://crusallc.com/logo.png"],
   },
   verification: {
     google: "your-google-verification-code", // Replace with your actual Google verification code
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
   },
   alternates: {
-    canonical: "https://crusa-web.vercel.app",
+    canonical: "https://crusallc.com",
   },
 };
 
