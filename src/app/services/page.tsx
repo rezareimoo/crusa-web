@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -16,7 +17,7 @@ export default function Services() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20 overflow-hidden">
         <ParticleBackground />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Our <span className="text-primary-green">Services</span>
@@ -160,6 +161,18 @@ export default function Services() {
                       </p>
                     </div>
                   </div>
+                </div>
+                
+                <div className="mt-8">
+                  <Link 
+                    href="/services/onsite-data-destruction"
+                    className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    Learn More About Data Destruction
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
 
@@ -308,6 +321,18 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
+                
+                <div className="mt-8">
+                  <Link 
+                    href="/services/free-it-equipment-pickup"
+                    className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    Learn More About Free Pickup
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -430,6 +455,18 @@ export default function Services() {
                       </p>
                     </div>
                   </div>
+                </div>
+                
+                <div className="mt-8">
+                  <Link 
+                    href="/services/responsible-electronics-recycling"
+                    className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    Learn More About Responsible Recycling
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
 
@@ -555,7 +592,7 @@ export default function Services() {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 bg-black bg-opacity-75 backdrop-blur-md transition-all duration-300 ease-out"
+          className="fixed inset-0 z-[999999] bg-black bg-opacity-75 backdrop-blur-md transition-all duration-300 ease-out"
           style={{ animation: "fadeIn 300ms ease-out forwards" }}
         >
           {/* Mobile: Full screen, Desktop: Centered */}

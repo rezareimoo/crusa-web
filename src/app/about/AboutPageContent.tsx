@@ -15,7 +15,7 @@ export default function AboutPageContent() {
       {/* Hero Section - SEO Optimized */}
       <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20 overflow-hidden">
         <ParticleBackground />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               About{" "}
@@ -672,7 +672,7 @@ export default function AboutPageContent() {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
+          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
           style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
           <div

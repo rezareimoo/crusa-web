@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
@@ -19,7 +20,7 @@ export default function Home() {
         className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 sm:py-24 md:py-28 lg:py-32 overflow-hidden"
       >
         <ParticleBackground />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Secure Data Destruction &
@@ -96,7 +97,10 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+            <Link 
+              href="/services/onsite-data-destruction" 
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
+            >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
                   className="w-8 h-8 text-white"
@@ -112,16 +116,25 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
                 Onsite Data Destruction
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
                 Secure, witnessed destruction of your sensitive data at your
                 location for maximum security and peace of mind.
               </p>
-            </div>
+              <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
+                Learn More 
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+            <Link 
+              href="/services/free-it-equipment-pickup" 
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
+            >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
                   className="w-8 h-8 text-white"
@@ -137,17 +150,26 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
                 Free IT Equipment Pickup
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
                 We&apos;ll pick up your IT equipment at no cost throughout the
                 state of Georgia, regardless of condition. Convenient scheduling
                 for your business needs.
               </p>
-            </div>
+              <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
+                Learn More 
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+            <Link 
+              href="/services/responsible-electronics-recycling" 
+              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
+            >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
                 <svg
                   className="w-8 h-8 text-white"
@@ -163,14 +185,20 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
                 Responsible Electronics Recycling
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
                 Environmentally responsible recycling of electronic equipment
                 following industry best practices and regulations.
               </p>
-            </div>
+              <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
+                Learn More 
+                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -417,7 +445,7 @@ export default function Home() {
       {/* Pickup Form Modal */}
       {showPickupForm && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
+          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
           style={{ animation: "fadeIn 200ms ease-out forwards" }}
         >
           <div
