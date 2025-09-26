@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Free IT Equipment Pickup Georgia | Computer Recyclers USA",
+  title: "Free IT Equipment Pickup Atlanta Georgia | Computer Recyclers USA",
   description:
-    "Free IT equipment pickup throughout Georgia. No quantity limits, professional packing assistance, fully audited reports. Serving Atlanta, Savannah, Augusta & all Georgia.",
+    "Free IT equipment pickup in Atlanta and throughout Georgia. Recycle computers and electronics - no quantity limits, professional service.",
   keywords:
-    "free IT equipment pickup Georgia, computer pickup Atlanta, electronics pickup service, IT disposal Georgia, equipment removal service, R2 certified",
+    "free IT equipment pickup atlanta, recycle computers atlanta, computer pickup atlanta, IT disposal georgia, electronics pickup service, R2 certified",
   alternates: {
     canonical: "https://crusallc.com/services/free-it-equipment-pickup",
   },

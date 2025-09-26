@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Responsible Electronics Recycling Georgia | Computer Recyclers USA",
+  title: "Recycle Electronics & E-Waste Georgia | Computer Recyclers USA",
   description:
-    "R2 v3 certified electronics recycling in Georgia. Zero landfill guarantee, EPA compliant, 95%+ material recovery. Serving Atlanta, Savannah, Augusta & all Georgia.",
+    "Recycle electronics and e-waste responsibly in Georgia. R2 certified facility, zero landfill, free pickup. Serving Atlanta metro & Southeast.",
   keywords:
-    "responsible electronics recycling Georgia, R2 certified recycling Atlanta, eco-friendly e-waste disposal, electronics recycling Suwanee, EPA compliant recycling",
+    "recycle electronics, e-waste, electronics recycling georgia, recycle electronics atlanta, e-waste disposal, responsible electronics recycling, R2 certified",
   alternates: {
     canonical: "https://crusallc.com/services/responsible-electronics-recycling",
   },
   openGraph: {
-    title: "Responsible Electronics Recycling Georgia",
-    description: "R2 v3 certified electronics recycling with zero landfill guarantee and 95%+ material recovery throughout Georgia.",
+    title: "Recycle Electronics & E-Waste Georgia",
+    description: "Recycle electronics and e-waste responsibly in Georgia. R2 certified facility, zero landfill guarantee, free pickup throughout Georgia.",
     url: "https://crusallc.com/services/responsible-electronics-recycling",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Responsible Electronics Recycling Georgia",
-    description: "R2 v3 certified electronics recycling with zero landfill guarantee. Protect the environment throughout Georgia.",
+    title: "Recycle Electronics & E-Waste Georgia",
+    description: "Recycle electronics and e-waste responsibly. R2 certified, zero landfill guarantee throughout Georgia.",
     images: ["https://crusallc.com/logo.png"],
   },
   robots: {

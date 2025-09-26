@@ -86,9 +86,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
       "ISO 45001:2018 Occupational Health and Safety",
     ],
     sameAs: [
-      // Add your social media URLs here
-      // "https://www.facebook.com/computerrecyclersusa",
-      // "https://www.linkedin.com/company/computer-recyclers-usa"
+      "https://www.linkedin.com/company/computer-recyclers-usa-llc"
     ],
   };
 
