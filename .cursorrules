@@ -62,12 +62,14 @@ export const metadata: Metadata = {
 ### Title Tag Guidelines
 
 - Keep titles under 60 characters
-- Include primary keyword and location (Georgia/Southeast)
+- Include primary keyword and location (Georgia/Atlanta)
 - Use pipe (|) separator before brand name
+- **NEW**: Prioritize target search queries in titles
 - Examples:
+  - **Homepage**: "Atlanta Computer Recycling | Computer Recyclers USA"
+  - **Electronics**: "Recycle Electronics & E-Waste Georgia | Computer Recyclers USA"
   - "Data Destruction Services Georgia | Computer Recyclers USA"
   - "IT Equipment Pickup Atlanta | Computer Recyclers USA"
-  - "Electronics Recycling Suwanee GA | Computer Recyclers USA"
 
 ### Meta Description Guidelines
 
@@ -75,9 +77,31 @@ export const metadata: Metadata = {
 - Include primary keyword and location
 - Include a clear call-to-action
 - Make it compelling and unique for each page
+- **NEW**: Include target search queries naturally
 - Examples:
+  - **Homepage**: "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia."
+  - **Electronics**: "Recycle electronics and e-waste responsibly in Georgia. R2 certified facility, zero landfill, free pickup. Serving Atlanta and Southeast."
   - "Secure data destruction and electronics recycling in Georgia. R2 certified, free pickup, HIPAA compliant. Serving Atlanta, Savannah, Augusta & all of Georgia."
-  - "Professional IT equipment pickup and responsible recycling in Georgia. Free statewide service, certified data destruction, EPA compliant processes."
+
+## SEO Query Distribution Strategy
+
+### Homepage Targeting
+- **Primary**: "atlanta computer recycling", "computer recyclers"
+- **Secondary**: "atlanta computer recyclers", "recycle computers in atlanta"
+- Focus on Atlanta-specific targeting and company name variants
+
+### Electronics Recycling Page Targeting  
+- **Primary**: "recycle electronics", "e-waste"
+- **Secondary**: "electronics recycling georgia"
+- Focus on general electronics recycling and e-waste terms
+
+### Data Destruction Page Targeting
+- **Primary**: "data destruction" (already optimized)
+- Continue current strong targeting
+
+### IT Pickup Page Targeting
+- **Support**: "recycle computers in atlanta"
+- Complement homepage computer recycling targeting
 
 ## Content Optimization Rules
 
@@ -87,10 +111,12 @@ export const metadata: Metadata = {
 - H2s for major sections, H3s for subsections
 - Include target keywords naturally in headings
 - Maintain logical hierarchy (H1 → H2 → H3)
+- **NEW**: Ensure Atlanta is included in H1 tags for homepage
 
 ### Keyword Integration
 
-- Primary keywords: "data destruction", "electronics recycling", "computer recycling", "IT equipment pickup"
+- **Priority keywords**: "atlanta computer recycling", "computer recyclers", "recycle electronics", "data destruction", "e-waste"
+- **Primary keywords**: "data destruction", "electronics recycling", "computer recycling", "IT equipment pickup"
 - Location keywords: "Georgia", "Atlanta", "Southeast", "Suwanee", "R2 certified"
 - Service keywords: "secure data destruction", "responsible recycling", "free pickup"
 - Include keywords naturally in:
@@ -98,6 +124,7 @@ export const metadata: Metadata = {
   - Headings (H1, H2, H3)
   - Image alt text
   - Internal links
+  - **NEW**: Meta titles and descriptions must include target queries
 
 ### Content Quality Standards
 
@@ -292,8 +319,22 @@ Before publishing any new content, verify:
 
 ## Industry-Specific Keywords
 
+### Target Search Queries (Priority)
+
+**High Priority Queries:**
+- "atlanta computer recycling" - Homepage primary target
+- "computer recyclers" - Homepage secondary target  
+- "recycle computers in atlanta" - Homepage/Pickup page target
+- "recycle electronics" - Electronics recycling page primary
+- "data destruction" - Data destruction page primary
+- "atlanta computer recyclers" - Homepage tertiary target
+- "e-waste" - Electronics recycling page secondary
+- "electronics recycling georgia" - Electronics recycling page tertiary
+
 ### Primary Keywords
 
+- "atlanta computer recycling"
+- "computer recyclers" 
 - "data destruction Georgia"
 - "electronics recycling Atlanta"
 - "computer recycling Suwanee"
@@ -301,6 +342,8 @@ Before publishing any new content, verify:
 - "secure data destruction"
 - "responsible electronics recycling"
 - "R2 certified recycler"
+- "e-waste disposal atlanta"
+- "recycle electronics georgia"
 
 ### Long-tail Keywords
 
@@ -310,14 +353,25 @@ Before publishing any new content, verify:
 - "computer recycling company Suwanee GA"
 - "electronics recycling facility near me"
 - "secure hard drive shredding Georgia"
+- "atlanta computer recycling company"
+- "computer recyclers near me atlanta"
+- "recycle computers atlanta georgia"
+- "e-waste disposal atlanta georgia"
+- "electronics recycling atlanta metro"
 
 ### Local Keywords
 
+- "atlanta computer recycling"
+- "atlanta computer recyclers" 
+- "computer recyclers atlanta"
 - "data destruction Atlanta"
 - "electronics recycling Savannah"
 - "computer recycling Augusta"
 - "IT pickup Columbus GA"
 - "data destruction Macon"
 - "electronics recycling Southeast"
+- "e-waste atlanta"
+- "recycle electronics atlanta"
+- "recycle computers atlanta"
 
 Remember: Quality content that serves users' needs will always rank better than keyword-stuffed content. Focus on providing value while naturally incorporating relevant keywords and local information.

@@ -23,17 +23,17 @@ export default function Home() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Secure Data Destruction &
+              Atlanta Computer Recycling &
               <span className="text-primary-green">
                 {" "}
-                Responsible Electronics Recycling
+                Secure Data Destruction
               </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Professional data destruction, responsible electronics
+                Trusted computer recyclers providing data destruction, electronics
                 recycling, and IT Asset Recovery services for businesses across
-                Georgia and Southeast States
+                Atlanta, Georgia and Southeast States
               </strong>
             </p>
             <div className="flex justify-center px-4">
