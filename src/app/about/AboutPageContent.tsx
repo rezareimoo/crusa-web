@@ -355,14 +355,15 @@ export default function AboutPageContent() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Same-Day Emergency Response in Atlanta
+                      Flexible Pickup Times for Any Business
                     </h3>
                     <p className="text-gray-600">
-                      Critical data destruction requests in the Atlanta metro
-                      area are handled immediately. Our mobile shredding units
-                      can be deployed within hours for emergency situations,
-                      serving businesses from Buckhead to Decatur, Marietta to
-                      Alpharetta.
+                      We understand that every business operates differently.
+                      Our flexible pickup scheduling accommodates your unique
+                      needs, from early morning collections to after-hours
+                      service. We work around your schedule to minimize
+                      disruption while ensuring secure IT equipment removal
+                      throughout the Atlanta metro area.
                     </p>
                   </div>
                 </div>
@@ -416,9 +417,9 @@ export default function AboutPageContent() {
                     <p className="text-gray-600">
                       Certificates of data destruction and recycling compliance
                       documentation are provided immediately upon completion.
-                      Digital copies are available within minutes via our secure
-                      portal, ensuring Georgia and Southeast businesses maintain
-                      complete audit trails.
+                      Digital copies are delivered directly to your designated
+                      contact, ensuring Georgia and Southeast businesses maintain
+                      complete audit trails for regulatory compliance.
                     </p>
                   </div>
                 </div>

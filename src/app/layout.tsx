@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "Computer Recyclers USA - Data Destruction and Electronic Recycling in Georgia",
+    "Atlanta Computer Recycling | Computer Recyclers USA Georgia",
   description:
-    "Your Safe and Secure Solution for Electronics Recycling in Georgia. R2 v3 Certified data destruction and electronic recycling services.",
+    "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
   keywords:
-    "electronics recycling, data destruction, computer recycling, Georgia, R2 certified, e-waste disposal, secure data destruction",
+    "atlanta computer recycling, computer recyclers, recycle computers atlanta, electronics recycling, data destruction, e-waste, georgia, R2 certified",
   authors: [{ name: "Computer Recyclers USA" }],
   creator: "Computer Recyclers USA",
   publisher: "Computer Recyclers USA",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Computer Recyclers USA - Data Destruction and Electronic Recycling in Georgia",
+      "Atlanta Computer Recycling | Computer Recyclers USA",
     description:
-      "Your Safe and Secure Solution for Electronics Recycling in Georgia. R2 v3 Certified data destruction and electronic recycling services.",
+      "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
     url: "https://crusallc.com",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Computer Recyclers USA - Data Destruction and Electronic Recycling in Georgia",
+      "Atlanta Computer Recycling | Computer Recyclers USA",
     description:
-      "Your Safe and Secure Solution for Electronics Recycling in Georgia. R2 v3 Certified data destruction and electronic recycling services.",
+      "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
     images: ["https://crusallc.com/logo.png"],
   },
   verification: {
