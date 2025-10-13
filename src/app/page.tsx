@@ -6,6 +6,7 @@ import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -31,9 +32,9 @@ export default function Home() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Trusted computer recyclers providing data destruction, electronics
-                recycling, and IT Asset Recovery services for businesses across
-                Atlanta, Georgia and Southeast States
+                Trusted computer recyclers providing data destruction,
+                electronics recycling, and IT Asset Recovery services for
+                businesses across Atlanta, Georgia and Southeast States
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -97,8 +98,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Link 
-              href="/services/onsite-data-destruction" 
+            <Link
+              href="/services/onsite-data-destruction"
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
             >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
@@ -124,15 +125,25 @@ export default function Home() {
                 location for maximum security and peace of mind.
               </p>
               <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
-                Learn More 
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                Learn More
+                <svg
+                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </div>
             </Link>
 
-            <Link 
-              href="/services/free-it-equipment-pickup" 
+            <Link
+              href="/services/free-it-equipment-pickup"
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
             >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
@@ -159,15 +170,25 @@ export default function Home() {
                 for your business needs.
               </p>
               <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
-                Learn More 
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                Learn More
+                <svg
+                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </div>
             </Link>
 
-            <Link 
-              href="/services/responsible-electronics-recycling" 
+            <Link
+              href="/services/responsible-electronics-recycling"
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
             >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
@@ -193,9 +214,19 @@ export default function Home() {
                 following industry best practices and regulations.
               </p>
               <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
-                Learn More 
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                Learn More
+                <svg
+                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </div>
             </Link>
@@ -401,7 +432,12 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <a href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <a
+                href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
                 <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
                   <svg
                     className="w-8 h-8 text-white"
@@ -474,6 +510,7 @@ export default function Home() {
           </div>
         </div>
       )}
+      <Analytics />
     </div>
   );
 }
