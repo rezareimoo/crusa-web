@@ -6,6 +6,7 @@ import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import StructuredData from "@/components/StructuredData";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function FreeITEquipmentPickup() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -13,33 +14,35 @@ export default function FreeITEquipmentPickup() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Free IT Equipment Pickup Services",
-    "description": "Complimentary IT equipment pickup throughout Georgia. No quantity limits, professional packing assistance available, fully audited reports provided.",
-    "provider": {
+    name: "Free IT Equipment Pickup Services",
+    description:
+      "Complimentary IT equipment pickup throughout Georgia. No quantity limits, professional packing assistance available, fully audited reports provided.",
+    provider: {
       "@type": "LocalBusiness",
-      "name": "Computer Recyclers USA",
-      "address": {
+      name: "Computer Recyclers USA",
+      address: {
         "@type": "PostalAddress",
-        "streetAddress": "3644 Burnette Road",
-        "addressLocality": "Suwanee",
-        "addressRegion": "GA",
-        "postalCode": "30024",
-        "addressCountry": "US"
+        streetAddress: "3644 Burnette Road",
+        addressLocality: "Suwanee",
+        addressRegion: "GA",
+        postalCode: "30024",
+        addressCountry: "US",
       },
-      "telephone": "770-840-0805",
-      "email": "info@crusallc.com"
+      telephone: "770-840-0805",
+      email: "info@crusallc.com",
     },
-    "areaServed": {
+    areaServed: {
       "@type": "State",
-      "name": "Georgia"
+      name: "Georgia",
     },
-    "serviceType": "IT Equipment Pickup",
-    "offers": {
+    serviceType: "IT Equipment Pickup",
+    offers: {
       "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "Free pickup service for all types and quantities of IT equipment"
-    }
+      price: "0",
+      priceCurrency: "USD",
+      description:
+        "Free pickup service for all types and quantities of IT equipment",
+    },
   };
 
   return (
@@ -53,12 +56,16 @@ export default function FreeITEquipmentPickup() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              <span className="text-primary-green">Free IT Equipment Pickup</span> Georgia
+              <span className="text-primary-green">
+                Free IT Equipment Pickup
+              </span>{" "}
+              Georgia
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Complimentary pickup services throughout Georgia and Southeast States. 
-                Professional, convenient, and absolutely free - no quantity limits.
+                Complimentary pickup services throughout Georgia and Southeast
+                States. Professional, convenient, and absolutely free - no
+                quantity limits.
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -83,29 +90,45 @@ export default function FreeITEquipmentPickup() {
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 <strong>
-                  We provide complimentary pickup services throughout Georgia and 
-                  Southeast States for all types of IT equipment, regardless of age, 
-                  condition, or quantity. Our professional team handles the logistics 
-                  so you can focus on your business operations.
+                  We provide complimentary pickup services throughout Georgia
+                  and Southeast States for all types of IT equipment, regardless
+                  of age, condition, or quantity. Our professional team handles
+                  the logistics so you can focus on your business operations.
                 </strong>
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">No Quantity Limits</h3>
-                  <p className="text-gray-600">From single devices to entire data centers</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    No Quantity Limits
+                  </h3>
+                  <p className="text-gray-600">
+                    From single devices to entire data centers
+                  </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Professional Packing</h3>
-                  <p className="text-gray-600">We can assist with equipment preparation</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    Professional Packing
+                  </h3>
+                  <p className="text-gray-600">
+                    We can assist with equipment preparation
+                  </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Fully Audited</h3>
-                  <p className="text-gray-600">Complete reports and documentation</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    Fully Audited
+                  </h3>
+                  <p className="text-gray-600">
+                    Complete reports and documentation
+                  </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Statewide Service</h3>
-                  <p className="text-gray-600">All cities and counties in Georgia</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    Statewide Service
+                  </h3>
+                  <p className="text-gray-600">
+                    All cities and counties in Georgia
+                  </p>
                 </div>
               </div>
             </div>
@@ -124,35 +147,44 @@ export default function FreeITEquipmentPickup() {
 
           {/* 3-Step Process Section */}
           <div className="mb-16 bg-primary-green rounded-2xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-8 text-center">Simple 3-Step Process</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Simple 3-Step Process
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-primary-green">1</span>
+                  <span className="text-2xl font-bold text-primary-green">
+                    1
+                  </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3">Inform Us</h3>
                 <p className="text-gray-100">
-                  Tell us about the types and quantities of IT equipment you need picked up. 
-                  Computers, servers, monitors, printers - we handle it all.
+                  Tell us about the types and quantities of IT equipment you
+                  need picked up. Computers, servers, monitors, printers - we
+                  handle it all.
                 </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-primary-green">2</span>
+                  <span className="text-2xl font-bold text-primary-green">
+                    2
+                  </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3">Schedule Pickup</h3>
                 <p className="text-gray-100">
-                  We&apos;ll arrange a convenient pickup time that works with your schedule, 
-                  including evenings and weekends if needed.
+                  We&apos;ll arrange a convenient pickup time that works with
+                  your schedule, including evenings and weekends if needed.
                 </p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold text-primary-green">3</span>
+                  <span className="text-2xl font-bold text-primary-green">
+                    3
+                  </span>
                 </div>
                 <h3 className="text-xl font-bold mb-3">We Pick Up</h3>
                 <p className="text-gray-100">
-                  Our professional team arrives on time, handles all loading, 
+                  Our professional team arrives on time, handles all loading,
                   and provides complete documentation for your records.
                 </p>
               </div>
@@ -168,46 +200,79 @@ export default function FreeITEquipmentPickup() {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Incredibly Easy for Your Business</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Incredibly Easy for Your Business
+                    </h3>
                     <p className="text-gray-600">
-                      Simply schedule a pickup and we handle everything else. No logistics, 
-                      no transportation costs, no employee time wasted on equipment disposal.
+                      Simply schedule a pickup and we handle everything else. No
+                      logistics, no transportation costs, no employee time
+                      wasted on equipment disposal.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Professional Packing Assistance</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Professional Packing Assistance
+                    </h3>
                     <p className="text-gray-600">
-                      Need help preparing your equipment for pickup? Our experienced team 
-                      can assist with proper packing, disconnection, and safe handling of 
-                      all electronic devices.
+                      Need help preparing your equipment for pickup? Our
+                      experienced team can assist with proper packing,
+                      disconnection, and safe handling of all electronic
+                      devices.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">No Quantity Too Small or Large</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      No Quantity Too Small or Large
+                    </h3>
                     <p className="text-gray-600">
-                      Whether you have a single laptop or an entire server room full of 
-                      equipment, we provide the same professional service at no cost.
+                      Whether you have a single laptop or an entire server room
+                      full of equipment, we provide the same professional
+                      service at no cost.
                     </p>
                   </div>
                 </div>
@@ -216,45 +281,78 @@ export default function FreeITEquipmentPickup() {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Fully Audited Reports Available</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Fully Audited Reports Available
+                    </h3>
                     <p className="text-gray-600">
-                      Receive comprehensive documentation including detailed inventory lists, 
-                      pickup receipts, and processing reports for compliance and audit purposes.
+                      Receive comprehensive documentation including detailed
+                      inventory lists, pickup receipts, and processing reports
+                      for compliance and audit purposes.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Flexible Scheduling</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Flexible Scheduling
+                    </h3>
                     <p className="text-gray-600">
-                      Convenient appointment times including evenings and weekends to 
-                      minimize disruption to your business operations.
+                      Convenient appointment times including evenings and
+                      weekends to minimize disruption to your business
+                      operations.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">All Equipment Types Accepted</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      All Equipment Types Accepted
+                    </h3>
                     <p className="text-gray-600">
-                      Computers, servers, laptops, monitors, printers, networking equipment, 
-                      and all other electronic devices - working or non-working condition accepted.
+                      Computers, servers, laptops, monitors, printers,
+                      networking equipment, and all other electronic devices -
+                      working or non-working condition accepted.
                     </p>
                   </div>
                 </div>
@@ -269,30 +367,42 @@ export default function FreeITEquipmentPickup() {
                 Equipment We Pick Up (No Charge)
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We accept all types of IT and electronic equipment, regardless of age, 
-                condition, or working status. Everything is processed responsibly.
+                We accept all types of IT and electronic equipment, regardless
+                of age, condition, or working status. Everything is processed
+                responsibly.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {[
-                'Desktop Computers',
-                'Laptops & Notebooks', 
-                'Servers & Workstations',
-                'Monitors & Displays',
-                'Printers & Scanners',
-                'Networking Equipment',
-                'Storage Devices',
-                'Mobile Devices',
-                'Audio/Video Equipment',
-                'Telecom Equipment',
-                'UPS Systems',
-                'Cables & Components'
+                "Desktop Computers",
+                "Laptops & Notebooks",
+                "Servers & Workstations",
+                "Monitors & Displays",
+                "Printers & Scanners",
+                "Networking Equipment",
+                "Storage Devices",
+                "Mobile Devices",
+                "Audio/Video Equipment",
+                "Telecom Equipment",
+                "UPS Systems",
+                "Cables & Components",
               ].map((equipment) => (
-                <div key={equipment} className="bg-white rounded-lg p-4 text-center shadow-sm">
+                <div
+                  key={equipment}
+                  className="bg-white rounded-lg p-4 text-center shadow-sm"
+                >
                   <div className="w-8 h-8 bg-primary-green rounded-full mx-auto mb-3 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <p className="font-semibold text-gray-900">{equipment}</p>
@@ -304,14 +414,30 @@ export default function FreeITEquipmentPickup() {
           {/* Service Areas */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Free Pickup Throughout Georgia</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Free Pickup Throughout Georgia
+              </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Professional IT equipment pickup services available in all Georgia cities and counties
+                Professional IT equipment pickup services available in all
+                Georgia cities and counties
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
-              {['Atlanta', 'Savannah', 'Augusta', 'Columbus', 'Macon', 'Suwanee', 'Albany', 'Roswell', 'Sandy Springs', 'Warner Robins', 'Johns Creek', 'Alpharetta'].map((city) => (
+              {[
+                "Atlanta",
+                "Savannah",
+                "Augusta",
+                "Columbus",
+                "Macon",
+                "Suwanee",
+                "Albany",
+                "Roswell",
+                "Sandy Springs",
+                "Warner Robins",
+                "Johns Creek",
+                "Alpharetta",
+              ].map((city) => (
                 <div key={city} className="bg-gray-50 rounded-lg p-4">
                   <p className="font-semibold text-gray-900">{city}</p>
                 </div>
@@ -325,7 +451,8 @@ export default function FreeITEquipmentPickup() {
               Ready to Schedule Your Free Pickup?
             </h2>
             <p className="text-xl mb-8 text-gray-100">
-              Contact Computer Recyclers USA today - no equipment quantity too small or too large
+              Contact Computer Recyclers USA today - no equipment quantity too
+              small or too large
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
@@ -335,9 +462,22 @@ export default function FreeITEquipmentPickup() {
                 SCHEDULE FREE PICKUP NOW
               </button>
               <div className="flex items-center space-x-4 text-gray-100">
-                <a href="tel:770-840-0805" className="flex items-center hover:text-white transition-colors">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                <a
+                  href="tel:770-840-0805"
+                  className="flex items-center hover:text-white transition-colors"
+                >
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                   770-840-0805
                 </a>
@@ -367,6 +507,7 @@ export default function FreeITEquipmentPickup() {
           </div>
         </div>
       )}
+      <Analytics />
     </div>
   );
 }

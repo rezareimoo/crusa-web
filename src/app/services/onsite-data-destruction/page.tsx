@@ -6,6 +6,7 @@ import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import StructuredData from "@/components/StructuredData";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function OnsiteDataDestruction() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -13,31 +14,33 @@ export default function OnsiteDataDestruction() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Onsite Data Destruction Services",
-    "description": "Secure, witnessed data destruction at your location in Georgia. NIST 800-88 compliant with certificates of destruction and zero data recoverability guarantee.",
-    "provider": {
+    name: "Onsite Data Destruction Services",
+    description:
+      "Secure, witnessed data destruction at your location in Georgia. NIST 800-88 compliant with certificates of destruction and zero data recoverability guarantee.",
+    provider: {
       "@type": "LocalBusiness",
-      "name": "Computer Recyclers USA",
-      "address": {
+      name: "Computer Recyclers USA",
+      address: {
         "@type": "PostalAddress",
-        "streetAddress": "3644 Burnette Road",
-        "addressLocality": "Suwanee",
-        "addressRegion": "GA",
-        "postalCode": "30024",
-        "addressCountry": "US"
+        streetAddress: "3644 Burnette Road",
+        addressLocality: "Suwanee",
+        addressRegion: "GA",
+        postalCode: "30024",
+        addressCountry: "US",
       },
-      "telephone": "770-840-0805",
-      "email": "info@crusallc.com"
+      telephone: "770-840-0805",
+      email: "info@crusallc.com",
     },
-    "areaServed": {
+    areaServed: {
       "@type": "State",
-      "name": "Georgia"
+      name: "Georgia",
     },
-    "serviceType": "Data Destruction",
-    "offers": {
+    serviceType: "Data Destruction",
+    offers: {
       "@type": "Offer",
-      "description": "Complete onsite data destruction with certificates and compliance reporting"
-    }
+      description:
+        "Complete onsite data destruction with certificates and compliance reporting",
+    },
   };
 
   return (
@@ -51,12 +54,16 @@ export default function OnsiteDataDestruction() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              <span className="text-primary-green">Onsite Data Destruction</span> Services Georgia
+              <span className="text-primary-green">
+                Onsite Data Destruction
+              </span>{" "}
+              Services Georgia
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Secure, witnessed data destruction at your location in Georgia. 
-                NIST 800-88 compliant with total transparency and zero data recoverability guarantee.
+                Secure, witnessed data destruction at your location in Georgia.
+                NIST 800-88 compliant with total transparency and zero data
+                recoverability guarantee.
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -81,30 +88,47 @@ export default function OnsiteDataDestruction() {
               </h2>
               <p className="text-lg text-gray-600 mb-8">
                 <strong>
-                  Witness the complete destruction of your sensitive data at your location 
-                  with our state-of-the-art mobile shredding units. Our R2 v3 certified 
-                  technicians ensure your confidential information is permanently destroyed 
-                  according to the highest industry standards, serving businesses across 
+                  Witness the complete destruction of your sensitive data at
+                  your location with our state-of-the-art mobile shredding
+                  units. Our R2 v3 certified technicians ensure your
+                  confidential information is permanently destroyed according to
+                  the highest industry standards, serving businesses across
                   Georgia and Southeast States.
                 </strong>
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">NIST 800-88 Compliant</h3>
-                  <p className="text-gray-600">Industry-standard data sanitization protocols</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    NIST 800-88 Compliant
+                  </h3>
+                  <p className="text-gray-600">
+                    Industry-standard data sanitization protocols
+                  </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Zero Data Recovery</h3>
-                  <p className="text-gray-600">Guaranteed complete data destruction</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    Zero Data Recovery
+                  </h3>
+                  <p className="text-gray-600">
+                    Guaranteed complete data destruction
+                  </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">Total Transparency</h3>
-                  <p className="text-gray-600">Certificates and detailed reports provided</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    Total Transparency
+                  </h3>
+                  <p className="text-gray-600">
+                    Certificates and detailed reports provided
+                  </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">2-Step Process</h3>
-                  <p className="text-gray-600">Degaussing + complete shredding</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    2-Step Process
+                  </h3>
+                  <p className="text-gray-600">
+                    Degaussing + complete shredding
+                  </p>
                 </div>
               </div>
             </div>
@@ -123,29 +147,39 @@ export default function OnsiteDataDestruction() {
 
           {/* Two-Step Process Section */}
           <div className="mb-16 bg-primary-green rounded-2xl p-8 text-white">
-            <h2 className="text-3xl font-bold mb-8 text-center">Our 2-Step Maximum Security Process</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">
+              Our 2-Step Maximum Security Process
+            </h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl font-bold text-primary-green">1</span>
+                  <span className="text-2xl font-bold text-primary-green">
+                    1
+                  </span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-3">Degaussing</h3>
                   <p className="text-gray-100">
-                    First, we use powerful degaussing equipment to completely scramble 
-                    magnetic data on hard drives, making it unreadable and unrecoverable.
+                    First, we use powerful degaussing equipment to completely
+                    scramble magnetic data on hard drives, making it unreadable
+                    and unrecoverable.
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-2xl font-bold text-primary-green">2</span>
+                  <span className="text-2xl font-bold text-primary-green">
+                    2
+                  </span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-3">Complete Physical Shredding</h3>
+                  <h3 className="text-xl font-bold mb-3">
+                    Complete Physical Shredding
+                  </h3>
                   <p className="text-gray-100">
-                    Next, drives are physically shredded into small particles, 
-                    ensuring absolute data destruction and maximum guarantee of security.
+                    Next, drives are physically shredded into small particles,
+                    ensuring absolute data destruction and maximum guarantee of
+                    security.
                   </p>
                 </div>
               </div>
@@ -160,41 +194,85 @@ export default function OnsiteDataDestruction() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-primary-green transition-all duration-300">
                 <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Complete Hard Drive Shredding</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Complete Hard Drive Shredding
+                </h3>
                 <p className="text-gray-600">
-                  Physical destruction of hard drives, SSDs, and storage media using 
-                  industrial-grade shredders that render data completely unrecoverable.
+                  Physical destruction of hard drives, SSDs, and storage media
+                  using industrial-grade shredders that render data completely
+                  unrecoverable.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-primary-green transition-all duration-300">
                 <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2a4 4 0 00-4-4H2m13 6a4 4 0 014-4v2" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2 3l18 18" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 17v-2a4 4 0 00-4-4H2m13 6a4 4 0 014-4v2"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M2 3l18 18"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Certificates of Destruction</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Certificates of Destruction
+                </h3>
                 <p className="text-gray-600">
-                  Receive detailed certificates of destruction for compliance and audit 
-                  requirements, including serial numbers, destruction methods, and witness signatures.
+                  Receive detailed certificates of destruction for compliance
+                  and audit requirements, including serial numbers, destruction
+                  methods, and witness signatures.
                 </p>
               </div>
 
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-primary-green transition-all duration-300">
                 <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Regulatory Compliance</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Regulatory Compliance
+                </h3>
                 <p className="text-gray-600">
-                  Full compliance with HIPAA, SOX, GLBA, and FACTA regulations ensuring 
-                  your business meets all legal requirements for data destruction.
+                  Full compliance with HIPAA, SOX, GLBA, and FACTA regulations
+                  ensuring your business meets all legal requirements for data
+                  destruction.
                 </p>
               </div>
             </div>
@@ -207,34 +285,61 @@ export default function OnsiteDataDestruction() {
                 Total Transparency & Comprehensive Reporting
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We believe in complete transparency throughout the data destruction process. 
-                Every step is documented and verified for your peace of mind.
+                We believe in complete transparency throughout the data
+                destruction process. Every step is documented and verified for
+                your peace of mind.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Witnessed Destruction</h3>
-                    <p className="text-gray-600">Watch your data being destroyed in real-time at your location</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Witnessed Destruction
+                    </h3>
+                    <p className="text-gray-600">
+                      Watch your data being destroyed in real-time at your
+                      location
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Detailed Certificates</h3>
-                    <p className="text-gray-600">Official certificates with serial numbers, dates, and methods used</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Detailed Certificates
+                    </h3>
+                    <p className="text-gray-600">
+                      Official certificates with serial numbers, dates, and
+                      methods used
+                    </p>
                   </div>
                 </div>
               </div>
@@ -242,25 +347,51 @@ export default function OnsiteDataDestruction() {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Comprehensive Reports</h3>
-                    <p className="text-gray-600">Full documentation for compliance audits and regulatory requirements</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Comprehensive Reports
+                    </h3>
+                    <p className="text-gray-600">
+                      Full documentation for compliance audits and regulatory
+                      requirements
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Chain of Custody</h3>
-                    <p className="text-gray-600">Complete tracking from pickup to final destruction verification</p>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      Chain of Custody
+                    </h3>
+                    <p className="text-gray-600">
+                      Complete tracking from pickup to final destruction
+                      verification
+                    </p>
                   </div>
                 </div>
               </div>
@@ -270,14 +401,30 @@ export default function OnsiteDataDestruction() {
           {/* Service Areas */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Serving All of Georgia</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Serving All of Georgia
+              </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Professional onsite data destruction services throughout Georgia and Southeast States
+                Professional onsite data destruction services throughout Georgia
+                and Southeast States
               </p>
             </div>
-            
+
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
-              {['Atlanta', 'Savannah', 'Augusta', 'Columbus', 'Macon', 'Suwanee', 'Albany', 'Roswell', 'Sandy Springs', 'Warner Robins', 'Johns Creek', 'Alpharetta'].map((city) => (
+              {[
+                "Atlanta",
+                "Savannah",
+                "Augusta",
+                "Columbus",
+                "Macon",
+                "Suwanee",
+                "Albany",
+                "Roswell",
+                "Sandy Springs",
+                "Warner Robins",
+                "Johns Creek",
+                "Alpharetta",
+              ].map((city) => (
                 <div key={city} className="bg-gray-50 rounded-lg p-4">
                   <p className="font-semibold text-gray-900">{city}</p>
                 </div>
@@ -291,7 +438,8 @@ export default function OnsiteDataDestruction() {
               Ready for Secure Data Destruction?
             </h2>
             <p className="text-xl mb-8 text-gray-100">
-              Contact Computer Recyclers USA today to schedule your onsite data destruction service in Georgia
+              Contact Computer Recyclers USA today to schedule your onsite data
+              destruction service in Georgia
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
@@ -301,9 +449,22 @@ export default function OnsiteDataDestruction() {
                 SCHEDULE DESTRUCTION SERVICE
               </button>
               <div className="flex items-center space-x-4 text-gray-100">
-                <a href="tel:770-840-0805" className="flex items-center hover:text-white transition-colors">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                <a
+                  href="tel:770-840-0805"
+                  className="flex items-center hover:text-white transition-colors"
+                >
+                  <svg
+                    className="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
                   </svg>
                   770-840-0805
                 </a>
@@ -333,6 +494,7 @@ export default function OnsiteDataDestruction() {
           </div>
         </div>
       )}
+      <Analytics />
     </div>
   );
 }
