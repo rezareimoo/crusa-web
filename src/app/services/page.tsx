@@ -24,8 +24,9 @@ export default function Services() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Comprehensive data destruction and responsible electronics recycling
-                solutions designed for Georgia and Southeast businesses of all sizes
+                Comprehensive data destruction and responsible electronics
+                recycling solutions designed for Georgia and Southeast
+                businesses of all sizes
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -162,15 +163,25 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
-                  <Link 
+                  <Link
                     href="/services/onsite-data-destruction"
                     className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
                     Learn More About Data Destruction
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -229,10 +240,11 @@ export default function Services() {
                 </div>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
-                    We provide complimentary pickup services throughout
-                    Georgia and Southeast States for all types of IT equipment, regardless
-                    of age, condition, or quantity. Our professional team
-                    handles the logistics so you can focus on your business.
+                    We provide complimentary pickup services throughout Georgia
+                    and Southeast States for all types of IT equipment,
+                    regardless of age, condition, or quantity. Our professional
+                    team handles the logistics so you can focus on your
+                    business.
                   </strong>
                 </p>
 
@@ -257,9 +269,9 @@ export default function Services() {
                       </h3>
                       <p className="text-gray-600">
                         <strong>
-                          Serving all cities and counties across Georgia and Southeast States with
-                          reliable pickup scheduling that works around your
-                          business hours and requirements.
+                          Serving all cities and counties across Georgia and
+                          Southeast States with reliable pickup scheduling that
+                          works around your business hours and requirements.
                         </strong>
                       </p>
                     </div>
@@ -321,15 +333,25 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
-                  <Link 
+                  <Link
                     href="/services/free-it-equipment-pickup"
                     className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
                     Learn More About Free Pickup
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -456,15 +478,25 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
-                  <Link 
+                  <Link
                     href="/services/responsible-electronics-recycling"
                     className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
                     Learn More About Responsible Recycling
-                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -483,7 +515,6 @@ export default function Services() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -521,7 +552,7 @@ export default function Services() {
               </a>
               <h3 className="text-xl font-bold mb-2">Call Us</h3>
               <p className="text-gray-300 mb-2">770-840-0805</p>
-              <p className="text-sm text-gray-400">Mon-Fri 8AM-5PM EST</p>
+              <p className="text-sm text-gray-400">Mon-Fri 8AM-4PM EST</p>
             </div>
 
             <div className="text-center">
@@ -548,7 +579,12 @@ export default function Services() {
             </div>
 
             <div className="text-center">
-              <a href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <a
+                href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
                 <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
                   <svg
                     className="w-8 h-8 text-white"

@@ -418,8 +418,8 @@ export default function AboutPageContent() {
                       Certificates of data destruction and recycling compliance
                       documentation are provided immediately upon completion.
                       Digital copies are delivered directly to your designated
-                      contact, ensuring Georgia and Southeast businesses maintain
-                      complete audit trails for regulatory compliance.
+                      contact, ensuring Georgia and Southeast businesses
+                      maintain complete audit trails for regulatory compliance.
                     </p>
                   </div>
                 </div>
@@ -447,7 +447,11 @@ export default function AboutPageContent() {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="space-y-6 sm:space-y-8">
               <div className="flex items-start space-x-6">
-                <a href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center flex-shrink-0 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
                     <svg
                       className="w-8 h-8 text-white"
@@ -522,7 +526,7 @@ export default function AboutPageContent() {
                   <p className="text-gray-600">
                     Speak directly with our Georgia-based team of certified
                     electronics recycling experts. Available Monday through
-                    Friday, 8AM to 5PM EST. Emergency data destruction services
+                    Friday, 8AM to 4PM EST. Emergency data destruction services
                     available throughout Georgia and Southeast States.
                   </p>
                 </div>
@@ -589,7 +593,7 @@ export default function AboutPageContent() {
                   770-840-0805
                 </a>
               </p>
-              <p className="text-sm text-gray-400">Mon-Fri 8AM-5PM EST</p>
+              <p className="text-sm text-gray-400">Mon-Fri 8AM-4PM EST</p>
             </div>
 
             <div className="text-center">
@@ -623,7 +627,12 @@ export default function AboutPageContent() {
             </div>
 
             <div className="text-center">
-              <a href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <a
+                href="https://maps.google.com/?q=3644+Burnette+Road,+Suwanee,+GA+30024"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
                 <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
                   <svg
                     className="w-8 h-8 text-white"

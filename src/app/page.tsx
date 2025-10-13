@@ -405,7 +405,7 @@ export default function Home() {
               </a>
               <h3 className="text-xl font-bold mb-2">Call Us</h3>
               <p className="text-gray-300 mb-2">770-840-0805</p>
-              <p className="text-sm text-gray-400">Mon-Fri 8AM-5PM EST</p>
+              <p className="text-sm text-gray-400">Mon-Fri 8AM-4PM EST</p>
             </div>
 
             <div className="text-center">

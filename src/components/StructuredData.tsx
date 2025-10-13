@@ -29,7 +29,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
       latitude: "34.0515", // Suwanee, GA coordinates
       longitude: "-84.0713",
     },
-    openingHours: "Mo-Fr 08:00-17:00",
+    openingHours: "Mo-Fr 08:00-16:00",
     priceRange: "$$",
     currenciesAccepted: "USD",
     paymentAccepted: "Cash, Credit Card",
@@ -85,9 +85,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
       "ISO 9001:2015 Quality Management",
       "ISO 45001:2018 Occupational Health and Safety",
     ],
-    sameAs: [
-      "https://www.linkedin.com/company/computer-recyclers-usa-llc"
-    ],
+    sameAs: ["https://www.linkedin.com/company/computer-recyclers-usa-llc"],
   };
 
   const structuredData = data || defaultStructuredData;
