@@ -15,9 +15,12 @@ export default function Header({ currentPage }: HeaderProps) {
   const [showPickupForm, setShowPickupForm] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [dropdownTimer, setDropdownTimer] = useState<NodeJS.Timeout | null>(null);
+  const [aboutDropdownTimer, setAboutDropdownTimer] = useState<NodeJS.Timeout | null>(null);
 
-  // Improved hover functions with delays
+  // Improved hover functions with delays for Services
   const handleDropdownEnter = () => {
     if (dropdownTimer) {
       clearTimeout(dropdownTimer);
@@ -39,6 +42,30 @@ export default function Header({ currentPage }: HeaderProps) {
       setDropdownTimer(null);
     }
     setServicesDropdownOpen(false);
+  };
+
+  // About dropdown handlers
+  const handleAboutDropdownEnter = () => {
+    if (aboutDropdownTimer) {
+      clearTimeout(aboutDropdownTimer);
+      setAboutDropdownTimer(null);
+    }
+    setAboutDropdownOpen(true);
+  };
+
+  const handleAboutDropdownLeave = () => {
+    const timer = setTimeout(() => {
+      setAboutDropdownOpen(false);
+    }, 300); // 300ms delay before closing
+    setAboutDropdownTimer(timer);
+  };
+
+  const closeAboutDropdown = () => {
+    if (aboutDropdownTimer) {
+      clearTimeout(aboutDropdownTimer);
+      setAboutDropdownTimer(null);
+    }
+    setAboutDropdownOpen(false);
   };
 
   const services = [
@@ -66,17 +93,23 @@ export default function Header({ currentPage }: HeaderProps) {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (servicesDropdownOpen) {
-        const target = event.target as Element;
-        if (!target.closest('.services-dropdown-container')) {
-          setServicesDropdownOpen(false);
-        }
+      const target = event.target as Element;
+      if (servicesDropdownOpen && !target.closest('.services-dropdown-container')) {
+        setServicesDropdownOpen(false);
+      }
+      if (aboutDropdownOpen && !target.closest('.about-dropdown-container')) {
+        setAboutDropdownOpen(false);
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && servicesDropdownOpen) {
-        setServicesDropdownOpen(false);
+      if (event.key === 'Escape') {
+        if (servicesDropdownOpen) {
+          setServicesDropdownOpen(false);
+        }
+        if (aboutDropdownOpen) {
+          setAboutDropdownOpen(false);
+        }
       }
     };
 
@@ -91,8 +124,11 @@ export default function Header({ currentPage }: HeaderProps) {
       if (dropdownTimer) {
         clearTimeout(dropdownTimer);
       }
+      if (aboutDropdownTimer) {
+        clearTimeout(aboutDropdownTimer);
+      }
     };
-  }, [servicesDropdownOpen, dropdownTimer]);
+  }, [servicesDropdownOpen, aboutDropdownOpen, dropdownTimer, aboutDropdownTimer]);
 
   return (
     <>
@@ -124,6 +160,7 @@ export default function Header({ currentPage }: HeaderProps) {
                   setMobileMenuOpen(!mobileMenuOpen);
                   if (mobileMenuOpen) {
                     setMobileServicesOpen(false);
+                    setMobileAboutOpen(false);
                   }
                 }}
                 className="text-gray-700 hover:text-primary-green focus:outline-none focus:text-primary-green transition-colors p-2"
@@ -250,16 +287,51 @@ export default function Header({ currentPage }: HeaderProps) {
                     </div>
                   )}
                 </div>
-                <Link
-                  href="/about"
-                  className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors ${
-                    currentPage === "about"
-                      ? "text-primary-green"
-                      : "text-gray-900"
-                  }`}
+                <div 
+                  className="relative about-dropdown-container"
+                  onMouseEnter={handleAboutDropdownEnter}
+                  onMouseLeave={handleAboutDropdownLeave}
                 >
-                  ABOUT US
-                </Link>
+                  <button
+                    onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                    className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors flex items-center ${
+                      currentPage === "about"
+                        ? "text-primary-green"
+                        : "text-gray-900"
+                    }`}
+                  >
+                    ABOUT US
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  
+                  {aboutDropdownOpen && (
+                    <div 
+                      className="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+                      style={{ 
+                        zIndex: 9999999
+                      }}
+                    >
+                      <Link
+                        href="/about"
+                        onClick={closeAboutDropdown}
+                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
+                      >
+                        <div className="font-medium">About Us</div>
+                        <div className="text-gray-600 text-xs">Learn about our company</div>
+                      </Link>
+                      <Link
+                        href="/certificates"
+                        onClick={closeAboutDropdown}
+                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                      >
+                        <div className="font-medium">Certificates</div>
+                        <div className="text-gray-600 text-xs">View our certifications</div>
+                      </Link>
+                    </div>
+                  )}
+                </div>
                 <Link
                   href="/#contact"
                   className="text-gray-900 hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors"
@@ -280,11 +352,11 @@ export default function Header({ currentPage }: HeaderProps) {
         {/* Second Row - Full Navigation (only visible when NOT scrolled) */}
         <div
           className={`hidden lg:block transition-all duration-500 ease-out ${
-            servicesDropdownOpen && !isScrolled ? 'overflow-visible' : 'overflow-hidden'
+            (servicesDropdownOpen || aboutDropdownOpen) && !isScrolled ? 'overflow-visible' : 'overflow-hidden'
           } ${
             isScrolled ? "max-h-0 opacity-0 py-0" : "max-h-20 opacity-100 py-4"
           }`}
-          style={{ zIndex: servicesDropdownOpen && !isScrolled ? 999998 : 1 }}
+          style={{ zIndex: (servicesDropdownOpen || aboutDropdownOpen) && !isScrolled ? 999998 : 1 }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center">
@@ -357,21 +429,56 @@ export default function Header({ currentPage }: HeaderProps) {
                     </div>
                   )}
                 </div>
-                <Link
-                  href="/about"
-                  className={`px-3 py-2 text-sm font-medium transition-colors relative group ${
-                    currentPage === "about"
-                      ? "text-primary-green"
-                      : "text-gray-900 hover:text-primary-green"
-                  }`}
+                <div 
+                  className="relative about-dropdown-container"
+                  onMouseEnter={handleAboutDropdownEnter}
+                  onMouseLeave={handleAboutDropdownLeave}
                 >
-                  ABOUT US
-                  <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full ${
-                      currentPage === "about" ? "w-full" : "w-0"
+                  <button
+                    onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                    className={`px-3 py-2 text-sm font-medium transition-colors relative group flex items-center ${
+                      currentPage === "about"
+                        ? "text-primary-green"
+                        : "text-gray-900 hover:text-primary-green"
                     }`}
-                  ></span>
-                </Link>
+                  >
+                    ABOUT US
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full ${
+                        currentPage === "about" ? "w-full" : "w-0"
+                      }`}
+                    ></span>
+                  </button>
+                  
+                  {aboutDropdownOpen && (
+                    <div 
+                      className="absolute top-full left-0 mt-2 w-64 bg-white rounded-md shadow-xl border border-gray-200 py-2"
+                      style={{ 
+                        zIndex: 9999999
+                      }}
+                    >
+                      <Link
+                        href="/about"
+                        onClick={closeAboutDropdown}
+                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
+                      >
+                        <div className="font-medium">About Us</div>
+                        <div className="text-gray-600 text-xs mt-1">Learn about our company</div>
+                      </Link>
+                      <Link
+                        href="/certificates"
+                        onClick={closeAboutDropdown}
+                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                      >
+                        <div className="font-medium">Certificates</div>
+                        <div className="text-gray-600 text-xs mt-1">View our certifications</div>
+                      </Link>
+                    </div>
+                  )}
+                </div>
                 <Link
                   href="/#contact"
                   className="text-gray-900 hover:text-primary-green px-3 py-2 text-sm font-medium transition-colors relative group"
@@ -458,17 +565,52 @@ export default function Header({ currentPage }: HeaderProps) {
                 </div>
               )}
             </div>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                currentPage === "about"
-                  ? "text-primary-green bg-gray-50"
-                  : "text-gray-900 hover:text-primary-green hover:bg-gray-50"
-              }`}
-            >
-              ABOUT US
-            </Link>
+            
+            <div>
+              <button
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                  currentPage === "about"
+                    ? "text-primary-green bg-gray-50"
+                    : "text-gray-900 hover:text-primary-green hover:bg-gray-50"
+                }`}
+              >
+                ABOUT US
+                <svg 
+                  className={`w-4 h-4 transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {mobileAboutOpen && (
+                <div className="ml-4 mt-2 space-y-1">
+                  <Link
+                    href="/about"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileAboutOpen(false);
+                    }}
+                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/certificates"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileAboutOpen(false);
+                    }}
+                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+                  >
+                    Certificates
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link
               href="/#contact"
               onClick={() => setMobileMenuOpen(false)}
