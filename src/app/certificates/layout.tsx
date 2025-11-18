@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Certificates & Certifications | Computer Recyclers USA - R2 & ISO Certified",
+  title:
+    "Certificates & Certifications | Computer Recyclers USA - R2v3 & ISO Certified",
   description:
-    "View our certifications: R2 v3, ISO 9001, ISO 14001, and ISO 45001. Computer Recyclers USA is a fully certified electronics recycling and data destruction facility in Suwanee, Georgia.",
+    "View our certifications: R2v3, ISO 9001, ISO 14001, and ISO 45001. Computer Recyclers USA is a fully certified electronics recycling and data destruction facility in Suwanee, Georgia.",
   keywords:
-    "R2 certified, ISO 9001, ISO 14001, ISO 45001, certifications, computer recyclers USA certificates, R2 v3 certification, ISO certified recycler Georgia, certified electronics recycling facility",
+    "R2v3 certified, ISO 9001, ISO 14001, ISO 45001, certifications, computer recyclers USA certificates, R2v3 certification, ISO certified recycler Georgia, certified electronics recycling facility",
   alternates: {
     canonical: "https://crusallc.com/certificates",
   },
   openGraph: {
     title: "Certificates & Certifications | Computer Recyclers USA",
     description:
-      "View our R2 v3, ISO 9001, ISO 14001, and ISO 45001 certifications. Fully certified electronics recycling and data destruction facility in Georgia.",
+      "View our R2v3, ISO 9001, ISO 14001, and ISO 45001 certifications. Fully certified electronics recycling and data destruction facility in Georgia.",
     url: "https://crusallc.com/certificates",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Certificates & Certifications | Computer Recyclers USA",
     description:
-      "R2 v3, ISO 9001, ISO 14001, and ISO 45001 certified electronics recycling facility in Georgia.",
+      "R2v3, ISO 9001, ISO 14001, and ISO 45001 certified electronics recycling facility in Georgia.",
     images: ["https://crusallc.com/logo.png"],
   },
   robots: {
@@ -53,4 +54,3 @@ export default function CertificatesLayout({
 }) {
   return <>{children}</>;
 }
-

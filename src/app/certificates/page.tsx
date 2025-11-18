@@ -8,7 +8,9 @@ import StructuredData from "@/components/StructuredData";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Certificates() {
-  const [selectedCertificate, setSelectedCertificate] = useState<number | null>(null);
+  const [selectedCertificate, setSelectedCertificate] = useState<number | null>(
+    null
+  );
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -16,7 +18,7 @@ export default function Certificates() {
     url: "https://crusallc.com/certificates",
     name: "Certificates & Certifications | Computer Recyclers USA",
     description:
-      "View certifications for Computer Recyclers USA including R2 v3, ISO 9001, ISO 14001, and ISO 45001.",
+      "View certifications for Computer Recyclers USA including R2v3, ISO 9001, ISO 14001, and ISO 45001.",
     breadcrumb: {
       "@type": "BreadcrumbList",
       itemListElement: [
@@ -42,7 +44,7 @@ export default function Certificates() {
         {
           "@type": "EducationalOccupationalCredential",
           credentialCategory: "certification",
-          name: "R2 v3 Certification",
+          name: "R2v3 Certification",
           description:
             "Responsible Recycling certification for electronics recyclers",
         },
@@ -93,10 +95,10 @@ export default function Certificates() {
 
   const certificates = [
     {
-      name: "R2 v3 Certification",
+      name: "R2v3 Certification",
       image: "/R2v3 Final Cert.png",
       description:
-        "Responsible Recycling (R2) v3 certification for electronics recyclers, ensuring responsible handling and processing of electronic equipment.",
+        "Responsible Recycling R2v3 certification for electronics recyclers, ensuring responsible handling and processing of electronic equipment.",
       icon: (
         <svg
           className="w-8 h-8 text-white"
@@ -224,7 +226,7 @@ export default function Certificates() {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <div 
+                  <div
                     className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-gray-50 rounded-lg overflow-hidden border border-gray-200 cursor-pointer hover:border-primary-green transition-all duration-300"
                     onClick={() => setSelectedCertificate(index)}
                   >
@@ -251,7 +253,7 @@ export default function Certificates() {
               <div className="relative w-full max-w-[200px] aspect-square bg-white rounded-lg overflow-hidden">
                 <Image
                   src="/r2v3.jpg"
-                  alt="R2 v3 Certified"
+                  alt="R2v3 Certified"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 200px, 200px"
@@ -290,7 +292,7 @@ export default function Certificates() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">R2</span>
+                <span className="text-2xl font-bold text-white">R2v3</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 Responsible Recycling
@@ -435,7 +437,10 @@ export default function Certificates() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 pr-12">
                 {certificates[selectedCertificate].name}
               </h2>
-              <div className="relative w-full bg-gray-50 rounded-lg overflow-hidden border border-gray-200" style={{ minHeight: "60vh" }}>
+              <div
+                className="relative w-full bg-gray-50 rounded-lg overflow-hidden border border-gray-200"
+                style={{ minHeight: "60vh" }}
+              >
                 <Image
                   src={certificates[selectedCertificate].image}
                   alt={`${certificates[selectedCertificate].name} certificate`}
@@ -454,4 +459,3 @@ export default function Certificates() {
     </div>
   );
 }
-
