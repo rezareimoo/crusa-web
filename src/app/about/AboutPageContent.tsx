@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -301,9 +302,11 @@ export default function AboutPageContent() {
             </div>
 
             <div className="relative hidden sm:block">
-              <img
+              <Image
                 src="/empowering-ga.svg"
                 alt="Empowering Georgia's Sustainable Technology Practices"
+                width={600}
+                height={650}
                 className="w-full h-[325px] sm:h-[390px] md:h-[455px] lg:h-[520px] xl:h-[585px] 2xl:h-[650px] object-cover object-top"
               />
             </div>
@@ -316,9 +319,11 @@ export default function AboutPageContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="relative order-2 lg:order-1 hidden sm:block">
-              <img
+              <Image
                 src="/US_19_in_Georgia_map.svg"
                 alt="Georgia State Map with US 19"
+                width={600}
+                height={585}
                 className="w-full h-[260px] sm:h-[325px] md:h-[390px] lg:h-[455px] xl:h-[520px] 2xl:h-[585px] object-cover object-top"
               />
             </div>

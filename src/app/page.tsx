@@ -371,6 +371,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Areas */}
+      <section className="pt-8 sm:pt-10 pb-16 sm:pb-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Serving All of Georgia
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Professional data destruction, electronics recycling, and IT equipment pickup services throughout Georgia and Southeast States
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            {[
+              "Atlanta",
+              "Savannah",
+              "Augusta",
+              "Columbus",
+              "Macon",
+              "Suwanee",
+              "Albany",
+              "Roswell",
+              "Sandy Springs",
+              "Warner Robins",
+              "Johns Creek",
+              "Alpharetta",
+            ].map((city) => (
+              <div key={city} className="bg-gray-50 rounded-lg p-4">
+                <p className="font-semibold text-gray-900">{city}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-16 sm:py-20 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
