@@ -209,6 +209,23 @@ export default function PickupForm({ onClose }: PickupFormProps) {
     setCurrentStep((prev) => Math.max(prev - 1, 1));
   };
 
+  // Google Ads conversion tracking function
+  const gtag_report_conversion = (url?: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      const callback = () => {
+        if (typeof url !== "undefined" && url) {
+          window.location.href = url;
+        }
+      };
+
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-17836566328/8pSKCJO5q9obELjOkblC",
+        event_callback: callback,
+      });
+    }
+    return false;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -227,6 +244,9 @@ export default function PickupForm({ onClose }: PickupFormProps) {
       });
 
       if (response.ok) {
+        // Track conversion on successful form submission
+        gtag_report_conversion();
+        
         setSubmitStatus("success");
         setFormData({
           firstName: "",
