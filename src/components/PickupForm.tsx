@@ -211,17 +211,22 @@ export default function PickupForm({ onClose }: PickupFormProps) {
 
   // Google Ads conversion tracking function
   const gtag_report_conversion = (url?: string) => {
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      const callback = () => {
-        if (typeof url !== "undefined" && url) {
-          window.location.href = url;
-        }
-      };
+    if (typeof window !== "undefined") {
+      // Type declaration for gtag function
+      const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+      
+      if (gtag) {
+        const callback = () => {
+          if (typeof url !== "undefined" && url) {
+            window.location.href = url;
+          }
+        };
 
-      (window as any).gtag("event", "conversion", {
-        send_to: "AW-17836566328/8pSKCJO5q9obELjOkblC",
-        event_callback: callback,
-      });
+        gtag("event", "conversion", {
+          send_to: "AW-17836566328/8pSKCJO5q9obELjOkblC",
+          event_callback: callback,
+        });
+      }
     }
     return false;
   };
