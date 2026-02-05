@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 
 export default function Footer() {
@@ -16,10 +17,17 @@ export default function Footer() {
               Ready to Get Started?
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-              Join over 1,000 Georgia and Southeast businesses who trust
-              Computer Recyclers USA for secure data destruction, IT equipment
-              pickup, and responsible electronics recycling. services. Free
-              pickup available throughout Georgia and Southeast States.
+              Join over 1,000{" "}
+              <Link
+                href="/service-area/georgia"
+                className="text-primary-green hover:text-primary-green-dark font-bold"
+              >
+                Georgia
+              </Link>{" "}
+              and Southeast businesses who trust Computer Recyclers USA for
+              secure data destruction, IT equipment pickup, and responsible
+              electronics recycling. Free pickup available throughout Georgia
+              and Southeast States.
             </p>
           </div>
 

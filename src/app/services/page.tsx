@@ -25,8 +25,14 @@ export default function Services() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
                 Comprehensive data destruction and responsible electronics
-                recycling solutions designed for Georgia and Southeast
-                businesses of all sizes
+                recycling solutions designed for{" "}
+                <Link
+                  href="/service-area/georgia"
+                  className="text-primary-green hover:text-primary-green-dark font-bold"
+                >
+                  Georgia
+                </Link>{" "}
+                and Southeast businesses of all sizes
               </strong>
             </p>
             <div className="flex justify-center px-4">
