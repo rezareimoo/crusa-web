@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -405,7 +406,13 @@ export default function OnsiteDataDestruction() {
                 Serving All of Georgia
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Professional onsite data destruction services throughout Georgia
+                Professional onsite data destruction services throughout{" "}
+                <Link
+                  href="/service-area/georgia"
+                  className="text-primary-green hover:text-primary-green-dark font-bold"
+                >
+                  Georgia
+                </Link>{" "}
                 and Southeast States
               </p>
             </div>

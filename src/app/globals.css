@@ -5,6 +5,7 @@
   --foreground: #171717;
   --primary-green: #22c55e;
   --primary-green-dark: #16a34a;
+  --primary-green-darker: #15803d; /* darker for link readability */
   --hero-overlay: rgba(0, 0, 0, 0.4);
 }
 
@@ -13,6 +14,7 @@
   --color-foreground: var(--foreground);
   --color-primary-green: var(--primary-green);
   --color-primary-green-dark: var(--primary-green-dark);
+  --color-primary-green-darker: var(--primary-green-darker);
   --color-hero-overlay: var(--hero-overlay);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

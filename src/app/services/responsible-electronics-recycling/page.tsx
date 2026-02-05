@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -462,8 +463,14 @@ export default function ResponsibleElectronicsRecycling() {
                 Serving All of Georgia
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                R2 v3 certified electronics recycling services throughout
-                Georgia and Southeast States
+                R2 v3 certified electronics recycling services throughout{" "}
+                <Link
+                  href="/service-area/georgia"
+                  className="text-primary-green hover:text-primary-green-dark font-bold"
+                >
+                  Georgia
+                </Link>{" "}
+                and Southeast States
               </p>
             </div>
 

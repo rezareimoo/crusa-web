@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -418,8 +419,14 @@ export default function FreeITEquipmentPickup() {
                 Free Pickup Throughout Georgia
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Professional IT equipment pickup services available in all
-                Georgia cities and counties
+                Professional IT equipment pickup services available across{" "}
+                <Link
+                  href="/service-area/georgia"
+                  className="text-primary-green hover:text-primary-green-dark font-bold"
+                >
+                  Georgia
+                </Link>{" "}
+                cities and counties
               </p>
             </div>
 
