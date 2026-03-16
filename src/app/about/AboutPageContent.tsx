@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
+import PickupForm from "@/components/PickupForm";
+import NAPBlock from "@/components/NAPBlock";
 
 export default function AboutPageContent() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -588,6 +589,13 @@ export default function AboutPageContent() {
           </div>
         </div>
       )}
+
+      {/* Local Business Info (NAP) */}
+      <section className="bg-gray-50 py-6 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NAPBlock />
+        </div>
+      </section>
     </div>
   );
 }

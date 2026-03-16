@@ -58,7 +58,7 @@ export default function OnsiteDataDestruction() {
               <span className="text-primary-green">
                 Onsite Data Destruction
               </span>{" "}
-              Services Georgia
+              in Georgia
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>

@@ -60,7 +60,7 @@ export default function FreeITEquipmentPickup() {
               <span className="text-primary-green">
                 Free IT Equipment Pickup
               </span>{" "}
-              Georgia
+              in Atlanta &amp; Georgia
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>

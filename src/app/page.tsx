@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
+import PickupForm from "@/components/PickupForm";
+import NAPBlock from "@/components/NAPBlock";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
@@ -25,16 +26,33 @@ export default function Home() {
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
               Atlanta Computer Recycling &
-              <span className="text-primary-green">
-                {" "}
-                Secure Data Destruction
-              </span>
+              <span className="text-primary-green"> Data Destruction Georgia</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Trusted computer recyclers providing data destruction,
-                electronics recycling, and IT Asset Recovery services for
-                businesses across Atlanta, Georgia and Southeast States
+                Trusted computer recyclers providing{" "}
+                <Link
+                  href="/services/onsite-data-destruction"
+                  className="text-primary-green hover:text-primary-green-dark underline decoration-primary-green/60 hover:decoration-primary-green-dark"
+                >
+                  data destruction
+                </Link>
+                ,{" "}
+                <Link
+                  href="/services/responsible-electronics-recycling"
+                  className="text-primary-green hover:text-primary-green-dark underline decoration-primary-green/60 hover:decoration-primary-green-dark"
+                >
+                  electronics recycling
+                </Link>
+                , and{" "}
+                <Link
+                  href="/services/free-it-equipment-pickup"
+                  className="text-primary-green hover:text-primary-green-dark underline decoration-primary-green/60 hover:decoration-primary-green-dark"
+                >
+                  IT equipment pickup
+                </Link>{" "}
+                services for businesses across Atlanta, Georgia and Southeast
+                States
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -403,6 +421,13 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Local Business Info (NAP) */}
+      <section className="bg-gray-50 py-6 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NAPBlock />
         </div>
       </section>
 

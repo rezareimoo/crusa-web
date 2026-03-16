@@ -5,6 +5,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import StructuredData from "@/components/StructuredData";
+import NAPBlock from "@/components/NAPBlock";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Certificates() {
@@ -191,13 +192,17 @@ export default function Certificates() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Our <span className="text-primary-green">Certifications</span>
+              R2 &amp; ISO Certifications for{" "}
+              <span className="text-primary-green">
+                Electronics Recycling in Georgia
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
                 Computer Recyclers USA is fully certified and compliant with
                 industry-leading standards for quality, environmental
-                responsibility, and occupational safety.
+                responsibility, and occupational safety for electronics
+                recycling and data destruction in Georgia.
               </strong>
             </p>
           </div>
@@ -232,7 +237,7 @@ export default function Certificates() {
                   >
                     <Image
                       src={cert.image}
-                      alt={`${cert.name} certificate`}
+                      alt={`${cert.name} certification for Computer Recyclers USA electronics recycling facility in Georgia`}
                       fill
                       className="object-contain p-4"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
@@ -253,7 +258,7 @@ export default function Certificates() {
               <div className="relative w-full max-w-[200px] aspect-square bg-white rounded-lg overflow-hidden">
                 <Image
                   src="/r2v3.jpg"
-                  alt="R2v3 Certified"
+                  alt="R2v3 certified electronics recycling facility in Suwanee Georgia"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 200px, 200px"
@@ -264,7 +269,7 @@ export default function Certificates() {
               <div className="relative w-full max-w-[200px] aspect-square bg-white rounded-lg overflow-hidden">
                 <Image
                   src="/PJR.jpg"
-                  alt="Perry Johnson Registrars"
+                  alt="Perry Johnson Registrars certification for Computer Recyclers USA"
                   fill
                   className="object-contain p-4"
                   sizes="(max-width: 768px) 200px, 200px"
@@ -402,6 +407,12 @@ export default function Certificates() {
       )}
 
       <Analytics />
+      {/* Local Business Info (NAP) */}
+      <section className="bg-gray-50 py-6 border-t mt-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NAPBlock />
+        </div>
+      </section>
     </div>
   );
 }

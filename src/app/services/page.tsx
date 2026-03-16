@@ -20,7 +20,10 @@ export default function Services() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Our <span className="text-primary-green">Services</span>
+              Electronics Recycling &amp;{" "}
+              <span className="text-primary-green">
+                Data Destruction Services in Georgia
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
@@ -213,13 +216,13 @@ export default function Services() {
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
-                  <Image
-                    src="/truck-nobg.png"
-                    alt="Professional pickup truck for IT equipment collection"
-                    width={600}
-                    height={400}
-                    className="w-full h-full object-cover object-center"
-                  />
+                <Image
+                  src="/truck-nobg.png"
+                  alt="Professional IT equipment pickup truck serving Atlanta and Georgia businesses"
+                  width={600}
+                  height={400}
+                  className="w-full h-full object-cover object-center"
+                />
                 </div>
               </div>
 

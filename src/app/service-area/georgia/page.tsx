@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
+import PickupForm from "@/components/PickupForm";
+import NAPBlock from "@/components/NAPBlock";
 import StructuredData from "@/components/StructuredData";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -117,7 +118,21 @@ export default function GeorgiaServiceArea() {
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               We work with organizations across the state—from small and
-              midsize businesses to enterprises and institutions.
+              midsize businesses to enterprises and institutions who need{" "}
+              <Link
+                href="/services/responsible-electronics-recycling"
+                className="text-primary-green hover:text-primary-green-dark font-bold"
+              >
+                electronics recycling
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/services/onsite-data-destruction"
+                className="text-primary-green hover:text-primary-green-dark font-bold"
+              >
+                data destruction
+              </Link>{" "}
+              services in Georgia.
             </p>
           </div>
 
@@ -373,6 +388,13 @@ export default function GeorgiaServiceArea() {
           >
             REQUEST SERVICE
           </button>
+        </div>
+      </section>
+
+      {/* Local Business Info (NAP) */}
+      <section className="bg-gray-50 py-6 border-t">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NAPBlock />
         </div>
       </section>
 

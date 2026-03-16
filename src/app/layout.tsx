@@ -16,10 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Atlanta Computer Recycling | Computer Recyclers USA Georgia",
+  title: "Atlanta Computer Recycling | Computer Recyclers USA",
   description:
-    "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
+    "Atlanta computer recycling by trusted computer recyclers near you. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
   keywords:
     "atlanta computer recycling, computer recyclers, recycle computers atlanta, electronics recycling, data destruction, e-waste, georgia, R2 certified",
   authors: [{ name: "Computer Recyclers USA" }],
@@ -37,10 +36,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title:
-      "Atlanta Computer Recycling | Computer Recyclers USA",
+    title: "Atlanta Computer Recycling | Computer Recyclers USA",
     description:
-      "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
+      "Atlanta computer recycling by trusted computer recyclers near you. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
     url: "https://crusallc.com",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -56,10 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Atlanta Computer Recycling | Computer Recyclers USA",
+    title: "Atlanta Computer Recycling | Computer Recyclers USA",
     description:
-      "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
+      "Atlanta computer recycling by trusted computer recyclers near you. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
     images: ["https://crusallc.com/logo.png"],
   },
   verification: {
