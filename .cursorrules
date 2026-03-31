@@ -81,7 +81,7 @@ export const metadata: Metadata = {
 - Examples:
   - **Homepage**: "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia."
   - **Electronics**: "Recycle electronics and e-waste responsibly in Georgia. R2 certified facility, zero landfill, free pickup. Serving Atlanta and Southeast."
-  - "Secure data destruction and electronics recycling in Georgia. R2 certified, free pickup, HIPAA compliant. Serving Atlanta, Savannah, Augusta & all of Georgia."
+  - "Secure data destruction and electronics recycling in Georgia. R2 certified, free pickup, HIPAA compliant. Serving Atlanta, Marietta, Augusta & all of Georgia."
 
 ## SEO Query Distribution Strategy
 
@@ -170,7 +170,7 @@ export const metadata: Metadata = {
 ### Location-Based Content
 
 - Always mention "Georgia" and "Southeast" in content
-- Include specific cities: Atlanta, Savannah, Augusta, Columbus, Macon, Suwanee
+- Include specific cities: Atlanta, Marietta, Augusta, Columbus, Macon, Suwanee
 - Reference local landmarks and business districts
 - Include service area information
 
@@ -365,7 +365,7 @@ Before publishing any new content, verify:
 - "atlanta computer recyclers" 
 - "computer recyclers atlanta"
 - "data destruction Atlanta"
-- "electronics recycling Savannah"
+- "electronics recycling Marietta"
 - "computer recycling Augusta"
 - "IT pickup Columbus GA"
 - "data destruction Macon"

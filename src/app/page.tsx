@@ -386,15 +386,15 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
             {[
               "Atlanta",
-              "Savannah",
+              "Marietta",
               "Augusta",
               "Columbus",
               "Macon",
               "Suwanee",
-              "Albany",
+              "Decatur",
               "Roswell",
               "Sandy Springs",
-              "Warner Robins",
+              "Lawrenceville",
               "Johns Creek",
               "Alpharetta",
             ].map((city) => (

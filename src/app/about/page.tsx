@@ -107,7 +107,7 @@ export default function About() {
                   name: "Georgia",
                   containsPlace: [
                     { "@type": "City", name: "Atlanta" },
-                    { "@type": "City", name: "Savannah" },
+                    { "@type": "City", name: "Marietta" },
                     { "@type": "City", name: "Augusta" },
                     { "@type": "City", name: "Columbus" },
                     { "@type": "City", name: "Macon" },
