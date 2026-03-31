@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Onsite Data Destruction Services Georgia | Computer Recyclers USA",
   description:
-    "Secure onsite data destruction in Georgia. NIST 800-88 compliant, witnessed shredding, certificates provided. R2 certified, serving Atlanta, Savannah, Augusta & all Georgia.",
+    "Secure onsite data destruction in Georgia. NIST 800-88 compliant, witnessed shredding, certificates provided. R2 certified, serving Atlanta, Marietta, Augusta & all Georgia.",
   keywords:
     "onsite data destruction Georgia, secure data destruction, hard drive shredding Atlanta, NIST 800-88 compliant, data destruction certificates, R2 certified",
   alternates: {
