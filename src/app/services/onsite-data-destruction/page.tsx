@@ -420,15 +420,15 @@ export default function OnsiteDataDestruction() {
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
               {[
                 "Atlanta",
-                "Marietta",
+                "Savannah",
                 "Augusta",
                 "Columbus",
                 "Macon",
                 "Suwanee",
-                "Decatur",
+                "Albany",
                 "Roswell",
                 "Sandy Springs",
-                "Lawrenceville",
+                "Warner Robins",
                 "Johns Creek",
                 "Alpharetta",
               ].map((city) => (

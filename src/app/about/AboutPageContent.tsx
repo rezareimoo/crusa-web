@@ -68,7 +68,7 @@ export default function AboutPageContent() {
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
                   Our deep Georgia roots give us unique insight into local
-                  business needs. Whether you&apos;re in Atlanta, Marietta,
+                  business needs. Whether you&apos;re in Atlanta, Savannah,
                   Augusta, Columbus, Macon, or anywhere in the Southeast, we
                   understand the regional business landscape. This local
                   expertise, combined with our industry-leading R2 v3, ISO
@@ -395,7 +395,7 @@ export default function AboutPageContent() {
                     <p className="text-gray-600">
                       Our logistics network enables rapid IT equipment pickup
                       and mobile data destruction services across Georgia and
-                      Southeast States. From Marietta to Columbus, Augusta to
+                      Southeast States. From Savannah to Columbus, Augusta to
                       Macon, we guarantee pickup within 24-48 hours for
                       scheduled services.
                     </p>
