@@ -49,35 +49,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Bar */}
-      <section className="bg-primary-green text-white py-4 sm:py-6">
+      {/* Trust Bar — light bg so R2 image (white matting) reads cleanly */}
+      <section className="bg-white text-gray-900 border-y border-gray-200/80 py-4 sm:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
-              <Image
-                src="/r2-logo.png"
-                alt="R2 Logo"
-                width={50}
-                height={50}
-                className="animate-pulse-gentle sm:w-[60px] sm:h-[60px]"
-              />
+              <Link
+                href="https://sustainableelectronics.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block shrink-0"
+              >
+                <Image
+                  src="/r2v3.jpg"
+                  alt="R2 certification"
+                  width={100}
+                  height={50}
+                  className="animate-pulse-gentle h-[50px] w-auto sm:h-[60px] object-contain"
+                />
+              </Link>
               <div>
-                <div className="text-base sm:text-lg font-bold">
+                <div className="text-base sm:text-lg font-bold text-primary-green">
                   R2v3 Certified Data Destruction
                 </div>
-                <div className="text-xs sm:text-sm opacity-90">
+                <div className="text-xs sm:text-sm text-gray-600">
                   Secure • Compliant • Reliable
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">5M+</div>
-                <div className="opacity-90 text-xs">Devices Processed</div>
+                <div className="font-bold text-lg sm:text-xl text-primary-green">
+                  5M+
+                </div>
+                <div className="text-gray-600 text-xs">Devices Processed</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl">700+</div>
-                <div className="opacity-90 text-xs">Businesses Served</div>
+                <div className="font-bold text-lg sm:text-xl text-primary-green">
+                  700+
+                </div>
+                <div className="text-gray-600 text-xs">Businesses Served</div>
               </div>
             </div>
           </div>
