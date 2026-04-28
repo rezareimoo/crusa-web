@@ -68,6 +68,9 @@ export default function Header({ currentPage }: HeaderProps) {
     setAboutDropdownOpen(false);
   };
 
+  const isAboutSectionActive =
+    currentPage === "about" || currentPage === "faq";
+
   const services = [
     {
       name: "Onsite Data Destruction",
@@ -295,7 +298,7 @@ export default function Header({ currentPage }: HeaderProps) {
                   <button
                     onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
                     className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors flex items-center ${
-                      currentPage === "about"
+                      isAboutSectionActive
                         ? "text-primary-green"
                         : "text-gray-900"
                     }`}
@@ -324,10 +327,18 @@ export default function Header({ currentPage }: HeaderProps) {
                       <Link
                         href="/certificates"
                         onClick={closeAboutDropdown}
-                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
                       >
                         <div className="font-medium">Certificates</div>
                         <div className="text-gray-600 text-xs">View our certifications</div>
+                      </Link>
+                      <Link
+                        href="/faq"
+                        onClick={closeAboutDropdown}
+                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                      >
+                        <div className="font-medium">FAQs</div>
+                        <div className="text-gray-600 text-xs">Common questions answered</div>
                       </Link>
                     </div>
                   )}
@@ -437,7 +448,7 @@ export default function Header({ currentPage }: HeaderProps) {
                   <button
                     onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
                     className={`px-3 py-2 text-sm font-medium transition-colors relative group flex items-center ${
-                      currentPage === "about"
+                      isAboutSectionActive
                         ? "text-primary-green"
                         : "text-gray-900 hover:text-primary-green"
                     }`}
@@ -448,7 +459,7 @@ export default function Header({ currentPage }: HeaderProps) {
                     </svg>
                     <span
                       className={`absolute bottom-0 left-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full ${
-                        currentPage === "about" ? "w-full" : "w-0"
+                        isAboutSectionActive ? "w-full" : "w-0"
                       }`}
                     ></span>
                   </button>
@@ -471,10 +482,18 @@ export default function Header({ currentPage }: HeaderProps) {
                       <Link
                         href="/certificates"
                         onClick={closeAboutDropdown}
-                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
                       >
                         <div className="font-medium">Certificates</div>
                         <div className="text-gray-600 text-xs mt-1">View our certifications</div>
+                      </Link>
+                      <Link
+                        href="/faq"
+                        onClick={closeAboutDropdown}
+                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                      >
+                        <div className="font-medium">FAQs</div>
+                        <div className="text-gray-600 text-xs mt-1">Common questions answered</div>
                       </Link>
                     </div>
                   )}
@@ -570,7 +589,7 @@ export default function Header({ currentPage }: HeaderProps) {
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                 className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                  currentPage === "about"
+                  isAboutSectionActive
                     ? "text-primary-green bg-gray-50"
                     : "text-gray-900 hover:text-primary-green hover:bg-gray-50"
                 }`}
@@ -607,6 +626,16 @@ export default function Header({ currentPage }: HeaderProps) {
                     className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
                   >
                     Certificates
+                  </Link>
+                  <Link
+                    href="/faq"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setMobileAboutOpen(false);
+                    }}
+                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+                  >
+                    FAQs
                   </Link>
                 </div>
               )}
