@@ -17,7 +17,7 @@ export default function Footer() {
               Ready to Get Started?
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-              Join over 1,000{" "}
+              Join over 700+{" "}
               <Link
                 href="/service-area/georgia"
                 className="text-primary-green hover:text-primary-green-dark font-bold"

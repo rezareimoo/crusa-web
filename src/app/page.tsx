@@ -255,8 +255,8 @@ export default function Home() {
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
                 Serving Georgia and Southeast businesses with reliable data
-                destruction, responsible electronics recycling, and &quot;IT
-                Asset Recovery&quot; services you can trust.
+                destruction, responsible electronics recycling, and IT Asset
+                Recovery services you can trust.
               </p>
 
               <div className="space-y-6">

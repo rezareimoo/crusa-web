@@ -36,6 +36,29 @@ export default function GeorgiaServiceArea() {
         name: "Georgia",
       },
     },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://crusallc.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Services",
+          item: "https://crusallc.com/services",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Georgia",
+          item: "https://crusallc.com/service-area/georgia",
+        },
+      ],
+    },
   };
 
   const faqStructuredData = {

@@ -44,9 +44,35 @@ export default function ResponsibleElectronicsRecycling() {
     },
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://crusallc.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://crusallc.com/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Responsible Electronics Recycling",
+        item: "https://crusallc.com/services/responsible-electronics-recycling",
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <StructuredData data={structuredData} />
+      <StructuredData data={breadcrumbStructuredData} />
       <Header currentPage="services" />
 
       {/* Hero Section */}
