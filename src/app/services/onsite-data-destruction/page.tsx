@@ -44,9 +44,35 @@ export default function OnsiteDataDestruction() {
     },
   };
 
+  const breadcrumbStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://crusallc.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Services",
+        item: "https://crusallc.com/services",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Onsite Data Destruction",
+        item: "https://crusallc.com/services/onsite-data-destruction",
+      },
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <StructuredData data={structuredData} />
+      <StructuredData data={breadcrumbStructuredData} />
       <Header currentPage="services" />
 
       {/* Hero Section */}
