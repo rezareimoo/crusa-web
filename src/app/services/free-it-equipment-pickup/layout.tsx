@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free IT Equipment Pickup Atlanta Georgia | Computer Recyclers USA",
   description:
-    "Free IT equipment pickup in Atlanta and throughout Georgia. Recycle computers and electronics - no quantity limits, professional service.",
+    "Free business IT equipment pickup in Atlanta and Georgia. R2 certified, professional service for corporate organizations. Schedule complimentary pickup today.",
   keywords:
     "free IT equipment pickup atlanta, recycle computers atlanta, computer pickup atlanta, IT disposal georgia, electronics pickup service, R2 certified",
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Free IT Equipment Pickup Throughout Georgia",
-    description: "Complimentary IT equipment pickup service with no quantity limits. Professional, convenient, and completely free throughout Georgia.",
+    description: "Complimentary B2B IT equipment pickup for businesses and corporate organizations throughout Georgia. R2 certified, professional service.",
     url: "https://crusallc.com/services/free-it-equipment-pickup",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Free IT Equipment Pickup Georgia",
-    description: "Complimentary IT equipment pickup service with no quantity limits. Professional and convenient throughout Georgia.",
+    description: "Complimentary B2B IT equipment pickup for businesses and corporate organizations throughout Georgia. R2 certified, professional service.",
     images: ["https://crusallc.com/logo.png"],
   },
   robots: {

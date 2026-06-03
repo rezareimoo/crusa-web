@@ -29,7 +29,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
       latitude: "34.0515", // Suwanee, GA coordinates
       longitude: "-84.0713",
     },
-    openingHours: "Mo-Fr 08:00-16:00",
+    openingHours: "Mo-Fr 09:30-16:30",
     priceRange: "$$",
     currenciesAccepted: "USD",
     paymentAccepted: "Cash, Credit Card",

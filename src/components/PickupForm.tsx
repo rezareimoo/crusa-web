@@ -524,6 +524,14 @@ export default function PickupForm({ onClose }: PickupFormProps) {
           </div>
         ))}
       </div>
+
+      {formData.services.includes("equipment-pickup") && (
+        <p className="text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+          Free pickup is for businesses and corporate organizations. Individuals
+          may drop off equipment at our Suwanee facility—call 770-840-0805 for
+          hours and directions.
+        </p>
+      )}
     </div>
   );
 
