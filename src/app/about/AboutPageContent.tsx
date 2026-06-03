@@ -79,8 +79,8 @@ export default function AboutPageContent() {
                 <p className="text-base sm:text-lg text-gray-600">
                   Our Suwanee facility, conveniently located at 3644 Burnette
                   Road (near I-85 and GA-316), serves as the hub for our
-                  regional operations, offering free IT equipment pickup
-                  services throughout Georgia and Southeast States.
+                  regional operations, offering free IT equipment pickup for
+                  businesses throughout Georgia and Southeast States.
                 </p>
               </div>
             </div>

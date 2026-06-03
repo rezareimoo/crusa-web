@@ -40,13 +40,13 @@ export const faqSections: FaqSection[] = [
       {
         question: "How do I schedule a free pickup?",
         answer:
-          "You can schedule by calling us at 770-840-0805 or by using the Schedule Pickup button on this site to fill out the request form. We will confirm details, coordinate a window that works for your location, and walk through next steps with you directly.",
+          "Free pickup is available for businesses and corporate organizations. Individuals may drop off equipment at our Suwanee facility, 3644 Burnette Road, Mon–Fri 9:30AM–4:30PM EST. To schedule a business pickup, call 770-840-0805 or use the Schedule Pickup button on this site. We will confirm details, coordinate a window that works for your location, and walk through next steps with you directly.",
       },
       {
         question:
           "Is there a minimum or maximum quantity of equipment for pickup?",
         answer:
-          "There is no maximum quantity. We regularly handle large removals. Minimums depend on logistics such as location, truck routing, and loading requirements. Contact us with your volume and address and we will confirm whether your project meets the minimum for your area.",
+          "Free pickup is for businesses and corporate organizations. There is no maximum quantity; we regularly handle large removals. Minimums depend on logistics such as location, truck routing, and loading requirements. Contact us with your volume and address and we will confirm whether your project meets the minimum for your area. Individuals may bring equipment to our Suwanee facility instead of scheduling pickup.",
       },
       {
         question: "What condition does the equipment need to be in?",
@@ -57,6 +57,11 @@ export const faqSections: FaqSection[] = [
         question: "How long does the pickup process take?",
         answer:
           "Typical turnaround is about five to ten business days from pickup through to your audit report and certificate of destruction (COD). Timing can vary with volume and service type. When you schedule, we will give you a clear timeline.",
+      },
+      {
+        question: "Can individuals drop off equipment without scheduling pickup?",
+        answer:
+          "Yes. Individuals may drop off IT and electronic equipment at our R2 certified Suwanee facility, 3644 Burnette Road, Suwanee, GA 30024, during business hours (Mon–Fri 9:30AM–4:30PM EST). Complimentary pickup at your location remains available for businesses and corporate organizations.",
       },
     ],
   },
@@ -97,6 +102,11 @@ export const faqSections: FaqSection[] = [
         question: "Do you take equipment that no longer powers on?",
         answer:
           "Yes. Equipment that does not work is welcome. Whether or not a device powers on does not affect eligibility for recycling and secure processing.",
+      },
+      {
+        question: "Do you accept TVs and what are the recycling fees?",
+        answer:
+          "Yes, we accept televisions for recycling. A $25 fee applies to TVs under 65 inches. TVs 65 inches and larger are $45. Any CRT television carries a $150 recycling fee. Contact us if you have questions about drop-off or volume.",
       },
     ],
   },

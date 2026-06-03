@@ -17,7 +17,7 @@ export default function FreeITEquipmentPickup() {
     "@type": "Service",
     name: "Free IT Equipment Pickup Services",
     description:
-      "Complimentary IT equipment pickup throughout Georgia. No quantity limits, professional packing assistance available, fully audited reports provided.",
+      "Complimentary B2B IT equipment pickup for businesses and corporate organizations throughout Georgia. Professional packing assistance and fully audited reports provided.",
     provider: {
       "@type": "LocalBusiness",
       name: "Computer Recyclers USA",
@@ -42,7 +42,7 @@ export default function FreeITEquipmentPickup() {
       price: "0",
       priceCurrency: "USD",
       description:
-        "Free pickup service for all types and quantities of IT equipment",
+        "Free pickup service for businesses and corporate organizations; minimum volume requirements vary by location",
     },
   };
 
@@ -90,9 +90,10 @@ export default function FreeITEquipmentPickup() {
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Complimentary pickup services throughout Georgia and Southeast
-                States. Professional, convenient, and absolutely free - no
-                quantity limits.
+                Complimentary IT equipment pickup for businesses and corporate
+                organizations throughout Georgia and the Southeast. Professional,
+                convenient, and free when your project meets location-based
+                minimum volume requirements.
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -115,22 +116,29 @@ export default function FreeITEquipmentPickup() {
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Effortless IT Equipment Pickup Throughout Georgia
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-gray-600 mb-4">
                 <strong>
-                  We provide complimentary pickup services throughout Georgia
-                  and Southeast States for all types of IT equipment, regardless
-                  of age, condition, or quantity. Our professional team handles
-                  the logistics so you can focus on your business operations.
+                  We provide complimentary pickup for businesses and corporate
+                  organizations throughout Georgia and Southeast States for all
+                  types of IT equipment, regardless of age or condition. Our
+                  professional team handles the logistics so you can focus on
+                  your business operations.
                 </strong>
+              </p>
+              <p className="text-sm text-gray-500 mb-8">
+                Complimentary pickup is for businesses and corporate
+                organizations. Individuals may drop off equipment at our
+                Suwanee facility, 3644 Burnette Road, Mon–Fri 9:30AM–4:30PM EST.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="font-bold text-lg text-gray-900 mb-2">
-                    No Quantity Limits
+                    Scalable Business Pickups
                   </h3>
                   <p className="text-gray-600">
-                    From single devices to entire data centers
+                    Office refreshes through data-center decommissions—no
+                    maximum quantity
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -294,12 +302,13 @@ export default function FreeITEquipmentPickup() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      No Quantity Too Small or Large
+                      Scalable for Any Business Project
                     </h3>
                     <p className="text-gray-600">
-                      Whether you have a single laptop or an entire server room
-                      full of equipment, we provide the same professional
-                      service at no cost.
+                      From office refreshes to large-scale decommissions, we
+                      handle enterprise removals with no maximum quantity.
+                      Minimums depend on logistics—contact us with your volume
+                      and address to confirm eligibility.
                     </p>
                   </div>
                 </div>
@@ -391,12 +400,13 @@ export default function FreeITEquipmentPickup() {
           <div className="mb-16 bg-gray-50 rounded-2xl p-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Equipment We Pick Up (No Charge)
+                Equipment We Pick Up
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We accept all types of IT and electronic equipment, regardless
-                of age, condition, or working status. Everything is processed
-                responsibly.
+                We accept all types of IT and electronic equipment from business
+                locations or individual drop-offs at our facility, regardless of
+                age, condition, or working status. Everything is processed
+                responsibly at our R2 certified facility.
               </p>
             </div>
 

@@ -176,9 +176,9 @@ export default function Home() {
                 Free IT Equipment Pickup
               </h3>
               <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
-                We&apos;ll pick up your IT equipment at no cost throughout the
-                state of Georgia, regardless of condition. Convenient scheduling
-                for your business needs.
+                Complimentary pickup for businesses and corporate organizations
+                throughout Georgia, regardless of condition. Convenient scheduling
+                aligned with your operations.
               </p>
               <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
                 Learn More

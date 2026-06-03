@@ -26,8 +26,8 @@ export default function Footer() {
               </Link>{" "}
               and Southeast businesses who trust Computer Recyclers USA for
               secure data destruction, IT equipment pickup, and responsible
-              electronics recycling. Free pickup available throughout Georgia
-              and Southeast States.
+              electronics recycling. Free business pickup available throughout
+              Georgia and Southeast States.
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export default function Footer() {
               </a>
               <h3 className="text-xl font-bold mb-2">Call Us</h3>
               <p className="text-gray-300 mb-2">770-840-0805</p>
-              <p className="text-sm text-gray-400">Mon-Fri 8AM-4PM EST</p>
+              <p className="text-sm text-gray-400">Mon-Fri 9:30AM-4:30PM EST</p>
             </div>
 
             <div className="text-center">

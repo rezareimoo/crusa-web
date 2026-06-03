@@ -246,11 +246,11 @@ export default function Services() {
                 </div>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
-                    We provide complimentary pickup services throughout Georgia
-                    and Southeast States for all types of IT equipment,
-                    regardless of age, condition, or quantity. Our professional
-                    team handles the logistics so you can focus on your
-                    business.
+                    We provide complimentary pickup for businesses and corporate
+                    organizations throughout Georgia and Southeast States for all
+                    types of IT equipment, regardless of age or condition. Our
+                    professional team handles the logistics so you can focus on
+                    your business operations.
                   </strong>
                 </p>
 

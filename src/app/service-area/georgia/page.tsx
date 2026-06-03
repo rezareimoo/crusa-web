@@ -254,7 +254,7 @@ export default function GeorgiaServiceArea() {
                 Free IT equipment pickup
               </h3>
               <p className="text-gray-600 mb-6">
-                Complimentary pickup throughout Georgia. No minimum quantity; we handle packing and logistics. Processed at our R2 facility.
+                Complimentary B2B pickup for businesses and corporate organizations throughout Georgia. Minimum volume varies by location—contact us to confirm. Processed at our R2 facility.
               </p>
               <span className="inline-flex items-center text-primary-green-darker font-semibold group-hover:translate-x-1 transition-transform">
                 Learn more
