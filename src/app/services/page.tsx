@@ -50,7 +50,7 @@ export default function Services() {
       {/* Services Grid */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Service 1: Onsite Data Destruction */}
+          {/* Service 1: Data Destruction & Sanitization */}
           <div className="mb-16 sm:mb-20 lg:mb-24 animate-slide-up">
             <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
@@ -71,16 +71,15 @@ export default function Services() {
                     </svg>
                   </div>
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    Onsite Data Destruction
+                    Data Destruction & Sanitization
                   </h2>
                 </div>
                 <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8">
                   <strong>
-                    Witness the complete destruction of your sensitive data at
-                    your location with our state-of-the-art mobile shredding
-                    units. Our certified technicians ensure your confidential
-                    information is permanently destroyed according to the
-                    highest industry standards.
+                    NIST SP 800-88 data destruction in Georgia under R2v3
+                    Appendix B. Choose physical shredding or logical
+                    sanitization based on media type, sensitivity, and whether
+                    you need reuse value.
                   </strong>
                 </p>
 
@@ -101,13 +100,19 @@ export default function Services() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        Complete Hard Drive Shredding
+                        Hard Drive & SSD Shredding
                       </h3>
                       <p className="text-gray-600">
                         <strong>
-                          Physical destruction of hard drives, SSDs, and storage
-                          media using industrial-grade shredders that render
-                          data completely unrecoverable.
+                          Physical destruction at our Suwanee facility with
+                          serialized certificates and chain of custody.{" "}
+                          <Link
+                            href="/services/hard-drive-shredding"
+                            className="text-primary-green hover:text-primary-green-dark"
+                          >
+                            Hard drive shredding Atlanta
+                          </Link>
+                          .
                         </strong>
                       </p>
                     </div>
@@ -129,13 +134,19 @@ export default function Services() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        Certified Documentation
+                        Certified Data Sanitization
                       </h3>
                       <p className="text-gray-600">
                         <strong>
-                          Receive detailed certificates of destruction for
-                          compliance and audit requirements, including serial
-                          numbers and destruction methods used.
+                          Logical erasure under Appendix B so drives retain
+                          resale value.{" "}
+                          <Link
+                            href="/services/data-sanitization"
+                            className="text-primary-green hover:text-primary-green-dark"
+                          >
+                            Data sanitization
+                          </Link>{" "}
+                          with independent verification sampling.
                         </strong>
                       </p>
                     </div>
@@ -161,21 +172,21 @@ export default function Services() {
                       </h3>
                       <p className="text-gray-600">
                         <strong>
-                          Full compliance with HIPAA, SOX, GLBA, and FACTA
-                          regulations ensuring your business meets all legal
-                          requirements for data destruction.
+                          Processes align with HIPAA, SOX, GLBA, and FACTA.
+                          Certificates of destruction and audit reports in 5–10
+                          business days from pickup.
                         </strong>
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/services/onsite-data-destruction"
+                    href="/services/data-destruction"
                     className="inline-flex items-center bg-primary-green hover:bg-primary-green-dark text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
                   >
-                    Learn More About Data Destruction
+                    Data Destruction Overview
                     <svg
                       className="w-4 h-4 ml-2"
                       fill="none"
@@ -197,7 +208,7 @@ export default function Services() {
                 <div className="hidden sm:flex rounded-2xl h-48 sm:h-64 md:h-80 lg:h-96 items-center justify-center overflow-hidden">
                   <Image
                     src="/shredder-nobg.png"
-                    alt="Mobile shredding unit for onsite data destruction"
+                    alt="R2 certified data destruction and sanitization equipment in Georgia"
                     width={600}
                     height={400}
                     className="w-full h-full object-cover object-center transform scale-75 sm:scale-87 md:scale-100 lg:scale-112 xl:scale-75"

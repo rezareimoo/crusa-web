@@ -93,10 +93,34 @@ const faqStructuredData = {
     },
     {
       "@type": "Service",
-      name: "Onsite Data Destruction Services",
+      name: "Certified Data Destruction & Sanitization",
       description:
-        "Secure, witnessed data destruction at your location in Georgia. NIST 800-88 compliant with certificates of destruction and zero data recoverability guarantee.",
-      url: "https://www.crusallc.com/services/onsite-data-destruction",
+        "NIST SP 800-88 data destruction in Georgia with R2v3 Appendix B physical shredding and logical sanitization. Certificates and audit reports provided.",
+      url: "https://www.crusallc.com/services/data-destruction",
+      areaServed: {
+        "@type": "State",
+        name: "Georgia",
+      },
+      provider: { "@id": ORGANIZATION_ID },
+    },
+    {
+      "@type": "Service",
+      name: "Hard Drive & SSD Shredding",
+      description:
+        "Hard drive shredding in Atlanta and Georgia. Physical destruction of HDDs, SSDs, and storage media under R2v3 Appendix B with serialized certificates.",
+      url: "https://www.crusallc.com/services/hard-drive-shredding",
+      areaServed: {
+        "@type": "State",
+        name: "Georgia",
+      },
+      provider: { "@id": ORGANIZATION_ID },
+    },
+    {
+      "@type": "Service",
+      name: "Certified Logical Data Sanitization",
+      description:
+        "R2v3 Appendix B logical data sanitization and hard drive wiping in Georgia. Software erasure with independent verification sampling.",
+      url: "https://www.crusallc.com/services/data-sanitization",
       areaServed: {
         "@type": "State",
         name: "Georgia",

@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: "https://www.crusallc.com/:path*",
         permanent: true,
       },
+      {
+        source: "/services/onsite-data-destruction",
+        destination: "/services/hard-drive-shredding",
+        permanent: true,
+      },
     ];
   },
 };

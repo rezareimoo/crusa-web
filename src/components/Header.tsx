@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PickupForm from "@/components/PickupForm";
+import { serviceNavLinks } from "@/lib/service-links";
 
 interface HeaderProps {
   currentPage?: string;
@@ -71,23 +72,47 @@ export default function Header({ currentPage }: HeaderProps) {
   const isAboutSectionActive =
     currentPage === "about" || currentPage === "faq";
 
-  const services = [
+  const aboutDropdownItems = [
     {
-      name: "Onsite Data Destruction",
-      href: "/services/onsite-data-destruction",
-      description: "Secure, witnessed data destruction at your location"
+      name: "Certificates",
+      href: "/certificates",
+      description: "View our certifications",
     },
     {
-      name: "Free IT Equipment Pickup",
-      href: "/services/free-it-equipment-pickup", 
-      description: "Complimentary pickup throughout Georgia"
+      name: "FAQs",
+      href: "/faq",
+      description: "Common questions answered",
     },
-    {
-      name: "Responsible Electronics Recycling",
-      href: "/services/responsible-electronics-recycling",
-      description: "R2 v3 certified environmental recycling"
-    }
   ];
+
+  const renderDesktopServiceLinks = (dense: boolean) =>
+    serviceNavLinks.map((service) => (
+      <div key={service.href}>
+        <Link
+          href={service.href}
+          onClick={closeDropdown}
+          className={`block px-4 ${dense ? "py-2" : "py-3"} text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors`}
+        >
+          <div className="font-medium">{service.name}</div>
+          <div
+            className={`text-gray-600 text-xs ${dense ? "" : "mt-1"}`}
+          >
+            {service.description}
+          </div>
+        </Link>
+        {service.children?.map((child) => (
+          <Link
+            key={child.href}
+            href={child.href}
+            onClick={closeDropdown}
+            className={`block pl-8 pr-4 ${dense ? "py-2" : "py-2.5"} text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-green transition-colors border-l-2 border-primary-green/30 ml-4`}
+          >
+            <div className="font-medium">{child.name}</div>
+            <div className="text-gray-500 text-xs">{child.description}</div>
+          </Link>
+        ))}
+      </div>
+    ));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -247,19 +272,44 @@ export default function Header({ currentPage }: HeaderProps) {
                   onMouseEnter={handleDropdownEnter}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <button
-                    onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-                    className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors flex items-center ${
+                  <div
+                    className={`flex items-center px-2 py-1 text-sm font-medium transition-colors ${
                       currentPage === "services"
                         ? "text-primary-green"
                         : "text-gray-900"
                     }`}
                   >
-                    SERVICES
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                    <Link
+                      href="/services"
+                      className="hover:text-primary-green"
+                      onClick={closeDropdown}
+                    >
+                      SERVICES
+                    </Link>
+                    <button
+                      type="button"
+                      aria-expanded={servicesDropdownOpen}
+                      aria-label="Toggle services menu"
+                      onClick={() =>
+                        setServicesDropdownOpen(!servicesDropdownOpen)
+                      }
+                      className="ml-1 p-0.5 hover:text-primary-green"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                   
                   {servicesDropdownOpen && (
                     <div 
@@ -268,25 +318,7 @@ export default function Header({ currentPage }: HeaderProps) {
                         zIndex: 9999999
                       }}
                     >
-                      <Link
-                        href="/services"
-                        onClick={closeDropdown}
-                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
-                      >
-                        <div className="font-medium">All Services</div>
-                        <div className="text-gray-600 text-xs">View our complete service offerings</div>
-                      </Link>
-                      {services.map((service) => (
-                        <Link
-                          key={service.href}
-                          href={service.href}
-                          onClick={closeDropdown}
-                          className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
-                        >
-                          <div className="font-medium">{service.name}</div>
-                          <div className="text-gray-600 text-xs">{service.description}</div>
-                        </Link>
-                      ))}
+                      {renderDesktopServiceLinks(true)}
                     </div>
                   )}
                 </div>
@@ -295,19 +327,42 @@ export default function Header({ currentPage }: HeaderProps) {
                   onMouseEnter={handleAboutDropdownEnter}
                   onMouseLeave={handleAboutDropdownLeave}
                 >
-                  <button
-                    onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
-                    className={`hover:text-primary-green px-2 py-1 text-sm font-medium transition-colors flex items-center ${
+                  <div
+                    className={`flex items-center px-2 py-1 text-sm font-medium transition-colors ${
                       isAboutSectionActive
                         ? "text-primary-green"
                         : "text-gray-900"
                     }`}
                   >
-                    ABOUT US
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                    <Link
+                      href="/about"
+                      className="hover:text-primary-green"
+                      onClick={closeAboutDropdown}
+                    >
+                      ABOUT US
+                    </Link>
+                    <button
+                      type="button"
+                      aria-expanded={aboutDropdownOpen}
+                      aria-label="Toggle about menu"
+                      onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                      className="ml-1 p-0.5 hover:text-primary-green"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${aboutDropdownOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                   
                   {aboutDropdownOpen && (
                     <div 
@@ -316,30 +371,19 @@ export default function Header({ currentPage }: HeaderProps) {
                         zIndex: 9999999
                       }}
                     >
-                      <Link
-                        href="/about"
-                        onClick={closeAboutDropdown}
-                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
-                      >
-                        <div className="font-medium">About Us</div>
-                        <div className="text-gray-600 text-xs">Learn about our company</div>
-                      </Link>
-                      <Link
-                        href="/certificates"
-                        onClick={closeAboutDropdown}
-                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
-                      >
-                        <div className="font-medium">Certificates</div>
-                        <div className="text-gray-600 text-xs">View our certifications</div>
-                      </Link>
-                      <Link
-                        href="/faq"
-                        onClick={closeAboutDropdown}
-                        className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
-                      >
-                        <div className="font-medium">FAQs</div>
-                        <div className="text-gray-600 text-xs">Common questions answered</div>
-                      </Link>
+                      {aboutDropdownItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={closeAboutDropdown}
+                          className="block px-4 py-2 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        >
+                          <div className="font-medium">{item.name}</div>
+                          <div className="text-gray-600 text-xs">
+                            {item.description}
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -392,24 +436,49 @@ export default function Header({ currentPage }: HeaderProps) {
                   onMouseEnter={handleDropdownEnter}
                   onMouseLeave={handleDropdownLeave}
                 >
-                  <button
-                    onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                  <div
                     className={`px-3 py-2 text-sm font-medium transition-colors relative group flex items-center ${
                       currentPage === "services"
                         ? "text-primary-green"
-                        : "text-gray-900 hover:text-primary-green"
+                        : "text-gray-900"
                     }`}
                   >
-                    SERVICES
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <Link
+                      href="/services"
+                      className="hover:text-primary-green"
+                      onClick={closeDropdown}
+                    >
+                      SERVICES
+                    </Link>
+                    <button
+                      type="button"
+                      aria-expanded={servicesDropdownOpen}
+                      aria-label="Toggle services menu"
+                      onClick={() =>
+                        setServicesDropdownOpen(!servicesDropdownOpen)
+                      }
+                      className="ml-1 p-0.5 hover:text-primary-green"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
                     <span
                       className={`absolute bottom-0 left-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full ${
                         currentPage === "services" ? "w-full" : "w-0"
                       }`}
                     ></span>
-                  </button>
+                  </div>
                   
                   {servicesDropdownOpen && (
                     <div 
@@ -418,25 +487,7 @@ export default function Header({ currentPage }: HeaderProps) {
                         zIndex: 9999999
                       }}
                     >
-                      <Link
-                        href="/services"
-                        onClick={closeDropdown}
-                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
-                      >
-                        <div className="font-medium">All Services</div>
-                        <div className="text-gray-600 text-xs mt-1">View our complete service offerings</div>
-                      </Link>
-                      {services.map((service) => (
-                        <Link
-                          key={service.href}
-                          href={service.href}
-                          onClick={closeDropdown}
-                          className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
-                        >
-                          <div className="font-medium">{service.name}</div>
-                          <div className="text-gray-600 text-xs mt-1">{service.description}</div>
-                        </Link>
-                      ))}
+                      {renderDesktopServiceLinks(false)}
                     </div>
                   )}
                 </div>
@@ -445,24 +496,47 @@ export default function Header({ currentPage }: HeaderProps) {
                   onMouseEnter={handleAboutDropdownEnter}
                   onMouseLeave={handleAboutDropdownLeave}
                 >
-                  <button
-                    onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                  <div
                     className={`px-3 py-2 text-sm font-medium transition-colors relative group flex items-center ${
                       isAboutSectionActive
                         ? "text-primary-green"
-                        : "text-gray-900 hover:text-primary-green"
+                        : "text-gray-900"
                     }`}
                   >
-                    ABOUT US
-                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <Link
+                      href="/about"
+                      className="hover:text-primary-green"
+                      onClick={closeAboutDropdown}
+                    >
+                      ABOUT US
+                    </Link>
+                    <button
+                      type="button"
+                      aria-expanded={aboutDropdownOpen}
+                      aria-label="Toggle about menu"
+                      onClick={() => setAboutDropdownOpen(!aboutDropdownOpen)}
+                      className="ml-1 p-0.5 hover:text-primary-green"
+                    >
+                      <svg
+                        className={`w-4 h-4 transition-transform ${aboutDropdownOpen ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
                     <span
                       className={`absolute bottom-0 left-0 h-0.5 bg-primary-green transition-all duration-300 group-hover:w-full ${
                         isAboutSectionActive ? "w-full" : "w-0"
                       }`}
                     ></span>
-                  </button>
+                  </div>
                   
                   {aboutDropdownOpen && (
                     <div 
@@ -471,30 +545,19 @@ export default function Header({ currentPage }: HeaderProps) {
                         zIndex: 9999999
                       }}
                     >
-                      <Link
-                        href="/about"
-                        onClick={closeAboutDropdown}
-                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
-                      >
-                        <div className="font-medium">About Us</div>
-                        <div className="text-gray-600 text-xs mt-1">Learn about our company</div>
-                      </Link>
-                      <Link
-                        href="/certificates"
-                        onClick={closeAboutDropdown}
-                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors border-b border-gray-100"
-                      >
-                        <div className="font-medium">Certificates</div>
-                        <div className="text-gray-600 text-xs mt-1">View our certifications</div>
-                      </Link>
-                      <Link
-                        href="/faq"
-                        onClick={closeAboutDropdown}
-                        className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
-                      >
-                        <div className="font-medium">FAQs</div>
-                        <div className="text-gray-600 text-xs mt-1">Common questions answered</div>
-                      </Link>
+                      {aboutDropdownItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={closeAboutDropdown}
+                          className="block px-4 py-3 text-sm text-gray-900 hover:bg-gray-50 hover:text-primary-green transition-colors"
+                        >
+                          <div className="font-medium">{item.name}</div>
+                          <div className="text-gray-600 text-xs mt-1">
+                            {item.description}
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>
@@ -537,106 +600,129 @@ export default function Header({ currentPage }: HeaderProps) {
             </Link>
             
             <div>
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              <div
                 className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
                   currentPage === "services"
                     ? "text-primary-green bg-gray-50"
-                    : "text-gray-900 hover:text-primary-green hover:bg-gray-50"
+                    : "text-gray-900"
                 }`}
               >
-                SERVICES
-                <svg 
-                  className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+                <Link
+                  href="/services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex-1 hover:text-primary-green"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+                  SERVICES
+                </Link>
+                <button
+                  type="button"
+                  aria-expanded={mobileServicesOpen}
+                  aria-label="Toggle services menu"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="p-1 hover:text-primary-green"
+                >
+                  <svg
+                    className={`w-4 h-4 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </div>
               
               {mobileServicesOpen && (
                 <div className="ml-4 mt-2 space-y-1">
-                  <Link
-                    href="/services"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setMobileServicesOpen(false);
-                    }}
-                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-                  >
-                    All Services
-                  </Link>
-                  {services.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      onClick={() => {
-                        setMobileMenuOpen(false);
-                        setMobileServicesOpen(false);
-                      }}
-                      className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-                    >
-                      {service.name}
-                    </Link>
+                  {serviceNavLinks.map((service) => (
+                    <div key={service.href}>
+                      <Link
+                        href={service.href}
+                        onClick={() => {
+                          setMobileMenuOpen(false);
+                          setMobileServicesOpen(false);
+                        }}
+                        className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+                      >
+                        {service.name}
+                      </Link>
+                      {service.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileServicesOpen(false);
+                          }}
+                          className="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
                   ))}
                 </div>
               )}
             </div>
             
             <div>
-              <button
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+              <div
                 className={`w-full flex items-center justify-between px-3 py-2 text-base font-medium rounded-md transition-colors ${
                   isAboutSectionActive
                     ? "text-primary-green bg-gray-50"
-                    : "text-gray-900 hover:text-primary-green hover:bg-gray-50"
+                    : "text-gray-900"
                 }`}
               >
-                ABOUT US
-                <svg 
-                  className={`w-4 h-4 transition-transform ${mobileAboutOpen ? 'rotate-180' : ''}`} 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
+                <Link
+                  href="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex-1 hover:text-primary-green"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
+                  ABOUT US
+                </Link>
+                <button
+                  type="button"
+                  aria-expanded={mobileAboutOpen}
+                  aria-label="Toggle about menu"
+                  onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                  className="p-1 hover:text-primary-green"
+                >
+                  <svg
+                    className={`w-4 h-4 transition-transform ${mobileAboutOpen ? "rotate-180" : ""}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </div>
               
               {mobileAboutOpen && (
                 <div className="ml-4 mt-2 space-y-1">
-                  <Link
-                    href="/about"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setMobileAboutOpen(false);
-                    }}
-                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    href="/certificates"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setMobileAboutOpen(false);
-                    }}
-                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-                  >
-                    Certificates
-                  </Link>
-                  <Link
-                    href="/faq"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setMobileAboutOpen(false);
-                    }}
-                    className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
-                  >
-                    FAQs
-                  </Link>
+                  {aboutDropdownItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => {
+                        setMobileMenuOpen(false);
+                        setMobileAboutOpen(false);
+                      }}
+                      className="block px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary-green hover:bg-gray-50 rounded-md transition-colors"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>

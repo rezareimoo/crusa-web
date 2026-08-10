@@ -30,7 +30,7 @@ export const faqSections: FaqSection[] = [
         question:
           "What does R2v3 certification mean and why does it matter?",
         answer:
-          "R2v3 is the current Responsible Recycling standard for electronics refurbishers and recyclers. Certification means an independent audit has verified that our facility follows strict requirements for environmental responsibility, worker health and safety, and secure data management, including proper handling of sensitive data and downstream due diligence. For your organization, R2v3 provides independent assurance that e-waste is managed responsibly, not dumped or mishandled.",
+          "R2v3 is the current Responsible Recycling standard for electronics refurbishers and recyclers. Certification means an independent audit has verified that our facility follows strict requirements for environmental responsibility, worker health and safety, and secure data management. We are certified under Appendix B for both physical and logical data sanitization—the scope that allows certified wiping for reuse, not destruction alone. For your organization, R2v3 provides independent assurance that e-waste is managed responsibly, not dumped or mishandled.",
       },
     ],
   },
@@ -71,12 +71,12 @@ export const faqSections: FaqSection[] = [
       {
         question: "Do you serve businesses outside of Atlanta?",
         answer:
-          "Yes. We proudly serve Georgia businesses statewide, not only in Atlanta. Free IT equipment pickup, onsite data destruction, and recycling are available wherever your locations are in Georgia.",
+          "Yes. We proudly serve Georgia businesses statewide, not only in Atlanta. Free IT equipment pickup, data destruction and sanitization, and recycling are available wherever your locations are in Georgia.",
       },
       {
         question: "Which cities and states do you cover?",
         answer:
-          "Our primary service area for pickup and onsite service is Georgia. We serve the Atlanta metro area and surrounding counties, plus major markets and regions across the state such as Marietta, Roswell, Augusta, Columbus, and Macon, as well as North Georgia, Central Georgia, and South Georgia. If your organization also operates elsewhere in the Southeast, contact us to discuss coverage.",
+          "Our primary service area for pickup and data destruction services is Georgia. We serve the Atlanta metro area and surrounding counties, plus major markets and regions across the state such as Marietta, Roswell, Augusta, Columbus, and Macon, as well as North Georgia, Central Georgia, and South Georgia. If your organization also operates elsewhere in the Southeast, contact us to discuss coverage.",
       },
       {
         question: "Do you charge for pickup outside of Atlanta?",

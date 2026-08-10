@@ -33,7 +33,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: "https://www.crusallc.com/services/onsite-data-destruction",
+      url: "https://www.crusallc.com/services/data-destruction",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://www.crusallc.com/services/hard-drive-shredding",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://www.crusallc.com/services/data-sanitization",
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

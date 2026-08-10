@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
+import { companyLinks, footerServiceLinks } from "@/lib/service-links";
 
 export default function Footer() {
   const [showPickupForm, setShowPickupForm] = useState(false);
@@ -126,39 +127,44 @@ export default function Footer() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-4 sm:py-6">
+      <footer className="bg-gray-900 text-white py-8 sm:py-10 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
-            <nav
-              aria-label="Company links"
-              className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-gray-400"
-            >
-              <Link
-                href="/about"
-                className="hover:text-white transition-colors duration-300"
-              >
-                About
-              </Link>
-              <span className="text-gray-600 hidden sm:inline" aria-hidden>
-                ·
-              </span>
-              <Link
-                href="/faq"
-                className="hover:text-white transition-colors duration-300"
-              >
-                FAQs
-              </Link>
-              <span className="text-gray-600 hidden sm:inline" aria-hidden>
-                ·
-              </span>
-              <Link
-                href="/certificates"
-                className="hover:text-white transition-colors duration-300"
-              >
-                Certificates
-              </Link>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            <nav aria-label="Services">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
+                Services
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                {footerServiceLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-white transition-colors duration-300"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </nav>
-            <div className="flex items-center gap-4">
+            <nav aria-label="Company">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
+                Company
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                {companyLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="hover:text-white transition-colors duration-300"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <div className="flex items-start gap-4 sm:col-span-2 lg:col-span-1 lg:justify-end">
               <a
                 href="https://www.guidetogwinnett.com/united-states/suwanee/business-creative-services/computer-recyclers-usa?from=badge"
                 title="Find me on Guide to Gwinnett"
@@ -177,7 +183,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/computer-recyclers-usa-llc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+                className="text-gray-400 hover:text-white transition-colors duration-300 mt-2"
                 aria-label="Visit our LinkedIn page"
               >
                 <svg
