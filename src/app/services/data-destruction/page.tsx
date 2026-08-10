@@ -245,7 +245,7 @@ export default function DataDestructionHub() {
 
           <div className="mb-16 bg-primary-green rounded-2xl p-8 text-white">
             <h2 className="text-3xl font-bold mb-8 text-center">
-              What Every Engagement Includes
+              What Every Pickup Includes
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center">
@@ -253,7 +253,7 @@ export default function DataDestructionHub() {
                   Certificate of Destruction
                 </h3>
                 <p className="text-gray-100">
-                  Serialized documentation for each engagement—make, model,
+                  Serialized documentation for each pickup—make, model,
                   serial, method, and date as applicable.
                 </p>
               </div>
