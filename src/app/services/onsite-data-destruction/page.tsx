@@ -19,18 +19,7 @@ export default function OnsiteDataDestruction() {
     description:
       "Secure, witnessed data destruction at your location in Georgia. NIST 800-88 compliant with certificates of destruction and zero data recoverability guarantee.",
     provider: {
-      "@type": "LocalBusiness",
-      name: "Computer Recyclers USA",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "3644 Burnette Road",
-        addressLocality: "Suwanee",
-        addressRegion: "GA",
-        postalCode: "30024",
-        addressCountry: "US",
-      },
-      telephone: "770-840-0805",
-      email: "info@crusallc.com",
+      "@id": "https://www.crusallc.com/#organization",
     },
     areaServed: {
       "@type": "State",

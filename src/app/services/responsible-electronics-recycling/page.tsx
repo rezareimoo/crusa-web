@@ -19,18 +19,7 @@ export default function ResponsibleElectronicsRecycling() {
     description:
       "R2 v3 certified electronics recycling in Georgia. Zero landfill guarantee, EPA compliant processes, detailed environmental impact reporting.",
     provider: {
-      "@type": "LocalBusiness",
-      name: "Computer Recyclers USA",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "3644 Burnette Road",
-        addressLocality: "Suwanee",
-        addressRegion: "GA",
-        postalCode: "30024",
-        addressCountry: "US",
-      },
-      telephone: "770-840-0805",
-      email: "info@crusallc.com",
+      "@id": "https://www.crusallc.com/#organization",
     },
     areaServed: {
       "@type": "State",

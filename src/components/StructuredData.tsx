@@ -6,6 +6,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://www.crusallc.com/#organization",
     name: "Computer Recyclers USA",
     alternateName: "CRUSA",
     description:

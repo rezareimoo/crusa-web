@@ -6,78 +6,13 @@ import { Analytics } from "@vercel/analytics/react";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import PickupForm from "@/components/PickupForm";
-import StructuredData from "@/components/StructuredData";
-import {
-  FAQ_PAGE_DESCRIPTION,
-  faqSections,
-  type FaqSection,
-} from "./faq-data";
-
-function buildWebPageStructuredData() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://www.crusallc.com/faq",
-    url: "https://www.crusallc.com/faq",
-    name: "Frequently Asked Questions | Computer Recyclers USA",
-    description: FAQ_PAGE_DESCRIPTION,
-    isPartOf: {
-      "@type": "WebSite",
-      name: "Computer Recyclers USA",
-      url: "https://www.crusallc.com",
-    },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://www.crusallc.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "About Us",
-          item: "https://www.crusallc.com/about",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: "FAQs",
-          item: "https://www.crusallc.com/faq",
-        },
-      ],
-    },
-  };
-}
-
-function buildFaqPageStructuredData(sections: FaqSection[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: sections.flatMap((section) =>
-      section.items.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      }))
-    ),
-  };
-}
+import { faqSections } from "./faq-data";
 
 export default function FaqPage() {
   const [showPickupForm, setShowPickupForm] = useState(false);
-  const pageStructuredData = buildWebPageStructuredData();
-  const faqStructuredData = buildFaqPageStructuredData(faqSections);
 
   return (
     <div className="min-h-screen bg-white">
-      <StructuredData data={pageStructuredData} />
-      <StructuredData data={faqStructuredData} />
       <Header currentPage="faq" />
 
       <section className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-16 sm:py-20 overflow-hidden">
