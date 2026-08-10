@@ -52,19 +52,19 @@ export default function OnsiteDataDestruction() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://crusallc.com",
+        item: "https://www.crusallc.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://crusallc.com/services",
+        item: "https://www.crusallc.com/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Onsite Data Destruction",
-        item: "https://crusallc.com/services/onsite-data-destruction",
+        item: "https://www.crusallc.com/services/onsite-data-destruction",
       },
     ],
   };

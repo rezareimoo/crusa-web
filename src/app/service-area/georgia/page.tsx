@@ -14,15 +14,15 @@ export default function GeorgiaServiceArea() {
   const pageStructuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://crusallc.com/service-area/georgia",
-    url: "https://crusallc.com/service-area/georgia",
+    "@id": "https://www.crusallc.com/service-area/georgia",
+    url: "https://www.crusallc.com/service-area/georgia",
     name: "Electronics Recycling & Data Destruction Services in Georgia",
     description:
       "Statewide electronics recycling and data destruction for Georgia businesses. R2 certified, compliance-focused. Serving Atlanta metro, North, Central, and South Georgia.",
     isPartOf: {
       "@type": "WebSite",
       name: "Computer Recyclers USA",
-      url: "https://crusallc.com",
+      url: "https://www.crusallc.com",
     },
     about: {
       "@type": "Service",
@@ -43,19 +43,19 @@ export default function GeorgiaServiceArea() {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://crusallc.com",
+          item: "https://www.crusallc.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Services",
-          item: "https://crusallc.com/services",
+          item: "https://www.crusallc.com/services",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Georgia",
-          item: "https://crusallc.com/service-area/georgia",
+          item: "https://www.crusallc.com/service-area/georgia",
         },
       ],
     },

@@ -14,8 +14,8 @@ export default function Certificates() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://crusallc.com/certificates",
-    url: "https://crusallc.com/certificates",
+    "@id": "https://www.crusallc.com/certificates",
+    url: "https://www.crusallc.com/certificates",
     name: "Certificates & Certifications | Computer Recyclers USA",
     description:
       "View certifications for Computer Recyclers USA including R2v3, ISO 9001, ISO 14001, and ISO 45001.",
@@ -26,19 +26,19 @@ export default function Certificates() {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://crusallc.com",
+          item: "https://www.crusallc.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Certificates",
-          item: "https://crusallc.com/certificates",
+          item: "https://www.crusallc.com/certificates",
         },
       ],
     },
     mainEntity: {
       "@type": "Organization",
-      "@id": "https://crusallc.com/#organization",
+      "@id": "https://www.crusallc.com/#organization",
       name: "Computer Recyclers USA",
       hasCredential: [
         {

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location (Next.js will generate this automatically)
-Sitemap: https://crusallc.com/sitemap.xml 
+Sitemap: https://www.crusallc.com/sitemap.xml 

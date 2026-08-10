@@ -7,19 +7,19 @@ export const metadata: Metadata = {
   keywords:
     "electronics recycling Georgia, data destruction Georgia, IT equipment pickup Georgia, R2 certified, statewide service",
   alternates: {
-    canonical: "https://crusallc.com/service-area/georgia",
+    canonical: "https://www.crusallc.com/service-area/georgia",
   },
   openGraph: {
     title: "Electronics Recycling & Data Destruction Services in Georgia",
     description:
       "Statewide electronics recycling and data destruction for Georgia businesses. R2 certified, compliance-focused. Serving Atlanta metro, North, Central, and South Georgia.",
-    url: "https://crusallc.com/service-area/georgia",
+    url: "https://www.crusallc.com/service-area/georgia",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://crusallc.com/logo.png",
+        url: "https://www.crusallc.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Computer Recyclers USA - Electronics Recycling & Data Destruction in Georgia",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Electronics Recycling & Data Destruction Services in Georgia",
     description:
       "Statewide electronics recycling and data destruction for Georgia businesses. R2 certified, compliance-focused.",
-    images: ["https://crusallc.com/logo.png"],
+    images: ["https://www.crusallc.com/logo.png"],
   },
   robots: {
     index: true,

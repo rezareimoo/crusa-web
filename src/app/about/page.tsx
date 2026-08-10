@@ -9,20 +9,20 @@ export const metadata: Metadata = {
   keywords:
     "Computer Recyclers USA about, IT recycling Georgia Southeast history, R2 certified facility Suwanee GA, responsible electronic waste recycling company Atlanta, data destruction services Georgia, computer recycling company history, ISO certified electronics recycler, Georgia Southeast IT asset recovery company, Suwanee computer recycling facility, Atlanta area e-waste management",
   alternates: {
-    canonical: "https://crusallc.com/about",
+    canonical: "https://www.crusallc.com/about",
   },
   openGraph: {
     title:
       "About Computer Recyclers USA | Georgia and Southeast's Premier IT Recycling Company",
     description:
       "Trusted by Georgia and Southeast businesses for 20+ years. R2 v3 & ISO certified facility offering free IT equipment pickup, secure data destruction, and responsible electronics recycling.",
-    url: "https://crusallc.com/about",
+    url: "https://www.crusallc.com/about",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://crusallc.com/logo.png",
+        url: "https://www.crusallc.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Computer Recyclers USA - R2 Certified Electronics Recycling",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       "About Computer Recyclers USA | R2 Certified IT Recycling Georgia and Southeast",
     description:
       "20+ years serving Georgia and Southeast businesses with secure data destruction and responsible electronics recycling. Located in Suwanee, GA.",
-    images: ["https://crusallc.com/logo.png"],
+    images: ["https://www.crusallc.com/logo.png"],
   },
   robots: {
     index: true,
@@ -60,8 +60,8 @@ export default function About() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "@id": "https://crusallc.com/about",
-            url: "https://crusallc.com/about",
+            "@id": "https://www.crusallc.com/about",
+            url: "https://www.crusallc.com/about",
             name: "About Computer Recyclers USA",
             description:
               "Learn about Computer Recyclers USA, Georgia's leading R2 certified electronics recycling and data destruction company with over 20 years of experience.",
@@ -72,23 +72,23 @@ export default function About() {
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://crusallc.com",
+                  item: "https://www.crusallc.com",
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
                   name: "About Us",
-                  item: "https://crusallc.com/about",
+                  item: "https://www.crusallc.com/about",
                 },
               ],
             },
             mainEntity: {
               "@type": "Organization",
-              "@id": "https://crusallc.com/#organization",
+              "@id": "https://www.crusallc.com/#organization",
               name: "Computer Recyclers USA",
               alternateName: "CRUSA",
-              url: "https://crusallc.com",
-              logo: "https://crusallc.com/logo.png",
+              url: "https://www.crusallc.com",
+              logo: "https://www.crusallc.com/logo.png",
               description:
                 "Georgia and Southeast's premier R2 v3 certified responsible electronics recycling and data destruction company, serving businesses throughout the region since 2004.",
               foundingDate: "2004",

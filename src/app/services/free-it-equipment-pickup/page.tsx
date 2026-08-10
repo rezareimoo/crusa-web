@@ -54,19 +54,19 @@ export default function FreeITEquipmentPickup() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://crusallc.com",
+        item: "https://www.crusallc.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://crusallc.com/services",
+        item: "https://www.crusallc.com/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Free IT Equipment Pickup",
-        item: "https://crusallc.com/services/free-it-equipment-pickup",
+        item: "https://www.crusallc.com/services/free-it-equipment-pickup",
       },
     ],
   };

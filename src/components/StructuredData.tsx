@@ -10,7 +10,7 @@ export default function StructuredData({ data }: StructuredDataProps) {
     alternateName: "CRUSA",
     description:
       "Georgia's premier R2 v3 certified electronics recycling and secure data destruction company. Serving Atlanta and all of Georgia since 2004 with free IT equipment pickup, ITAD services, and responsible e-waste disposal.",
-    url: "https://crusallc.com",
+    url: "https://www.crusallc.com",
     foundingDate: "2004",
     slogan:
       "Your Safe and Secure Solution for Electronics Recycling in Georgia",

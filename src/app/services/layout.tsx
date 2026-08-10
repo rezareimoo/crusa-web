@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       "Our Services - Computer Recyclers USA | Data Destruction & Electronics Recycling",
     description:
       "Professional electronics recycling and secure data destruction services in Georgia. R2 v3 certified, environmentally responsible e-waste disposal.",
-    url: "https://crusallc.com/services",
+    url: "https://www.crusallc.com/services",
   },
   twitter: {
     title:
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "Professional electronics recycling and secure data destruction services in Georgia. R2 v3 certified, environmentally responsible e-waste disposal.",
   },
   alternates: {
-    canonical: "https://crusallc.com/services",
+    canonical: "https://www.crusallc.com/services",
   },
 };
 
