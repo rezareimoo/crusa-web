@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hard Drive Shredding Atlanta Georgia",
     description:
-      "HDD & SSD shredding at our R2v3 Appendix B certified Suwanee facility. Chain of custody, serialized COD, free business pickup.",
+      "HDD & SSD shredding at our R2v3 Appendix B certified Suwanee facility. Serialized COD, free business pickup.",
     images: ["https://www.crusallc.com/logo.png"],
   },
   robots: {

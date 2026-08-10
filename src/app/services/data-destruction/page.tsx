@@ -189,8 +189,7 @@ export default function DataDestructionHub() {
                 <p className="text-gray-600 mb-6">
                   Hard drive and SSD shredding under R2v3 Appendix B at our
                   Suwanee facility. NIST-approved physical methods by media
-                  type. Serialized certificate of destruction and documented
-                  chain of custody.
+                  type. Serialized certificate of destruction.
                 </p>
                 <span className="inline-flex items-center text-primary-green font-semibold">
                   Hard drive shredding Atlanta

@@ -116,7 +116,7 @@ export const faqSections: FaqSection[] = [
       {
         question: "Can you provide documentation for our compliance audit?",
         answer:
-          "Yes. We provide documentation suited to vendor due diligence and audit support. That includes certificates of destruction with serial tracking where applicable, chain of custody records aligned with how your service was delivered, and reporting that aligns with expectations under HIPAA and FACTA as well as sanitization practices described by NIST where they apply. Your compliance team should map deliverables to your specific obligations.",
+          "Yes. We provide documentation suited to vendor due diligence and audit support. That includes certificates of destruction with serial tracking where applicable, and reporting that aligns with expectations under HIPAA and FACTA as well as sanitization practices described by NIST where they apply. Your compliance team should map deliverables to your specific obligations.",
       },
       {
         question:

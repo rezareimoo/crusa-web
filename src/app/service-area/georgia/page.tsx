@@ -86,7 +86,7 @@ export default function GeorgiaServiceArea() {
         name: "Are your data destruction and recycling practices compliant with industry standards?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Our processes align with HIPAA, FACTA, and NIST 800-88 guidelines where applicable. We maintain chain-of-custody documentation and provide certificates of destruction. Our facility is R2 v3 certified. For full certification details, see our certificates page.",
+          text: "Yes. Our processes align with HIPAA, FACTA, and NIST 800-88 guidelines where applicable. We provide certificates of destruction and audit reporting. Our facility is R2 v3 certified. For full certification details, see our certificates page.",
         },
       },
       {
@@ -199,7 +199,7 @@ export default function GeorgiaServiceArea() {
               ))}
             </div>
             <p className="text-gray-600 mt-6">
-              One provider across all of Georgia simplifies logistics and keeps chain of custody and compliance documentation consistent—whether you have a single pallet or ongoing volume.
+              One provider across all of Georgia simplifies logistics and keeps compliance documentation consistent—whether you have a single pallet or ongoing volume.
             </p>
           </div>
         </div>
@@ -319,8 +319,8 @@ export default function GeorgiaServiceArea() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                 </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Chain of custody</h3>
-              <p className="text-gray-600 text-sm">Clear chain of custody from pickup or onsite destruction through final processing. Auditable records for compliance.</p>
+              <h3 className="font-bold text-gray-900 mb-2">Audit reporting</h3>
+              <p className="text-gray-600 text-sm">Certificates of destruction and audit reports typically delivered within 5–10 business days from pickup.</p>
             </div>
             <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
               <div className="w-12 h-12 bg-primary-green rounded-lg flex items-center justify-center mb-4">

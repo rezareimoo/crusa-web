@@ -105,7 +105,7 @@ export default function Services() {
                       <p className="text-gray-600">
                         <strong>
                           Physical destruction at our Suwanee facility with
-                          serialized certificates and chain of custody.{" "}
+                          serialized certificates.{" "}
                           <Link
                             href="/services/hard-drive-shredding"
                             className="text-primary-green hover:text-primary-green-dark"

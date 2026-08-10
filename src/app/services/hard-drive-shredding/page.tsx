@@ -29,7 +29,7 @@ export default function HardDriveShredding() {
     offers: {
       "@type": "Offer",
       description:
-        "Physical data destruction with chain of custody, serialized COD, and audit reporting",
+        "Physical data destruction with serialized COD and audit reporting",
     },
   };
 
@@ -84,7 +84,7 @@ export default function HardDriveShredding() {
               <strong>
                 Physical destruction of HDDs, SSDs, and storage media under R2v3
                 Appendix B at our Suwanee facility—with serialized certificates
-                and documented chain of custody.
+                of destruction.
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -144,10 +144,10 @@ export default function HardDriveShredding() {
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="font-bold text-lg text-gray-900 mb-2">
-                    Chain of Custody
+                    Free Business Pickup
                   </h3>
                   <p className="text-gray-600">
-                    Documented from pickup through destruction
+                    Throughout Georgia, subject to volume minimums
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -226,17 +226,17 @@ export default function HardDriveShredding() {
               </div>
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-primary-green transition-all duration-300">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Documented Chain of Custody
+                  Facility Processing
                 </h3>
                 <p className="text-gray-600">
-                  Tracking from{" "}
+                  Destruction at our R2v3 certified Suwanee facility after{" "}
                   <Link
                     href="/services/free-it-equipment-pickup"
                     className="text-primary-green hover:text-primary-green-dark font-semibold"
                   >
-                    pickup
+                    free business pickup
                   </Link>{" "}
-                  through destruction at our R2v3 certified facility.
+                  or individual drop-off.
                 </p>
               </div>
               <div className="bg-white border-2 border-gray-200 rounded-xl p-8 hover:border-primary-green transition-all duration-300">
