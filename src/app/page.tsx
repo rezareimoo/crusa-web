@@ -33,7 +33,7 @@ export default function Home() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
                 Trusted computer recyclers providing data destruction,
-                electronics recycling, and IT Asset Recovery services for
+                electronics recycling, and IT Asset Disposition services for
                 businesses across Atlanta, Georgia and Southeast States
               </strong>
             </p>

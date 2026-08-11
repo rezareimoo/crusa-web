@@ -53,7 +53,7 @@ export default function AboutPageContent() {
                   <strong>
                     Founded in 2004 in Georgia, Computer Recyclers USA has built
                     an unmatched reputation as the Southeast&apos;s most trusted
-                    partner for secure data destruction, IT Asset Recovery
+                    partner for secure data destruction, IT Asset Disposition
                     (ITAD), and responsible electronics recycling.
                   </strong>
                 </p>
@@ -129,7 +129,7 @@ export default function AboutPageContent() {
               Our comprehensive certifications ensure Georgia and Southeast
               businesses receive the highest standards of data security,
               environmental responsibility, and operational excellence in
-              responsible electronics recycling andIT Asset Recovery.
+              responsible electronics recycling and IT Asset Disposition.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default function AboutPageContent() {
                   Computer Recyclers USA empowers Georgia and Southeast
                   businesses to implement sustainable technology lifecycle
                   management. Beyond responsible electronics recycling, we help
-                  regional organizations develop comprehensive IT Asset Recovery
+                  regional organizations develop comprehensive IT Asset Disposition
                   (ITAD) strategies that protect data and the environment.
                 </strong>
               </p>
@@ -290,7 +290,7 @@ export default function AboutPageContent() {
                       Innovative IT Solutions for Georgia
                     </h3>
                     <p className="text-gray-600">
-                      Our IT Asset Recovery programs and consulting services
+                      Our IT Asset Disposition programs and consulting services
                       help Georgia and Southeast businesses access sustainable
                       technology solutions while planning for responsible
                       end-of-life management. We make sustainable IT practices
