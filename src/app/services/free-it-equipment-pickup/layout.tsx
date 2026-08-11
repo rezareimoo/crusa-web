@@ -7,18 +7,18 @@ export const metadata: Metadata = {
   keywords:
     "free IT equipment pickup atlanta, recycle computers atlanta, computer pickup atlanta, IT disposal georgia, electronics pickup service, R2 certified",
   alternates: {
-    canonical: "https://crusallc.com/services/free-it-equipment-pickup",
+    canonical: "https://www.crusallc.com/services/free-it-equipment-pickup",
   },
   openGraph: {
     title: "Free IT Equipment Pickup Throughout Georgia",
     description: "Complimentary B2B IT equipment pickup for businesses and corporate organizations throughout Georgia. R2 certified, professional service.",
-    url: "https://crusallc.com/services/free-it-equipment-pickup",
+    url: "https://www.crusallc.com/services/free-it-equipment-pickup",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://crusallc.com/logo.png",
+        url: "https://www.crusallc.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Computer Recyclers USA - Free IT Equipment Pickup Services",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free IT Equipment Pickup Georgia",
     description: "Complimentary B2B IT equipment pickup for businesses and corporate organizations throughout Georgia. R2 certified, professional service.",
-    images: ["https://crusallc.com/logo.png"],
+    images: ["https://www.crusallc.com/logo.png"],
   },
   robots: {
     index: true,

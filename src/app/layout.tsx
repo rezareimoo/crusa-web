@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     title: "Atlanta Computer Recycling | Computer Recyclers USA",
     description:
       "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
-    url: "https://crusallc.com",
+    url: "https://www.crusallc.com",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://crusallc.com/logo.png",
+        url: "https://www.crusallc.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Computer Recyclers USA Logo",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Atlanta Computer Recycling | Computer Recyclers USA",
     description:
       "Atlanta computer recycling by trusted computer recyclers. R2 certified, free pickup, secure data destruction. Serving Atlanta metro & all Georgia.",
-    images: ["https://crusallc.com/logo.png"],
+    images: ["https://www.crusallc.com/logo.png"],
   },
   verification: {
     google: "JiKOXJYrJJWNtg2WkJWblr86VJX17wf6fnkkMMw5MUo", // Replace with your actual Google verification code
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
   },
   alternates: {
-    canonical: "https://crusallc.com",
+    canonical: "https://www.crusallc.com",
   },
 };
 

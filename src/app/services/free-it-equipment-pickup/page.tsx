@@ -19,18 +19,7 @@ export default function FreeITEquipmentPickup() {
     description:
       "Complimentary B2B IT equipment pickup for businesses and corporate organizations throughout Georgia. Professional packing assistance and fully audited reports provided.",
     provider: {
-      "@type": "LocalBusiness",
-      name: "Computer Recyclers USA",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "3644 Burnette Road",
-        addressLocality: "Suwanee",
-        addressRegion: "GA",
-        postalCode: "30024",
-        addressCountry: "US",
-      },
-      telephone: "770-840-0805",
-      email: "info@crusallc.com",
+      "@id": "https://www.crusallc.com/#organization",
     },
     areaServed: {
       "@type": "State",
@@ -54,19 +43,19 @@ export default function FreeITEquipmentPickup() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://crusallc.com",
+        item: "https://www.crusallc.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://crusallc.com/services",
+        item: "https://www.crusallc.com/services",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "Free IT Equipment Pickup",
-        item: "https://crusallc.com/services/free-it-equipment-pickup",
+        item: "https://www.crusallc.com/services/free-it-equipment-pickup",
       },
     ],
   };

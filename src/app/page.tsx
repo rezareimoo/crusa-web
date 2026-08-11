@@ -33,7 +33,7 @@ export default function Home() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
                 Trusted computer recyclers providing data destruction,
-                electronics recycling, and IT Asset Recovery services for
+                electronics recycling, and IT Asset Disposition services for
                 businesses across Atlanta, Georgia and Southeast States
               </strong>
             </p>
@@ -103,14 +103,14 @@ export default function Home() {
               Our Services
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              Professional onsite data destruction, free equipment pickup, and
-              responsible recycling services
+              Certified data destruction and sanitization, free equipment pickup,
+              and responsible recycling services
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Link
-              href="/services/onsite-data-destruction"
+              href="/services/data-destruction"
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
             >
               <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
@@ -129,11 +129,12 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
-                Onsite Data Destruction
+                Data Destruction & Sanitization
               </h3>
               <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
-                Secure, witnessed destruction of your sensitive data at your
-                location for maximum security and peace of mind.
+                NIST 800-88 physical shredding or logical sanitization under
+                R2v3 Appendix B—choose the path that fits your media and reuse
+                goals.
               </p>
               <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
                 Learn More

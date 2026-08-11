@@ -21,18 +21,18 @@ export const metadata: Metadata = {
   keywords:
     "Primary keyword, secondary keyword, location, service type, R2 certified",
   alternates: {
-    canonical: "https://crusallc.com/[page-url]",
+    canonical: "https://www.crusallc.com/[page-url]",
   },
   openGraph: {
     title: "Page Title for Social Sharing",
     description: "Social media optimized description",
-    url: "https://crusallc.com/[page-url]",
+    url: "https://www.crusallc.com/[page-url]",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://crusallc.com/logo.png",
+        url: "https://www.crusallc.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Computer Recyclers USA - [Relevant Description]",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Twitter Optimized Title",
     description: "Twitter optimized description",
-    images: ["https://crusallc.com/logo.png"],
+    images: ["https://www.crusallc.com/logo.png"],
   },
   robots: {
     index: true,
