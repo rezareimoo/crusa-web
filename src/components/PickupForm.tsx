@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { reportAdsConversion, trackEvent } from "@/lib/analytics";
 
 interface FormData {
   firstName: string;
@@ -180,26 +181,6 @@ export default function PickupForm({ onClose }: PickupFormProps) {
     }
   };
 
-  const gtag_report_conversion = (url?: string) => {
-    if (typeof window !== "undefined") {
-      const gtag = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
-
-      if (gtag) {
-        const callback = () => {
-          if (typeof url !== "undefined" && url) {
-            window.location.href = url;
-          }
-        };
-
-        gtag("event", "conversion", {
-          send_to: "AW-17836566328/8pSKCJO5q9obELjOkblC",
-          event_callback: callback,
-        });
-      }
-    }
-    return false;
-  };
-
   const submitInitialLead = async () => {
     setIsSubmittingInitial(true);
     setSubmitStatus("idle");
@@ -216,7 +197,11 @@ export default function PickupForm({ onClose }: PickupFormProps) {
       });
 
       if (response.ok) {
-        gtag_report_conversion();
+        trackEvent("generate_lead", {
+          form_name: "pickup_request",
+          submission_type: "initial",
+        });
+        reportAdsConversion();
         setShowContactCapturedBanner(true);
         setCurrentStep(2);
       } else {
@@ -245,6 +230,12 @@ export default function PickupForm({ onClose }: PickupFormProps) {
       });
 
       if (response.ok) {
+        trackEvent("pickup_form_complete", {
+          form_name: "pickup_request",
+          submission_type: "supplemental",
+          services: formData.services.join(",") || "none",
+          estimated_quantity: formData.estimatedQuantity || "unspecified",
+        });
         setSubmittedSupplementalDetails(true);
         setSubmitStatus("success");
         setFormData(emptyForm());
