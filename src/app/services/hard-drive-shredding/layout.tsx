@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Hard Drive Shredding Atlanta | Computer Recyclers USA",
   description:
     "Hard drive shredding Atlanta and Georgia. HDD & SSD physical destruction under R2v3 Appendix B. Serialized certificates, free business pickup. Schedule today.",
-  keywords:
-    "hard drive shredding Atlanta, SSD shredding Georgia, physical data destruction, R2v3 Appendix B, certificate of destruction, hard drive destruction Atlanta",
   alternates: {
     canonical: "https://www.crusallc.com/services/hard-drive-shredding",
   },

@@ -8,8 +8,6 @@ export const metadata: Metadata = {
   title:
     "FAQs | Computer Recyclers USA | Data Destruction, Pickup & Recycling Georgia",
   description: FAQ_PAGE_DESCRIPTION,
-  keywords:
-    "electronics recycling FAQ, data destruction FAQ, NIST 800-88 Georgia, R2 certified recycler FAQ, free IT pickup Georgia, secure data destruction FAQ, HIPAA electronics recycling Georgia",
   alternates: {
     canonical: "https://www.crusallc.com/faq",
   },
@@ -143,7 +141,7 @@ const faqStructuredData = {
       "@type": "Service",
       name: "Responsible Electronics Recycling Services",
       description:
-        "R2 v3 certified electronics recycling in Georgia. Zero landfill guarantee, EPA compliant processes, detailed environmental impact reporting.",
+        "R2 v3 certified electronics recycling in Georgia. Zero landfill guarantee, documented downstream tracking, detailed environmental impact reporting.",
       url: "https://www.crusallc.com/services/responsible-electronics-recycling",
       areaServed: {
         "@type": "State",

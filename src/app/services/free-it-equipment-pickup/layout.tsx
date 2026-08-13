@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Free IT Equipment Pickup Atlanta Georgia | Computer Recyclers USA",
   description:
     "Free business IT equipment pickup in Atlanta and Georgia. R2 certified, professional service for corporate organizations. Schedule complimentary pickup today.",
-  keywords:
-    "free IT equipment pickup atlanta, recycle computers atlanta, computer pickup atlanta, IT disposal georgia, electronics pickup service, R2 certified",
   alternates: {
     canonical: "https://www.crusallc.com/services/free-it-equipment-pickup",
   },

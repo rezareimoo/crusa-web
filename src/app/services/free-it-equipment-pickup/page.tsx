@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import StructuredData from "@/components/StructuredData";
+import ServiceAreaCallout from "@/components/ServiceAreaCallout";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function FreeITEquipmentPickup() {
@@ -440,40 +440,10 @@ export default function FreeITEquipmentPickup() {
           {/* Service Areas */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Free Pickup Throughout Georgia
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Professional IT equipment pickup services available across{" "}
-                <Link
-                  href="/service-area/georgia"
-                  className="text-primary-green hover:text-primary-green-dark font-bold"
-                >
-                  Georgia
-                </Link>{" "}
-                cities and counties
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
-              {[
-                "Atlanta",
-                "Marietta",
-                "Augusta",
-                "Columbus",
-                "Macon",
-                "Suwanee",
-                "Decatur",
-                "Roswell",
-                "Sandy Springs",
-                "Lawrenceville",
-                "Johns Creek",
-                "Alpharetta",
-              ].map((city) => (
-                <div key={city} className="bg-gray-50 rounded-lg p-4">
-                  <p className="font-semibold text-gray-900">{city}</p>
-                </div>
-              ))}
+              <ServiceAreaCallout />
             </div>
           </div>
         </div>

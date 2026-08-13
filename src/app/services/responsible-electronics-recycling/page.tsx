@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import StructuredData from "@/components/StructuredData";
+import ServiceAreaCallout from "@/components/ServiceAreaCallout";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function ResponsibleElectronicsRecycling() {
@@ -17,7 +17,7 @@ export default function ResponsibleElectronicsRecycling() {
     "@type": "Service",
     name: "Responsible Electronics Recycling Services",
     description:
-      "R2 v3 certified electronics recycling in Georgia. Zero landfill guarantee, EPA compliant processes, detailed environmental impact reporting.",
+      "R2 v3 certified electronics recycling in Georgia. Zero landfill guarantee, documented downstream tracking, detailed environmental impact reporting.",
     provider: {
       "@id": "https://www.crusallc.com/#organization",
     },
@@ -121,10 +121,11 @@ export default function ResponsibleElectronicsRecycling() {
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <h3 className="font-bold text-lg text-gray-900 mb-2">
-                    EPA Compliant
+                    Downstream Tracking
                   </h3>
                   <p className="text-gray-600">
-                    Exceeds all environmental standards
+                    Documented downstream tracking and zero landfill for
+                    hazardous material
                   </p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -192,8 +193,8 @@ export default function ResponsibleElectronicsRecycling() {
                   Compliance Record
                 </div>
                 <p className="text-gray-600">
-                  Perfect compliance with all EPA and state environmental
-                  regulations
+                  Documented downstream tracking and zero landfill for hazardous
+                  material
                 </p>
               </div>
             </div>
@@ -474,40 +475,10 @@ export default function ResponsibleElectronicsRecycling() {
           {/* Service Areas */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Serving All of Georgia
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                R2 v3 certified electronics recycling services throughout{" "}
-                <Link
-                  href="/service-area/georgia"
-                  className="text-primary-green hover:text-primary-green-dark font-bold"
-                >
-                  Georgia
-                </Link>{" "}
-                and Southeast States
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
-              {[
-                "Atlanta",
-                "Marietta",
-                "Augusta",
-                "Columbus",
-                "Macon",
-                "Suwanee",
-                "Decatur",
-                "Roswell",
-                "Sandy Springs",
-                "Lawrenceville",
-                "Johns Creek",
-                "Alpharetta",
-              ].map((city) => (
-                <div key={city} className="bg-gray-50 rounded-lg p-4">
-                  <p className="font-semibold text-gray-900">{city}</p>
-                </div>
-              ))}
+              <ServiceAreaCallout />
             </div>
           </div>
         </div>

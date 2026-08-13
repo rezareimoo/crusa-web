@@ -5,8 +5,6 @@ export const metadata: Metadata = {
     "Certificates & Certifications | Computer Recyclers USA - R2v3 & ISO Certified",
   description:
     "View our certifications: R2v3, ISO 9001, ISO 14001, and ISO 45001. Computer Recyclers USA is a fully certified electronics recycling and data destruction facility in Suwanee, Georgia.",
-  keywords:
-    "R2v3 certified, ISO 9001, ISO 14001, ISO 45001, certifications, computer recyclers USA certificates, R2v3 certification, ISO certified recycler Georgia, certified electronics recycling facility",
   alternates: {
     canonical: "https://www.crusallc.com/certificates",
   },

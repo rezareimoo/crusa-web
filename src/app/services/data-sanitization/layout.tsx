@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Data Sanitization Georgia | Computer Recyclers USA",
   description:
     "Certified data sanitization and hard drive wiping Georgia. R2v3 Appendix B logical erasure between NIST Clear and Purge. Retain reuse value.",
-  keywords:
-    "data sanitization, hard drive wiping Georgia, certified data erasure, R2v3 Appendix B, logical sanitization, NIST 800-88 purge",
   alternates: {
     canonical: "https://www.crusallc.com/services/data-sanitization",
   },
