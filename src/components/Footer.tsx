@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Ready to Get Started?
+              Get a Quote or Schedule a Pickup
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
               Join over 700+{" "}
@@ -76,7 +76,7 @@ export default function Footer() {
               </a>
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
               <p className="text-gray-300 mb-2">info@crusallc.com</p>
-              <p className="text-sm text-gray-400">Response within 24 hours</p>
+              <p className="text-sm text-gray-400">Quote within one business day</p>
             </div>
 
             <div className="text-center">
@@ -111,7 +111,9 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-2">Visit Us</h3>
               <p className="text-gray-300 mb-2">3644 Burnette Rd</p>
               <p className="text-gray-300 mb-2">Suwanee, GA 30024</p>
-              <p className="text-sm text-gray-400">Secure Facility</p>
+              <p className="text-sm text-gray-400">
+                R2v3-certified facility · Access controlled · CCTV monitored
+              </p>
             </div>
           </div>
 

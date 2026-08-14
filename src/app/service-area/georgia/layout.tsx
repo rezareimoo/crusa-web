@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Electronics Recycling & Data Destruction Georgia | Computer Recyclers USA",
   description:
     "Statewide electronics recycling and data destruction for Georgia businesses. R2 certified, HIPAA-aligned. Data sanitization, free pickup, responsible recycling across Georgia.",
-  keywords:
-    "electronics recycling Georgia, data destruction Georgia, IT equipment pickup Georgia, R2 certified, statewide service",
   alternates: {
     canonical: "https://www.crusallc.com/service-area/georgia",
   },

@@ -6,6 +6,7 @@ import { useState } from "react";
 import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
+import ServiceAreaCallout from "@/components/ServiceAreaCallout";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
@@ -24,17 +25,16 @@ export default function Home() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Atlanta Computer Recycling &
+              Atlanta Computer Recycling,{" "}
               <span className="text-primary-green">
-                {" "}
-                Secure Data Destruction
+                Data Destruction & IT Asset Disposition
               </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
-                Trusted computer recyclers providing data destruction,
-                electronics recycling, and IT Asset Disposition services for
-                businesses across Atlanta, Georgia and Southeast States
+                R2v3-certified ITAD for Georgia businesses — certified data
+                destruction, logical data sanitization, and value recovery on
+                retired IT assets. Free pickup statewide.
               </strong>
             </p>
             <div className="flex justify-center px-4">
@@ -77,19 +77,22 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
-              <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl text-primary-green">
-                  5M+
+            <div className="text-center">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
+                <div>
+                  <div className="font-bold text-lg sm:text-xl text-primary-green">
+                    5M+
+                  </div>
+                  <div className="text-gray-600 text-xs">Devices Processed</div>
                 </div>
-                <div className="text-gray-600 text-xs">Devices Processed</div>
-              </div>
-              <div className="text-center">
-                <div className="font-bold text-lg sm:text-xl text-primary-green">
-                  700+
+                <div>
+                  <div className="font-bold text-lg sm:text-xl text-primary-green">
+                    700+
+                  </div>
+                  <div className="text-gray-600 text-xs">Businesses Served</div>
                 </div>
-                <div className="text-gray-600 text-xs">Businesses Served</div>
               </div>
+              <div className="text-gray-500 text-xs mt-1">Since 2004</div>
             </div>
           </div>
         </div>
@@ -100,7 +103,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Our Services
+              Our ITAD Services
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Certified data destruction and sanitization, free equipment pickup,
@@ -223,7 +226,8 @@ export default function Home() {
               </h3>
               <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
                 Environmentally responsible recycling of electronic equipment
-                following industry best practices and regulations.
+                with documented downstream tracking and zero landfill for
+                hazardous material.
               </p>
               <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
                 Learn More
@@ -257,7 +261,7 @@ export default function Home() {
               <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
                 Serving Georgia and Southeast businesses with reliable data
                 destruction, responsible electronics recycling, and IT Asset
-                Recovery services you can trust.
+                Disposition (ITAD) services.
               </p>
 
               <div className="space-y-6">
@@ -305,8 +309,9 @@ export default function Home() {
                       Comprehensive Compliance
                     </h3>
                     <p className="text-gray-600">
-                      HIPAA, SOX, GLBA, and FACTA compliant processes ensure
-                      your regulatory requirements are met.
+                      Documented chain of custody and NIST 800-88 sanitization
+                      supporting HIPAA, SOX, GLBA, and FACTA requirements.
+                      Serialized certificate of destruction on every device.
                     </p>
                   </div>
                 </div>
@@ -330,8 +335,8 @@ export default function Home() {
                       Enterprise Support
                     </h3>
                     <p className="text-gray-600">
-                      Dedicated account managers and enterprise support for
-                      large-scale corporate clients.
+                      Dedicated account manager, 24–48 hour scheduled pickup,
+                      and audit reporting within 5–10 business days.
                     </p>
                   </div>
                 </div>
@@ -363,10 +368,12 @@ export default function Home() {
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
                       <span className="text-xl font-bold text-primary-green">
-                        EPA
+                        B
                       </span>
                     </div>
-                    <div className="font-semibold">EPA Compliant</div>
+                    <div className="font-semibold leading-tight">
+                      R2v3 Appendix B — Data Sanitization
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -386,34 +393,11 @@ export default function Home() {
       {/* Service Areas */}
       <section className="pt-8 sm:pt-10 pb-16 sm:pb-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
               Serving All of Georgia
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Professional data destruction, electronics recycling, and IT equipment pickup services throughout Georgia and Southeast States
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
-            {[
-              "Atlanta",
-              "Marietta",
-              "Augusta",
-              "Columbus",
-              "Macon",
-              "Suwanee",
-              "Decatur",
-              "Roswell",
-              "Sandy Springs",
-              "Lawrenceville",
-              "Johns Creek",
-              "Alpharetta",
-            ].map((city) => (
-              <div key={city} className="bg-gray-50 rounded-lg p-4">
-                <p className="font-semibold text-gray-900">{city}</p>
-              </div>
-            ))}
+            <ServiceAreaCallout />
           </div>
         </div>
       </section>

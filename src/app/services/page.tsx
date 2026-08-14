@@ -20,7 +20,7 @@ export default function Services() {
         <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Our <span className="text-primary-green">Services</span>
+              Our <span className="text-primary-green">ITAD Services</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
               <strong>
@@ -454,13 +454,13 @@ export default function Services() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                        EPA Compliance
+                        R2v3 Appendix B — Data Sanitization
                       </h3>
                       <p className="text-gray-600">
                         <strong>
-                          All recycling processes meet or exceed EPA guidelines
-                          and state environmental regulations for electronic
-                          waste handling and processing.
+                          Certified physical shredding and logical sanitization
+                          under R2v3 Appendix B, with documented downstream
+                          tracking for recycled materials.
                         </strong>
                       </p>
                     </div>

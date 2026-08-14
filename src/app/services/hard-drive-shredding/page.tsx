@@ -7,6 +7,7 @@ import PickupForm from "@/components/PickupForm";
 import Header from "@/components/Header";
 import ParticleBackground from "@/components/ParticleBackground";
 import StructuredData from "@/components/StructuredData";
+import ServiceAreaCallout from "@/components/ServiceAreaCallout";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function HardDriveShredding() {
@@ -271,43 +272,16 @@ export default function HardDriveShredding() {
 
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
                 Pickup & Drop-Off Across Georgia
               </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Free business pickup throughout{" "}
-                <Link
-                  href="/service-area/georgia"
-                  className="text-primary-green hover:text-primary-green-dark font-bold"
-                >
-                  Georgia
-                </Link>
-                , subject to logistics-based volume minimums. Individuals may
-                drop off at our Suwanee facility, 3644 Burnette Road, during
-                business hours (Mon–Fri 9:30AM–4:30PM EST).
-              </p>
+              <ServiceAreaCallout>
+                Free business pickup, subject to logistics-based volume
+                minimums. Individuals may drop off at our Suwanee facility, 3644
+                Burnette Road, during business hours (Mon–Fri 9:30AM–4:30PM EST).
+              </ServiceAreaCallout>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center mb-8">
-              {[
-                "Atlanta",
-                "Marietta",
-                "Augusta",
-                "Columbus",
-                "Macon",
-                "Suwanee",
-                "Decatur",
-                "Roswell",
-                "Sandy Springs",
-                "Lawrenceville",
-                "Johns Creek",
-                "Alpharetta",
-              ].map((city) => (
-                <div key={city} className="bg-gray-50 rounded-lg p-4">
-                  <p className="font-semibold text-gray-900">{city}</p>
-                </div>
-              ))}
-            </div>
-            <div className="text-center">
+            <div className="text-center mt-8">
               <button
                 onClick={() => setShowPickupForm(true)}
                 className="bg-primary-green hover:bg-primary-green-dark text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"

@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Recycle Electronics & E-Waste Georgia | Computer Recyclers USA",
   description:
     "Recycle electronics and e-waste responsibly in Georgia. R2 certified facility, zero landfill, free pickup. Serving Atlanta metro & Southeast.",
-  keywords:
-    "recycle electronics, e-waste, electronics recycling georgia, recycle electronics atlanta, e-waste disposal, responsible electronics recycling, R2 certified",
   alternates: {
     canonical: "https://www.crusallc.com/services/responsible-electronics-recycling",
   },

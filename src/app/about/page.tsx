@@ -6,8 +6,6 @@ export const metadata: Metadata = {
     "About Computer Recyclers USA | R2 Certified IT Recycling Georgia Since 2004",
   description:
     "Leading Georgia and Southeast's responsible electronics recycling industry for 20+ years. R2 v3, ISO certified facility in Suwanee, GA. Free IT equipment pickup, secure data destruction, and IT Asset Disposition throughout Georgia and Southeast States.",
-  keywords:
-    "Computer Recyclers USA about, IT recycling Georgia Southeast history, R2 certified facility Suwanee GA, responsible electronic waste recycling company Atlanta, data destruction services Georgia, computer recycling company history, ISO certified electronics recycler, Georgia Southeast IT asset disposition company, Suwanee computer recycling facility, Atlanta area e-waste management",
   alternates: {
     canonical: "https://www.crusallc.com/about",
   },

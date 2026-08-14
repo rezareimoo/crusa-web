@@ -4,8 +4,6 @@ export const metadata: Metadata = {
   title: "Data Destruction Georgia | Computer Recyclers USA",
   description:
     "Data destruction Georgia per NIST 800-88. R2v3 Appendix B physical shredding and logical sanitization. Free pickup, certificates in 5–10 days.",
-  keywords:
-    "data destruction Georgia, NIST 800-88, data sanitization Georgia, hard drive shredding, R2v3 Appendix B, certified data destruction Atlanta",
   alternates: {
     canonical: "https://www.crusallc.com/services/data-destruction",
   },
