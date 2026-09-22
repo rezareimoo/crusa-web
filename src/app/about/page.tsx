@@ -88,7 +88,7 @@ export default function About() {
               url: "https://www.crusallc.com",
               logo: "https://www.crusallc.com/logo.png",
               description:
-                "Georgia and Southeast's premier R2 v3 certified responsible electronics recycling and data destruction company, serving businesses throughout the region since 2004.",
+                "Georgia's premier R2 v3 certified responsible electronics recycling and data destruction company, serving businesses throughout the region since 2004.",
               foundingDate: "2004",
               foundingLocation: {
                 "@type": "Place",
@@ -166,7 +166,7 @@ export default function About() {
                 },
               ],
               slogan:
-                "Your Safe and Secure Solution for Responsible Electronics Recycling in Georgia and Southeast States",
+                "Your Safe and Secure Solution for Responsible Electronics Recycling in Georgia",
               knowsAbout: [
                 "Responsible electronic waste recycling",
                 "Data destruction services",
