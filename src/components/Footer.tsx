@@ -25,10 +25,9 @@ export default function Footer() {
               >
                 Georgia
               </Link>{" "}
-              and Southeast businesses who trust Computer Recyclers USA for
-              secure data destruction, IT equipment pickup, and responsible
-              electronics recycling. Free business pickup available throughout
-              Georgia and Southeast States.
+              businesses who trust Computer Recyclers USA for secure data
+              destruction, IT equipment pickup, and responsible electronics
+              recycling. Free business pickup available throughout Georgia.
             </p>
           </div>
 
