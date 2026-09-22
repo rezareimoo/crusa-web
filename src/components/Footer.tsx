@@ -25,10 +25,9 @@ export default function Footer() {
               >
                 Georgia
               </Link>{" "}
-              and Southeast businesses who trust Computer Recyclers USA for
-              secure data destruction, IT equipment pickup, and responsible
-              electronics recycling. Free business pickup available throughout
-              Georgia and Southeast States.
+              businesses who trust Computer Recyclers USA for secure data
+              destruction, IT equipment pickup, and responsible electronics
+              recycling. Free business pickup available throughout Georgia.
             </p>
           </div>
 
@@ -76,7 +75,7 @@ export default function Footer() {
               </a>
               <h3 className="text-xl font-bold mb-2">Email Us</h3>
               <p className="text-gray-300 mb-2">info@crusallc.com</p>
-              <p className="text-sm text-gray-400">Quote within one business day</p>
+              <p className="text-sm text-gray-400">Response within 24 hours</p>
             </div>
 
             <div className="text-center">
@@ -131,7 +130,7 @@ export default function Footer() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8 sm:py-10 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <nav aria-label="Services">
               <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
                 Services
@@ -164,6 +163,29 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </nav>
+            <nav aria-label="Service Areas">
+              <h3 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
+                Service Areas
+              </h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>
+                  <Link
+                    href="/computer-recycling-atlanta"
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    Atlanta
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-area/georgia"
+                    className="hover:text-white transition-colors duration-300"
+                  >
+                    Georgia
+                  </Link>
+                </li>
               </ul>
             </nav>
             <div className="flex items-start gap-4 sm:col-span-2 lg:col-span-1 lg:justify-end">

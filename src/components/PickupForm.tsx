@@ -815,7 +815,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
                     clipRule="evenodd"
                   />
                 </svg>
-                Quote within one business day
+                Response within 24 hours
               </div>
             </div>
           </div>
