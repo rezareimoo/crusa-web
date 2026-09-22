@@ -544,7 +544,6 @@ export default function AboutPageContent() {
 
             <div className="relative">
               <div className="rounded-2xl h-96 overflow-hidden shadow-lg">
-                {/* CONFIRM: replace with Google Business Profile embed code */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.1894273942803!2d-84.08023408833895!3d34.039011673049934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5a5f02b165f83%3A0xf418580180dd4f63!2sComputer%20Recyclers%20USA%2C%20LLC!5e0!3m2!1sen!2sus!4v1790096593210!5m2!1sen!2sus"
                   width="100%"
@@ -552,7 +551,7 @@ export default function AboutPageContent() {
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   title="Computer Recyclers USA, 3644 Burnette Road, Suwanee, GA 30024"
                 ></iframe>
               </div>
