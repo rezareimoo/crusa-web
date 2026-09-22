@@ -258,10 +258,20 @@ export default function Home() {
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 Why Choose Computer Recyclers USA?
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
+              <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-6 px-2 sm:px-0">
                 Serving Georgia and Southeast businesses with reliable data
                 destruction, responsible electronics recycling, and IT Asset
                 Disposition (ITAD) services.
+              </p>
+              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
+                Looking for{" "}
+                <Link
+                  href="/computer-recycling-atlanta"
+                  className="text-primary-green hover:text-primary-green-dark font-semibold"
+                >
+                  computer recycling in Atlanta
+                </Link>
+                ? We pick up from businesses across the metro area.
               </p>
 
               <div className="space-y-6">

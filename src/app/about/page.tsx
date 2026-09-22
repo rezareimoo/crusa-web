@@ -1,19 +1,20 @@
 import AboutPageContent from "./AboutPageContent";
 import type { Metadata } from "next";
 
+const ABOUT_DESCRIPTION =
+  "R2v3 and ISO certified IT recycling and data destruction since 2004. Suwanee, GA facility serving Atlanta and all of Georgia with free business pickup.";
+
 export const metadata: Metadata = {
   title:
     "About Computer Recyclers USA | R2 Certified IT Recycling Georgia Since 2004",
-  description:
-    "Leading Georgia and Southeast's responsible electronics recycling industry for 20+ years. R2 v3, ISO certified facility in Suwanee, GA. Free IT equipment pickup, secure data destruction, and IT Asset Disposition throughout Georgia and Southeast States.",
+  description: ABOUT_DESCRIPTION,
   alternates: {
     canonical: "https://www.crusallc.com/about",
   },
   openGraph: {
     title:
-      "About Computer Recyclers USA | Georgia and Southeast's Premier IT Recycling Company",
-    description:
-      "Trusted by Georgia and Southeast businesses for 20+ years. R2 v3 & ISO certified facility offering free IT equipment pickup, secure data destruction, and responsible electronics recycling.",
+      "About Computer Recyclers USA | R2 Certified IT Recycling Georgia Since 2004",
+    description: ABOUT_DESCRIPTION,
     url: "https://www.crusallc.com/about",
     siteName: "Computer Recyclers USA",
     locale: "en_US",
@@ -30,9 +31,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "About Computer Recyclers USA | R2 Certified IT Recycling Georgia and Southeast",
-    description:
-      "20+ years serving Georgia and Southeast businesses with secure data destruction and responsible electronics recycling. Located in Suwanee, GA.",
+      "About Computer Recyclers USA | R2 Certified IT Recycling Georgia Since 2004",
+    description: ABOUT_DESCRIPTION,
     images: ["https://www.crusallc.com/logo.png"],
   },
   robots: {

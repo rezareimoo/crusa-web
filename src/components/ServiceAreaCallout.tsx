@@ -49,7 +49,16 @@ export default function ServiceAreaCallout({
                 ·
               </span>
             )}
-            <span className="text-primary-green">{city}</span>
+            {city === "Atlanta" ? (
+              <Link
+                href="/computer-recycling-atlanta"
+                className="text-primary-green hover:text-primary-green-dark underline decoration-primary-green/30 underline-offset-4 hover:decoration-primary-green transition-colors"
+              >
+                {city}
+              </Link>
+            ) : (
+              <span className="text-primary-green">{city}</span>
+            )}
           </span>
         ))}
       </p>

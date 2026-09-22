@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Atlanta Computer Recycling & ITAD | Computer Recyclers USA",
+  title: "Georgia ITAD & Computer Recycling | Computer Recyclers USA",
   description:
     "R2v3-certified computer recycling and ITAD in Atlanta. Hard drive shredding, logical data sanitization, free business pickup across Georgia.",
   authors: [{ name: "Computer Recyclers USA" }],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Atlanta Computer Recycling & ITAD | Computer Recyclers USA",
+    title: "Georgia ITAD & Computer Recycling | Computer Recyclers USA",
     description:
       "R2v3-certified computer recycling and ITAD in Atlanta. Hard drive shredding, logical data sanitization, free business pickup across Georgia.",
     url: "https://www.crusallc.com",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Atlanta Computer Recycling & ITAD | Computer Recyclers USA",
+    title: "Georgia ITAD & Computer Recycling | Computer Recyclers USA",
     description:
       "R2v3-certified computer recycling and ITAD in Atlanta. Hard drive shredding, logical data sanitization, free business pickup across Georgia.",
     images: ["https://www.crusallc.com/logo.png"],

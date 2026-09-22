@@ -357,7 +357,21 @@ export default function GeorgiaServiceArea() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {[
-              { name: "Atlanta metro", desc: "Metro Atlanta and surrounding counties" },
+              {
+                name: "Atlanta metro",
+                desc: (
+                  <>
+                    Metro Atlanta and surrounding counties. See{" "}
+                    <Link
+                      href="/computer-recycling-atlanta"
+                      className="text-primary-green hover:text-primary-green-dark font-semibold"
+                    >
+                      Atlanta computer recycling
+                    </Link>
+                    .
+                  </>
+                ),
+              },
               { name: "North Georgia", desc: "North Georgia regions" },
               { name: "Central Georgia", desc: "Central Georgia regions" },
               { name: "South Georgia", desc: "South Georgia regions" },
