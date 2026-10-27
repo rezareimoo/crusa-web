@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import PickupForm from "@/components/PickupForm";
 import { companyLinks, footerServiceLinks } from "@/lib/service-links";
@@ -188,13 +189,28 @@ export default function Footer() {
                 </li>
               </ul>
             </nav>
-            <div className="flex items-start gap-4 sm:col-span-2 lg:col-span-1 lg:justify-end">
+            <div className="flex items-center gap-4 sm:col-span-2 lg:col-span-1 lg:justify-end">
+              <a
+                href="https://web.gwinnettchamber.org/Waste-Management/Computer-Recyclers-USA,-LLC-31291"
+                title="Proud member of the Gwinnett Chamber Chairman's Club"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="opacity-90 hover:opacity-100 transition-opacity duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-green rounded-sm"
+              >
+                <Image
+                  src="/Proud-Member-Chairmans-Club-Logo.png"
+                  alt="Proud member of the Gwinnett Chamber Chairman's Club"
+                  width={80}
+                  height={80}
+                  className="h-16 w-16 sm:h-20 sm:w-20"
+                />
+              </a>
               <a
                 href="https://www.guidetogwinnett.com/united-states/suwanee/business-creative-services/computer-recyclers-usa?from=badge"
                 title="Find me on Guide to Gwinnett"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="opacity-90 hover:opacity-100 transition-opacity duration-300"
+                className="opacity-90 hover:opacity-100 transition-opacity duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-green rounded-sm"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -207,7 +223,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/computer-recyclers-usa-llc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300 mt-2"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
                 aria-label="Visit our LinkedIn page"
               >
                 <svg
