@@ -59,11 +59,10 @@ export default function AboutPageContent() {
                   </strong>
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
-                  What began as a local Suwanee, Georgia initiative to address
-                  the growing need for secure IT equipment disposal has evolved
-                  into a premier R2 v3 certified recycling facility. We serve
-                  businesses of all sizes across Georgia, more than 700 since
-                  2004.
+                  What began as a Georgia company focused on secure IT
+                  equipment disposal has evolved into a premier R2 v3 certified
+                  recycling facility. We serve businesses of all sizes across
+                  Georgia, more than 700 since 2004.
                 </p>
                 <p className="text-base sm:text-lg text-gray-600">
                   Our deep Georgia roots give us unique insight into local
@@ -439,8 +438,64 @@ export default function AboutPageContent() {
         </div>
       </section>
 
-      {/* Contact Information Section - SEO Optimized */}
+      {/* Community and Memberships */}
       <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Community and Memberships
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600">
+              Computer Recyclers USA is an active member of the local
+              business community. As a proud member of the Gwinnett Chamber of
+              Commerce Chairman&apos;s club and a Guide to Gwinnett Best of
+              Gwinnett nominee, we stay connected with the companies and
+              neighbors we serve in Suwanee and across metro Atlanta.
+            </p>
+          </div>
+
+          <div className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-10 sm:gap-16">
+            <a
+              href="https://web.gwinnettchamber.org/Waste-Management/Computer-Recyclers-USA,-LLC-31291"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Gwinnett Chamber of Commerce Chairman's club"
+              className="group flex flex-col items-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-green rounded-sm"
+            >
+              <Image
+                src="/Proud-Member-Chairmans-Club-Logo.png"
+                alt="Proud member of the Gwinnett Chamber Chairman's Club"
+                width={220}
+                height={220}
+                className="h-44 w-44 sm:h-52 sm:w-52 transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="max-w-[14rem] text-center text-sm font-semibold text-gray-800 group-hover:text-primary-green transition-colors duration-300">
+                Gwinnett Chamber of Commerce Chairman&apos;s club
+              </span>
+            </a>
+            <a
+              href="https://www.guidetogwinnett.com/united-states/suwanee/business-creative-services/computer-recyclers-usa?from=badge"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Find us on Guide to Gwinnett"
+              className="group flex flex-col items-center gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary-green rounded-sm"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.guidetogwinnett.com/images/BOG_Nominee_Medallion-0908.jpg"
+                alt="Guide to Gwinnett Best of Gwinnett Nominee"
+                className="h-44 sm:h-52 w-auto border-0 transition-transform duration-300 group-hover:scale-105"
+              />
+              <span className="text-sm font-semibold text-gray-800 group-hover:text-primary-green transition-colors duration-300">
+                Guide to Gwinnett
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section - SEO Optimized */}
+      <section className="py-16 sm:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
