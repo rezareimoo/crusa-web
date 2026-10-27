@@ -2,409 +2,386 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import PickupForm from "@/components/PickupForm";
+import { useState, type ReactNode } from "react";
 import Header from "@/components/Header";
-import ParticleBackground from "@/components/ParticleBackground";
+import PickupFormModal from "@/components/PickupFormModal";
 import ServiceAreaCallout from "@/components/ServiceAreaCallout";
 import { Analytics } from "@vercel/analytics/react";
 
+/* ---------- Small building blocks from the CRUSA design system ---------- */
+
+const container = "max-w-[1200px] mx-auto px-4 sm:px-8";
+const eyebrow = "font-mono text-xs font-medium uppercase tracking-[0.08em]";
+const btnBase =
+  "inline-flex items-center justify-center gap-2 min-h-11 px-6 rounded-[10px] text-[15px] font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
+const btnPrimary = `${btnBase} bg-action-primary text-on-action-primary hover:bg-action-primary-hover focus-visible:outline-brand-lime`;
+
+function Arrow() {
+  return (
+    <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
+      →
+    </span>
+  );
+}
+
+/** The logo's recycling arrow, abstracted to one round-capped arc. Deep bands only. */
+function Arc({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={`pointer-events-none absolute ${className}`}
+      width="420"
+      height="420"
+      viewBox="0 0 420 420"
+      aria-hidden="true"
+    >
+      <circle
+        cx="210"
+        cy="210"
+        r="170"
+        fill="none"
+        stroke="var(--line-inverse)"
+        strokeWidth="28"
+        strokeLinecap="round"
+        strokeDasharray="640 430"
+      />
+    </svg>
+  );
+}
+
+function SectionHeader({
+  index,
+  label,
+  title,
+  intro,
+  inverse = false,
+}: {
+  index: string;
+  label: string;
+  title: ReactNode;
+  intro?: ReactNode;
+  inverse?: boolean;
+}) {
+  return (
+    <header className="grid gap-3 max-w-[720px]">
+      <p className={`${eyebrow} ${inverse ? "text-ink-inverse-muted" : "text-ink-subtle"}`}>
+        <span className={inverse ? "text-brand-lime" : "text-brand-forest"}>[{index}]</span>{" "}
+        {label}
+      </p>
+      <h2
+        className={`text-[28px] leading-[34px] sm:text-4xl sm:leading-[42px] font-semibold tracking-[-0.02em] ${
+          inverse ? "text-ink-inverse" : "text-ink"
+        }`}
+      >
+        {title}
+      </h2>
+      {intro && (
+        <p
+          className={`text-lg leading-[30px] max-w-[60ch] ${
+            inverse ? "text-ink-inverse-muted" : "text-ink-muted"
+          }`}
+        >
+          {intro}
+        </p>
+      )}
+    </header>
+  );
+}
+
+function Icon({ d }: { d: string }) {
+  return (
+    <svg
+      className="w-5 h-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path d={d} />
+    </svg>
+  );
+}
+
+const services = [
+  {
+    href: "/services/data-destruction",
+    title: "Data Destruction & Sanitization",
+    body: "NIST 800-88 physical shredding or logical sanitization under R2v3 Appendix B—choose the path that fits your media and reuse goals.",
+    meta: "NIST 800-88 · R2V3 APP. B",
+    icon: "M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z M9 12l2 2 4-4",
+  },
+  {
+    href: "/services/free-it-equipment-pickup",
+    title: "Free IT Equipment Pickup",
+    body: "Complimentary pickup for businesses and corporate organizations throughout Georgia, regardless of condition. Convenient scheduling aligned with your operations.",
+    meta: "BUSINESSES · GEORGIA",
+    icon: "M3 7a2 2 0 0 1 2-2h9v11H3z M14 9h4l3 3.5V16h-7 M7.5 19.3a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z M17.5 19.3a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z",
+  },
+  {
+    href: "/services/responsible-electronics-recycling",
+    title: "Responsible Electronics Recycling",
+    body: "Environmentally responsible recycling of electronic equipment with documented downstream tracking and zero landfill for hazardous material.",
+    meta: "DOWNSTREAM TRACKED",
+    icon: "M4 4v5h5 M20 20v-5h-5 M5.5 9A7.5 7.5 0 0 1 19 8 M18.5 15A7.5 7.5 0 0 1 5 16",
+  },
+];
+
+const certifications = [
+  { name: "R2v3", scope: "Responsible recycling", href: "https://sustainableelectronics.org", external: true },
+  { name: "ISO 14001", scope: "Environmental", href: "/certificates" },
+  { name: "ISO 9001", scope: "Quality", href: "/certificates" },
+  { name: "ISO 45001", scope: "Health & safety", href: "/certificates" },
+];
+
+const reasons = [
+  {
+    title: "R2v3 Certified Facility",
+    body: "Our facility meets the highest industry standards for responsible recycling and data security.",
+  },
+  {
+    title: "Comprehensive Compliance",
+    body: "Documented chain of custody and NIST 800-88 sanitization supporting HIPAA, SOX, GLBA, and FACTA requirements. Serialized certificate of destruction on every device.",
+  },
+  {
+    title: "Enterprise Support",
+    body: "Dedicated account manager, 24–48 hour scheduled pickup, and audit reporting within 5–10 business days.",
+  },
+];
+
+const standards = [
+  "R2v3 Certified",
+  "Multiple ISO Standards",
+  "R2v3 Appendix B — Data Sanitization",
+  "NIST 800-88",
+];
+
+/* ---------- Page ---------- */
+
 export default function Home() {
   const [showPickupForm, setShowPickupForm] = useState(false);
+  const openForm = () => setShowPickupForm(true);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-surface-page text-ink">
       <Header currentPage="home" />
 
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="relative bg-gradient-to-br from-gray-50 to-gray-100 py-20 sm:py-24 md:py-28 lg:py-32 overflow-hidden"
-      >
-        <ParticleBackground />
-        <div className="relative z-[1] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center animate-fade-in">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6">
-              Georgia Computer Recycling,{" "}
-              <span className="text-primary-green">
-                Data Destruction & IT Asset Disposition
-              </span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-6 sm:mb-8 px-2">
-              <strong>
-                R2v3-certified ITAD for Georgia businesses — certified data
-                destruction, logical data sanitization, and value recovery on
-                retired IT assets. Free pickup statewide.
-              </strong>
-            </p>
-            <div className="flex justify-center px-4">
-              <button
-                onClick={() => setShowPickupForm(true)}
-                className="bg-primary-green hover:bg-primary-green-dark text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
-              >
-                SCHEDULE FREE PICKUP
-              </button>
+      {/* Hero */}
+      <section id="home" className="relative overflow-hidden bg-surface-deep text-ink-inverse">
+        <div className={`${container} relative py-16 sm:py-24 lg:py-28`}>
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full bg-line-inverse px-3 py-1 text-[13px] font-medium text-ink-inverse">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-lime" aria-hidden="true" />
+                R2v3 certified · Since 2004
+              </p>
+              <h1 className="mt-6 text-[40px] leading-[44px] sm:text-5xl sm:leading-[54px] lg:text-[60px] lg:leading-[64px] font-semibold tracking-[-0.03em]">
+                Georgia Computer Recycling,{" "}
+                <span className="text-brand-lime">Data Destruction & IT Asset Disposition</span>
+              </h1>
+              <p className="mt-6 text-lg leading-[30px] text-ink-inverse-muted max-w-[56ch]">
+                R2v3-certified ITAD for Georgia businesses — certified data destruction, logical
+                data sanitization, and value recovery on retired IT assets. Free pickup statewide.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <button type="button" onClick={openForm} className={`group ${btnPrimary}`}>
+                  Schedule free pickup <Arrow />
+                </button>
+                <a
+                  href="tel:770-840-0805"
+                  className={`${btnBase} border border-ink-inverse-muted/60 text-ink-inverse hover:bg-line-inverse focus-visible:outline-brand-lime`}
+                >
+                  Call <span className="font-mono">770-840-0805</span>
+                </a>
+              </div>
+              <p className={`${eyebrow} mt-6 font-normal text-ink-inverse-muted`}>
+                Mon–Fri 9:30AM–4:30PM ET · Response within 24 hours
+              </p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Trust Bar — light bg so R2 image (white matting) reads cleanly */}
-      <section className="bg-white text-gray-900 border-y border-gray-200/80 py-4 sm:py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
-              <Link
-                href="https://sustainableelectronics.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block shrink-0"
-              >
+            <div className="relative">
+              <Arc className="-right-28 -bottom-32 hidden lg:block" />
+              <div className="relative overflow-hidden rounded-3xl border border-line-inverse">
                 <Image
-                  src="/r2v3.jpg"
-                  alt="R2 certification"
-                  width={100}
-                  height={50}
-                  className="animate-pulse-gentle h-[50px] w-auto sm:h-[60px] object-contain"
+                  src="/bg1.png"
+                  alt="Computer Recyclers USA facility exterior with company sign"
+                  width={2000}
+                  height={887}
+                  priority
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                  className="w-full h-auto aspect-[4/3] object-cover object-[70%_center]"
                 />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="py-10 sm:py-12">
+        <div className={container}>
+          <ul className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl border border-line bg-surface-raised overflow-hidden">
+            {certifications.map((c, i) => (
+              <li
+                key={c.name}
+                className={`border-line ${i % 2 === 1 ? "border-l" : ""} ${i >= 2 ? "border-t lg:border-t-0" : ""} ${
+                  i === 2 ? "lg:border-l" : ""
+                }`}
+              >
+                <Link
+                  href={c.href}
+                  {...(c.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="group flex h-full flex-col gap-1 p-5 sm:p-6 hover:bg-surface-tint transition-colors focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus-ring"
+                >
+                  <span className="flex items-center gap-2 text-lg font-semibold text-ink">
+                    <span className="w-2 h-2 rounded-full bg-brand-lime" aria-hidden="true" />
+                    {c.name}
+                  </span>
+                  <span className={`${eyebrow} font-normal tracking-[0.06em] text-ink-subtle`}>{c.scope}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="pt-10 pb-16 sm:pt-12 sm:pb-24">
+        <div className={container}>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10 sm:mb-12">
+            <SectionHeader
+              index="01"
+              label="Services"
+              title="Our ITAD Services"
+              intro="Certified data destruction and sanitization, free equipment pickup, and responsible recycling services"
+            />
+            <Link
+              href="/services"
+              className="group inline-flex items-center gap-2 text-[15px] font-medium text-link hover:text-link-hover hover:underline underline-offset-4 shrink-0"
+            >
+              All services <Arrow />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {services.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="group flex flex-col gap-3 rounded-2xl border border-line bg-surface-raised p-6 transition-colors hover:border-brand-forest focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+              >
+                <span className="w-10 h-10 rounded-[10px] grid place-items-center bg-surface-tint text-brand-forest">
+                  <Icon d={s.icon} />
+                </span>
+                <h3 className="mt-2 text-xl leading-7 font-semibold tracking-[-0.01em] text-ink">{s.title}</h3>
+                <p className="text-sm leading-[22px] text-ink-muted">{s.body}</p>
+                <div className="mt-auto pt-4 border-t border-line flex items-center justify-between gap-3">
+                  <span className="font-mono text-xs tracking-[0.04em] text-ink-subtle">{s.meta}</span>
+                  <span className="text-sm font-medium text-link group-hover:text-link-hover inline-flex items-center gap-1.5">
+                    Learn more <Arrow />
+                  </span>
+                </div>
               </Link>
-              <div>
-                <div className="text-base sm:text-lg font-bold text-primary-green">
-                  R2v3 Certified Data Destruction
-                </div>
-                <div className="text-xs sm:text-sm text-gray-600">
-                  Secure • Compliant • Reliable
-                </div>
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
-                <div>
-                  <div className="font-bold text-lg sm:text-xl text-primary-green">
-                    5M+
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* By the numbers */}
+      <section className="pb-16 sm:pb-24">
+        <div className={container}>
+          <div className="relative overflow-hidden rounded-3xl bg-surface-deep px-6 py-10 sm:px-10 sm:py-12">
+            <Arc className="-left-40 -bottom-56 opacity-70" />
+            <div className="relative">
+              <p className={`${eyebrow} text-ink-inverse-muted`}>
+                <span className="text-brand-lime">[02]</span> By the numbers
+              </p>
+              <dl className="mt-6 grid grid-cols-1 sm:grid-cols-3">
+                {[
+                  { value: "5M", unit: "+", label: "Devices processed" },
+                  { value: "700", unit: "+", label: "Businesses served" },
+                  { value: "2004", unit: "", label: "Serving Georgia businesses since" },
+                ].map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={`border-t border-line-inverse py-6 ${
+                      i > 0 ? "sm:border-l sm:pl-6" : ""
+                    } sm:pr-6 flex flex-col-reverse`}
+                  >
+                    <dt className="mt-2 text-sm leading-[22px] text-ink-inverse-muted">{s.label}</dt>
+                    <dd className="text-5xl sm:text-[56px] leading-[60px] font-medium tracking-[-0.02em] tabular-nums text-ink-inverse">
+                      {s.value}
+                      {s.unit && <span className="text-brand-lime">{s.unit}</span>}
+                    </dd>
                   </div>
-                  <div className="text-gray-600 text-xs">Devices Processed</div>
-                </div>
-                <div>
-                  <div className="font-bold text-lg sm:text-xl text-primary-green">
-                    700+
-                  </div>
-                  <div className="text-gray-600 text-xs">Businesses Served</div>
-                </div>
-              </div>
-              <div className="text-gray-500 text-xs mt-1">Since 2004</div>
+                ))}
+              </dl>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-16 sm:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Our ITAD Services
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              Certified data destruction and sanitization, free equipment pickup,
-              and responsible recycling services
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Link
-              href="/services/data-destruction"
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
-            >
-              <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
-                Data Destruction & Sanitization
-              </h3>
-              <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
-                NIST 800-88 physical shredding or logical sanitization under
-                R2v3 Appendix B—choose the path that fits your media and reuse
-                goals.
-              </p>
-              <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
-            </Link>
-
-            <Link
-              href="/services/free-it-equipment-pickup"
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
-            >
-              <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
-                Free IT Equipment Pickup
-              </h3>
-              <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
-                Complimentary pickup for businesses and corporate organizations
-                throughout Georgia, regardless of condition. Convenient scheduling
-                aligned with your operations.
-              </p>
-              <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
-            </Link>
-
-            <Link
-              href="/services/responsible-electronics-recycling"
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group cursor-pointer"
-            >
-              <div className="w-16 h-16 bg-primary-green rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary-green-dark transition-colors">
-                <svg
-                  className="w-8 h-8 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-green transition-colors">
-                Responsible Electronics Recycling
-              </h3>
-              <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors">
-                Environmentally responsible recycling of electronic equipment
-                with documented downstream tracking and zero landfill for
-                hazardous material.
-              </p>
-              <div className="flex items-center text-primary-green font-semibold group-hover:text-primary-green-dark transition-colors">
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section id="about" className="py-16 sm:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div className="animate-slide-up">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
-                Why Choose Computer Recyclers USA?
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-6 px-2 sm:px-0">
-                Serving Georgia and Southeast businesses with reliable data
-                destruction, responsible electronics recycling, and IT Asset
-                Disposition (ITAD) services.
-              </p>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 px-2 sm:px-0">
+      {/* Why choose us */}
+      <section id="about" className="bg-surface-sunken py-16 sm:py-24">
+        <div className={container}>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            <div>
+              <SectionHeader
+                index="03"
+                label="Why CRUSA"
+                title="Why Choose Computer Recyclers USA?"
+                intro="Serving Georgia and Southeast businesses with reliable data destruction, responsible electronics recycling, and IT Asset Disposition (ITAD) services."
+              />
+              <p className="mt-4 text-base leading-[26px] text-ink-muted max-w-[60ch]">
                 Looking for{" "}
                 <Link
                   href="/computer-recycling-atlanta"
-                  className="text-primary-green hover:text-primary-green-dark font-semibold"
+                  className="font-medium text-link hover:text-link-hover underline decoration-link/30 underline-offset-4 hover:decoration-link"
                 >
                   computer recycling in Atlanta
                 </Link>
                 ? We pick up from businesses across the metro area.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg
-                      className="w-4 h-4 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+              <div className="mt-10">
+                <h3 className={`${eyebrow} text-ink-subtle`}>Our Certifications</h3>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {standards.map((s) => (
+                    <li
+                      key={s}
+                      className="inline-flex items-center gap-2 rounded-full border border-line bg-surface-raised px-3 py-1 font-mono text-xs tracking-[0.04em] uppercase text-ink"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      R2v3 Certified Facility
-                    </h3>
-                    <p className="text-gray-600">
-                      Our facility meets the highest industry standards for
-                      responsible recycling and data security.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg
-                      className="w-4 h-4 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Comprehensive Compliance
-                    </h3>
-                    <p className="text-gray-600">
-                      Documented chain of custody and NIST 800-88 sanitization
-                      supporting HIPAA, SOX, GLBA, and FACTA requirements.
-                      Serialized certificate of destruction on every device.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg
-                      className="w-4 h-4 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                      Enterprise Support
-                    </h3>
-                    <p className="text-gray-600">
-                      Dedicated account manager, 24–48 hour scheduled pickup,
-                      and audit reporting within 5–10 business days.
-                    </p>
-                  </div>
-                </div>
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-forest" aria-hidden="true" />
+                      {s}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            <div className="relative mt-8 lg:mt-0">
-              <div className="bg-gradient-to-br from-primary-green to-primary-green-dark rounded-2xl p-6 sm:p-8 text-white">
-                <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center lg:text-left">
-                  Our Certifications
-                </h3>
-                <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-2xl font-bold text-primary-green">
-                        R2
-                      </span>
-                    </div>
-                    <div className="font-semibold">R2v3 Certified</div>
+            <ol className="rounded-2xl border border-line bg-surface-raised divide-y divide-line self-start">
+              {reasons.map((r, i) => (
+                <li key={r.title} className="p-6 sm:p-8 grid grid-cols-[auto_1fr] gap-x-5">
+                  <span className="font-mono text-xs font-medium tracking-[0.08em] text-brand-forest pt-1.5">
+                    [0{i + 1}]
+                  </span>
+                  <div>
+                    <h3 className="text-lg leading-[26px] font-semibold text-ink">{r.title}</h3>
+                    <p className="mt-2 text-sm leading-[22px] text-ink-muted">{r.body}</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">
-                        ISO
-                      </span>
-                    </div>
-                    <div className="font-semibold">Multiple ISO Standards</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">
-                        B
-                      </span>
-                    </div>
-                    <div className="font-semibold leading-tight">
-                      R2v3 Appendix B — Data Sanitization
-                    </div>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <span className="text-xl font-bold text-primary-green">
-                        NIST
-                      </span>
-                    </div>
-                    <div className="font-semibold">NIST 800-88</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
 
-      {/* Service Areas */}
-      <section className="pt-8 sm:pt-10 pb-16 sm:pb-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6 sm:mb-8">
+      {/* Service areas */}
+      <section className="py-16 sm:py-24">
+        <div className={container}>
+          <div className="rounded-2xl border border-line bg-surface-raised px-4 py-10 sm:px-10 sm:py-14">
+            <h2 className="text-center text-[28px] leading-[34px] sm:text-4xl sm:leading-[42px] font-semibold tracking-[-0.02em] text-ink mb-8">
               Serving All of Georgia
             </h2>
             <ServiceAreaCallout />
@@ -412,38 +389,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pickup Form Modal */}
-      {showPickupForm && (
-        <div
-          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
-          style={{ animation: "fadeIn 200ms ease-out forwards" }}
-        >
-          <div
-            className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto transition-all duration-200 ease-out transform"
-            style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
-          >
-            <button
-              onClick={() => setShowPickupForm(false)}
-              className="absolute top-4 right-4 z-10 bg-gray-900 bg-opacity-80 text-white rounded-full p-2 shadow-lg hover:bg-opacity-100 transition-all duration-200"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <PickupForm />
-          </div>
-        </div>
-      )}
+      <PickupFormModal open={showPickupForm} onClose={() => setShowPickupForm(false)} />
       <Analytics />
     </div>
   );

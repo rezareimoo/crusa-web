@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import PickupForm from "@/components/PickupForm";
+import PickupFormModal from "@/components/PickupFormModal";
 import { companyLinks, footerServiceLinks } from "@/lib/service-links";
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <>
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-20 bg-gray-900 text-white">
+      <section id="contact" className="py-16 sm:py-20 bg-surface-deep text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -22,7 +22,7 @@ export default function Footer() {
               Join over 700+{" "}
               <Link
                 href="/service-area/georgia"
-                className="text-primary-green hover:text-primary-green-dark font-bold"
+                className="text-brand-lime hover:text-[#b6e07a] font-bold"
               >
                 Georgia
               </Link>{" "}
@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
               <a href="tel:770-840-0805" className="inline-block">
-                <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
+                <div className="w-16 h-16 bg-line-inverse rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green transition-colors duration-300 cursor-pointer">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -58,7 +58,7 @@ export default function Footer() {
 
             <div className="text-center">
               <a href="mailto:info@crusallc.com" className="inline-block">
-                <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
+                <div className="w-16 h-16 bg-line-inverse rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green transition-colors duration-300 cursor-pointer">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -86,7 +86,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <div className="w-16 h-16 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green-dark transition-colors duration-300 cursor-pointer">
+                <div className="w-16 h-16 bg-line-inverse rounded-full flex items-center justify-center mx-auto mb-4 hover:bg-primary-green transition-colors duration-300 cursor-pointer">
                   <svg
                     className="w-8 h-8 text-white"
                     fill="none"
@@ -120,7 +120,7 @@ export default function Footer() {
           <div className="text-center mt-8 sm:mt-12 px-4">
             <button
               onClick={() => setShowPickupForm(true)}
-              className="bg-primary-green hover:bg-primary-green-dark text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl w-full sm:w-auto max-w-sm sm:max-w-none"
+              className="bg-action-primary hover:bg-action-primary-hover text-on-action-primary px-8 sm:px-12 py-3 sm:py-4 rounded-[10px] font-semibold text-base sm:text-lg transition-colors w-full sm:w-auto max-w-sm sm:max-w-none"
             >
               SCHEDULE FREE PICKUP
             </button>
@@ -129,7 +129,7 @@ export default function Footer() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 sm:py-10 border-t border-gray-800">
+      <footer className="bg-surface-deep text-white py-8 sm:py-10 border-t border-line-inverse">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             <nav aria-label="Services">
@@ -241,37 +241,10 @@ export default function Footer() {
       </footer>
 
       {/* Pickup Form Modal */}
-      {showPickupForm && (
-        <div
-          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
-          style={{ animation: "fadeIn 200ms ease-out forwards" }}
-        >
-          <div
-            className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto transition-all duration-200 ease-out transform"
-            style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
-          >
-            <button
-              onClick={() => setShowPickupForm(false)}
-              className="absolute top-4 right-4 z-10 bg-gray-900 bg-opacity-80 text-white rounded-full p-2 shadow-lg hover:bg-opacity-100 transition-all duration-200"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <PickupForm onClose={() => setShowPickupForm(false)} />
-          </div>
-        </div>
-      )}
+      <PickupFormModal
+        open={showPickupForm}
+        onClose={() => setShowPickupForm(false)}
+      />
     </>
   );
 }

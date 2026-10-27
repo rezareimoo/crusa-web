@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import PickupForm from "@/components/PickupForm";
+import PickupFormModal from "@/components/PickupFormModal";
 import { serviceNavLinks } from "@/lib/service-links";
 
 interface HeaderProps {
@@ -747,37 +747,10 @@ export default function Header({ currentPage }: HeaderProps) {
       )}
 
       {/* Pickup Form Modal */}
-      {showPickupForm && (
-        <div
-          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-200 ease-out"
-          style={{ animation: "fadeIn 200ms ease-out forwards" }}
-        >
-          <div
-            className="relative max-w-2xl w-full max-h-[85vh] overflow-y-auto transition-all duration-200 ease-out transform"
-            style={{ animation: "scaleIn 200ms ease-out 50ms both" }}
-          >
-            <button
-              onClick={() => setShowPickupForm(false)}
-              className="absolute top-4 right-4 z-10 bg-gray-900 bg-opacity-80 text-white rounded-full p-2 shadow-lg hover:bg-opacity-100 transition-all duration-200"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <PickupForm />
-          </div>
-        </div>
-      )}
+      <PickupFormModal
+        open={showPickupForm}
+        onClose={() => setShowPickupForm(false)}
+      />
     </>
   );
 }
