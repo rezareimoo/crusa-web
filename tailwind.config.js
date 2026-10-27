@@ -2,9 +2,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary-green": "#22c55e", // Tailwind green-500
-        "primary-green-dark": "#16a34a", // Tailwind green-600
-        "primary-green-darker": "#15803d", // darker for link/header readability
+        "primary-green": "#106838", // logo forest
+        "primary-green-dark": "#0b4f2a", // forest hover
+        "primary-green-darker": "#0b4f2a", // forest hover
         "hero-overlay": "rgba(0,0,0,0.2)",
       },
     },

@@ -40,8 +40,8 @@ const serviceOptions = [
     value: "data-destruction",
     title: "Secure Data Destruction",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     ),
     popular: true,
@@ -50,7 +50,7 @@ const serviceOptions = [
     value: "equipment-pickup",
     title: "Free IT Equipment Pickup",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
       </svg>
     ),
@@ -60,7 +60,7 @@ const serviceOptions = [
     value: "responsible-recycling",
     title: "Responsible Electronics Recycling",
     icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
       </svg>
     ),
@@ -279,83 +279,91 @@ export default function PickupForm({ onClose }: PickupFormProps) {
     }
   };
 
-  const renderHeader = () => (
-    <div className="border-b border-gray-100">
-      {onClose && (
-        <div className="px-4 sm:px-6 lg:px-8 py-3">
-          <div className="flex justify-end">
-            <button
-              onClick={onClose}
-              className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
-              aria-label="Close form"
-            >
-              <svg
-                className="w-3 h-3 text-gray-400 hover:text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
+  const inputClass = (hasError?: boolean) =>
+    `w-full min-h-11 px-3 py-2.5 rounded-md border bg-surface-raised text-base text-ink placeholder:text-ink-subtle transition-colors focus:outline-2 focus:outline-offset-1 focus:outline-focus-ring focus:border-focus-ring ${
+      hasError ? "border-danger" : "border-line-strong"
+    }`;
+  const labelClass = "block text-sm font-medium text-ink mb-2";
+  const errorClass = "mt-1.5 text-sm text-danger";
+  const eyebrowClass = "font-mono text-xs font-medium uppercase tracking-[0.08em]";
 
-      <div className="px-4 sm:px-6 lg:px-8 pb-6">
-        <div className="text-center mb-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-            {currentStep === 1 && "Contact Information"}
-            {currentStep === 2 && "Choose Your Services"}
-            {currentStep === 3 && "Additional Details"}
+  const CheckIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12.5l4.5 4.5L19 7.5" />
+    </svg>
+  );
+
+  const ShieldIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+    <svg className={className} fill="none" stroke="currentColor" strokeWidth={1.75} viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+    </svg>
+  );
+
+  const CloseButton = () =>
+    onClose ? (
+      <button
+        type="button"
+        onClick={onClose}
+        className="w-10 h-10 -mr-2 rounded-md grid place-items-center text-ink-muted hover:bg-surface-sunken hover:text-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring"
+        aria-label="Close form"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.75} viewBox="0 0 24 24" aria-hidden="true">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    ) : null;
+
+  const renderHeader = () => (
+    <div className="px-5 sm:px-8 pt-6 pb-6 border-b border-line">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className={`${eyebrowClass} text-brand-forest`}>
+            Step {currentStep} of {totalSteps}
+            {currentStep >= 2 && <span className="text-ink-subtle"> · Optional</span>}
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            {currentStep === 1 && "Contact information"}
+            {currentStep === 2 && "Choose your services"}
+            {currentStep === 3 && "Additional details"}
           </h2>
           {currentStep >= 2 && (
-            <p className="text-sm font-medium text-primary-green mb-2">
-              Help us prepare for your pickup (Optional)
-            </p>
+            <p className="mt-1 text-sm text-ink-muted">Help us prepare for your pickup.</p>
           )}
-          <span className="text-sm text-gray-500">
-            Step {currentStep} of {totalSteps}
-          </span>
         </div>
+        <CloseButton />
+      </div>
 
-        <div className="flex space-x-2 max-w-md mx-auto">
-          {Array.from({ length: totalSteps }).map((_, index) => (
-            <div
-              key={index}
-              className={`h-2 flex-1 rounded-full transition-colors duration-200 ${
-                index + 1 <= currentStep ? "bg-primary-green" : "bg-gray-200"
-              }`}
-            />
-          ))}
-        </div>
+      <div className="mt-5 flex gap-1.5" aria-hidden="true">
+        {Array.from({ length: totalSteps }).map((_, index) => (
+          <div
+            key={index}
+            className={`h-1.5 flex-1 rounded-full transition-colors duration-150 ${
+              index + 1 <= currentStep ? "bg-brand-lime" : "bg-surface-sunken"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
 
   const renderStep1Contact = () => (
-    <div className="px-4 sm:px-6 lg:px-8 pt-6">
-      <div className="text-center mb-8">
-        <p className="text-gray-600 text-base sm:text-lg">
+    <div className="px-5 sm:px-8 pt-6">
+      <div className="mb-6">
+        <p className="text-base text-ink-muted">
           Tell us how to reach you. We&apos;ll respond within 24 hours.
         </p>
-        <div className="mt-2 flex items-center justify-center text-sm text-gray-500">
-          <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fillRule="evenodd"
-              d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
+        <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-subtle">
+          <ShieldIcon className="w-4 h-4 text-brand-forest" />
           Your information is protected and secure
-        </div>
+        </p>
       </div>
 
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="space-y-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-              First Name *
+            <label htmlFor="firstName" className={labelClass}>
+              First name *
             </label>
             <input
               type="text"
@@ -363,17 +371,16 @@ export default function PickupForm({ onClose }: PickupFormProps) {
               name="firstName"
               value={formData.firstName}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors ${
-                errors.firstName ? "border-red-500" : "border-gray-300"
-              }`}
+              aria-invalid={!!errors.firstName}
+              className={inputClass(!!errors.firstName)}
               placeholder="Enter your first name"
             />
-            {errors.firstName && <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>}
+            {errors.firstName && <p className={errorClass}>{errors.firstName}</p>}
           </div>
 
           <div>
-            <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-              Last Name *
+            <label htmlFor="lastName" className={labelClass}>
+              Last name *
             </label>
             <input
               type="text"
@@ -381,18 +388,17 @@ export default function PickupForm({ onClose }: PickupFormProps) {
               name="lastName"
               value={formData.lastName}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors ${
-                errors.lastName ? "border-red-500" : "border-gray-300"
-              }`}
+              aria-invalid={!!errors.lastName}
+              className={inputClass(!!errors.lastName)}
               placeholder="Enter your last name"
             />
-            {errors.lastName && <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>}
+            {errors.lastName && <p className={errorClass}>{errors.lastName}</p>}
           </div>
         </div>
 
         <div>
-          <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-2">
-            Company Name *
+          <label htmlFor="companyName" className={labelClass}>
+            Company name *
           </label>
           <input
             type="text"
@@ -400,18 +406,17 @@ export default function PickupForm({ onClose }: PickupFormProps) {
             name="companyName"
             value={formData.companyName}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors ${
-              errors.companyName ? "border-red-500" : "border-gray-300"
-            }`}
+            aria-invalid={!!errors.companyName}
+            className={inputClass(!!errors.companyName)}
             placeholder="Enter your company name"
           />
-          {errors.companyName && <p className="mt-1 text-sm text-red-600">{errors.companyName}</p>}
+          {errors.companyName && <p className={errorClass}>{errors.companyName}</p>}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number *
+            <label htmlFor="phoneNumber" className={labelClass}>
+              Phone number *
             </label>
             <input
               type="tel"
@@ -419,17 +424,16 @@ export default function PickupForm({ onClose }: PickupFormProps) {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors ${
-                errors.phoneNumber ? "border-red-500" : "border-gray-300"
-              }`}
+              aria-invalid={!!errors.phoneNumber}
+              className={inputClass(!!errors.phoneNumber)}
               placeholder="(555) 123-4567"
             />
-            {errors.phoneNumber && <p className="mt-1 text-sm text-red-600">{errors.phoneNumber}</p>}
+            {errors.phoneNumber && <p className={errorClass}>{errors.phoneNumber}</p>}
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address *
+            <label htmlFor="email" className={labelClass}>
+              Email address *
             </label>
             <input
               type="email"
@@ -437,12 +441,11 @@ export default function PickupForm({ onClose }: PickupFormProps) {
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors ${
-                errors.email ? "border-red-500" : "border-gray-300"
-              }`}
+              aria-invalid={!!errors.email}
+              className={inputClass(!!errors.email)}
               placeholder="your.email@company.com"
             />
-            {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+            {errors.email && <p className={errorClass}>{errors.email}</p>}
           </div>
         </div>
       </div>
@@ -450,74 +453,59 @@ export default function PickupForm({ onClose }: PickupFormProps) {
   );
 
   const renderStep2Services = () => (
-    <div className="px-4 sm:px-6 lg:px-8 pt-6">
-      <div className="text-center mb-8">
-        <p className="text-gray-600 text-base sm:text-lg">
+    <div className="px-5 sm:px-8 pt-6">
+      <div className="mb-6">
+        <p className="text-base text-ink-muted">
           Interested in a specific service? Select any that apply — or skip if you&apos;re not sure yet.
         </p>
-        <div className="mt-2 flex items-center justify-center text-sm text-gray-500">
-          <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
+        <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-subtle">
+          <CheckIcon className="w-4 h-4 text-brand-forest" />
           Optional — you already have a response coming
-        </div>
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 sm:gap-4 mb-6">
-        {serviceOptions.map((option) => (
-          <div
-            key={option.value}
-            className={`relative p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 hover:shadow-md ${
-              formData.services.includes(option.value)
-                ? "border-primary-green bg-primary-green bg-opacity-5 shadow-md"
-                : "border-gray-200 hover:border-gray-300"
-            }`}
-            onClick={() => handleServiceToggle(option.value)}
-          >
-            {option.popular && (
-              <div className="absolute -top-2 left-4">
-                <span className="bg-primary-green text-white text-xs font-semibold px-2 py-1 rounded-full">
-                  POPULAR
-                </span>
-              </div>
-            )}
-            <div className="flex items-center space-x-3">
-              <div
-                className={`p-2 rounded-lg ${
-                  formData.services.includes(option.value) ? "bg-primary-green text-white" : "bg-gray-100 text-gray-600"
+      <div className="grid grid-cols-1 gap-3 mb-6">
+        {serviceOptions.map((option) => {
+          const selected = formData.services.includes(option.value);
+          return (
+            <button
+              type="button"
+              key={option.value}
+              aria-pressed={selected}
+              onClick={() => handleServiceToggle(option.value)}
+              className={`w-full text-left flex items-center gap-3 p-4 rounded-xl border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring ${
+                selected
+                  ? "border-brand-forest bg-surface-tint"
+                  : "border-line bg-surface-raised hover:border-line-strong"
+              }`}
+            >
+              <span
+                className={`w-10 h-10 shrink-0 rounded-md grid place-items-center ${
+                  selected ? "bg-brand-forest text-ink-inverse" : "bg-surface-tint text-brand-forest"
                 }`}
               >
                 {option.icon}
-              </div>
-              <div className="flex-1">
-                <h3 className="text-base font-semibold text-gray-900">{option.title}</h3>
-              </div>
-              <div
-                className={`w-5 h-5 border-2 rounded-full flex items-center justify-center ${
-                  formData.services.includes(option.value) ? "border-primary-green bg-primary-green" : "border-gray-300"
+              </span>
+              <span className="flex-1 min-w-0">
+                <span className="block text-base font-semibold text-ink">{option.title}</span>
+                {option.popular && (
+                  <span className={`${eyebrowClass} text-ink-subtle`}>Popular</span>
+                )}
+              </span>
+              <span
+                className={`w-5 h-5 shrink-0 rounded-full border grid place-items-center ${
+                  selected ? "border-brand-forest bg-brand-forest text-ink-inverse" : "border-line-strong"
                 }`}
               >
-                {formData.services.includes(option.value) && (
-                  <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
+                {selected && <CheckIcon className="w-3 h-3" />}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {formData.services.includes("equipment-pickup") && (
-        <p className="text-sm text-gray-600 bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+        <p className="text-sm text-ink-muted bg-surface-sunken border border-line rounded-xl p-4 mb-6">
           Free pickup is for businesses and corporate organizations. Individuals
           may drop off equipment at our Suwanee facility—call 770-840-0805 for
           hours and directions.
@@ -527,43 +515,45 @@ export default function PickupForm({ onClose }: PickupFormProps) {
   );
 
   const renderStep3Details = () => (
-    <div className="px-4 sm:px-6 lg:px-8 pt-6">
-      <div className="text-center mb-8">
-        <p className="text-gray-600 text-base sm:text-lg">
+    <div className="px-5 sm:px-8 pt-6">
+      <div className="mb-6">
+        <p className="text-base text-ink-muted">
           Share what you know about your equipment — all fields are optional.
         </p>
-        <div className="mt-2 flex items-center justify-center text-sm text-gray-500">
-          <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
+        <p className="mt-2 flex items-center gap-1.5 text-sm text-ink-subtle">
+          <CheckIcon className="w-4 h-4 text-brand-forest" />
           Helps us prepare — skip anything you don&apos;t know yet
-        </div>
+        </p>
       </div>
 
       <div className="space-y-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">Equipment types (optional)</label>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {equipmentOptions.map((equipment) => (
-              <label key={equipment} className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
-                <input
-                  type="checkbox"
-                  checked={formData.equipmentTypes.includes(equipment)}
-                  onChange={() => handleEquipmentToggle(equipment)}
-                  className="w-4 h-4 text-primary-green border-gray-300 rounded focus:ring-primary-green"
-                />
-                <span className="ml-2 text-sm text-gray-700">{equipment}</span>
-              </label>
-            ))}
+        <fieldset>
+          <legend className={labelClass}>Equipment types (optional)</legend>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {equipmentOptions.map((equipment) => {
+              const checked = formData.equipmentTypes.includes(equipment);
+              return (
+                <label
+                  key={equipment}
+                  className={`flex items-center gap-2 min-h-11 px-3 py-2 rounded-md border cursor-pointer transition-colors ${
+                    checked ? "border-brand-forest bg-surface-tint" : "border-line hover:border-line-strong"
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={checked}
+                    onChange={() => handleEquipmentToggle(equipment)}
+                    className="w-4 h-4 rounded-sm border-line-strong accent-[#106838]"
+                  />
+                  <span className="text-sm text-ink">{equipment}</span>
+                </label>
+              );
+            })}
           </div>
-        </div>
+        </fieldset>
 
         <div>
-          <label htmlFor="estimatedQuantity" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="estimatedQuantity" className={labelClass}>
             Estimated quantity (optional)
           </label>
           <select
@@ -571,7 +561,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
             name="estimatedQuantity"
             value={formData.estimatedQuantity}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors"
+            className={inputClass()}
           >
             <option value="">Select a range (optional)</option>
             {quantityOptions.map((option) => (
@@ -583,7 +573,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="message" className={labelClass}>
             Additional information (optional)
           </label>
           <textarea
@@ -592,7 +582,7 @@ export default function PickupForm({ onClose }: PickupFormProps) {
             rows={4}
             value={formData.message}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-green focus:border-transparent transition-colors resize-vertical"
+            className={`${inputClass()} resize-y`}
             placeholder="Special requirements, access instructions, security needs, or anything else we should know..."
           />
         </div>
@@ -600,101 +590,85 @@ export default function PickupForm({ onClose }: PickupFormProps) {
     </div>
   );
 
+  const Spinner = () => (
+    <svg className="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+    </svg>
+  );
+
+  const primaryButton =
+    "inline-flex items-center justify-center min-h-11 px-6 rounded-[10px] bg-action-primary text-on-action-primary font-medium transition-colors hover:bg-action-primary-hover disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring";
+  const outlineButton =
+    "inline-flex items-center justify-center min-h-11 px-6 rounded-[10px] border border-line-strong text-ink font-medium transition-colors hover:bg-surface-tint focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus-ring";
+
   if (submitStatus === "success") {
     return (
-      <div className="min-h-[60vh]">
-        <div className="border-b border-gray-100">
-          {onClose && (
-            <div className="px-4 sm:px-6 lg:px-8 py-3">
-              <div className="flex justify-end">
-                <button
-                  onClick={onClose}
-                  className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
-                  aria-label="Close form"
-                >
-                  <svg
-                    className="w-3 h-3 text-gray-400 hover:text-gray-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          )}
-
-          <div className="px-4 sm:px-6 lg:px-8 pb-6">
-            <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900">You&apos;re all set!</h2>
-            </div>
+      <div className="bg-surface-raised">
+        <div className="px-5 sm:px-8 pt-6 pb-6 border-b border-line flex items-start justify-between gap-4">
+          <div>
+            <p className={`${eyebrowClass} text-brand-forest`}>Request received</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">You&apos;re all set</h2>
           </div>
+          <CloseButton />
         </div>
 
-        <div className="flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 text-center pt-8">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-            <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clipRule="evenodd"
-              />
-            </svg>
+        <div className="px-5 sm:px-8 py-8">
+          <div className="w-12 h-12 rounded-full bg-surface-tint text-brand-forest grid place-items-center mb-5">
+            <CheckIcon className="w-6 h-6" />
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Thank you for reaching out</h3>
-          <p className="text-gray-600 text-lg mb-6 max-w-lg">
+          <h3 className="text-xl font-semibold text-ink mb-2">Thank you for reaching out</h3>
+          <p className="text-base text-ink-muted mb-6 max-w-lg">
             We have your contact information and will reach out within 24 hours.
             {submittedSupplementalDetails
               ? " We also received your optional details and will use them to prepare."
               : ""}
           </p>
-          <div className="bg-gray-50 rounded-lg p-6 mb-6">
-            <h4 className="font-semibold text-gray-900 mb-2">What happens next?</h4>
-            <ul className="text-sm text-gray-600 space-y-1 text-left max-w-md mx-auto">
-              <li>✓ We&apos;ll call or email you within 24 hours</li>
-              <li>✓ Schedule a convenient pickup or consultation</li>
-              <li>✓ Provide a detailed quote when you&apos;re ready</li>
-              <li>✓ Answer any questions you may have</li>
-            </ul>
+          <div className="rounded-xl border border-line bg-surface-sunken p-5 mb-6">
+            <p className={`${eyebrowClass} text-ink-subtle mb-3`}>What happens next</p>
+            <ol className="space-y-2 text-sm text-ink">
+              {[
+                "We'll call or email you within 24 hours",
+                "Schedule a convenient pickup or consultation",
+                "Provide a detailed quote when you're ready",
+                "Answer any questions you may have",
+              ].map((item, i) => (
+                <li key={item} className="flex gap-3">
+                  <span className="font-mono text-xs text-brand-forest pt-0.5">[0{i + 1}]</span>
+                  {item}
+                </li>
+              ))}
+            </ol>
           </div>
-          <div className="text-sm text-gray-500">
+          <p className="text-sm text-ink-muted">
             Need immediate assistance? Call us at{" "}
-            <a href="tel:770-840-0805" className="text-primary-green font-semibold">
+            <a href="tel:770-840-0805" className="font-mono font-medium text-link hover:text-link-hover hover:underline underline-offset-4">
               770-840-0805
             </a>
-          </div>
+          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-white min-h-[60vh]">
+    <div className="bg-surface-raised">
       {renderHeader()}
 
       {showContactCapturedBanner && currentStep >= 2 && (
-        <div className="mx-4 sm:mx-6 lg:mx-8 mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-          <p className="text-green-900 text-sm text-center font-medium">
+        <div className="mx-5 sm:mx-8 mt-5 p-4 rounded-xl bg-surface-tint flex gap-2.5 items-start" role="status">
+          <CheckIcon className="w-4 h-4 mt-0.5 shrink-0 text-brand-forest" />
+          <p className="text-sm text-ink">
             We received your contact info — you&apos;ll hear from us soon. The steps below are optional and help us prepare.
           </p>
         </div>
       )}
 
       {submitStatus === "error" && (
-        <div className="mx-4 sm:mx-6 lg:mx-8 mt-4 mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <div className="flex items-center">
-            <svg className="w-5 h-5 text-red-500 mr-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <p className="text-red-700 font-medium">
-              Something went wrong. Please try again or call us directly at 770-840-0805.
-            </p>
-          </div>
+        <div className="mx-5 sm:mx-8 mt-5 p-4 rounded-xl border border-danger/30 bg-danger/5" role="alert">
+          <p className="text-sm font-medium text-danger">
+            Error: something went wrong. Please try again or call us directly at 770-840-0805.
+          </p>
         </div>
       )}
 
@@ -703,51 +677,28 @@ export default function PickupForm({ onClose }: PickupFormProps) {
         {currentStep === 2 && renderStep2Services()}
         {currentStep === 3 && renderStep3Details()}
 
-        <div className="border-t border-gray-200 px-4 sm:px-6 lg:px-8 py-6 bg-gray-50">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
-            <button
-              type="button"
-              onClick={handlePrevious}
-              disabled={currentStep !== 3}
-              className={`px-6 py-3 border border-gray-300 rounded-lg font-medium transition-colors order-2 sm:order-1 ${
-                currentStep !== 3 ? "text-gray-400 cursor-not-allowed" : "text-gray-700 hover:bg-gray-50"
-              }`}
-            >
-              Previous
-            </button>
+        <div className="mt-8 border-t border-line bg-surface-sunken px-5 sm:px-8 py-5">
+          <div className="flex flex-col-reverse sm:flex-row sm:justify-between sm:items-center gap-3">
+            {currentStep === 3 ? (
+              <button type="button" onClick={handlePrevious} className={outlineButton}>
+                ← Previous
+              </button>
+            ) : (
+              <span className="hidden sm:block" />
+            )}
 
-            <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center order-1 sm:order-2 w-full sm:w-auto justify-end">
+            <div className="flex flex-col-reverse sm:flex-row gap-3 sm:items-center">
               {currentStep >= 2 && (
-                <button
-                  type="button"
-                  onClick={skipOptionalSteps}
-                  className="px-6 py-3 border border-gray-300 rounded-lg font-medium text-gray-700 hover:bg-white transition-colors order-2 sm:order-1"
-                >
+                <button type="button" onClick={skipOptionalSteps} className={outlineButton}>
                   {currentStep === 2 ? "No thanks, I'm done" : "Skip optional details"}
                 </button>
               )}
 
               {currentStep < 3 ? (
-                <button
-                  type="submit"
-                  disabled={isSubmittingInitial}
-                  className="bg-primary-green hover:bg-primary-green-dark text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 order-1 sm:order-2 flex items-center justify-center min-w-[160px]"
-                >
+                <button type="submit" disabled={isSubmittingInitial} className={`${primaryButton} min-w-[160px]`}>
                   {currentStep === 1 && isSubmittingInitial ? (
                     <>
-                      <svg
-                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
+                      <Spinner />
                       Sending...
                     </>
                   ) : (
@@ -755,26 +706,10 @@ export default function PickupForm({ onClose }: PickupFormProps) {
                   )}
                 </button>
               ) : (
-                <button
-                  type="submit"
-                  disabled={isSubmittingSupplemental}
-                  className="bg-primary-green hover:bg-primary-green-dark text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center min-w-[180px]"
-                >
+                <button type="submit" disabled={isSubmittingSupplemental} className={`${primaryButton} min-w-[180px]`}>
                   {isSubmittingSupplemental ? (
                     <>
-                      <svg
-                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
+                      <Spinner />
                       Submitting...
                     </>
                   ) : (
@@ -785,40 +720,20 @@ export default function PickupForm({ onClose }: PickupFormProps) {
             </div>
           </div>
 
-          <div className="mt-4 pt-4 border-t border-gray-200">
-            <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
-              <div className="flex items-center">
-                <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Secure & Confidential
-              </div>
-              <div className="flex items-center">
-                <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Free Consultation
-              </div>
-              <div className="flex items-center">
-                <svg className="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Response within 24 hours
-              </div>
-            </div>
-          </div>
+          <ul className="mt-5 pt-4 border-t border-line flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-[0.06em] text-ink-subtle">
+            <li className="flex items-center gap-1.5">
+              <ShieldIcon className="w-3.5 h-3.5 text-brand-forest" />
+              Secure &amp; confidential
+            </li>
+            <li className="flex items-center gap-1.5">
+              <CheckIcon className="w-3.5 h-3.5 text-brand-forest" />
+              Free consultation
+            </li>
+            <li className="flex items-center gap-1.5">
+              <CheckIcon className="w-3.5 h-3.5 text-brand-forest" />
+              Response within 24 hours
+            </li>
+          </ul>
         </div>
       </form>
     </div>

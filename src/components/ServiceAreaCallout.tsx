@@ -45,9 +45,12 @@ export default function ServiceAreaCallout({
         {CITIES.map((city, i) => (
           <span key={city}>
             {i > 0 && (
-              <span className="mx-2 sm:mx-3 text-primary-green/40 font-light select-none">
-                ·
-              </span>
+              <>
+                {" "}
+                <span className="mx-1 sm:mx-2 text-primary-green/40 font-light select-none">
+                  ·
+                </span>{" "}
+              </>
             )}
             {city === "Atlanta" ? (
               <Link

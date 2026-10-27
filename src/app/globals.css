@@ -3,10 +3,39 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-green: #22c55e;
-  --primary-green-dark: #16a34a;
-  --primary-green-darker: #15803d; /* darker for link readability */
+  /* Legacy names, now mapped to the logo's forest green so every page
+     picks up the brand color (and white-on-green stays readable). */
+  --primary-green: #106838;
+  --primary-green-dark: #0b4f2a;
+  --primary-green-darker: #0b4f2a;
   --hero-overlay: rgba(0, 0, 0, 0.4);
+
+  /* CRUSA design system tokens (colors sampled from the logo) */
+  --brand-lime: #8bc441;
+  --brand-forest: #106838;
+  --brand-leaf: #569a42;
+  --surface-page: #f6f7f2;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eef1e8;
+  --surface-tint: #e9f4dc;
+  --surface-deep: #0b2e1c;
+  --ink: #14231a;
+  --ink-muted: #4b5b51;
+  --ink-subtle: #5f6f64;
+  --ink-inverse: #ffffff;
+  --ink-inverse-muted: #a8c3b0;
+  --link: #106838;
+  --link-hover: #0b4f2a;
+  --action-primary: #8bc441;
+  --action-primary-hover: #7cb236;
+  --on-action-primary: #0b2e1c;
+  --line: #dce3d6;
+  --line-strong: #7d8b82;
+  --line-inverse: #1f4a33;
+  --focus-ring: #106838;
+  --danger: #b42318;
+  --warning: #a15c07;
+  --shadow-pop: 0 16px 40px -16px rgba(11, 46, 28, 0.3);
 }
 
 @theme inline {
@@ -16,6 +45,31 @@
   --color-primary-green-dark: var(--primary-green-dark);
   --color-primary-green-darker: var(--primary-green-darker);
   --color-hero-overlay: var(--hero-overlay);
+  --color-brand-lime: var(--brand-lime);
+  --color-brand-forest: var(--brand-forest);
+  --color-brand-leaf: var(--brand-leaf);
+  --color-surface-page: var(--surface-page);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-tint: var(--surface-tint);
+  --color-surface-deep: var(--surface-deep);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-ink-inverse: var(--ink-inverse);
+  --color-ink-inverse-muted: var(--ink-inverse-muted);
+  --color-link: var(--link);
+  --color-link-hover: var(--link-hover);
+  --color-action-primary: var(--action-primary);
+  --color-action-primary-hover: var(--action-primary-hover);
+  --color-on-action-primary: var(--on-action-primary);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-line-inverse: var(--line-inverse);
+  --color-focus-ring: var(--focus-ring);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --shadow-pop: var(--shadow-pop);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --animate-fade-in: fade-in 0.6s ease-out;
